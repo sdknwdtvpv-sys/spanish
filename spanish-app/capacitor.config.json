@@ -1,0 +1,14 @@
+{
+  "appId": "com.lingua.spanish",
+  "appName": "Lingua",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "always"
+  }
+}
