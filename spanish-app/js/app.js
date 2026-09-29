@@ -1519,7 +1519,10 @@ function renderGrammarQuiz(unit) {
 }
 
 function generateGrammarQuestions(unit) {
-  // 使用真实语法题库，每个主题抽 5 题，随机打乱
+  // 从真实语法题库中随机抽题（题库共 150+ 题，每轮只取一部分，
+  // 这样每次练习都不一样，也不会一次丢给用户上百道题）
+  const GRAMMAR_PER_SESSION = 12;
+  const VOCAB_PER_SESSION = 3;
   const allQs = [];
   
   if (typeof GRAMMAR_QUIZZES !== 'undefined') {
@@ -1537,7 +1540,7 @@ function generateGrammarQuestions(unit) {
   }
   
   // 再加一些单元词汇理解题
-  const wordQuestions = (unit.vocab || []).slice(0, 3).map(w => {
+  const wordQuestions = (unit.vocab || []).slice(0, VOCAB_PER_SESSION).map(w => {
     const otherWords = ALL_VOCAB.filter(v => v.es !== w.es).sort(() => Math.random() - 0.5).slice(0, 3);
     const options = [w.es, ...otherWords.map(v => v.es)].sort(() => Math.random() - 0.5);
     const correct = options.indexOf(w.es);
@@ -1547,7 +1550,8 @@ function generateGrammarQuestions(unit) {
     };
   });
   
-  return [...allQs, ...wordQuestions].sort(() => Math.random() - 0.5);
+  return [...allQs.sort(() => Math.random() - 0.5).slice(0, GRAMMAR_PER_SESSION), ...wordQuestions]
+    .sort(() => Math.random() - 0.5);
 }
 
 function showQuizComplete(questions, lastCorrect) {
