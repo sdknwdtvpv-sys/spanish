@@ -24,6 +24,28 @@ allprojects {
     }
 }
 
+// 统一为所有 Android 子模块（含 :capacitor-android）指定已安装的 build-tools。
+// 原因：AGP 8.7.2 默认要求 build-tools 34.0.0，而本机 SDK 只装了 36.0.0，
+// 且 SDK 目录不可写、无法自动下载。36 向下兼容，显式指定后构建不再依赖联网补齐。
+//
+// 同时统一 Java 版本：Capacitor 模板默认用 Java 21，本机 JDK 为 17。
+// Java 17 完全支持本项目所需 API，显式指定可避免「无效的源发行版：21」。
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android.buildToolsVersion = '36.0.0'
+            project.android.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_17
+                targetCompatibility JavaVersion.VERSION_17
+            }
+        }
+        project.tasks.withType(JavaCompile).configureEach {
+            sourceCompatibility = '17'
+            targetCompatibility = '17'
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

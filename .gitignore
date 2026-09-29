@@ -1,0 +1,7 @@
+# 构建与工具缓存（本机构建环境使用，不应入库）
+.gradle-home/
+.npm-cache/
+node_modules/
+www/
+*.log
+.DS_Store
