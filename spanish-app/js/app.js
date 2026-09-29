@@ -908,6 +908,7 @@ function renderGrammarQuiz(unit) {
   function renderQuestion(qs, idx) {
     const q = qs[idx];
     document.getElementById('quiz-question').innerHTML = `
+      ${q.topic ? `<div style="display:inline-block;font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(107,143,187,0.1);color:#6B8FBB;margin-bottom:10px;">📘 ${q.topic}</div>` : ''}
       <div class="quiz-prompt">选择正确的选项填空：</div>
       <div class="quiz-sentence">${q.sentence}</div>
     `;
@@ -916,6 +917,18 @@ function renderGrammarQuiz(unit) {
     optionsEl.innerHTML = q.options.map((o, i) => `
       <button class="quiz-option" data-idx="${i}">${String.fromCharCode(65 + i)}. ${o}</button>
     `).join('');
+    
+    // 解析区
+    const quizWrap = document.querySelector('.quiz-container');
+    let explainEl = document.getElementById('quiz-explain');
+    if (!explainEl) {
+      explainEl = document.createElement('div');
+      explainEl.id = 'quiz-explain';
+      quizWrap.appendChild(explainEl);
+    }
+    explainEl.style.display = 'none';
+    explainEl.style.cssText = 'margin-top:16px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);font-size:0.9rem;color:var(--text-secondary);';
+    explainEl.innerHTML = q.explain || '';
     
     let answered = false;
     
@@ -928,6 +941,7 @@ function renderGrammarQuiz(unit) {
         const isCorrect = optIdx === q.correct;
         
         opt.classList.add(isCorrect ? 'correct' : 'wrong');
+        explainEl.style.display = q.explain ? 'block' : 'none';
         
         // 更新统计
         const progress = AppState.progress;
@@ -963,32 +977,35 @@ function renderGrammarQuiz(unit) {
 }
 
 function generateGrammarQuestions(unit) {
-  const templates = [
-    { sentence: 'Yo ___ estudiante.', options: ['soy', 'eres', 'es', 'somos'], correct: 0 },
-    { sentence: 'Él ___ de Madrid.', options: ['es', 'son', 'soy', 'eres'], correct: 0 },
-    { sentence: 'Nosotros ___ amigos.', options: ['somos', 'sois', 'son', 'es'], correct: 0 },
-    { sentence: '¿Cómo ___ tú hoy?', options: ['estás', 'estoy', 'está', 'estamos'], correct: 0 },
-    { sentence: 'Son ___ diez.', options: ['las', 'los', 'el', 'la'], correct: 0 },
-    { sentence: 'Tengo ___ libros.', options: ['tres', 'la', 'el', 'una'], correct: 0 },
-    { sentence: 'Mi madre ___ maestra.', options: ['es', 'está', 'son', 'eres'], correct: 0 },
-    { sentence: 'Esta ___ mi casa.', options: ['es', 'está', 'son', 'estoy'], correct: 0 },
-    { sentence: 'Quiero ___ café.', options: ['un', 'una', 'los', 'las'], correct: 0 },
-    { sentence: 'Voy ___ tienda.', options: ['a la', 'el', 'un', 'en'], correct: 0 }
-  ];
+  // 使用真实语法题库，每个主题抽 5 题，随机打乱
+  const allQs = [];
   
-  // 基于单元词汇生成一些更贴近的题
-  const wordQuestions = unit.vocab.slice(0, 3).map(w => {
+  if (typeof GRAMMAR_QUIZZES !== 'undefined') {
+    GRAMMAR_QUIZZES.forEach(section => {
+      section.questions.forEach(q => {
+        allQs.push({
+          sentence: q.sentence,
+          options: q.options,
+          correct: q.correct,
+          explain: q.explain,
+          topic: section.topic
+        });
+      });
+    });
+  }
+  
+  // 再加一些单元词汇理解题
+  const wordQuestions = (unit.vocab || []).slice(0, 3).map(w => {
     const otherWords = ALL_VOCAB.filter(v => v.es !== w.es).sort(() => Math.random() - 0.5).slice(0, 3);
     const options = [w.es, ...otherWords.map(v => v.es)].sort(() => Math.random() - 0.5);
     const correct = options.indexOf(w.es);
     return {
       sentence: `La palabra "${w.zh}" se dice ___ en español.`,
-      options,
-      correct
+      options, correct, explain: `La palabra correcta es "${w.es}".`, topic: 'Vocabulario'
     };
   });
   
-  return [...templates, ...wordQuestions].sort(() => Math.random() - 0.5);
+  return [...allQs, ...wordQuestions].sort(() => Math.random() - 0.5);
 }
 
 function showQuizComplete(questions, lastCorrect) {
@@ -1020,13 +1037,19 @@ function showQuizComplete(questions, lastCorrect) {
 function renderSpeaking(unit) {
   const container = showAppShell();
   
-  const sentences = [
-    { es: 'Hola, ¿cómo estás?', zh: '你好，你好吗？' },
-    { es: 'Me llamo María, mucho gusto.', zh: '我叫玛丽亚，很高兴认识你。' },
-    { es: '¿Dónde está la estación?', zh: '车站在哪里？' },
-    { es: 'Quiero un café, por favor.', zh: '请给我一杯咖啡。' },
-    { es: 'Hoy hace muy buen tiempo.', zh: '今天天气很好。' }
-  ];
+  // 根据当前等级筛选合适的句子，最多 5 句
+  const currentLevel = AppState.currentLevel || 'A1';
+  const levelOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const currentIdxLevel = levelOrder.indexOf(currentLevel);
+  const allowedLevels = levelOrder.slice(0, Math.min(currentIdxLevel + 1, 4));
+  
+  let pool = (typeof SPEAKING_SENTENCES !== 'undefined') 
+    ? SPEAKING_SENTENCES.filter(s => allowedLevels.includes(s.level)) 
+    : [];
+  if (pool.length === 0) {
+    pool = (typeof SPEAKING_SENTENCES !== 'undefined') ? SPEAKING_SENTENCES.slice(0, 5) : [];
+  }
+  const sentences = pool.sort(() => Math.random() - 0.5).slice(0, 5);
   
   let currentIdx = 0;
   let isRecording = false;
@@ -1044,12 +1067,17 @@ function renderSpeaking(unit) {
       </div>
       
       <div class="speaking-container">
+        <div style="display:flex;justify-content:center;margin-bottom:16px;">
+          <span class="recommend-type speaking" style="font-size:0.8rem;">${sentences[currentIdx].level || 'A1'} · Nivel</span>
+        </div>
         <button class="mic-circle ${isRecording ? 'recording' : ''}" id="mic-btn">
           <span class="mic-icon">🎤</span>
         </button>
         
         <div class="speaking-sentence" id="sp-sentence">${sentences[currentIdx].es}</div>
         <div class="speaking-translation">${sentences[currentIdx].zh}</div>
+        ${sentences[currentIdx].slow ? `<div style="color:var(--text-muted);font-size:0.85rem;font-style:italic;margin-bottom:8px;" id="sp-slow">慢速：${sentences[currentIdx].slow}</div>` : ''}
+        ${sentences[currentIdx].vocab ? `<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;" id="sp-vocab">${sentences[currentIdx].vocab.map(v=>`<span style="background:rgba(230,57,70,0.1);color:var(--red);padding:4px 10px;border-radius:20px;font-size:0.8rem;">${v}</span>`).join('')}</div>` : ''}
         
         <div style="display:flex;gap:12px;justify-content:center;margin-bottom:32px;">
           <button class="speaking-play-btn" id="play-btn">🔊 听发音</button>
@@ -1121,6 +1149,30 @@ function renderSpeaking(unit) {
     
     document.getElementById('sp-sentence').textContent = sentences[currentIdx].es;
     document.querySelector('.speaking-translation').textContent = sentences[currentIdx].zh;
+    // 更新等级标签
+    const lvlChip = document.querySelector('.speaking-container .recommend-type');
+    if (lvlChip) lvlChip.textContent = `${sentences[currentIdx].level || 'A1'} · Nivel`;
+    // 更新慢速提示
+    const slowEl = document.getElementById('sp-slow');
+    if (slowEl) slowEl.remove();
+    const vocabEl = document.getElementById('sp-vocab');
+    if (vocabEl) vocabEl.remove();
+    const insertAfter = document.querySelector('.speaking-translation');
+    if (sentences[currentIdx].slow) {
+      const d = document.createElement('div');
+      d.id = 'sp-slow';
+      d.style.cssText = 'color:var(--text-muted);font-size:0.85rem;font-style:italic;margin-bottom:8px;';
+      d.textContent = `慢速：${sentences[currentIdx].slow}`;
+      insertAfter.after(d);
+    }
+    if (sentences[currentIdx].vocab) {
+      const d = document.createElement('div');
+      d.id = 'sp-vocab';
+      d.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;';
+      d.innerHTML = sentences[currentIdx].vocab.map(v=>`<span style="background:rgba(230,57,70,0.1);color:var(--red);padding:4px 10px;border-radius:20px;font-size:0.8rem;">${v}</span>`).join('');
+      document.getElementById('sp-slow') || insertAfter.after(d);
+      if (document.getElementById('sp-slow')) document.getElementById('sp-slow').after(d);
+    }
     scoreBox.style.display = 'none';
     nextBtn.style.display = 'none';
     
@@ -1137,16 +1189,18 @@ function renderSpeaking(unit) {
 function renderListening(unit) {
   const container = showAppShell();
   
-  const audios = [
-    { es: 'Buenos días, bienvenido al restaurante.', zh: '早上好，欢迎光临餐厅。', duration: '0:03' },
-    { es: 'Quisiera un menú para dos, por favor.', zh: '请给我两份菜单。', duration: '0:04' },
-    { es: '¿Qué le parece la sopa del día?', zh: '您觉得今天的特色汤怎么样？', duration: '0:05' },
-    { es: 'Está deliciosa, gracias. La cuenta, por favor.', zh: '很好吃，谢谢。请结账。', duration: '0:06' }
-  ];
+  // 从真实语料库选听力材料
+  const passages = (typeof LISTENING_PASSAGES !== 'undefined')
+    ? LISTENING_PASSAGES
+    : [{es:'Buenos días.', zh:'早上好。', level:'A1', title:'示例', speaker:'', duration:'0:02', keyVocab:[], questions:[]}];
   
   let currentIdx = 0;
   let isPlaying = false;
   let showText = false;
+  let showZh = false;
+  let showQuestions = false;
+  
+  const p = passages[currentIdx];
   
   container.innerHTML = `
     <div class="learning-container">
@@ -1156,24 +1210,51 @@ function renderListening(unit) {
           <div class="learning-title">🎧 听力训练</div>
         </div>
         <div class="learning-steps">
-          ${audios.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
+          ${passages.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
         </div>
       </div>
       
       <div class="listening-container">
         <div class="audio-card">
+          <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;">
+            <span class="recommend-type listening" style="font-size:0.8rem;">${p.level}</span>
+            <span style="color:var(--text-secondary);font-size:0.9rem;">${p.title}</span>
+          </div>
+          ${p.speaker ? `<div style="color:var(--text-muted);font-size:0.8rem;margin-bottom:16px;">🗣 ${p.speaker}</div>` : ''}
+          
           <button class="audio-play-btn ${isPlaying ? 'playing' : ''}" id="audio-play">
             ${isPlaying ? '⏸' : '▶'}
           </button>
-          <div class="audio-info">对话 ${currentIdx + 1} · 时长 ${audios[currentIdx].duration}</div>
-          <div class="audio-transcript ${!showText ? 'hidden' : ''}" id="transcript">
-            ${audios[currentIdx].es}
+          <div class="audio-info">时长 ${p.duration} · 共 ${passages.length} 段</div>
+          
+          <div class="audio-transcript ${!showText ? 'hidden' : ''}" id="transcript" style="text-align:left;font-size:0.95rem;line-height:1.8;white-space:pre-line;">
+            ${p.es}
           </div>
-          <div id="audio-zh" style="color:var(--text-secondary);display:none;">${audios[currentIdx].zh}</div>
+          <div id="audio-zh" style="color:var(--text-secondary);display:${showZh ? 'block' : 'none'};margin-top:12px;font-size:0.9rem;line-height:1.8;white-space:pre-line;">${p.zh}</div>
+          
+          ${p.keyVocab && p.keyVocab.length ? `
+            <div style="margin-top:20px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);text-align:left;">
+              <div style="font-weight:600;font-size:0.85rem;margin-bottom:10px;color:var(--text);">📌 重点词汇</div>
+              ${p.keyVocab.map(v => `<div style="margin-bottom:6px;font-size:0.88rem;"><strong style="color:var(--text);">${v.es}</strong> <span style="color:var(--text-muted);">— ${v.zh}</span></div>`).join('')}
+            </div>
+          ` : ''}
+          
+          ${p.questions && p.questions.length ? `
+            <div id="quiz-block" style="margin-top:20px;display:${showQuestions ? 'block' : 'none'};text-align:left;">
+              <div style="font-weight:600;margin-bottom:12px;">📝 听力理解题</div>
+              ${p.questions.map((q, i) => `
+                <div style="margin-bottom:12px;">
+                  <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
+                  <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="this.textContent='✅ ' + ${JSON.stringify(q.a)}; this.disabled=true;">显示答案</button>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
           
           <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
             <button class="speaking-play-btn" id="toggle-text">👁 ${showText ? '隐藏' : '显示'}原文</button>
-            <button class="speaking-play-btn" id="toggle-zh">🌐 ${showText ? '隐藏' : '显示'}翻译</button>
+            <button class="speaking-play-btn" id="toggle-zh">🌐 ${showZh ? '隐藏' : '显示'}翻译</button>
+            ${p.questions && p.questions.length ? `<button class="speaking-play-btn" id="toggle-q">📝 ${showQuestions ? '隐藏' : '答题'}</button>` : ''}
             <button class="speaking-play-btn" id="next-audio" style="display:none;">➡️ 下一段</button>
           </div>
         </div>
@@ -1191,15 +1272,24 @@ function renderListening(unit) {
     isPlaying = !isPlaying;
     playBtn.classList.toggle('playing', isPlaying);
     playBtn.textContent = isPlaying ? '⏸' : '▶';
-    
     if (isPlaying) {
-      speakWord(audios[currentIdx].es);
-      setTimeout(() => {
-        isPlaying = false;
-        playBtn.classList.remove('playing');
-        playBtn.textContent = '▶';
-        nextBtn.style.display = 'inline-flex';
-      }, 3000);
+      // 按行朗读，模拟真实听力
+      const lines = p.es.split('\n').filter(l => l.trim());
+      let i = 0;
+      const speakNext = () => {
+        if (i >= lines.length || !isPlaying) {
+          isPlaying = false;
+          playBtn.classList.remove('playing');
+          playBtn.textContent = '▶';
+          nextBtn.style.display = 'inline-flex';
+          return;
+        }
+        const clean = lines[i].replace(/^[A-ZÁÉÍÓÚÑ]+:\s*/, '').trim();
+        speakWord(clean);
+        i++;
+        setTimeout(speakNext, 2500);
+      };
+      speakNext();
     }
   });
   
@@ -1210,39 +1300,92 @@ function renderListening(unit) {
   });
   
   toggleZh.addEventListener('click', () => {
-    const zh = document.getElementById('audio-zh');
-    const visible = zh.style.display === 'block';
-    zh.style.display = visible ? 'none' : 'block';
-    toggleZh.innerHTML = `🌐 ${visible ? '隐藏' : '显示'}翻译`;
+    showZh = !showZh;
+    document.getElementById('audio-zh').style.display = showZh ? 'block' : 'none';
+    toggleZh.innerHTML = `🌐 ${showZh ? '隐藏' : '显示'}翻译`;
+  });
+  
+  const toggleQ = document.getElementById('toggle-q');
+  if (toggleQ) toggleQ.addEventListener('click', () => {
+    showQuestions = !showQuestions;
+    document.getElementById('quiz-block').style.display = showQuestions ? 'block' : 'none';
+    toggleQ.innerHTML = `📝 ${showQuestions ? '隐藏' : '答题'}`;
   });
   
   nextBtn.addEventListener('click', () => {
     currentIdx++;
-    if (currentIdx >= audios.length) {
+    if (currentIdx >= passages.length) {
       document.querySelector('.listening-container').innerHTML = `
         <div style="text-align:center;padding:60px 20px;">
           <div style="font-size:4rem;margin-bottom:16px;">🎧</div>
           <div class="learning-title" style="font-size:1.5rem;">听力训练完成！</div>
-          <p style="color:var(--text-secondary);margin:16px 0;">继续坚持每天 15 分钟的听力练习</p>
+          <p style="color:var(--text-secondary);margin:16px 0;">你已经完成了 ${passages.length} 段真实对话听力练习</p>
           <button class="btn btn-primary" onclick="location.hash='courses'">返回课程</button>
         </div>
       `;
       return;
     }
-    
-    transcript.textContent = audios[currentIdx].es;
-    document.getElementById('audio-zh').textContent = audios[currentIdx].zh;
-    document.querySelector('.audio-info').textContent = `对话 ${currentIdx + 1} · 时长 ${audios[currentIdx].duration}`;
-    document.getElementById('audio-zh').style.display = 'none';
-    showText = false;
-    transcript.classList.add('hidden');
-    toggleText.innerHTML = '👁 显示原文';
-    toggleZh.innerHTML = '🌐 显示翻译';
-    nextBtn.style.display = 'none';
-    
-    document.querySelectorAll('.learning-step').forEach((s, i) => {
-      s.className = 'learning-step ' + (i < currentIdx ? 'done' : i === currentIdx ? 'active' : '');
-    });
+    // 重新渲染当前段落
+    renderListeningNext(passages, currentIdx);
+  });
+}
+
+function renderListeningNext(passages, idx) {
+  const p = passages[idx];
+  const container = document.querySelector('.listening-container');
+  container.innerHTML = `
+    <div class="audio-card">
+      <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;">
+        <span class="recommend-type listening" style="font-size:0.8rem;">${p.level}</span>
+        <span style="color:var(--text-secondary);font-size:0.9rem;">${p.title}</span>
+      </div>
+      ${p.speaker ? `<div style="color:var(--text-muted);font-size:0.8rem;margin-bottom:16px;">🗣 ${p.speaker}</div>` : ''}
+      <button class="audio-play-btn" id="audio-play">▶</button>
+      <div class="audio-info">时长 ${p.duration} · 第 ${idx + 1} 段</div>
+      <div class="audio-transcript hidden" id="transcript" style="text-align:left;font-size:0.95rem;line-height:1.8;white-space:pre-line;">${p.es}</div>
+      <div id="audio-zh" style="color:var(--text-secondary);display:none;margin-top:12px;font-size:0.9rem;line-height:1.8;white-space:pre-line;">${p.zh}</div>
+      ${p.keyVocab && p.keyVocab.length ? `
+        <div style="margin-top:20px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);text-align:left;">
+          <div style="font-weight:600;font-size:0.85rem;margin-bottom:10px;color:var(--text);">📌 重点词汇</div>
+          ${p.keyVocab.map(v => `<div style="margin-bottom:6px;font-size:0.88rem;"><strong style="color:var(--text);">${v.es}</strong> <span style="color:var(--text-muted);">— ${v.zh}</span></div>`).join('')}
+        </div>
+      ` : ''}
+      ${p.questions && p.questions.length ? `
+        <div id="quiz-block" style="margin-top:20px;display:none;text-align:left;">
+          <div style="font-weight:600;margin-bottom:12px;">📝 听力理解题</div>
+          ${p.questions.map((q, i) => `
+            <div style="margin-bottom:12px;">
+              <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
+              <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="this.textContent='✅ ' + ${JSON.stringify(q.a)}; this.disabled=true;">显示答案</button>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
+        <button class="speaking-play-btn" onclick="document.getElementById('transcript').classList.toggle('hidden'); this.innerHTML='👁 ' + (document.getElementById('transcript').classList.contains('hidden') ? '显示' : '隐藏') + '原文';">👁 显示原文</button>
+        <button class="speaking-play-btn" onclick="const z=document.getElementById('audio-zh'); z.style.display=z.style.display==='block'?'none':'block'; this.innerHTML='🌐 ' + (z.style.display==='block'?'隐藏':'显示') + '翻译';">🌐 显示翻译</button>
+        ${p.questions && p.questions.length ? `<button class="speaking-play-btn" onclick="const q=document.getElementById('quiz-block'); q.style.display=q.style.display==='block'?'none':'block';">📝 答题</button>` : ''}
+        <button class="speaking-play-btn" onclick="location.reload(); setTimeout(()=>renderListeningNext(${JSON.stringify(passages).replace(/"/g,'&quot;')}, ${idx+1}), 100);">➡️ 下一段</button>
+      </div>
+    </div>
+  `;
+  
+  // 重绑播放事件
+  const playBtn = document.getElementById('audio-play');
+  let playing = false;
+  playBtn.addEventListener('click', () => {
+    playing = !playing;
+    playBtn.textContent = playing ? '⏸' : '▶';
+    if (playing) {
+      const lines = p.es.split('\n').filter(l => l.trim());
+      let i = 0;
+      const s = () => {
+        if (i >= lines.length || !playing) { playing = false; playBtn.textContent = '▶'; return; }
+        speakWord(lines[i].replace(/^[A-ZÁÉÍÓÚÑ]+:\s*/, '').trim());
+        i++; setTimeout(s, 2500);
+      };
+      s();
+    }
   });
 }
 
