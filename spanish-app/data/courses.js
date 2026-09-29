@@ -3952,6 +3952,74 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Por si ___ , llévate el paraguas.', options:['llueve', 'llueva', 'llovería', 'lloviera'], correct:0, explain:'por si 后可用陈述式（不确定但可能）或虚拟式过去时（更假设）；此处表可能，用 llueve 亦可，但考试常考 llueva 的备选错误。注意：por si + 陈述式 为标准。'},
     {sentence:'A menos que ___ , no iremos.', options:['llueva', 'llueve', 'lloverá', 'llovía'], correct:0, explain:'a menos que 后接虚拟式。'},
     {sentence:'De modo que todos ___ , se aplazó la reunión.', options:['pudieran', 'pueden', 'podrán', 'podían'], correct:0, explain:'de modo que 表目的时用虚拟式；表结果用陈述式。此处表目的。'}
+  ]},
+  {topic:'语式选择综合 (Indicativo o subjuntivo)', questions:[
+    {sentence:'Cuando ___ a casa, te llamo.', options:['llegue', 'llego', 'llegaré', 'llegaba'], correct:0, explain:'cuando 指将来未发生 → 虚拟式。'},
+    {sentence:'Cuando ___ a casa, me llamó.', options:['llegó', 'llegara', 'llegue', 'llegaría'], correct:0, explain:'cuando 指过去已发生 → 陈述式。'},
+    {sentence:'Aunque ___ mucho, no lo logrará.', options:['trabaje', 'trabaja', 'trabajará', 'trabajaba'], correct:0, explain:'aunque + 虚拟式 表让步且对事实不置可否。'},
+    {sentence:'Aunque ___ mucho, no lo logró.', options:['trabajó', 'trabajara', 'trabaje', 'trabajaría'], correct:0, explain:'aunque 表已知事实 → 陈述式。'},
+    {sentence:'No creo que ___ capaz de hacerlo.', options:['sea', 'es', 'será', 'era'], correct:0, explain:'no creer que → 虚拟式。'},
+    {sentence:'Creo que ___ capaz de hacerlo.', options:['es', 'sea', 'será', 'fuera'], correct:0, explain:'creer que（肯定）→ 陈述式。'},
+    {sentence:'Es evidente que ___ razón.', options:['tiene', 'tenga', 'tuviera', 'tendría'], correct:0, explain:'es evidente que 表确信 → 陈述式。'},
+    {sentence:'Es posible que ___ razón.', options:['tenga', 'tiene', 'tendrá', 'tenía'], correct:0, explain:'es posible que → 虚拟式。'},
+    {sentence:'Busco a alguien que ___ ruso.', options:['hable', 'habla', 'hablará', 'hablaba'], correct:0, explain:'寻找不确定对象 → 虚拟式。'},
+    {sentence:'Conozco a alguien que ___ ruso.', options:['habla', 'hable', 'hablara', 'hablaría'], correct:0, explain:'确指存在的人 → 陈述式。'},
+    {sentence:'No hay nadie que ___ eso.', options:['haga', 'hace', 'hará', 'hacía'], correct:0, explain:'否定存在（no hay nadie）→ 虚拟式。'},
+    {sentence:'Hay alguien que ___ eso.', options:['hace', 'haga', 'hiciera', 'haría'], correct:0, explain:'肯定存在 → 陈述式。'},
+    {sentence:'El hecho de que ___ tarde no cambia nada.', options:['llegue', 'llega', 'llegará', 'llegaba'], correct:0, explain:'el hecho de que → 虚拟式（尽管所指为事实）。'},
+    {sentence:'Es verdad que ___ tarde.', options:['llegó', 'llegara', 'llegue', 'llegaría'], correct:0, explain:'es verdad que 表确信 → 陈述式。'},
+    {sentence:'El que ___ tarde será penalizado.', options:['llegue', 'llega', 'llegará', 'llegaba'], correct:0, explain:'el que + 虚拟式 表泛指的任何一个人。'},
+    {sentence:'Puesto que ___ tarde, empezamos sin él.', options:['llega', 'llegue', 'llegara', 'llegaría'], correct:0, explain:'puesto que 表已知原因 → 陈述式。'},
+    {sentence:'A menos que ___ tarde, empezaremos sin él.', options:['llegue', 'llega', 'llegará', 'llegaba'], correct:0, explain:'a menos que → 虚拟式。'},
+    {sentence:'Siempre que ___ posible, lo haremos.', options:['sea', 'es', 'será', 'era'], correct:0, explain:'siempre que 表条件 → 虚拟式。'},
+    {sentence:'Dado que ___ imposible, lo dejamos.', options:['es', 'sea', 'fuera', 'sería'], correct:0, explain:'dado que 表已知原因 → 陈述式。'},
+    {sentence:'Por más que ___, no cambiará de idea.', options:['insistas', 'insistes', 'insistirás', 'insistías'], correct:0, explain:'por más que 表让步 → 虚拟式。'},
+    {sentence:'Mientras ___ estudiando, no me interrumpas.', options:['esté', 'estoy', 'estaré', 'estaba'], correct:0, explain:'mientras 指将来持续 → 虚拟式。'},
+    {sentence:'Mientras ___ estudiando, me quedé dormido.', options:['estaba', 'esté', 'estuviera', 'estaría'], correct:0, explain:'mientras 指过去持续 → 陈述式（未完成过去时）。'},
+    {sentence:'Tan pronto como ___ , avísame.', options:['llegues', 'llegas', 'llegarás', 'llegabas'], correct:0, explain:'tan pronto como 指将来 → 虚拟式。'},
+    {sentence:'Como no ___ , nos iremos.', options:['vengas', 'vienes', 'vendrás', 'venías'], correct:0, explain:'como 表条件时可用虚拟式（= si no vienes）。'},
+    {sentence:'Ya que ___ aquí, aprovechemos.', options:['estamos', 'estemos', 'estuviéramos', 'estaríamos'], correct:0, explain:'ya que 表已知原因 → 陈述式。'},
+    {sentence:'Puede que ___ ya.', options:['haya salido', 'ha salido', 'había salido', 'habría salido'], correct:0, explain:'puede que → 虚拟式（含完成时）。'},
+    {sentence:'Quizá ___ mejor esperar.', options:['sea', 'es', 'será', 'era'], correct:0, explain:'quizá 后可用虚拟式（也可用陈述式，但虚拟式更常见于不确定性较强时）。'},
+    {sentence:'A lo mejor ___ mejor esperar.', options:['es', 'sea', 'fuera', 'sería'], correct:0, explain:'a lo mejor 后固定用陈述式。'},
+    {sentence:'Tal vez ___ ya.', options:['haya llegado', 'ha llegado', 'había llegado', 'habría llegado'], correct:0, explain:'tal vez 后常用虚拟式。'},
+    {sentence:'Seguramente ___ ya.', options:['ha llegado', 'haya llegado', 'hubiera llegado', 'habría llegado'], correct:0, explain:'seguramente 表较高确信 → 陈述式。'}
+  ]},
+  {topic:'介词与格 (Régimen preposicional)', questions:[
+    {sentence:'Depende ___ lo que decidas.', options:['de', 'en', 'a', 'con'], correct:0, explain:'depender de 为固定搭配。'},
+    {sentence:'Insistió ___ su postura.', options:['en', 'de', 'a', 'por'], correct:0, explain:'insistir en 为固定搭配。'},
+    {sentence:'Se arrepintió ___ lo que dijo.', options:['de', 'por', 'en', 'con'], correct:0, explain:'arrepentirse de 为固定搭配。'},
+    {sentence:'Confío ___ tu palabra.', options:['en', 'de', 'a', 'con'], correct:0, explain:'confiar en 为固定搭配。'},
+    {sentence:'Carece ___ fundamento.', options:['de', 'en', 'a', 'sin'], correct:0, explain:'carecer de 为固定搭配。'},
+    {sentence:'Se queja ___ todo.', options:['de', 'por', 'en', 'con'], correct:0, explain:'quejarse de 为固定搭配。'},
+    {sentence:'Se preocupa ___ sus hijos.', options:['por', 'de', 'en', 'con'], correct:0, explain:'preocuparse por 为固定搭配。'},
+    {sentence:'Cuenta ___ mi apoyo.', options:['con', 'en', 'de', 'a'], correct:0, explain:'contar con 意为「依靠、指望」。'},
+    {sentence:'Se enfrentó ___ la situación.', options:['a', 'con', 'de', 'en'], correct:0, explain:'enfrentarse a 为固定搭配。'},
+    {sentence:'Se empeñó ___ terminarlo hoy.', options:['en', 'de', 'a', 'por'], correct:0, explain:'empeñarse en 为固定搭配。'},
+    {sentence:'Renunció ___ su cargo.', options:['a', 'de', 'en', 'por'], correct:0, explain:'renunciar a 为固定搭配。'},
+    {sentence:'Aspira ___ ese puesto.', options:['a', 'de', 'en', 'por'], correct:0, explain:'aspirar a 为固定搭配。'},
+    {sentence:'Se comprometió ___ ayudarnos.', options:['a', 'de', 'en', 'con'], correct:0, explain:'comprometerse a + 不定式。'},
+    {sentence:'Dudó ___ la respuesta.', options:['de', 'en', 'a', 'con'], correct:0, explain:'dudar de 为固定搭配。'},
+    {sentence:'Se sorprendió ___ la noticia.', options:['con', 'de', 'por', 'en'], correct:0, explain:'sorprenderse con/de 均可，con 更常见。'},
+    {sentence:'Colabora ___ varias ONG.', options:['con', 'en', 'a', 'de'], correct:0, explain:'colaborar con 表与人合作；colaborar en 表在某事上出力。'},
+    {sentence:'Se adaptó ___ nuevo entorno.', options:['al', 'del', 'en el', 'con el'], correct:0, explain:'adaptarse a + el = al。'},
+    {sentence:'Prescindió ___ sus servicios.', options:['de', 'en', 'a', 'con'], correct:0, explain:'prescindir de 为固定搭配。'},
+    {sentence:'Se abstuvo ___ votar.', options:['de', 'en', 'a', 'por'], correct:0, explain:'abstenerse de 为固定搭配。'},
+    {sentence:'Optó ___ la segunda opción.', options:['por', 'a', 'de', 'en'], correct:0, explain:'optar por 为固定搭配。'}
+  ]},
+  {topic:'惯用表达与语域 (Expresiones y registro)', questions:[
+    {sentence:'No me hagas caso, estoy ___ .', options:['de broma', 'en broma', 'por broma', 'a broma'], correct:0, explain:'estar de broma ＝ 在开玩笑；en broma 表方式。'},
+    {sentence:'Lo dijo ___ , sin querer ofender.', options:['sin querer', 'sin quererlo', 'a sin querer', 'de sin querer'], correct:0, explain:'sin querer ＝ 无意地，固定短语。'},
+    {sentence:'___ , el proyecto salió adelante.', options:['A duras penas', 'A duras pena', 'De duras penas', 'En duras penas'], correct:0, explain:'a duras penas ＝ 勉勉强强。'},
+    {sentence:'Llegó ___ , justo cuando cerraban.', options:['a última hora', 'en última hora', 'de última hora', 'por última hora'], correct:0, explain:'a última hora ＝ 在最后时刻。'},
+    {sentence:'No tiene ___ de lo que dice.', options:['ni idea', 'ninguna idea', 'idea alguna', 'nada idea'], correct:0, explain:'no tener ni idea ＝ 完全不知道，固定说法。'},
+    {sentence:'___ , no me interesa.', options:['La verdad', 'Verdad', 'En verdad', 'De verdad que'], correct:0, explain:'la verdad（es que）＝ 说实话，口语插入语。'},
+    {sentence:'___ , deberías disculparte.', options:['A mi parecer', 'A mi parecencia', 'En mi parecer', 'Por mi parecer'], correct:0, explain:'a mi parecer ＝ 依我看（较正式）。'},
+    {sentence:'Se fue ___ , sin avisar.', options:['sin más', 'sin más ni menos', 'a sin más', 'de sin más'], correct:0, explain:'sin más ＝ 就这样、不多说地。'},
+    {sentence:'___ , todo salió bien.', options:['Al final', 'En el final', 'De final', 'Por final'], correct:0, explain:'al final ＝ 最终。'},
+    {sentence:'___ que llegues, avísame.', options:['En cuanto', 'En cuando', 'Al cuanto', 'Por cuanto'], correct:0, explain:'en cuanto ＝ 一……就（+ 虚拟式指将来）。'},
+    {sentence:'___ , no lo sabía.', options:['Que yo sepa', 'Que yo sé', 'Como yo sepa', 'Según yo sepa'], correct:0, explain:'que yo sepa ＝ 据我所知（后接陈述式否定）。'},
+    {sentence:'___ , no hay problema.', options:['Por mí', 'Para mí', 'Según mí', 'En mí'], correct:0, explain:'por mí ＝ 我这边（表示无异议）；para mí 表「依我看」。'}
   ]}
 ];
 
@@ -5018,6 +5086,106 @@ NOVELISTA: Porque fue donde más me arriesgué, y el riesgo se paga. Si hubiera 
       {q:'¿Qué dos tipos de fracaso distingue?', a:'El fracaso por ambición desmedida y el fracaso por incompetencia.'},
       {q:'¿Cómo se distinguen desde fuera?', a:'Por la tensión: hay una tirantez, un esfuerzo visible.'},
       {q:'¿Qué relación tiene con la crítica?', a:'Que la novela que peor recibió es la que más le interesa, por ser donde más se arriesgó.'}
+    ]
+  },
+  {level:'B2', title:'面试复盘：为何没录用', speaker:'Reclutador / Aspirante', duration:'约 1 分 40 秒',
+    es:`RECLUTADOR: Gracias por venir. Quería darle una devolución honesta.
+ASPIRANTE: Se lo agradezco, de verdad. Pocas empresas lo hacen.
+RECLUTADOR: Su perfil técnico encajaba. El problema fue otro: en la parte de trabajo en equipo respondió siempre en primera persona.
+ASPIRANTE: ¿Se refiere a que hablé solo de mí?
+RECLUTADOR: Exacto. Cuando le preguntamos por un proyecto fallido, describió los errores de los demás pero no los suyos.
+ASPIRANTE: No era mi intención.
+RECLUTADOR: Lo sé, y por eso se lo digo. En estas entrevistas buscamos a alguien capaz de reconocer su parte.
+ASPIRANTE: ¿Qué me recomendaría para la próxima?
+RECLUTADOR: Prepare un caso donde usted se equivocara y explique qué cambió después. Con eso basta.`,
+    zh:`招聘官：感谢您前来。我想给您一个诚实的反馈。
+应聘者：非常感谢，说真的。很少公司会这样做。
+招聘官：您的技术背景是契合的。问题在别处：在团队协作那一部分，您回答时总是用"我"。
+应聘者：您是指我只谈自己？
+招聘官：正是。当我们问到一个失败的项目时，您描述了别人的错误，却没有说自己的。
+应聘者：我不是有意的。
+招聘官：我知道，所以我才告诉您。在这类面试中，我们找的是能承认自己那份责任的人。
+应聘者：下次您建议我怎么做？
+招聘官：准备一个您自己出错的案例，并说明之后改变了什么。这就够了。`,
+    keyVocab:[
+      {es:'la devolución', zh:'反馈'},
+      {es:'encajar', zh:'契合'},
+      {es:'en primera persona', zh:'以第一人称'},
+      {es:'el proyecto fallido', zh:'失败的项目'},
+      {es:'reconocer su parte', zh:'承认自己那份责任'}
+    ],
+    questions:[
+      {q:'¿Qué le pareció bien al reclutador?', a:'El perfil técnico.'},
+      {q:'¿Cuál fue el problema?', a:'Que respondía siempre en primera persona y no reconocía sus errores.'},
+      {q:'¿Qué le recomienda preparar?', a:'Un caso donde él se equivocara y qué cambió después.'}
+    ]
+  },
+  {level:'C1', title:'圆桌：新闻付费墙的困境', speaker:'Moderadora / Editora / Investigador', duration:'约 2 分钟',
+    es:`MODERADORA: Los muros de pago se han generalizado. ¿Salvan al periodismo o lo encierran?
+EDITORA: Salvan a una parte y excluyen a otra. El periodismo de calidad cuesta dinero y alguien tiene que pagarlo.
+INVESTIGADOR: Estoy de acuerdo en lo primero, pero conviene medir el segundo efecto. Los datos sugieren que las suscripciones se concentran en los sectores de mayor renta y formación.
+EDITORA: Es cierto, y es un problema democrático, no solo comercial.
+MODERADORA: ¿Qué alternativas existen?
+INVESTIGADOR: Financiación pública con garantías de independencia, fundaciones, y modelos mixtos. Ninguna es perfecta ni está libre de captura.
+EDITORA: Y hay un riesgo del que se habla poco: cuando el ingreso depende del suscriptor, el incentivo es contentarlo, no incomodarlo.
+MODERADORA: Es decir, que el muro también puede domesticar el contenido.
+EDITORA: Exacto. La independencia no se garantiza con un modelo de negocio, pero se pierde con mucha facilidad.`,
+    zh:`主持人：付费墙已经普及。它们是拯救新闻业，还是把它封闭起来？
+主编：它们拯救了一部分，也排斥了另一部分。高质量的新闻需要花钱，总得有人来付。
+研究者：我同意前半句，但后半句的效果值得衡量。数据显示，订阅集中在收入和受教育程度更高的群体。
+主编：确实如此，而这是个民主问题，不只是商业问题。
+主持人：有哪些替代方案？
+研究者：有独立保障的公共资助、基金会，以及混合模式。没有一种完美，也没有一种免于被俘获。
+主编：还有一个很少被提及的风险：当收入取决于订阅者时，动机是取悦他，而不是让他不适。
+主持人：也就是说，付费墙也可能驯化内容。
+主编：正是。独立性不能靠商业模式来保证，却很容易因它而失去。`,
+    keyVocab:[
+      {es:'el muro de pago', zh:'付费墙'},
+      {es:'la suscripción', zh:'订阅'},
+      {es:'la captura', zh:'俘获、被把控'},
+      {es:'el incentivo', zh:'动机'},
+      {es:'domesticar', zh:'驯化'},
+      {es:'incomodar', zh:'使不适'}
+    ],
+    questions:[
+      {q:'¿Qué doble efecto señalan?', a:'Salvan a una parte del periodismo y excluyen a otra.'},
+      {q:'¿Por qué es un problema democrático?', a:'Porque las suscripciones se concentran en los sectores de mayor renta y formación.'},
+      {q:'¿Qué riesgo menciona la editora?', a:'Que el incentivo sea contentar al suscriptor en vez de incomodarlo.'}
+    ]
+  },
+  {level:'C2', title:'学术对谈：何为解释', speaker:'Moderador / Filósofa de la ciencia / Historiador', duration:'约 2 分 30 秒',
+    es:`MODERADOR: ¿Qué convierte un relato en una explicación?
+FILÓSOFA: Que permita responder a preguntas contrafactuales. Explicar no es describir lo que ocurrió, sino mostrar qué habría pasado si algo hubiera sido distinto.
+HISTORIADOR: Acepto la fórmula, pero en historia rara vez disponemos de contrafactuales contrastables. ¿Significa eso que no explicamos?
+FILÓSOFA: Significa que su explicación es más débil, no que sea nula. Una explicación histórica puede ser defendible sin ser demostrable.
+HISTORIADOR: Es una concesión importante, y algunos de mis colegas no la aceptarían.
+FILÓSOFA: La acepten o no, la alternativa es peor: si exigimos demostración, la historia deja de ser disciplina y pasa a ser colección de anécdotas.
+MODERADOR: ¿Y el papel de la narrativa?
+HISTORIADOR: Es constitutivo, no decorativo. Sin trama no hay inteligibilidad; el riesgo es que la trama sustituya a la prueba.
+FILÓSOFA: De acuerdo, con un matiz: la trama debe poder fallar. Si cualquier hecho encaja en ella, no explica nada.`,
+    zh:`主持人：什么使一段叙述成为解释？
+科学哲学家：它要能回答反事实问题。解释不是描述发生了什么，而是表明如果某件事不同，会怎样。
+历史学家：我接受这个公式，但在历史学中我们很少有可检验的反事实。这是否意味着我们没有在解释？
+科学哲学家：这意味着您的解释更弱，而不是等于零。历史解释可以站得住脚，却无法被证明。
+历史学家：这是个重要的让步，我有些同行不会接受。
+科学哲学家：无论接受与否，替代方案更糟：如果要求证明，历史就不再是一门学科，而变成轶事汇编。
+主持人：那叙事的作用呢？
+历史学家：它是构成性的，不是装饰性的。没有情节就没有可理解性；风险在于情节取代了证据。
+科学哲学家：同意，但补充一点：情节必须有可能失败。如果任何事实都能嵌进去，它就什么也没解释。`,
+    keyVocab:[
+      {es:'contrafactual', zh:'反事实的'},
+      {es:'contrastable', zh:'可检验的'},
+      {es:'nulo', zh:'等于零的、无效的'},
+      {es:'la concesión', zh:'让步'},
+      {es:'constitutivo', zh:'构成性的'},
+      {es:'la trama', zh:'情节'},
+      {es:'la inteligibilidad', zh:'可理解性'}
+    ],
+    questions:[
+      {q:'¿Qué criterio propone la filósofa para una explicación?', a:'Que permita responder a preguntas contrafactuales.'},
+      {q:'¿Cómo califica la explicación histórica?', a:'Más débil, pero defendible sin ser demostrable.'},
+      {q:'¿Qué riesgo tiene la narrativa?', a:'Que la trama sustituya a la prueba.'},
+      {q:'¿Cuál es el matiz final de la filósofa?', a:'Que la trama debe poder fallar; si todo encaja, no explica nada.'}
     ]
   }
 ];
