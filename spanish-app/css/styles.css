@@ -1249,6 +1249,31 @@ ul, ol { list-style: none; }
   color: white;
 }
 
+.rate-btn {
+  padding: 6px 14px;
+  border: 1.5px solid var(--text-muted);
+  background: transparent;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.rate-btn:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+.rate-btn.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: white;
+  font-weight: 600;
+}
+
+.dl-line.active-playing {
+  background: rgba(230, 57, 70, 0.1) !important;
+}
+
 .speaking-score {
   margin-top: 32px;
   padding: 20px;
@@ -1878,4 +1903,76 @@ ul, ol { list-style: none; }
     gap: 8px;
     padding: 16px 20px;
   }
+}
+
+/* ========== 移动端底部 Tab Bar ========== */
+.mobile-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: white;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: none;
+  z-index: 9999;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+}
+.mobile-tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  font-size: 0.65rem;
+  text-decoration: none;
+}
+.mobile-tab-item.active {
+  color: var(--red);
+}
+.mobile-tab-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .sidebar { display: none !important; }
+  #app {
+    margin-left: 0 !important;
+    padding-bottom: 72px;
+    padding-top: 16px;
+  }
+  .mobile-tab-bar {
+    display: flex;
+    align-items: stretch;
+  }
+  .sidebar-logo-mobile {
+    display: flex !important;
+  }
+}
+
+.sidebar-logo-mobile {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.sidebar-logo-mobile .logo-mark {
+  width: 32px;
+  height: 32px;
+}
+.sidebar-logo-mobile .logo-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
 }

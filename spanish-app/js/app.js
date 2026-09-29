@@ -34,6 +34,9 @@ const AppState = {
       currentLevel: 'A1',
       currentUnitIndex: 0,
       knownWords: [],
+      // 间隔重复 (SM-2 简化版)
+      // 每个词: { due: Date, stage: 0-5, ef: 2.5, lapses: 0 }
+      srs: {},
       completedGrammar: [],
       completedLessons: [],
       streakDays: 1,
@@ -51,6 +54,73 @@ const AppState = {
     const allProgress = JSON.parse(localStorage.getItem('le_progress') || '{}');
     allProgress[this.currentUser] = this.progress;
     localStorage.setItem('le_progress', JSON.stringify(allProgress));
+  },
+  
+  // ========== 间隔重复 (SM-2 简化版) ==========
+  ensureSrs() {
+    if (!this.progress) this.progress = {};
+    if (!this.progress.srs) this.progress.srs = {};
+  },
+  
+  // stage 0 = 新词, 1-5 = 复习阶段
+  srsInit(word) {
+    this.ensureSrs();
+    if (!this.progress.srs[word]) {
+      this.progress.srs[word] = { stage: 0, ef: 2.5, lapses: 0, due: new Date().toISOString() };
+    }
+  },
+  
+  // quality: 0-5. >=3 通过, <3 失败
+  srsReview(word, quality) {
+    this.ensureSrs();
+    this.srsInit(word);
+    const s = this.progress.srs[word];
+    const passed = quality >= 3;
+    
+    if (!passed) {
+      s.stage = Math.max(0, s.stage - 1);
+      s.lapses++;
+    } else {
+      s.stage++;
+      if (s.stage > 5) s.stage = 5;
+    }
+    
+    const intervals = [0, 1, 3, 7, 14, 30, 60];
+    const days = intervals[s.stage] || 30;
+    const due = new Date();
+    due.setDate(due.getDate() + days);
+    s.due = due.toISOString();
+    
+    this.saveProgress();
+  },
+  
+  // 获取到期要复习的词
+  srsDueWords(unitVocab) {
+    this.ensureSrs();
+    const now = new Date();
+    const srs = this.progress.srs;
+    return unitVocab.filter(w => {
+      const es = w && w.es;
+      if (!es) return false;
+      const entry = srs[es];
+      if (!entry) return true;
+      return new Date(entry.due) <= now;
+    });
+  },
+  
+  // 为 flashcards 排序：到期复习词在前，stage 低的在前
+  srsSort(vocabList) {
+
+    this.ensureSrs();
+    const srs = this.progress.srs;
+    return [...vocabList].sort((a, b) => {
+      const sa = a && a.es ? srs[a.es] : undefined;
+      const sb = b && b.es ? srs[b.es] : undefined;
+      if (!sa && sb) return -1;
+      if (sa && !sb) return 1;
+      if (!sa && !sb) return 0;
+      return sa.stage - sb.stage;
+    });
   },
   
   // 连续天数计算
@@ -136,6 +206,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initGlobalEvents() {
+  // 移动端底部 Tab Bar 初始化（一次性）
+  if (!document.querySelector('.mobile-tab-bar')) {
+    const tabs = [
+      {icon:'🏠', label:'首页', hash:'dashboard'},
+      {icon:'📚', label:'课程', hash:'courses'},
+      {icon:'📈', label:'进度', hash:'progress'},
+      {icon:'💬', label:'社区', hash:'community'},
+      {icon:'🏆', label:'成就', hash:'achievements'}
+    ];
+    const bar = document.createElement('nav');
+    bar.className = 'mobile-tab-bar';
+    bar.innerHTML = tabs.map(t => 
+      `<a href="#${t.hash}" class="mobile-tab-item" data-hash="${t.hash}">
+        <span class="mobile-tab-icon">${t.icon}</span>
+        <span>${t.label}</span>
+      </a>`
+    ).join('');
+    document.body.appendChild(bar);
+  }
+  
   // 登出
   document.addEventListener('click', e => {
     if (e.target.closest('[data-logout]')) {
@@ -358,7 +448,16 @@ function showAppShell() {
     el.classList.toggle('active', el.dataset.route === AppState.currentRoute);
   });
   
+  updateMobileTabActive();
+  updateMobileTabActive();
   return app.querySelector('#page-content');
+}
+
+function updateMobileTabActive() {
+  const hash = (window.location.hash || '').replace('#', '').split('/')[0];
+  document.querySelectorAll('.mobile-tab-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.hash === hash);
+  });
 }
 
 // ---- 仪表盘 ----
@@ -809,11 +908,17 @@ function startLearning(mode, unitId) {
 }
 
 function renderLearn(mode, unitId) {
-  const levelKey = AppState.currentLevel;
-  const level = COURSES[levelKey];
-  const unit = level?.units.find(u => u.id === unitId) || 
-               Object.values(COURSES).flatMap(l => l.units).find(u => u.id === unitId);
+  // 先在所有等级里找 unit，不依赖 currentLevel（可能不准）
+  let unit = Object.values(COURSES).flatMap(l => l.units).find(u => u.id === unitId);
+  if (!unit) {
+    console.error('renderLearn: unit not found for id', unitId);
+    showAppShell().innerHTML = '<div style="padding:40px;text-align:center;color:var(--red);">⚠️ 未找到课程单元</div>';
+    return;
+  }
   
+  // 更新 currentLevel 和 currentUnit
+  const levelEntry = Object.entries(COURSES).find(([k, v]) => v.units.includes(unit));
+  if (levelEntry) AppState.currentLevel = levelEntry[0];
   AppState.currentLearnMode = mode;
   AppState.currentLearnUnit = unit;
   
@@ -828,7 +933,10 @@ function renderLearn(mode, unitId) {
 // ============================================
 function renderVocabCards(unit) {
   const container = showAppShell();
-  const vocab = [...unit.vocab].sort(() => Math.random() - 0.5);
+  // SRS 排序：到期词在前 + stage 低的在前
+  const rawVocab = unit.vocab || [];
+  let vocab = AppState.srsSort(rawVocab);
+  const dueCount = AppState.srsDueWords(unit.vocab || []);
   let currentIdx = 0;
   
   container.innerHTML = `
@@ -837,6 +945,9 @@ function renderVocabCards(unit) {
         <div>
           <div class="unit-breadcrumb"><a href="#courses">← 返回课程</a></div>
           <div class="learning-title">🎴 单词卡片 · ${unit.title}</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">
+            ${dueCount} 个到期 · ${vocab.length} 个总计
+          </div>
         </div>
         <div class="learning-steps">
           ${vocab.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
@@ -846,6 +957,7 @@ function renderVocabCards(unit) {
       <div class="flashcard-container" id="flashcard-container">
         <div class="flashcard" id="flashcard">
           <div class="flashcard-face flashcard-front">
+            ${renderSrsBadge(vocab[currentIdx].es)}
             <div class="flashcard-word">${vocab[currentIdx].es}</div>
             <div class="flashcard-hint">点击卡片查看释义</div>
           </div>
@@ -865,7 +977,7 @@ function renderVocabCards(unit) {
       </div>
       
       <div style="text-align:center; margin-top: 20px;">
-        <div style="font-size:0.9rem; color: var(--text-muted);">进度 ${currentIdx + 1} / ${vocab.length}</div>
+        <div style="font-size:0.9rem; color: var(--text-muted);">进度 ${currentIdx + 1} / ${vocab.length} · 🧠 间隔复习 (SM-2)</div>
       </div>
     </div>
   `;
@@ -881,6 +993,9 @@ function renderVocabCards(unit) {
   });
   
   function nextCard(learned) {
+    // SRS 评分：已知=5，不会=1
+    AppState.srsReview(vocab[currentIdx].es, learned ? 5 : 1);
+    
     if (learned) {
       const progress = AppState.progress;
       if (!progress.knownWords.includes(vocab[currentIdx].es)) {
@@ -903,6 +1018,7 @@ function renderVocabCards(unit) {
     setTimeout(() => {
       flashcard.innerHTML = `
         <div class="flashcard-face flashcard-front">
+          ${renderSrsBadge(vocab[currentIdx].es)}
           <div class="flashcard-word">${vocab[currentIdx].es}</div>
           <div class="flashcard-hint">点击卡片查看释义</div>
         </div>
@@ -1275,8 +1391,10 @@ function renderListening(unit) {
   let showText = false;
   let showZh = false;
   let showQuestions = false;
+  let playbackRate = 0.9; // 0.6 慢速 / 0.9 正常 / 1.3 快速
   
   const p = passages[currentIdx];
+  const dialogue = parseDialogue(p.es);
   
   container.innerHTML = `
     <div class="learning-container">
@@ -1298,15 +1416,33 @@ function renderListening(unit) {
           </div>
           ${p.speaker ? `<div style="color:var(--text-muted);font-size:0.8rem;margin-bottom:16px;">🗣 ${p.speaker}</div>` : ''}
           
-          <button class="audio-play-btn ${isPlaying ? 'playing' : ''}" id="audio-play">
-            ${isPlaying ? '⏸' : '▶'}
-          </button>
-          <div class="audio-info">时长 ${p.duration} · 共 ${passages.length} 段</div>
-          
-          <div class="audio-transcript ${!showText ? 'hidden' : ''}" id="transcript" style="text-align:left;font-size:0.95rem;line-height:1.8;white-space:pre-line;">
-            ${p.es}
+          <!-- 播放器 -->
+          <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:4px;">
+            <button class="audio-play-btn ${isPlaying ? 'playing' : ''}" id="audio-play">
+              ${isPlaying ? '⏸' : '▶'}
+            </button>
           </div>
-          <div id="audio-zh" style="color:var(--text-secondary);display:${showZh ? 'block' : 'none'};margin-top:12px;font-size:0.9rem;line-height:1.8;white-space:pre-line;">${p.zh}</div>
+          
+          <!-- 速度切换 -->
+          <div style="display:flex;justify-content:center;gap:4px;margin-bottom:12px;">
+            ${[{r:0.6,l:'🐢 慢速'},{r:0.9,l:'🚶 正常'},{r:1.3,l:'🏃 快速'}].map(opt => 
+              `<button class="rate-btn ${playbackRate===opt.r?'active':''}" data-rate="${opt.r}">${opt.l}</button>`
+            ).join('')}
+          </div>
+          
+          <div class="audio-info">时长 ${p.duration} · ${dialogue.length} 句 · 共 ${passages.length} 段</div>
+          
+          <!-- 分角色 transcript -->
+          <div class="audio-transcript ${!showText ? 'hidden' : ''}" id="transcript" style="text-align:left;margin-top:16px;">
+            ${dialogue.map((d, idx) => `
+              <div class="dl-line" data-idx="${idx}" style="cursor:pointer;padding:10px 14px;border-radius:8px;margin-bottom:6px;background:transparent;transition:background 0.15s;" onmouseover="this.style.background='rgba(0,0,0,0.04)'" onmouseout="this.style.background='transparent'">
+                ${d.speaker ? `<span style="display:inline-block;font-weight:700;color:${d.color};font-size:0.75rem;padding:2px 10px;border-radius:20px;background:${d.color}15;margin-right:10px;min-width:90px;text-align:center;">${d.speaker.split(' ')[0]}</span>` : ''}
+                <span style="font-size:0.95rem;">${d.text}</span>
+              </div>
+            `).join('')}
+          </div>
+          
+          <div id="audio-zh" style="color:var(--text-secondary);display:${showZh ? 'block' : 'none'};margin-top:12px;font-size:0.9rem;line-height:1.8;white-space:pre-line;background:var(--bg-alt);padding:16px;border-radius:var(--radius-md);">${p.zh}</div>
           
           ${p.keyVocab && p.keyVocab.length ? `
             <div style="margin-top:20px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);text-align:left;">
@@ -1321,7 +1457,7 @@ function renderListening(unit) {
               ${p.questions.map((q, i) => `
                 <div style="margin-bottom:12px;">
                   <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
-                  <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="showAnswerBtn(this, '${q.a.replace(/'/g, "\'")}')">显示答案</button>
+                  <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="showAnswerBtn(this, '${q.a.replace(/'/g, "\\'")}')">显示答案</button>
                 </div>
               `).join('')}
             </div>
@@ -1344,32 +1480,57 @@ function renderListening(unit) {
   const nextBtn = document.getElementById('next-audio');
   const transcript = document.getElementById('transcript');
   
+  // 速度切换
+  document.querySelectorAll('.rate-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.rate-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      playbackRate = parseFloat(btn.dataset.rate);
+    });
+  });
+  
+  // 点单句 transcript 播放
+  document.querySelectorAll('.dl-line').forEach(el => {
+    el.addEventListener('click', () => {
+      const idx = parseInt(el.dataset.idx);
+      const d = dialogue[idx];
+      speakWord(d.text, { rate: playbackRate, pitch: d.pitch, toast: false });
+    });
+  });
+  
   playBtn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     playBtn.classList.toggle('playing', isPlaying);
     playBtn.textContent = isPlaying ? '⏸' : '▶';
     if (isPlaying) {
-      // 按行朗读，模拟真实听力
-      const lines = p.es.split('\n').filter(l => l.trim());
       let i = 0;
       const speakNext = () => {
-        if (i >= lines.length || !isPlaying) {
+        if (i >= dialogue.length || !isPlaying) {
           isPlaying = false;
           playBtn.classList.remove('playing');
           playBtn.textContent = '▶';
           nextBtn.style.display = 'inline-flex';
+          document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
           return;
         }
-        const clean = lines[i].replace(/^[A-ZÁÉÍÓÚÑ]+:\s*/, '').trim();
-        speakWord(clean);
+        // 高亮当前行
+        document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
+        const curLine = document.querySelector(`.dl-line[data-idx="${i}"]`);
+        if (curLine) curLine.style.background = 'rgba(230,57,70,0.08)';
+        
+        speakWord(dialogue[i].text, {
+          rate: playbackRate,
+          pitch: dialogue[i].pitch,
+          toast: false,
+          interrupt: true
+        });
         i++;
-        setTimeout(speakNext, 2500);
+        setTimeout(speakNext, 3000 / playbackRate); // 速度越快间隔越短
       };
       speakNext();
     }
   });
-  
-  toggleText.addEventListener('click', () => {
+  toggleText.addEventListener("click", () => {
     showText = !showText;
     transcript.classList.toggle('hidden', !showText);
     toggleText.innerHTML = `👁 ${showText ? '隐藏' : '显示'}原文`;
@@ -1822,17 +1983,58 @@ function renderProgress() {
 // ============================================
 // 发音功能
 // ============================================
-function speakWord(text) {
+// SRS 阶段徽章
+function renderSrsBadge(word) {
+  const s = (AppState.progress?.srs || {})[word];
+  if (!s) return '<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;color:var(--text-muted);opacity:0.6;">🆕 新词</div>';
+  const colors = ['#ccc', '#E63946', '#F4A261', '#8BD4B8', '#6B8FBB', '#9B7DB8'];
+  const labels = ['新', '1', '2', '3', '4', '大师'];
+  const days = [0, 1, 3, 7, 14, 30, 60][Math.min(s.stage, 5)];
+  const color = colors[Math.min(s.stage, 5)];
+  return `<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:700;color:${color};border:2px solid ${color};border-radius:20px;padding:3px 10px;letter-spacing:0.5px;" title="stage ${s.stage}, 下次复习 ${days} 天后">🧠 ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
+}
+
+function speakWord(text, opts = {}) {
   if ('speechSynthesis' in window) {
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'es-ES';
-    utter.rate = 0.9;
-    window.speechSynthesis.cancel();
+    utter.lang = opts.lang || 'es-ES';
+    utter.rate = opts.rate || 0.9;
+    utter.pitch = opts.pitch || 1.0;
+    if (opts.interrupt !== false) window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utter);
-    showToast('🔊 正在朗读...');
+    if (opts.toast !== false) showToast('🔊 正在朗读...');
   } else {
-    showToast('浏览器不支持语音朗读');
+    if (opts.toast !== false) showToast('浏览器不支持语音朗读');
   }
+}
+
+// 把 "NAME: 内容\nNAME2: 内容" 解析成 [{speaker, text, color}] 数组
+function parseDialogue(text) {
+  const speakerColors = [
+    {name:'CAMARERO', color:'#E63946', pitch:1.05},
+    {name:'CLIENTE', color:'#6B8FBB', pitch:0.88},
+    {name:'ENTREVISTADORA', color:'#9B7DB8', pitch:1.12},
+    {name:'CANDIDATO', color:'#8BD4B8', pitch:0.85},
+    {name:'MARÍA', color:'#F4A261', pitch:1.15},
+    {name:'PABLO', color:'#2D2D2D', pitch:0.82},
+    {name:'AGENTE', color:'#6B8FBB', pitch:0.95},
+    {name:'PERIODISTA', color:'#E63946', pitch:1.0},
+    {name:'EXPERTO', color:'#8BD4B8', pitch:0.88},
+    {name:'PASEANTE', color:'#6B8FBB', pitch:0.9},
+    {name:'TURISTA', color:'#F4A261', pitch:1.05},
+    {name:'SPEAKER 1', color:'#E63946', pitch:1.0},
+    {name:'SPEAKER 2', color:'#6B8FBB', pitch:0.9}
+  ];
+  const lines = text.split('\n').filter(l => l.trim());
+  return lines.map(line => {
+    const m = line.match(/^([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜ\s]*?):\s*(.*)$/);
+    if (!m) return { speaker: null, text: line.trim(), color: '#888', pitch: 1.0 };
+    const name = m[1].trim().toUpperCase();
+    const entry = speakerColors.find(s => s.name === name) || speakerColors.find(s => name.includes(s.name.split(' ')[0]));
+    const autoColor = entry ? entry.color : (speakerColors.find(s => !speakerColors.find(x => x.color === s.color && lines.some(l => l.includes(x.name)))) || speakerColors[0]).color;
+    const autoPitch = entry ? entry.pitch : 0.95;
+    return { speaker: name, text: m[2].trim(), color: autoColor, pitch: autoPitch };
+  });
 }
 
 
@@ -1842,4 +2044,12 @@ function showAnswerBtn(btn, answer) {
     btn.disabled = true;
     btn.style.opacity = '0.6';
     btn.style.cursor = 'default';
+}
+
+// 听力理解题答案显示
+function showAnswerBtn(btn, answer) {
+  btn.textContent = "✅ " + answer;
+  btn.disabled = true;
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "default";
 }
