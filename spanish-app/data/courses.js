@@ -1278,6 +1278,268 @@ const COURSES = {
           {title:'表示程度与进展的动词搭配', desc:'experimentar un avance, registrar un aumento, situarse por debajo de, superar el umbral de, duplicar la cifra。'},
           {title:'未来与预测的表达', desc:'Se espera que + 虚拟式 / Es previsible que + 虚拟式 / De mantenerse la tendencia… / A este ritmo… —— 描述技术趋势。'}
         ]
+      },
+      { id:'b2-u8', title:'心理学与人际关系', subtitle:'Psicología y Relaciones', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La empatía', zh:'共情', example:'La empatía facilita el entendimiento.'},
+          {es:'La asertividad', zh:'自信表达', example:'La asertividad no es agresividad.'},
+          {es:'El apego', zh:'依恋', example:'El apego temprano marca la vida adulta.'},
+          {es:'La autoestima', zh:'自尊', example:'Su autoestima se fortaleció con el tiempo.'},
+          {es:'El autoengaño', zh:'自我欺骗', example:'El autoengaño es cómodo y peligroso.'},
+          {es:'La proyección', zh:'投射', example:'Atribuye a otros su propia proyección.'},
+          {es:'La negación', zh:'否认', example:'La negación es la primera reacción al duelo.'},
+          {es:'El duelo', zh:'丧亲之痛', example:'El duelo necesita tiempo.'},
+          {es:'La frustración', zh:'挫败感', example:'Aprendió a tolerar la frustración.'},
+          {es:'El vínculo', zh:'纽带、联系', example:'Un vínculo sólido resiste las crisis.'},
+          {es:'La confianza', zh:'信任', example:'La confianza se construye despacio.'},
+          {es:'La traición', zh:'背叛', example:'La traición rompió la amistad.'},
+          {es:'El resentimiento', zh:'怨恨', example:'El resentimiento envenena a quien lo guarda.'},
+          {es:'El rencor', zh:'怀恨', example:'Guardaba rencor desde años atrás.'},
+          {es:'La reconciliación', zh:'和解', example:'La reconciliación fue sincera.'},
+          {es:'El perdón', zh:'宽恕', example:'El perdón no exime de responsabilidad.'},
+          {es:'La culpa', zh:'罪责感', example:'La culpa infundada paraliza.'},
+          {es:'La vergüenza', zh:'羞耻', example:'La vergüenza ajena es real.'},
+          {es:'La inhibición', zh:'拘谨、抑制', example:'Su inhibición le impedía participar.'},
+          {es:'La introversión', zh:'内向', example:'La introversión no es timidez.'},
+          {es:'El temperamento', zh:'气质、性情', example:'El temperamento viene en parte dado.'},
+          {es:'El carácter', zh:'性格', example:'Su carácter se forjó en la adversidad.'},
+          {es:'La madurez', zh:'成熟', example:'La madurez llega a ritmos distintos.'},
+          {es:'La lucidez', zh:'清醒、明澈', example:'Habló con una lucidez admirable.'},
+          {es:'La serenidad', zh:'从容', example:'Afrontó la noticia con serenidad.'},
+          {es:'La angustia', zh:'焦虑、痛苦', example:'La angustia le impedía dormir.'},
+          {es:'La ansiedad', zh:'焦虑症', example:'La ansiedad se manifiesta en el cuerpo.'},
+          {es:'El desahogo', zh:'宣泄', example:'Necesitaba desahogarse con alguien.'},
+          {es:'La contención', zh:'克制、安抚', example:'Le ofreció contención sin juzgarlo.'},
+          {es:'La escucha activa', zh:'主动倾听', example:'La escucha activa exige silencio.'},
+          {es:'El malentendido', zh:'误会', example:'Todo fue un malentendido.'},
+          {es:'La discrepancia', zh:'分歧', example:'Resolvieron sus discrepancias hablando.'},
+          {es:'La negociación', zh:'协商', example:'La negociación salvó la relación.'},
+          {es:'El límite', zh:'界限', example:'Poner límites no es egoísmo.'},
+          {es:'La dependencia', zh:'依赖', example:'La dependencia emocional ahoga.'},
+          {es:'El desapego', zh:'抽离、放下', example:'Practica el desapego con serenidad.'},
+          {es:'La vulnerabilidad', zh:'脆弱', example:'Mostrar vulnerabilidad acerca a las personas.'},
+          {es:'La resiliencia', zh:'韧性', example:'Su resiliencia sorprendió a todos.'},
+          {es:'El apoyo mutuo', zh:'相互支持', example:'El apoyo mutuo sostiene la pareja.'},
+          {es:'La convivencia', zh:'共同生活', example:'La convivencia exige cesiones.'},
+          {es:'El reparto de tareas', zh:'分工', example:'El reparto de tareas era desigual.'},
+          {es:'La corresponsabilidad', zh:'共同责任', example:'Hablan de corresponsabilidad doméstica.'},
+          {es:'El rol', zh:'角色', example:'Los roles de género están cambiando.'},
+          {es:'La expectativa', zh:'期望', example:'Las expectativas no siempre se cumplen.'},
+          {es:'El prejuicio', zh:'偏见', example:'El prejuicio se corrige con contacto.'},
+          {es:'La proyección de culpa', zh:'归咎他人', example:'La proyección de culpa impide el diálogo.'},
+          {es:'El desgaste', zh:'消耗、磨损', example:'El desgaste de la relación era evidente.'},
+          {es:'La ruptura', zh:'分手、决裂', example:'La ruptura fue dolorosa y necesaria.'},
+          {es:'Reconciliarse', zh:'和解', example:'Se reconciliaron tras un año.'},
+          {es:'Asumir', zh:'承担、接受', example:'Asumió su parte de responsabilidad.'},
+          {es:'Sobreponerse', zh:'振作、克服', example:'Se sobrepuso a la pérdida.'},
+          {es:'Reprochar', zh:'指责', example:'Le reprochó no haber avisado.'},
+          {es:'Disculparse', zh:'道歉', example:'Se disculpó sin excusas.'},
+          {es:'Contener', zh:'克制、安抚', example:'Contuvo las lágrimas.'},
+          {es:'Desahogarse', zh:'倾诉、宣泄', example:'Se desahogó con su hermana.'},
+          {es:'Comprender', zh:'理解、体谅', example:'Comprender no es estar de acuerdo.'}
+        ],
+        grammar:[
+          {title:'情感类动词 + 虚拟式', desc:'me alegra que / me molesta que / me sorprende que + 虚拟式。主句表达情感时，从句一律用虚拟式。'},
+          {title:'自复动词表示情感变化', desc:'enfadarse, alegrarse, preocuparse, sorprenderse + de/con；与 estar + 形容词的区别：estoy preocupado 描述状态，me preocupo 描述动作。'},
+          {title:'表达推测与保留', desc:'parece que + 陈述式 / no parece que + 虚拟式；puede que + 虚拟式；a lo mejor + 陈述式；quizá(s) 两可。'}
+        ]
+      },
+      { id:'b2-u9', title:'艺术欣赏与评论', subtitle:'Apreciación y Crítica del Arte', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La obra maestra', zh:'杰作', example:'El Quijote es una obra maestra.'},
+          {es:'El lienzo', zh:'画布', example:'El lienzo mide dos metros.'},
+          {es:'El trazo', zh:'笔触', example:'Sus trazos son enérgicos.'},
+          {es:'La pincelada', zh:'笔法', example:'Una pincelada suelta y expresiva.'},
+          {es:'El claroscuro', zh:'明暗对照', example:'El claroscuro crea dramatismo.'},
+          {es:'La perspectiva', zh:'透视', example:'Domina la perspectiva renacentista.'},
+          {es:'El plano', zh:'画面、镜头', example:'El primer plano busca el detalle.'},
+          {es:'La composición', zh:'构图', example:'La composición es equilibrada.'},
+          {es:'El motivo', zh:'题材、花纹', example:'El motivo central es una ventana.'},
+          {es:'El desnudo', zh:'裸体画', example:'El desnudo fue escandaloso en su época.'},
+          {es:'El bodegón', zh:'静物画', example:'Un bodegón de frutas y cacharros.'},
+          {es:'El retrato', zh:'肖像画', example:'El retrato capta su carácter.'},
+          {es:'El paisaje', zh:'风景画', example:'Pintó paisajes de su tierra.'},
+          {es:'La escultura', zh:'雕塑', example:'La escultura es de bronce.'},
+          {es:'El relieve', zh:'浮雕', example:'Un relieve en mármol.'},
+          {es:'La talla', zh:'雕刻', example:'Una talla policromada.'},
+          {es:'El grabado', zh:'版画', example:'Publicó una serie de grabados.'},
+          {es:'El museo', zh:'博物馆', example:'El museo abre los domingos.'},
+          {es:'La exposición', zh:'展览', example:'La exposición itinerante recorre Europa.'},
+          {es:'La retrospectiva', zh:'回顾展', example:'Le dedicaron una retrospectiva.'},
+          {es:'El comisario', zh:'策展人', example:'El comisario explicó el montaje.'},
+          {es:'El catálogo', zh:'图录', example:'El catálogo incluye ensayos.'},
+          {es:'La vanguardia', zh:'先锋派', example:'Fue figura de la vanguardia.'},
+          {es:'El academicismo', zh:'学院派', example:'Rompió con el academicismo.'},
+          {es:'El movimiento', zh:'流派', example:'Pertenece al movimiento surrealista.'},
+          {es:'La corriente', zh:'潮流', example:'Una corriente renovadora del arte.'},
+          {es:'El estilo', zh:'风格', example:'Su estilo es inconfundible.'},
+          {es:'La técnica', zh:'技法', example:'Domina varias técnicas.'},
+          {es:'El óleo', zh:'油画', example:'Pintó al óleo sobre tabla.'},
+          {es:'La acuarela', zh:'水彩', example:'Prefiere la acuarela por su ligereza.'},
+          {es:'El boceto', zh:'草图', example:'Conservan cientos de bocetos.'},
+          {es:'La obra', zh:'作品', example:'Su obra temprana es más libre.'},
+          {es:'El autorretrato', zh:'自画像', example:'Se autorretrató treinta veces.'},
+          {es:'La firma', zh:'签名', example:'La firma aparece abajo a la derecha.'},
+          {es:'El original', zh:'原作', example:'El original está en el Prado.'},
+          {es:'La réplica', zh:'复制品', example:'Es una réplica del siglo XIX.'},
+          {es:'La falsificación', zh:'赝品', example:'Descubrieron una falsificación.'},
+          {es:'La restauración', zh:'修复', example:'La restauración duró dos años.'},
+          {es:'El deterioro', zh:'损坏、老化', example:'El deterioro era irreversible.'},
+          {es:'La procedencia', zh:'来源、出处', example:'Investigan la procedencia de la obra.'},
+          {es:'La subasta', zh:'拍卖', example:'Se vendió en subasta pública.'},
+          {es:'El mecenazgo', zh:'赞助、庇护', example:'El mecenazgo hizo posible la obra.'},
+          {es:'La crítica', zh:'批评、评论', example:'La crítica fue dividida.'},
+          {es:'El juicio estético', zh:'审美判断', example:'El juicio estético no es arbitrario.'},
+          {es:'La sensibilidad', zh:'感受力', example:'Su sensibilidad capta lo sutil.'},
+          {es:'El impacto', zh:'冲击、影响', example:'El impacto emocional fue inmediato.'},
+          {es:'La provocación', zh:'挑衅', example:'Buscaba la provocación estética.'},
+          {es:'El kitsch', zh:'媚俗', example:'El kitsch juega con el mal gusto.'},
+          {es:'La belleza', zh:'美', example:'La belleza no siempre es armonía.'},
+          {es:'La fealdad', zh:'丑', example:'La fealdad puede ser expresiva.'},
+          {es:'El símbolo', zh:'象征', example:'La paloma es símbolo de paz.'},
+          {es:'La alegoría', zh:'寓意', example:'Se trata de una alegoría de la muerte.'},
+          {es:'La abstracción', zh:'抽象', example:'Derivó hacia la abstracción pura.'},
+          {es:'La figuración', zh:'具象', example:'Nunca abandonó del todo la figuración.'},
+          {es:'El soporte', zh:'载体、材质', example:'Cambió de soporte: del papel al muro.'},
+          {es:'La textura', zh:'质感', example:'La textura del yeso es rugosa.'},
+          {es:'Conmover', zh:'打动', example:'La película conmovió al público.'}
+        ],
+        grammar:[
+          {title:'评价性表达', desc:'se trata de / consiste en / destaca por / se caracteriza por / llama la atención que + 虚拟式。'},
+          {title:'被动与自复被动（艺术评论常用）', desc:'La obra fue pintada en 1650；Se conservan tres versiones。评论中常省略施动者，聚焦作品本身。'},
+          {title:'比较与程度修饰', desc:'tan… que / tanto… que（结果）；no menos… que；cuanto más… más；bastante / sumamente / notablemente。'}
+        ]
+      },
+      { id:'b2-u10', title:'历史与史观', subtitle:'Historia y Perspectiva Histórica', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La época', zh:'时代', example:'Fue una época de cambios.'},
+          {es:'La era', zh:'纪元', example:'La era digital empezó antes de lo que se cree.'},
+          {es:'El siglo', zh:'世纪', example:'El siglo XX fue convulso.'},
+          {es:'El acontecimiento', zh:'事件', example:'El acontecimiento marcó un antes y un después.'},
+          {es:'El hito', zh:'里程碑', example:'Fue un hito en la historia del país.'},
+          {es:'El legado', zh:'遗产、遗泽', example:'El legado cultural es enorme.'},
+          {es:'La herencia', zh:'继承、遗存', example:'La herencia romana pervive.'},
+          {es:'El antepasado', zh:'祖先', example:'Sus antepasados llegaron de Sicilia.'},
+          {es:'La estirpe', zh:'世系', example:'Pertenece a una vieja estirpe.'},
+          {es:'El linaje', zh:'家族血统', example:'Presumía de linaje.'},
+          {es:'La dinastía', zh:'王朝', example:'La dinastía reinó tres siglos.'},
+          {es:'El reinado', zh:'统治时期', example:'Durante su reinado floreció la cultura.'},
+          {es:'El imperio', zh:'帝国', example:'El imperio se fragmentó.'},
+          {es:'La colonia', zh:'殖民地', example:'La colonia se independizó.'},
+          {es:'La revuelta', zh:'起义', example:'La revuelta fue sofocada.'},
+          {es:'El levantamiento', zh:'暴动', example:'El levantamiento popular triunfó.'},
+          {es:'La contienda', zh:'战事', example:'La contienda duró cuatro años.'},
+          {es:'El armisticio', zh:'停战', example:'Firmaron el armisticio en noviembre.'},
+          {es:'El tratado', zh:'条约', example:'El tratado repartió territorios.'},
+          {es:'La posguerra', zh:'战后时期', example:'La posguerra fue durísima.'},
+          {es:'El exilio', zh:'流亡', example:'Murió en el exilio.'},
+          {es:'La diáspora', zh:'离散、海外族群', example:'La diáspora mantiene vínculos.'},
+          {es:'La represión', zh:'镇压', example:'La represión dejó huella.'},
+          {es:'La censura', zh:'审查', example:'La censura silenció voces enteras.'},
+          {es:'La transición', zh:'转型', example:'La transición fue pactada.'},
+          {es:'La amnistía', zh:'大赦', example:'La amnistía fue muy debatida.'},
+          {es:'La reconciliación', zh:'和解', example:'La reconciliación fue incompleta.'},
+          {es:'La memoria histórica', zh:'历史记忆', example:'La memoria histórica sigue dividiendo.'},
+          {es:'El olvido', zh:'遗忘', example:'El olvido también es una decisión política.'},
+          {es:'El archivo', zh:'档案', example:'Consultó el archivo municipal.'},
+          {es:'La fuente primaria', zh:'一手史料', example:'Trabaja con fuentes primarias.'},
+          {es:'La crónica', zh:'编年记', example:'La crónica del cronista real.'},
+          {es:'El testimonio', zh:'证言', example:'El testimonio oral es valioso.'},
+          {es:'La historiografía', zh:'史学', example:'La historiografía ha revisado esa tesis.'},
+          {es:'El anacronismo', zh:'时代错误', example:'Juzgar el pasado con criterios actuales es anacronismo.'},
+          {es:'La periodización', zh:'历史分期', example:'La periodización es discutible.'},
+          {es:'La continuidad', zh:'延续', example:'Hay más continuidad que ruptura.'},
+          {es:'La ruptura', zh:'断裂', example:'La ruptura revolucionaria fue total.'},
+          {es:'La coyuntura', zh:'时局', example:'La coyuntura favoreció el cambio.'},
+          {es:'La causalidad', zh:'因果', example:'La causalidad histórica es múltiple.'},
+          {es:'El determinismo', zh:'决定论', example:'El determinismo histórico tiene límites.'},
+          {es:'La contingencia', zh:'偶然性', example:'La contingencia pesó en el resultado.'},
+          {es:'El devenir', zh:'演变', example:'El devenir de los acontecimientos.'},
+          {es:'La decadencia', zh:'衰落', example:'La decadencia fue lenta.'},
+          {es:'El auge', zh:'兴盛', example:'El auge del comercio marítimo.'},
+          {es:'El apogeo', zh:'鼎盛', example:'En el apogeo del imperio.'},
+          {es:'La hegemonía', zh:'霸权', example:'Disputaron la hegemonía regional.'},
+          {es:'La soberanía', zh:'主权', example:'Defendieron su soberanía.'},
+          {es:'La legitimidad', zh:'合法性', example:'La legitimidad del gobierno era dudosa.'},
+          {es:'La sublevación', zh:'叛乱', example:'La sublevación fracasó.'},
+          {es:'La gesta', zh:'壮举', example:'La gesta se cantó en versos.'},
+          {es:'El mártir', zh:'殉道者', example:'Lo convirtieron en mártir.'},
+          {es:'La efeméride', zh:'纪念日', example:'Se cumple la efeméride.'},
+          {es:'Conmemorar', zh:'纪念', example:'Conmemoran el bicentenario.'},
+          {es:'Rememorar', zh:'追忆', example:'Rememora su infancia.'},
+          {es:'Reivindicar', zh:'主张、平反', example:'Reivindican su figura histórica.'}
+        ],
+        grammar:[
+          {title:'历史叙述的时态体系', desc:'简单过去时（事件链）+ 未完成过去时（背景）+ 过去完成时（更早的过去）。历史叙述中最易混淆，也最能体现叙述层次。'},
+          {title:'无人称与被动（史学写作）', desc:'Se considera que / Se ha documentado que / Fuentes de la época indican que —— 史学文本避免第一人称，追求可核查性。'},
+          {title:'时间与因果连接词', desc:'a raíz de, con posterioridad a, tras lo cual, de resultas de, en vísperas de, a lo largo de —— 组织时间线索。'}
+        ]
+      },
+      { id:'b2-u11', title:'消费与财务素养', subtitle:'Consumo y Educación Financiera', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'El presupuesto familiar', zh:'家庭预算', example:'El presupuesto familiar está ajustado.'},
+          {es:'El ingreso', zh:'收入', example:'Sus ingresos son irregulares.'},
+          {es:'La nómina', zh:'工资单', example:'La nómina llega el día 25.'},
+          {es:'El ahorro', zh:'储蓄', example:'El ahorro apenas crece.'},
+          {es:'La deuda', zh:'债务', example:'La deuda se hizo impagable.'},
+          {es:'La cuota', zh:'月供、份额', example:'La cuota mensual es de seiscientos euros.'},
+          {es:'La hipoteca', zh:'抵押贷款', example:'Firmaron una hipoteca a treinta años.'},
+          {es:'El préstamo', zh:'贷款', example:'Pidió un préstamo personal.'},
+          {es:'El interés', zh:'利息', example:'El interés compuesto es poderoso.'},
+          {es:'El tipo de interés', zh:'利率', example:'Subió el tipo de interés.'},
+          {es:'La comisión', zh:'手续费', example:'La comisión bancaria es abusiva.'},
+          {es:'El recibo', zh:'账单', example:'Domicilió los recibos.'},
+          {es:'El extracto', zh:'账单明细', example:'Revisa el extracto cada mes.'},
+          {es:'La cuenta corriente', zh:'活期账户', example:'Abrió una cuenta corriente.'},
+          {es:'La tarjeta de crédito', zh:'信用卡', example:'La tarjeta de crédito difiere el pago.'},
+          {es:'La tarjeta de débito', zh:'借记卡', example:'Con la de débito pagas al momento.'},
+          {es:'La transferencia', zh:'转账', example:'Hizo una transferencia urgente.'},
+          {es:'El ingreso domiciliado', zh:'自动入账', example:'Cobra por ingreso domiciliado.'},
+          {es:'La morosidad', zh:'逾期未付', example:'Entró en morosidad.'},
+          {es:'El impago', zh:'违约未付', example:'El impago tiene consecuencias.'},
+          {es:'La refinanciación', zh:'再融资', example:'Negociaron la refinanciación.'},
+          {es:'La amortización', zh:'还本', example:'Amortizó parte del capital.'},
+          {es:'El capital', zh:'本金', example:'Devolvió el capital sin intereses.'},
+          {es:'El rendimiento', zh:'收益', example:'El rendimiento fue bajo.'},
+          {es:'La inversión', zh:'投资', example:'La inversión inicial fue modesta.'},
+          {es:'El fondo', zh:'基金', example:'Invirtió en un fondo indexado.'},
+          {es:'La acción', zh:'股票', example:'Las acciones cayeron un cinco por ciento.'},
+          {es:'El bono', zh:'债券', example:'Compró bonos del tesoro.'},
+          {es:'El riesgo', zh:'风险', example:'El riesgo de impago es alto.'},
+          {es:'La rentabilidad', zh:'收益率', example:'La rentabilidad no está garantizada.'},
+          {es:'La diversificación', zh:'分散配置', example:'La diversificación reduce el riesgo.'},
+          {es:'El patrimonio', zh:'净资产', example:'Su patrimonio es modesto.'},
+          {es:'La herencia', zh:'遗产', example:'Recibió una herencia inesperada.'},
+          {es:'El testamento', zh:'遗嘱', example:'Dejó testamento cerrado.'},
+          {es:'La donación', zh:'赠与', example:'Hizo una donación en vida.'},
+          {es:'El impuesto', zh:'税', example:'El impuesto se declara en junio.'},
+          {es:'La declaración', zh:'申报', example:'Presentó la declaración a tiempo.'},
+          {es:'La deducción', zh:'抵扣', example:'Aplicó varias deducciones.'},
+          {es:'El fraude', zh:'欺诈', example:'El fraude fiscal se persigue.'},
+          {es:'La estafa', zh:'诈骗', example:'Cayó en una estafa piramidal.'},
+          {es:'El consumo responsable', zh:'理性消费', example:'Apuesta por el consumo responsable.'},
+          {es:'La compra impulsiva', zh:'冲动消费', example:'La compra impulsiva arruina presupuestos.'},
+          {es:'La publicidad engañosa', zh:'虚假广告', example:'Denunció publicidad engañosa.'},
+          {es:'El sobreendeudamiento', zh:'过度负债', example:'El sobreendeudamiento afecta a las familias.'},
+          {es:'La educación financiera', zh:'金融素养', example:'Falta educación financiera.'},
+          {es:'La previsión', zh:'预判、储备', example:'Conviene tener previsión.'},
+          {es:'El fondo de emergencia', zh:'应急基金', example:'Tener un fondo de emergencia da tranquilidad.'},
+          {es:'La jubilación', zh:'退休', example:'Planifica su jubilación.'},
+          {es:'La pensión', zh:'养老金', example:'La pensión es insuficiente.'},
+          {es:'El plan de pensiones', zh:'养老金计划', example:'Aporta a un plan de pensiones.'},
+          {es:'Ahorrar', zh:'储蓄', example:'Ahorra el veinte por ciento.'},
+          {es:'Endeudarse', zh:'负债', example:'Se endeudó para estudiar.'},
+          {es:'Amortizar', zh:'偿还本金', example:'Amortizó el préstamo en cinco años.'},
+          {es:'Invertir', zh:'投资', example:'Invirtió en formación.'},
+          {es:'Rentabilizar', zh:'使有回报', example:'Rentabilizó la inversión.'},
+          {es:'Asumir un riesgo', zh:'承担风险', example:'Asumió un riesgo calculado.'},
+          {es:'Recortar gastos', zh:'削减开支', example:'Recortaron gastos superfluos.'}
+        ],
+        grammar:[
+          {title:'数量与比例表达', desc:'un tercio de, la mitad de, el doble de, el sesenta por ciento de, la mayoría de —— 注意主谓一致（La mayoría de los clientes paga/pagan 两可）。'},
+          {title:'假设与条件（理财语境）', desc:'Si ahorras cada mes…（真实条件）；De haber invertido antes…（非现实）。De + 完成不定式表非现实条件，是书面语的简练形式。'},
+          {title:'结果与目的连接', desc:'de modo que, así pues, a fin de + 不定式, con el objetivo de + 不定式, para que + 虚拟式。'}
+        ]
       }
     ]
   },
@@ -1573,6 +1835,136 @@ const COURSES = {
           {title:'表达因果、对比与让步的学术连接词', desc:'en tanto que, en la medida en que, si bien, no obstante lo cual, a tenor de, de ahí que + 虚拟式。'},
           {title:'谨慎表达（hedging）', desc:'Parece indicar / Tiende a / En principio / Cabría suponer / Conviene matizar que —— 学术写作避免绝对化。'}
         ]
+      },
+      { id:'c1-u6', title:'公共政策与治理', subtitle:'Políticas Públicas y Gobernanza', lessons:14, duration:'约 55 分钟',
+        vocab:[
+          {es:'La gobernanza', zh:'治理', example:'La gobernanza exige transparencia.'},
+          {es:'La rendición de cuentas', zh:'问责', example:'Sin rendición de cuentas no hay confianza.'},
+          {es:'La transparencia', zh:'透明', example:'Reclaman transparencia en los contratos.'},
+          {es:'La participación ciudadana', zh:'公众参与', example:'La participación ciudadana fue escasa.'},
+          {es:'La consulta pública', zh:'公众咨询', example:'Abrieron una consulta pública de un mes.'},
+          {es:'El referéndum', zh:'公投', example:'El referéndum fue vinculante.'},
+          {es:'La iniciativa legislativa', zh:'立法动议', example:'Presentaron una iniciativa legislativa.'},
+          {es:'El anteproyecto', zh:'法案草案', example:'El anteproyecto pasó al consejo.'},
+          {es:'La tramitación', zh:'立法程序', example:'La tramitación se alargó dos años.'},
+          {es:'El dictamen', zh:'审议意见', example:'El dictamen fue favorable por mayoría.'},
+          {es:'La enmienda', zh:'修正案', example:'Se aprobaron tres enmiendas.'},
+          {es:'El texto refundido', zh:'合并文本', example:'Publicaron el texto refundido.'},
+          {es:'La moratoria', zh:'暂停期', example:'Decretaron una moratoria de un año.'},
+          {es:'La disposición transitoria', zh:'过渡条款', example:'Una disposición transitoria regula el cambio.'},
+          {es:'El reglamento de desarrollo', zh:'实施细则', example:'Falta el reglamento de desarrollo.'},
+          {es:'La evaluación de impacto', zh:'影响评估', example:'Exigen evaluación de impacto ambiental.'},
+          {es:'El informe preceptivo', zh:'强制性报告', example:'El informe preceptivo es vinculante.'},
+          {es:'La memoria económica', zh:'经济说明', example:'La memoria económica calcula el coste.'},
+          {es:'La dotación', zh:'拨款', example:'La dotación presupuestaria es insuficiente.'},
+          {es:'El reparto competencial', zh:'权限划分', example:'El reparto competencial genera conflictos.'},
+          {es:'La competencia exclusiva', zh:'专属权限', example:'Es competencia exclusiva de la comunidad.'},
+          {es:'La descentralización', zh:'权力下放', example:'La descentralización mejoró la gestión.'},
+          {es:'La cogobernanza', zh:'共同治理', example:'Apuestan por la cogobernanza.'},
+          {es:'El consorcio', zh:'联合体', example:'Crearon un consorcio intermunicipal.'},
+          {es:'La mancomunidad', zh:'市镇联合体', example:'La mancomunidad gestiona el agua.'},
+          {es:'La subvención', zh:'补贴', example:'La subvención cubre el sesenta por ciento.'},
+          {es:'La convocatoria', zh:'招标公告', example:'La convocatoria se publica en marzo.'},
+          {es:'El beneficiario', zh:'受益方', example:'Los beneficiarios deben justificar el gasto.'},
+          {es:'La justificación', zh:'报账、证明', example:'La justificación del gasto es obligatoria.'},
+          {es:'El desfase', zh:'时间差、偏差', example:'Hay un desfase entre previsión y realidad.'},
+          {es:'La ejecución presupuestaria', zh:'预算执行', example:'La ejecución presupuestaria fue del setenta por ciento.'},
+          {es:'El remanente', zh:'结余', example:'El remanente se reinvierte.'},
+          {es:'La auditoría', zh:'审计', example:'La auditoría detectó irregularidades.'},
+          {es:'El órgano de control', zh:'监督机构', example:'El órgano de control es independiente.'},
+          {es:'La fiscalización', zh:'监督审查', example:'La fiscalización corresponde al tribunal.'},
+          {es:'La potestad', zh:'权能', example:'La potestad sancionadora es limitada.'},
+          {es:'La sanción', zh:'处罚', example:'La sanción debe ser proporcional.'},
+          {es:'El recurso de alzada', zh:'行政复议', example:'Interpuso un recurso de alzada.'},
+          {es:'La nulidad', zh:'无效', example:'La nulidad del acto fue declarada.'},
+          {es:'La caducidad', zh:'失效', example:'La caducidad del procedimiento es automática.'},
+          {es:'El silencio administrativo', zh:'行政默示', example:'Opera el silencio administrativo positivo.'},
+          {es:'La lealtad institucional', zh:'机构忠诚', example:'Se invoca la lealtad institucional.'},
+          {es:'El principio de proporcionalidad', zh:'比例原则', example:'Rige el principio de proporcionalidad.'},
+          {es:'La seguridad jurídica', zh:'法律确定性', example:'La seguridad jurídica es un principio básico.'},
+          {es:'El interés general', zh:'公共利益', example:'Prevalece el interés general.'},
+          {es:'La prevalencia', zh:'优先', example:'La prevalencia de la ley estatal es clara.'},
+          {es:'La armonización', zh:'协调统一', example:'Buscan la armonización normativa.'},
+          {es:'La subsidiariedad', zh:'辅助性原则', example:'Aplican el principio de subsidiariedad.'},
+          {es:'Dirimir', zh:'裁断', example:'El tribunal dirimió el conflicto.'},
+          {es:'Articular', zh:'协调组织', example:'Hay que articular los distintos niveles.'},
+          {es:'Instrumentar', zh:'落实、配置手段', example:'Falta instrumentar las medidas.'},
+          {es:'Implementar', zh:'实施', example:'Implementar la norma llevará un año.'},
+          {es:'Evaluar', zh:'评估', example:'Evaluarán el impacto a los dos años.'},
+          {es:'Revocar', zh:'撤销', example:'Revocaron la autorización.'},
+          {es:'Ratificar', zh:'批准', example:'El pleno ratificó el acuerdo.'}
+        ],
+        grammar:[
+          {title:'行政与法律文本的固定结构', desc:'A tenor de lo previsto en… / En ejercicio de las competencias… / Previa autorización de… / Sin perjuicio de lo dispuesto en… —— 正式文本框架。'},
+          {title:'将来时与义务式表规定', desc:'正式文本用将来时表强制性：El solicitante presentará…；也可用 quedará obligado a / deberá / habrá de。'},
+          {title:'条件与例外条款', desc:'Salvo que + 虚拟式 / Excepto si + 陈述式 / Siempre que + 虚拟式 / A reserva de —— 用于设定义务边界。'}
+        ]
+      },
+      { id:'c1-u7', title:'修辞与说服', subtitle:'Retórica y Persuasión', lessons:14, duration:'约 55 分钟',
+        vocab:[
+          {es:'La persuasión', zh:'说服', example:'La persuasión no es lo mismo que la coacción.'},
+          {es:'La disuasión', zh:'劝阻、威慑', example:'La disuasión funcionó mejor que la amenaza.'},
+          {es:'El encuadre', zh:'框架设定', example:'El encuadre condiciona la interpretación.'},
+          {es:'La agenda', zh:'议题设定', example:'Quien fija la agenda fija el debate.'},
+          {es:'El eslogan', zh:'口号', example:'Un eslogan memorable.'},
+          {es:'La consigna', zh:'指令性口号', example:'Repetían la consigna sin pensar.'},
+          {es:'El lema', zh:'座右铭、标语', example:'El lema del congreso era la igualdad.'},
+          {es:'La arenga', zh:'鼓动性演说', example:'Pronunció una arenga vibrante.'},
+          {es:'El discurso', zh:'演讲', example:'El discurso duró cuarenta minutos.'},
+          {es:'La alocución', zh:'正式讲话', example:'La alocución fue breve y sobria.'},
+          {es:'El preámbulo', zh:'开场白', example:'Un preámbulo innecesario.'},
+          {es:'La digresión', zh:'离题', example:'La digresión desvió la atención.'},
+          {es:'El epílogo', zh:'结语', example:'El epílogo resultó conmovedor.'},
+          {es:'La conclusión', zh:'结论', example:'Cerró con una conclusión contundente.'},
+          {es:'El silogismo', zh:'三段论', example:'El silogismo es formalmente válido.'},
+          {es:'La analogía', zh:'类比', example:'La analogía es sugerente pero imperfecta.'},
+          {es:'La metáfora', zh:'隐喻', example:'La metáfora organiza el pensamiento.'},
+          {es:'La hipérbole', zh:'夸张', example:'La hipérbole debilita el argumento.'},
+          {es:'La litote', zh:'曲言法', example:'Usa la litote para atenuar.'},
+          {es:'La preterición', zh:'假省略', example:'La preterición dice lo que finge omitir.'},
+          {es:'La apelación emocional', zh:'诉诸情感', example:'La apelación emocional sustituye al dato.'},
+          {es:'El argumento de autoridad', zh:'诉诸权威', example:'El argumento de autoridad no siempre basta.'},
+          {es:'La falacia', zh:'谬误', example:'Detectó la falacia de inmediato.'},
+          {es:'El hombre de paja', zh:'稻草人谬误', example:'Rebatió un hombre de paja.'},
+          {es:'La pendiente resbaladiza', zh:'滑坡谬误', example:'Es una pendiente resbaladiza.'},
+          {es:'El falso dilema', zh:'假两难', example:'Plantea un falso dilema.'},
+          {es:'La petición de principio', zh:'循环论证', example:'Eso es una petición de principio.'},
+          {es:'El sesgo de confirmación', zh:'确认偏差', example:'El sesgo de confirmación lo cegó.'},
+          {es:'La carga de la prueba', zh:'举证责任', example:'La carga de la prueba recae en quien afirma.'},
+          {es:'La falacia de composición', zh:'合成谬误', example:'Incurrió en una falacia de composición.'},
+          {es:'La retractación', zh:'收回前言', example:'Su retractación llegó tarde.'},
+          {es:'La rectificación', zh:'更正', example:'Publicó una rectificación.'},
+          {es:'La matización', zh:'补充限定', example:'Agradezco la matización.'},
+          {es:'El matiz', zh:'细微差别', example:'Un matiz decisivo.'},
+          {es:'La vehemencia', zh:'激烈', example:'Habló con vehemencia.'},
+          {es:'La mesura', zh:'节制', example:'Respondió con mesura.'},
+          {es:'La contundencia', zh:'力度', example:'La contundencia de los datos.'},
+          {es:'La ambigüedad', zh:'含混', example:'La ambigüedad fue deliberada.'},
+          {es:'La elipsis', zh:'省略', example:'La elipsis sugiere sin afirmar.'},
+          {es:'La ironía', zh:'反讽', example:'La ironía exige un lector atento.'},
+          {es:'El eufemismo', zh:'委婉语', example:'El eufemismo oculta el conflicto.'},
+          {es:'La perífrasis', zh:'迂回表达', example:'Prefiere la perífrasis al término directo.'},
+          {es:'El circunloquio', zh:'绕圈子', example:'Se pierde en circunloquios.'},
+          {es:'La concisión', zh:'简洁', example:'La concisión es una virtud retórica.'},
+          {es:'La redundancia', zh:'重复赘述', example:'La redundancia cansa al oyente.'},
+          {es:'El énfasis', zh:'强调', example:'Colocó el énfasis en la segunda parte.'},
+          {es:'La gradación', zh:'递进', example:'Una gradación ascendente muy eficaz.'},
+          {es:'La antítesis', zh:'对照', example:'La antítesis estructura el párrafo.'},
+          {es:'El quiasmo', zh:'交错配列', example:'Un quiasmo bien colocado.'},
+          {es:'El apóstrofe', zh:'呼语', example:'Interpeló al público con un apóstrofe.'},
+          {es:'La interrogación retórica', zh:'反问', example:'La interrogación retórica no espera respuesta.'},
+          {es:'La concesión', zh:'让步', example:'Introdujo una concesión estratégica.'},
+          {es:'La refutación', zh:'驳斥', example:'Su refutación fue sistemática.'},
+          {es:'El contraargumento', zh:'反论', example:'Anticipó los contraargumentos.'},
+          {es:'La réplica', zh:'应答', example:'Su réplica fue inmediata.'},
+          {es:'La audiencia', zh:'受众', example:'Adaptó el tono a la audiencia.'},
+          {es:'El receptor', zh:'接收者', example:'El receptor filtra el mensaje.'}
+        ],
+        grammar:[
+          {title:'强调句式', desc:'Lo que importa es que… / Es precisamente ahí donde… / No fue sino hasta entonces cuando… —— 通过分裂句把焦点推到特定成分上。'},
+          {title:'让步与反驳的语式配合', desc:'Si bien es cierto que + 陈述式, no lo es menos que… / Cierto es que…, pero… / No niego que + 虚拟式 —— 先让步再反驳的经典结构。'},
+          {title:'虚拟式在论辩中的评价功能', desc:'No es que + 虚拟式… sino que + 陈述式；Lejos de + 不定式；Que yo sepa（+ 陈述式，表限定）。'}
+        ]
       }
     ]
   },
@@ -1862,6 +2254,144 @@ const COURSES = {
           {title:'复杂从句嵌套', desc:'El hecho de que + 虚拟式 / Que + 虚拟式作主语 / En la medida en que + 陈述式 / Por cuanto + 陈述式 —— 学术长句的骨架。'},
           {title:'让步与限定的高层次表达', desc:'Aun a riesgo de / No en vano / Salvo en la medida en que / Siempre y cuando + 虚拟式 —— 精确限定论断范围。'}
         ]
+      },
+      { id:'c2-u6', title:'美学与艺术哲学', subtitle:'Estética y Filosofía del Arte', lessons:16, duration:'约 60 分钟',
+        vocab:[
+          {es:'La estética', zh:'美学', example:'La estética estudia la experiencia sensible.'},
+          {es:'Lo sublime', zh:'崇高', example:'Lo sublime sobrecoge al espectador.'},
+          {es:'Lo pintoresco', zh:'如画之美', example:'Lo pintoresco agrada sin conmover.'},
+          {es:'La mímesis', zh:'模仿说', example:'La mímesis es imitación de la naturaleza.'},
+          {es:'La catarsis', zh:'净化、宣泄', example:'La tragedia produce catarsis.'},
+          {es:'El pathos', zh:'悲情、感染力', example:'El pathos domina la escena final.'},
+          {es:'El clímax', zh:'高潮', example:'El clímax llega en el tercer acto.'},
+          {es:'La diégesis', zh:'叙事世界', example:'Lo que se narra pertenece a la diégesis.'},
+          {es:'La mímesis diegética', zh:'叙事性模仿', example:'Distingue mímesis de diégesis.'},
+          {es:'El significante', zh:'能指', example:'El significante remite al significado.'},
+          {es:'El significado', zh:'所指', example:'La relación entre significado y referente.'},
+          {es:'La hermenéutica', zh:'诠释学', example:'La hermenéutica interpreta la obra.'},
+          {es:'La interpretación', zh:'解读', example:'Toda interpretación es situada.'},
+          {es:'La recepción', zh:'接受', example:'La estética de la recepción estudia al lector.'},
+          {es:'El horizonte de expectativas', zh:'期待视野', example:'El horizonte de expectativas cambia con la época.'},
+          {es:'El canon', zh:'经典名录', example:'El canon literario se revisa.'},
+          {es:'La legitimación', zh:'合法化', example:'La legitimación del gusto es social.'},
+          {es:'El juicio de gusto', zh:'品味判断', example:'El juicio de gusto aspira a universalidad.'},
+          {es:'La sensibilidad', zh:'感受力', example:'La sensibilidad se educa.'},
+          {es:'El desinterés', zh:'无利害性', example:'El juicio estético exige desinterés.'},
+          {es:'La finalidad sin fin', zh:'无目的的合目的性', example:'Kant habla de finalidad sin fin.'},
+          {es:'Lo apolíneo', zh:'日神精神', example:'Lo apolíneo frente a lo dionisíaco.'},
+          {es:'Lo dionisíaco', zh:'酒神精神', example:'Lo dionisíaco desborda la forma.'},
+          {es:'La mímesis aristotélica', zh:'亚里士多德式模仿', example:'La mímesis aristotélica es creativa.'},
+          {es:'La vanguardia', zh:'先锋派', example:'La vanguardia rompió con el canon.'},
+          {es:'La autonomía del arte', zh:'艺术自律', example:'Defiende la autonomía del arte.'},
+          {es:'La heteronomía', zh:'他律', example:'La heteronomía somete el arte a fines externos.'},
+          {es:'El compromiso', zh:'介入、担当', example:'El compromiso político del artista.'},
+          {es:'El formalismo', zh:'形式主义', example:'El formalismo atiende solo a la forma.'},
+          {es:'El contenido', zh:'内容', example:'Forma y contenido son inseparables.'},
+          {es:'La ambigüedad estética', zh:'审美含混', example:'La ambigüedad estética enriquece la obra.'},
+          {es:'La ironía romántica', zh:'浪漫反讽', example:'La ironía romántica se ríe de sí misma.'},
+          {es:'Lo siniestro', zh:'诡异、令人不安', example:'Freud analizó lo siniestro.'},
+          {es:'Lo grotesco', zh:'怪诞', example:'Lo grotesco mezcla risa y horror.'},
+          {es:'La mímesis fallida', zh:'失败的模仿', example:'La mímesis fallida puede ser productiva.'},
+          {es:'El kitsch', zh:'媚俗', example:'El kitsch imita emociones sin vivirlas.'},
+          {es:'La reproductibilidad', zh:'可复制性', example:'Benjamin escribió sobre la reproductibilidad técnica.'},
+          {es:'El aura', zh:'灵光、本真性', example:'La reproducción técnica destruye el aura.'},
+          {es:'El original', zh:'原作', example:'El original conserva su aura.'},
+          {es:'La performance', zh:'行为艺术', example:'La performance no deja objeto.'},
+          {es:'El ready-made', zh:'现成品', example:'Duchamp inventó el ready-made.'},
+          {es:'La instalación', zh:'装置艺术', example:'Una instalación de gran formato.'},
+          {es:'El espectador', zh:'观者', example:'El espectador completa la obra.'},
+          {es:'La contemplación', zh:'观照', example:'La contemplación exige tiempo.'},
+          {es:'El arrobamiento', zh:'陶醉、出神', example:'Contempló el cuadro con arrobamiento.'},
+          {es:'La fruición', zh:'愉悦享受', example:'Leía con fruición.'},
+          {es:'El deleite', zh:'愉悦', example:'El deleite estético es desinteresado.'},
+          {es:'La exquisitez', zh:'精妙', example:'La exquisitez del detalle sorprende.'},
+          {es:'Lo cursi', zh:'俗气', example:'Lo cursi imita lo sublime sin alcanzarlo.'},
+          {es:'Lo kitsch y lo cursi', zh:'媚俗与俗气', example:'Distingue lo kitsch de lo cursi.'},
+          {es:'La mímesis y el símbolo', zh:'模仿与象征', example:'Frente a la mímesis, el símbolo sugiere.'},
+          {es:'Sugerir', zh:'暗示', example:'El arte moderno prefiere sugerir.'},
+          {es:'Evocar', zh:'唤起', example:'Evoca un paisaje sin describirlo.'},
+          {es:'Sublimar', zh:'升华', example:'Sublima el dolor en forma.'},
+          {es:'Trascender', zh:'超越', example:'El arte trasciende lo anecdótico.'},
+          {es:'Desvelar', zh:'揭示', example:'Desvela lo oculto.'},
+          {es:'Desvirtuar', zh:'扭曲原意', example:'La mala lectura desvirtúa la obra.'},
+          {es:'Encumbrar', zh:'推崇、抬高', example:'La crítica lo encumbró.'},
+          {es:'Deconstruir', zh:'解构', example:'Deconstruye los géneros tradicionales.'}
+        ],
+        grammar:[
+          {title:'抽象论述的名词化', desc:'la irrupción de, el advenimiento de, la quiebra de, el desvelamiento de —— 把命题压缩为名词短语，是哲学文本的主要手段。'},
+          {title:'让步与限制的高阶表达', desc:'Si bien + 陈述式 / Aun cuando + 虚拟式 / En la medida en que + 陈述式 / Salvo en la medida en que —— 限定论断的范围。'},
+          {title:'对比与并列的书面连接', desc:'frente a, a diferencia de, en contraste con, por oposición a, de un lado… de otro —— 组织对立论点。'},
+          {title:'引述与归属', desc:'según X, a juicio de X, en palabras de X, como sostiene X, X sostiene que + 陈述式（引述肯定主张）。'}
+        ]
+      },
+      { id:'c2-u7', title:'科学哲学与方法论', subtitle:'Filosofía de la Ciencia', lessons:16, duration:'约 60 分钟',
+        vocab:[
+          {es:'La falsabilidad', zh:'可证伪性', example:'La falsabilidad distingue ciencia de pseudociencia.'},
+          {es:'La refutación', zh:'证伪', example:'La refutación de una teoría la fortalece.'},
+          {es:'La corroboración', zh:'确证', example:'La corroboración nunca es definitiva.'},
+          {es:'El paradigma', zh:'范式', example:'Un cambio de paradigma científico.'},
+          {es:'La revolución científica', zh:'科学革命', example:'Kuhn describió las revoluciones científicas.'},
+          {es:'La anomalía', zh:'反常', example:'La anomalía acumulada precipita la crisis.'},
+          {es:'La conjetura', zh:'猜测', example:'Toda teoría es una conjetura audaz.'},
+          {es:'El enunciado', zh:'陈述、命题', example:'Un enunciado observable.'},
+          {es:'La observación', zh:'观察', example:'La observación está cargada de teoría.'},
+          {es:'La inducción', zh:'归纳', example:'El problema de la inducción persiste.'},
+          {es:'La deducción', zh:'演绎', example:'La deducción garantiza validez, no verdad.'},
+          {es:'La abducción', zh:'溯因', example:'La abducción genera hipótesis.'},
+          {es:'La inferencia', zh:'推论', example:'La inferencia a la mejor explicación.'},
+          {es:'El criterio de demarcación', zh:'划界标准', example:'Buscan un criterio de demarcación.'},
+          {es:'La verosimilitud', zh:'逼真性', example:'La verosimilitud sustituye a la certeza.'},
+          {es:'El realismo científico', zh:'科学实在论', example:'El realismo científico sostiene que las teorías describen.'},
+          {es:'El instrumentalismo', zh:'工具主义', example:'El instrumentalismo ve las teorías como herramientas.'},
+          {es:'El convencionalismo', zh:'约定论', example:'El convencionalismo niega el contenido factual.'},
+          {es:'El empirismo', zh:'经验主义', example:'El empirismo exige contrastación.'},
+          {es:'El racionalismo', zh:'理性主义', example:'El racionalismo confía en la razón.'},
+          {es:'El relativismo epistémico', zh:'认识论相对主义', example:'El relativismo epistémico es autodestructivo.'},
+          {es:'La carga teórica', zh:'理论负载', example:'La carga teórica de la observación.'},
+          {es:'El holismo', zh:'整体论', example:'El holismo de Duhem-Quine.'},
+          {es:'La infradeterminación', zh:'欠决定性', example:'La infradeterminación de los datos.'},
+          {es:'La ley', zh:'定律', example:'Una ley universal.'},
+          {es:'La hipótesis auxiliar', zh:'辅助假设', example:'Salvaron la teoría con una hipótesis auxiliar.'},
+          {es:'El experimento crucial', zh:'判决性实验', example:'Ningún experimento es del todo crucial.'},
+          {es:'La contrastación', zh:'检验', example:'La contrastación empírica es exigible.'},
+          {es:'La replicabilidad', zh:'可重复性', example:'La crisis de replicabilidad es grave.'},
+          {es:'El sesgo de publicación', zh:'发表偏倚', example:'El sesgo de publicación distorsiona el corpus.'},
+          {es:'La revisión por pares', zh:'同行评审', example:'La revisión por pares tiene fallos.'},
+          {es:'El consenso', zh:'共识', example:'El consenso científico no es unanimidad.'},
+          {es:'La probabilidad', zh:'概率', example:'La probabilidad bayesiana actualiza creencias.'},
+          {es:'La incertidumbre', zh:'不确定性', example:'La incertidumbre es cuantificable.'},
+          {es:'El error', zh:'误差', example:'El error sistemático se corrige.'},
+          {es:'El margen', zh:'裕度', example:'Un margen de error aceptable.'},
+          {es:'La medición', zh:'测量', example:'La medición exige instrumentos calibrados.'},
+          {es:'La calibración', zh:'校准', example:'La calibración es imprescindible.'},
+          {es:'La modelización', zh:'建模', example:'La modelización simplifica la realidad.'},
+          {es:'La idealización', zh:'理想化', example:'Toda ciencia opera con idealizaciones.'},
+          {es:'La simplificación', zh:'简化', example:'La simplificación es inevitable y arriesgada.'},
+          {es:'El reduccionismo', zh:'还原论', example:'El reduccionismo empobrece el análisis.'},
+          {es:'El emergentismo', zh:'突现论', example:'El emergentismo explica propiedades nuevas.'},
+          {es:'La causalidad', zh:'因果性', example:'La causalidad no se observa, se infiere.'},
+          {es:'La correlación', zh:'相关性', example:'Correlación no implica causación.'},
+          {es:'El mecanismo', zh:'机制', example:'Buscan el mecanismo subyacente.'},
+          {es:'La explicación', zh:'解释', example:'Una explicación satisfactoria.'},
+          {es:'La predicción', zh:'预测', example:'La predicción exitosa confirma provisionalmente.'},
+          {es:'La retrodicción', zh:'回溯预测', example:'La retrodicción también cuenta.'},
+          {es:'La heurística', zh:'启发式', example:'Una heurística útil pero falible.'},
+          {es:'El sesgo cognitivo', zh:'认知偏差', example:'El sesgo cognitivo afecta al científico.'},
+          {es:'La objetividad', zh:'客观性', example:'La objetividad es un ideal regulativo.'},
+          {es:'La intersubjetividad', zh:'主体间性', example:'La intersubjetividad sostiene la ciencia.'},
+          {es:'La provisionalidad', zh:'暂时性', example:'La provisionalidad del conocimiento.'},
+          {es:'La conjetura y refutación', zh:'猜测与反驳', example:'El método de conjeturas y refutaciones.'},
+          {es:'El progreso', zh:'进步', example:'El progreso científico no es lineal.'},
+          {es:'La inconmensurabilidad', zh:'不可通约性', example:'La inconmensurabilidad entre paradigmas.'},
+          {es:'Inferir', zh:'推断', example:'De los datos se infiere la ley.'},
+          {es:'Contrastar', zh:'检验', example:'Contrastaron la hipótesis.'},
+          {es:'Refrendar', zh:'确证', example:'Los experimentos refrendan la teoría.'}
+        ],
+        grammar:[
+          {title:'命题态度与归属', desc:'X sostiene que + 陈述式 / X niega que + 虚拟式 / No es que… sino que… —— 引述与评价并存时的语式选择。'},
+          {title:'条件与反事实推理', desc:'Si se hubiera medido con precisión…, habría…（反事实）；De no ser por…；En ausencia de… —— 科学论述中假设推理的常用式。'},
+          {title:'限定与保留的书面表达', desc:'en principio, a reserva de, salvo error u omisión, en la medida en que, hasta donde alcanza nuestro conocimiento —— 学术表达的审慎。'}
+        ]
       }
     ]
   }
@@ -1870,14 +2400,616 @@ const COURSES = {
 /* ============================================
    扁平化词汇表（用于随机复习）
    ============================================ */
-const ALL_VOCAB = [];
-Object.values(COURSES).forEach(level => {
-  level.units.forEach(unit => {
-    unit.vocab.forEach(word => {
-      ALL_VOCAB.push({ ...word, level: level.level, unit: unit.title });
-    });
-  });
-});
+/* ============================================
+   高级搭配 / 语块
+   ============================================ */
+const COLLOCATIONS = [,
+  {level:'B2', pattern:'adoptar medidas', zh:'采取措施', example:'El gobierno adoptó medidas urgentes.'},
+  {level:'B2', pattern:'plantear una duda', zh:'提出疑问', example:'Su intervención planteó una duda razonable.'},
+  {level:'B2', pattern:'suscitar interés', zh:'引起兴趣', example:'La propuesta suscitó un interés inesperado.'},
+  {level:'B2', pattern:'arrojar luz sobre', zh:'阐明、揭示', example:'El informe arroja luz sobre el problema.'},
+  {level:'B2', pattern:'poner de relieve', zh:'突出、强调', example:'Los datos ponen de relieve una tendencia clara.'},
+  {level:'B2', pattern:'hacer frente a', zh:'应对', example:'Hay que hacer frente a la escasez de recursos.'},
+  {level:'B2', pattern:'llevar a cabo', zh:'实施、执行', example:'Llevaron a cabo una reforma profunda.'},
+  {level:'B2', pattern:'tener en cuenta', zh:'考虑到', example:'Conviene tener en cuenta el contexto.'},
+  {level:'B2', pattern:'dar lugar a', zh:'导致、引起', example:'Esa decisión dio lugar a un conflicto.'},
+  {level:'B2', pattern:'correr el riesgo de', zh:'冒着……的风险', example:'Corremos el riesgo de perderlo todo.'},
+  {level:'B2', pattern:'estar sujeto a', zh:'受制于、须遵守', example:'El permiso está sujeto a revisión anual.'},
+  {level:'B2', pattern:'a expensas de', zh:'以……为代价', example:'Creció a expensas de la calidad.'},
+  {level:'B2', pattern:'en aras de', zh:'为了（正式）', example:'Renunció en aras del bien común.'},
+  {level:'B2', pattern:'a la luz de', zh:'根据、鉴于', example:'A la luz de los nuevos datos, revisaron el plan.'},
+  {level:'B2', pattern:'en la medida en que', zh:'就……而言、在……范围内', example:'En la medida en que sea posible, lo haremos.'},
+  {level:'B2', pattern:'de cara a', zh:'面对、着眼于', example:'Preparan la estrategia de cara al próximo año.'},
+  {level:'B2', pattern:'sentar las bases de', zh:'奠定基础', example:'Este acuerdo sienta las bases de la cooperación.'},
+  {level:'B2', pattern:'marcar un antes y un después', zh:'成为分水岭', example:'Aquel suceso marcó un antes y un después.'},
+  {level:'B2', pattern:'estar a la altura de', zh:'配得上、达到……水准', example:'La respuesta no estuvo a la altura de las circunstancias.'},
+  {level:'B2', pattern:'salir adelante', zh:'渡过难关、推进下去', example:'El proyecto salió adelante pese a las trabas.'},
+  {level:'B2', pattern:'dejar constancia de', zh:'留下记录、表明', example:'Quiso dejar constancia de su desacuerdo.'},
+  {level:'B2', pattern:'hacer caso omiso de', zh:'不予理会', example:'Hizo caso omiso de las advertencias.'},
+  {level:'B2', pattern:'poner en entredicho', zh:'使受到质疑', example:'Esa filtración puso en entredicho su versión.'},
+  {level:'B2', pattern:'tomar conciencia de', zh:'意识到', example:'Poco a poco tomó conciencia del riesgo.'},
+  {level:'B2', pattern:'ejercer presión sobre', zh:'对……施压', example:'Ejercen presión sobre los negociadores.'},
+  {level:'B2', pattern:'generar expectativas', zh:'产生预期', example:'El anuncio generó expectativas desmesuradas.'},
+  {level:'B2', pattern:'cubrir una necesidad', zh:'满足需求', example:'El servicio cubre una necesidad real.'},
+  {level:'B2', pattern:'asumir la responsabilidad', zh:'承担责任', example:'Asumió la responsabilidad del fallo.'},
+  {level:'B2', pattern:'sentar precedente', zh:'开创先例', example:'La sentencia sienta precedente.'},
+  {level:'B2', pattern:'cobrar sentido', zh:'变得有意义、说得通', example:'Sus palabras cobran sentido ahora.'},
+  {level:'C1', pattern:'a tenor de lo dispuesto', zh:'依照……的规定', example:'A tenor de lo dispuesto en el artículo quinto…'},
+  {level:'C1', pattern:'en virtud de', zh:'依据、凭借', example:'En virtud del acuerdo firmado, se aplaza el pago.'},
+  {level:'C1', pattern:'sin perjuicio de', zh:'在不影响……的前提下', example:'Sin perjuicio de lo anterior, mantendremos la reserva.'},
+  {level:'C1', pattern:'a los efectos oportunos', zh:'为相应之目的', example:'Se remite copia a los efectos oportunos.'},
+  {level:'C1', pattern:'por mor de', zh:'由于（书面）', example:'Por mor de las circunstancias, hubo que improvisar.'},
+  {level:'C1', pattern:'a fuer de', zh:'由于、作为（书面）', example:'A fuer de sincero, debo advertirle.'},
+  {level:'C1', pattern:'en detrimento de', zh:'有损于', example:'Se amplió el horario en detrimento del descanso.'},
+  {level:'C1', pattern:'a resultas de', zh:'由于……的结果', example:'A resultas del temporal, se cancelaron los vuelos.'},
+  {level:'C1', pattern:'habida cuenta de', zh:'考虑到', example:'Habida cuenta de los plazos, conviene empezar ya.'},
+  {level:'C1', pattern:'en tanto que', zh:'作为、就……而言', example:'En tanto que ciudadano, tengo derecho a preguntar.'},
+  {level:'C1', pattern:'aun a riesgo de', zh:'即使冒着……的风险', example:'Aun a riesgo de equivocarme, diré lo que pienso.'},
+  {level:'C1', pattern:'no en vano', zh:'并非无缘无故', example:'No en vano se le considera un referente.'},
+  {level:'C1', pattern:'de suyo', zh:'本身、本来', example:'La cuestión es de suyo delicada.'},
+  {level:'C1', pattern:'en ciernes', zh:'处于萌芽阶段', example:'Un proyecto en ciernes.'},
+  {level:'C1', pattern:'a la sazón', zh:'当时', example:'Era, a la sazón, presidente del comité.'},
+  {level:'C1', pattern:'sentar las premisas', zh:'设立前提', example:'Conviene sentar las premisas del debate.'},
+  {level:'C1', pattern:'soslayar una cuestión', zh:'回避一个问题', example:'Soslayó la cuestión de fondo.'},
+  {level:'C1', pattern:'zanjar un debate', zh:'了结一场争论', example:'El estudio no zanja el debate.'},
+  {level:'C1', pattern:'esgrimir un argumento', zh:'搬出论据', example:'Esgrimió un argumento de autoridad.'},
+  {level:'C1', pattern:'aducir razones', zh:'援引理由', example:'Adujo razones de peso.'},
+  {level:'C1', pattern:'incurrir en un error', zh:'犯下错误', example:'Incurrió en un error de bulto.'},
+  {level:'C1', pattern:'conculcar un derecho', zh:'侵犯权利', example:'La medida conculca un derecho fundamental.'},
+  {level:'C1', pattern:'salvaguardar el interés', zh:'维护利益', example:'La norma salvaguarda el interés general.'},
+  {level:'C1', pattern:'menoscabar la confianza', zh:'损害信任', example:'Ese episodio menoscabó la confianza mutua.'},
+  {level:'C1', pattern:'arrostrar las consecuencias', zh:'承担后果', example:'Está dispuesto a arrostrar las consecuencias.'},
+  {level:'C1', pattern:'propiciar un cambio', zh:'促成变化', example:'La crisis propició un cambio de modelo.'},
+  {level:'C1', pattern:'entrañar un riesgo', zh:'蕴含风险', example:'La medida entraña un riesgo considerable.'},
+  {level:'C1', pattern:'desembocar en un acuerdo', zh:'最终达成协议', example:'Las negociaciones desembocaron en un acuerdo.'},
+  {level:'C1', pattern:'subyacer a la decisión', zh:'潜藏于决定之下', example:'Subyace a la decisión un cálculo electoral.'},
+  {level:'C1', pattern:'circunscribirse a', zh:'限于', example:'El análisis se circunscribe al caso español.'},
+  {level:'C1', pattern:'contrastar una hipótesis', zh:'检验假设', example:'Contrastaron la hipótesis con datos de campo.'},
+  {level:'C1', pattern:'refrendar una tesis', zh:'印证论点', example:'Los resultados refrendan la tesis inicial.'},
+  {level:'C1', pattern:'apelar a la responsabilidad', zh:'诉诸责任感', example:'Apeló a la responsabilidad de todos.'},
+  {level:'C1', pattern:'dirimir una controversia', zh:'裁断争议', example:'El tribunal dirimió la controversia.'},
+  {level:'C1', pattern:'eludir una pregunta', zh:'规避提问', example:'Eludió la pregunta con evasivas.'},
+  {level:'C2', pattern:'dar pábulo a', zh:'助长、给予依据（多用于传闻）', example:'No conviene dar pábulo a semejantes rumores.'},
+  {level:'C2', pattern:'poner el dedo en la llaga', zh:'一针见血、触及痛处', example:'Su pregunta puso el dedo en la llaga.'},
+  {level:'C2', pattern:'ahondar en la cuestión', zh:'深入探讨问题', example:'Conviene ahondar en la cuestión antes de decidir.'},
+  {level:'C2', pattern:'deslindar responsabilidades', zh:'划清责任', example:'Hay que deslindar responsabilidades sin demora.'},
+  {level:'C2', pattern:'hilvanar un argumento', zh:'串联起论据', example:'Hilvanó un argumento impecable.'},
+  {level:'C2', pattern:'aducir en descargo', zh:'作为辩解提出', example:'Adujo en su descargo que nadie le advirtió.'},
+  {level:'C2', pattern:'echar por tierra', zh:'彻底推翻', example:'Los hechos echaron por tierra la hipótesis.'},
+  {level:'C2', pattern:'dar al traste con', zh:'使彻底失败', example:'El imprevisto dio al traste con el plan.'},
+  {level:'C2', pattern:'estar en entredicho', zh:'受到质疑', example:'Su credibilidad está en entredicho.'},
+  {level:'C2', pattern:'hacer las veces de', zh:'充当、代替', example:'El prólogo hace las veces de introducción.'},
+  {level:'C2', pattern:'venir a cuento', zh:'切题、合时宜', example:'Ese detalle viene a cuento ahora.'},
+  {level:'C2', pattern:'traer a colación', zh:'提及、援引', example:'Trajo a colación un ejemplo revelador.'},
+  {level:'C2', pattern:'dar cuenta de', zh:'说明、交代', example:'El informe da cuenta de las irregularidades.'},
+  {level:'C2', pattern:'rendir pleitesía', zh:'表示臣服、谄媚', example:'No está dispuesto a rendir pleitesía a nadie.'},
+  {level:'C2', pattern:'poner coto a', zh:'制止、限制', example:'Urge poner coto a los abusos.'},
+  {level:'C2', pattern:'surtir efecto', zh:'产生效果', example:'Las medidas surtieron efecto a medio plazo.'},
+  {level:'C2', pattern:'hacer acopio de', zh:'积累、收集', example:'Hizo acopio de paciencia antes de responder.'},
+  {level:'C2', pattern:'andar escaso de', zh:'缺乏', example:'Anda escaso de argumentos.'},
+  {level:'C2', pattern:'ser prolijo en', zh:'在……上冗长', example:'Es prolijo en detalles innecesarios.'},
+  {level:'C2', pattern:'pecar de ingenuo', zh:'失之于天真', example:'Pecaría de ingenuo si lo creyera.'},
+  {level:'C2', pattern:'adolecer de falta de', zh:'缺乏、带有……缺陷', example:'El plan adolece de falta de concreción.'},
+  {level:'C2', pattern:'estar preñado de', zh:'充满（多指隐患或意义）', example:'El silencio estaba preñado de reproches.'},
+  {level:'C2', pattern:'revestir gravedad', zh:'具有严重性', example:'Los hechos revisten suma gravedad.'},
+  {level:'C2', pattern:'obrar en poder de', zh:'（文件）在……手中', example:'El documento obra en poder del juzgado.'},
+  {level:'C2', pattern:'surtir los efectos previstos', zh:'产生预期效力', example:'El contrato surtió los efectos previstos.'},
+  {level:'C2', pattern:'a ciencia cierta', zh:'确切地、有把握地', example:'Nadie lo sabe a ciencia cierta.'},
+  {level:'C2', pattern:'sin ambages', zh:'直言不讳', example:'Lo dijo sin ambages.'},
+  {level:'C2', pattern:'de motu proprio', zh:'主动地、自愿地', example:'Compareció de motu proprio.'},
+  {level:'C2', pattern:'ex profeso', zh:'特意地', example:'Preparó el discurso ex profeso.'},
+  {level:'C2', pattern:'por antonomasia', zh:'堪称典范地、最典型的', example:'Es el escritor por antonomasia de su generación.'},
+  {level:'C2', pattern:'a mayor abundamiento', zh:'更有甚者、此外（法律用语）', example:'A mayor abundamiento, aportó dos testigos.'},
+  {level:'C2', pattern:'en olor de multitudes', zh:'在众人簇拥下', example:'Salió en olor de multitudes.'},
+  {level:'C2', pattern:'de hoz y de coz', zh:'毫无顾忌地、无所不为', example:'Actuaba de hoz y de coz.'},
+  {level:'C2', pattern:'a tontas y a locas', zh:'胡乱地、不加思索地', example:'Gasta a tontas y a locas.'},
+  {level:'C2', pattern:'sin ton ni son', zh:'毫无道理地', example:'Cambia de opinión sin ton ni son.'},
+  {level:'C2', pattern:'mal que le pese', zh:'尽管他不愿意', example:'Mal que le pese, tendrá que rectificar.'},
+  {level:'C2', pattern:'quiera que no', zh:'不管愿意不愿意', example:'Quiera que no, habrá que negociar.'},
+  {level:'C2', pattern:'así las cosas', zh:'事已至此', example:'Así las cosas, lo prudente es esperar.'},
+  {level:'C2', pattern:'llegado el caso', zh:'必要时、到了那一步', example:'Llegado el caso, podríamos replantearlo.'},
+  {level:'C2', pattern:'dicho lo cual', zh:'话虽如此', example:'Dicho lo cual, procedo a votar en contra.'}
+];
+
+/* ============================================
+   精读语篇（阅读理解）
+   ============================================ */
+// 精读语篇（阅读理解）
+const READING_PASSAGES = [
+  {level:'B2', title:'共享单车为何改变了城市', topic:'城市与交通', minutes:6,
+    paragraphs:[
+      {es:`Cuando en 2016 aparecieron las primeras bicicletas compartidas sin estación en las calles de Pekín, nadie imaginó la magnitud del fenómeno. Bastaba con escanear un código para desbloquear una bici y dejarla, al terminar el trayecto, en cualquier lugar permitido.`,
+       zh:`2016年，当第一批无桩共享单车出现在北京街头时，没有人预料到这一现象的规模。只需扫一个码就能解锁一辆单车，行程结束后把它停在任何允许的地方即可。`},
+      {es:`La promesa era sencilla y atractiva: resolver el llamado «último kilómetro», ese tramo incómodo entre la parada del transporte público y el destino final. Para millones de personas, supuso una alternativa real frente al taxi o a caminar bajo la lluvia.`,
+       zh:`这个承诺简单而诱人：解决所谓的"最后一公里"，即公共交通站点与最终目的地之间那段别扭的路程。对数以百万计的人来说，它成了替代出租车或冒雨步行的一个真实选择。`},
+      {es:`Sin embargo, el éxito trajo consigo problemas imprevistos. Las aceras se saturaron de vehículos amontonados, muchos en mal estado; los operadores, enfrascados en una guerra de precios, acumularon pérdidas millonarias; y las administraciones, pilladas por sorpresa, improvisaron normativas que a menudo llegaban tarde.`,
+       zh:`然而，成功也带来了始料未及的问题。人行道被堆积如山的车辆占满，其中许多状况糟糕；运营商陷于价格战，累积了巨额亏损；而措手不及的行政部门临时制定规章，往往为时已晚。`},
+      {es:`Lo que ocurrió después resulta más interesante que el auge inicial. Varias ciudades dejaron de limitarse a prohibir y empezaron a regular con criterios claros: cupos máximos por operador, obligación de retirar las bicis averiadas en plazos concretos y sistemas de aparcamiento señalizados. El resultado, lejos de ser perfecto, fue notablemente mejor.`,
+       zh:`此后发生的事情比最初的繁荣更有意思。一些城市不再只满足于禁止，而是开始以明确的标准进行规范：单一运营商的最高投放配额、限期清理故障车辆的义务，以及划定的停车区域。结果虽远非完美，却明显更好。`},
+      {es:`La lección quizá trascienda el caso concreto. Las innovaciones que irrumpen con fuerza suelen desbordar los marcos existentes, y la tentación de responder con prohibiciones es comprensible pero poco eficaz. Regular a tiempo, con datos y con margen para corregir, parece haber funcionado mejor que prohibir a destiempo.`,
+       zh:`这个教训或许超出了具体案例本身。强势涌现的创新往往会冲垮既有的框架，而以禁令回应的诱惑可以理解，却收效甚微。及时且基于数据、并留有修正余地的规范，似乎比事后的禁止更有效。`}
+    ],
+    glossary:[
+      {es:'el trayecto', zh:'行程、路段'},
+      {es:'el último kilómetro', zh:'最后一公里'},
+      {es:'el tramo', zh:'一段路程'},
+      {es:'la acera', zh:'人行道'},
+      {es:'amontonado', zh:'堆积的'},
+      {es:'enfrascarse en', zh:'埋头于、陷入'},
+      {es:'millonario', zh:'数以百万计的'},
+      {es:'improvisar', zh:'临时应付、即兴而为'},
+      {es:'el cupo', zh:'配额'},
+      {es:'averiado', zh:'故障的、损坏的'},
+      {es:'señalizado', zh:'有标识的'},
+      {es:'trascender', zh:'超越'},
+      {es:'irrumpir', zh:'闯入、涌现'},
+      {es:'desbordar', zh:'溢出、冲垮'},
+      {es:'a destiempo', zh:'不合时宜地、为时已晚'}
+    ],
+    structures:[
+      {es:`Bastaba con escanear un código para desbloquear una bici y dejarla, al terminar el trayecto, en cualquier lugar permitido.`,
+       note:`bastar con + 不定式，表示「只需……就够了」。中间的 al terminar el trayecto 是插入的时间状语，插在动词和它的宾语补足语之间，是西语常见的「分隔」手法，翻译时要还原语序。`},
+      {es:`los operadores, enfrascados en una guerra de precios, acumularon pérdidas millonarias`,
+       note:`enfrascados en… 是过去分词短语作后置定语（相当于一个省略了 which were 的定语从句）。这类结构在书面语里极为常见，能让句子更紧凑，但要注意分词的性与数必须和中心词一致。`},
+      {es:`El resultado, lejos de ser perfecto, fue notablemente mejor.`,
+       note:`lejos de + 不定式 ＝「远非、不但没有」。这里同样是用逗号插入，起让步作用。注意它和表示距离的 lejos de（远离）要区分。`},
+      {es:`Regular a tiempo, con datos y con margen para corregir, parece haber funcionado mejor que prohibir a destiempo.`,
+       note:`主语是一个不定式短语（Regular a tiempo…），谓语 parece 用第三人称单数。haber funcionado 是完成不定式，表示「（到当时为止）已经奏效」，与 parece 搭配表示推测过去。`}
+    ],
+    questions:[
+      {q:'¿Qué problema resolvían las bicicletas compartidas?', a:'El llamado «último kilómetro» entre el transporte público y el destino final.'},
+      {q:'¿Qué problemas trajo el éxito?', a:'Aceras saturadas, operadores con pérdidas millonarias y normativas improvisadas.'},
+      {q:'¿Qué cambio de enfoque se produjo después?', a:'Las ciudades pasaron de prohibir a regular con criterios claros.'},
+      {q:'¿Cuál es la lección general del texto?', a:'Que regular a tiempo con datos y margen de corrección funciona mejor que prohibir a destiempo.'}
+    ]
+  },
+  {level:'B2', title:'为什么我们记不住读过的东西', topic:'认知与学习', minutes:6,
+    paragraphs:[
+      {es:`Pocas sensaciones resultan tan frustrantes como terminar un libro y descubrir que apenas recordamos su contenido. La reacción habitual es culpar a la memoria, pero el problema suele estar en cómo leemos, no en cuánto retenemos.`,
+       zh:`很少有哪种感受比读完一本书却发现自己几乎记不住内容更令人沮丧。通常的反应是怪罪记忆力，但问题往往出在我们怎么读，而不是我们能记住多少。`},
+      {es:`La lectura pasiva —esa que consiste en deslizar la vista por las líneas mientras la mente divaga— produce una ilusión de comprensión. Creemos haber entendido porque las frases nos resultan familiares, aunque no hayamos reconstruido su significado.`,
+       zh:`被动阅读——也就是目光在字行间滑过、思绪却在游荡的那种——会产生一种「懂了」的错觉。我们以为自己理解了，因为这些句子读起来熟悉，尽管我们并没有重建它们的含义。`},
+      {es:`La investigación sobre aprendizaje señala que la comprensión se consolida cuando el lector genera algo: una pregunta, un resumen, un ejemplo propio. Dicho de otro modo, recordamos lo que elaboramos, no lo que simplemente recibimos.`,
+       zh:`关于学习的研究指出，当读者产出某些东西时，理解才会巩固：一个问题、一段摘要、一个自己的例子。换句话说，我们记住的是自己加工过的东西，而不是仅仅接收到的。`},
+      {es:`De ahí que las técnicas más eficaces resulten, paradójicamente, las más incómodas: cerrar el libro y tratar de explicar lo leído, escribir preguntas que el texto responde o compararlo con algo que ya sabíamos. Todas exigen un esfuerzo que la lectura cómoda evita.`,
+       zh:`因此，最有效的技巧反而悖论式地是最不舒服的：合上书试着复述所读内容、写下文本能回答的问题，或者把它与已知的东西作比较。它们都要求付出一种舒适阅读所回避的努力。`},
+      {es:`Esto no significa que leer por placer sea una pérdida de tiempo. Significa que, si el objetivo es aprender, conviene interrumpir la lectura de vez en cuando y hacer algo con ella. La incomodidad, en este caso, no es un síntoma de que algo va mal: es la señal de que algo está ocurriendo.`,
+       zh:`这并不意味着为消遣而读书是浪费时间。它的意思是，如果目标是学习，就该时不时打断阅读，拿它做点什么。在这种情况下，不适感并不是出了问题，而是正在发生什么的信号。`}
+    ],
+    glossary:[
+      {es:'frustrante', zh:'令人沮丧的'},
+      {es:'retener', zh:'记住、保持'},
+      {es:'divagar', zh:'走神、漫谈'},
+      {es:'la ilusión de comprensión', zh:'理解的错觉'},
+      {es:'reconstruir', zh:'重建'},
+      {es:'consolidarse', zh:'巩固'},
+      {es:'elaborar', zh:'加工、制作'},
+      {es:'paradójicamente', zh:'悖论式地'},
+      {es:'de ahí que', zh:'因此（+虚拟式）'},
+      {es:'exigir', zh:'要求'},
+      {es:'el síntoma', zh:'症状、信号'},
+      {es:'conviene', zh:'宜、应当'}
+    ],
+    structures:[
+      {es:`Pocas sensaciones resultan tan frustrantes como terminar un libro y descubrir que apenas recordamos su contenido.`,
+       note:`tan… como… 表示同级比较。这里主语 Pocas sensaciones 与后面的不定式短语作对比项。注意 apenas 在这里是「几乎不」，不是「刚刚」。`},
+      {es:`Creemos haber entendido porque las frases nos resultan familiares, aunque no hayamos reconstruido su significado.`,
+       note:`haber entendido 是完成不定式，作 creer 的直接宾语，表示「认为自己已经懂了」。aunque + 虚拟式（hayamos）表示让步且说话人对该事实持保留态度。`},
+      {es:`De ahí que las técnicas más eficaces resulten, paradójicamente, las más incómodas.`,
+       note:`de ahí que 后面必须接虚拟式（resulten），这是固定要求。paradójicamente 用逗号插入作评注性状语。`},
+      {es:`La incomodidad, en este caso, no es un síntoma de que algo va mal: es la señal de que algo está ocurriendo.`,
+       note:`un síntoma de que 后面用陈述式（va mal），因为这是说话人认定的事实；如果换成 no es que…，则需用虚拟式。冒号后的 es la señal de que 起对比强调作用。`}
+    ],
+    questions:[
+      {q:'¿Por qué la lectura pasiva resulta engañosa?', a:'Porque produce una ilusión de comprensión: las frases resultan familiares sin que se reconstruya el significado.'},
+      {q:'¿Qué dice la investigación sobre la comprensión?', a:'Que se consolida cuando el lector genera algo propio.'},
+      {q:'Cite dos técnicas eficaces mencionadas.', a:'Cerrar el libro y explicar lo leído; escribir preguntas que el texto responde.'},
+      {q:'¿Cómo interpreta el texto la incomodidad?', a:'Como señal de que algo está ocurriendo, no como síntoma de que algo va mal.'}
+    ]
+  },
+  {level:'B2', title:'城市的噪音与健康', topic:'健康与环境', minutes:6,
+    paragraphs:[
+      {es:`El ruido del tráfico rara vez se percibe como un problema sanitario. Sin embargo, la Organización Mundial de la Salud lo sitúa entre los principales riesgos ambientales para la salud, por detrás únicamente de la contaminación del aire.`,
+       zh:`交通噪音很少被视为一个健康问题。然而，世界卫生组织将其列为环境健康的主要风险之一，仅次于空气污染。`},
+      {es:`El mecanismo no es tan intuitivo como parece. El oído capta el sonido, pero es el cerebro quien lo interpreta como amenaza; esa interpretación activa respuestas de estrés que, mantenidas durante años, afectan al sistema cardiovascular.`,
+       zh:`其机制并不像看上去那么直观。耳朵捕捉声音，但把它解读为威胁的是大脑；这种解读会激活应激反应，而长期持续便会影响心血管系统。`},
+      {es:`Lo llamativo es que los efectos se producen incluso durante el sueño. Aunque quien duerme no recuerde haberse despertado, el organismo registra cada subida de intensidad y responde con microdespertares que fragmentan el descanso sin dejar rastro consciente.`,
+       zh:`值得注意的是，这些影响甚至在睡眠中也发生。即便睡着的人不记得自己醒过，身体仍会记录每一次强度的升高，并以微觉醒作出反应，在不留下意识痕迹的情况下使休息变得破碎。`},
+      {es:`Por eso los expertos insisten en que las medidas deben centrarse en la fuente y no solo en el aislamiento acústico de las viviendas. Aislar ayuda, desde luego, pero traslada el problema a quien no puede permitirse reformar su casa.`,
+       zh:`因此专家坚持认为，措施应当着眼于源头，而不只是住宅的隔音。隔音固然有帮助，但它把问题转嫁给了无力改造住房的人。`},
+      {es:`Las soluciones que han dado mejores resultados combinan varias capas: asfalto fonoabsorbente, límites de velocidad nocturnos, peatonalización de calles residenciales y planificación urbana que evite situar hospitales y escuelas junto a vías rápidas.`,
+       zh:`效果最好的方案结合了多个层面：吸音沥青、夜间限速、住宅街道步行化，以及避免把医院和学校设在快速路旁的城市规划。`}
+    ],
+    glossary:[
+      {es:'el ruido', zh:'噪音'},
+      {es:'sanitario', zh:'卫生的、健康的'},
+      {es:'la amenaza', zh:'威胁'},
+      {es:'cardiovascular', zh:'心血管的'},
+      {es:'llamativo', zh:'引人注意的'},
+      {es:'el microdespertar', zh:'微觉醒'},
+      {es:'fragmentar', zh:'使破碎'},
+      {es:'el aislamiento acústico', zh:'隔音'},
+      {es:'trasladar', zh:'转移'},
+      {es:'fonoabsorbente', zh:'吸音的'},
+      {es:'la vía rápida', zh:'快速路'},
+      {es:'la capa', zh:'层面、层'}
+    ],
+    structures:[
+      {es:`la Organización Mundial de la Salud lo sitúa entre los principales riesgos ambientales para la salud, por detrás únicamente de la contaminación del aire.`,
+       note:`lo sitúa 中的 lo 是直接宾语代词，前指 el ruido。por detrás únicamente de… 表示排名位置，「仅次于」。`},
+      {es:`es el cerebro quien lo interpreta como amenaza`,
+       note:`es… quien… 是强调句式，用于强调主语（el cerebro）。注意 quien 与先行词单复数一致；此处也可用 el que。`},
+      {es:`Aunque quien duerme no recuerde haberse despertado, el organismo registra cada subida de intensidad.`,
+       note:`quien duerme 是名词性关系从句作主语，意为「睡着的那个人」。recuerde 用虚拟式，因为 aunque 在此表让步且对事实不作断言。haberse despertado 是完成不定式的自复形式。`},
+      {es:`Aislar ayuda, desde luego, pero traslada el problema a quien no puede permitirse reformar su casa.`,
+       note:`Aislar 是名词化不定式作主语。a quien no puede… 中 quien 是关系代词，前面带前置词 a，表「转嫁给（某个）无力……的人」。`}
+    ],
+    questions:[
+      {q:'¿Qué lugar ocupa el ruido entre los riesgos ambientales según la OMS?', a:'El segundo, solo por detrás de la contaminación del aire.'},
+      {q:'¿Dónde se produce realmente la interpretación del sonido como amenaza?', a:'En el cerebro, no en el oído.'},
+      {q:'¿Por qué el ruido afecta incluso a quien no se despierta?', a:'Porque el organismo registra las subidas de intensidad y responde con microdespertares.'},
+      {q:'¿Por qué los expertos prefieren actuar sobre la fuente?', a:'Porque el aislamiento traslada el problema a quien no puede costearlo.'}
+    ]
+  },
+  {level:'B2', title:'远程办公重塑了什么', topic:'工作与社会', minutes:6,
+    paragraphs:[
+      {es:`Cuando en 2020 millones de personas trasladaron su escritorio a casa, la mayoría lo interpretó como una medida temporal. Cinco años después, resulta evidente que aquel paréntesis alteró de forma duradera la manera en que concebimos el trabajo.`,
+       zh:`2020年，当数百万人把办公桌搬回家时，大多数人把它理解为一项临时措施。五年之后，显而易见，那段"插曲"持久地改变了我们理解工作的方式。`},
+      {es:`La primera consecuencia fue la desaparición de la frontera física entre el empleo y la vida privada. Ya no había trayecto que marcara el inicio y el final de la jornada; el trayecto pasó a ser mental, y no todo el mundo supo trazarlo.`,
+       zh:`第一个后果是工作与私人生活之间物理边界消失。不再有通勤来标记一天工作的开始与结束；这段"路程"变成了心理上的，而并非所有人都懂得如何划定它。`},
+      {es:`Las empresas descubrieron, además, que la productividad dependía menos de las horas de presencia de lo que se creía. Pero también comprobaron algo incómodo: las ideas que surgen de una conversación casual en el pasillo no se reproducen por videollamada.`,
+       zh:`企业还发现，生产效率对比出勤时长的依赖比人们以为的要小。但同时也验证了一件令人不适的事：走廊里闲聊时闪现的想法，无法通过视频会议复制。`},
+      {es:`De ahí que los modelos híbridos se hayan impuesto como compromiso. No obstante, el consenso es más aparente que real: cada organización los aplica a su manera, y muchas lo hacen guiadas por la desconfianza más que por la evidencia.`,
+       zh:`因此在折中之下，混合模式成为主流。然而这种共识更多是表面上的：每个组织各按自己的方式实施，而许多组织的出发点是不信任，而不是证据。`},
+      {es:`Lo que está en juego, en definitiva, no es dónde trabajamos, sino quién decide dónde trabajamos y con qué criterios. Esa pregunta, que durante décadas ni siquiera se planteaba, es probablemente el cambio más profundo de todos.`,
+       zh:`归根结底，真正的问题不在于我们在哪里工作，而在于谁决定我们在哪里工作、依据什么标准。这个问题在几十年间甚至不曾被提出，而它或许才是最深刻的改变。`}
+    ],
+    glossary:[
+      {es:'el paréntesis', zh:'插曲、间断'},
+      {es:'duradero', zh:'持久的'},
+      {es:'concebir', zh:'构想、理解'},
+      {es:'la jornada', zh:'工作日'},
+      {es:'trazar', zh:'划定、描画'},
+      {es:'la presencia', zh:'出勤、在场'},
+      {es:'comprobar', zh:'验证'},
+      {es:'imponerse', zh:'成为主流、占上风'},
+      {es:'aparente', zh:'表面的'},
+      {es:'estar en juego', zh:'关键在于、攸关'},
+      {es:'el criterio', zh:'标准'}
+    ],
+    structures:[
+      {es:`la productividad dependía menos de las horas de presencia de lo que se creía`,
+       note:`menos… de lo que + 动词，表示「比人们所认为的……更少」。de lo que 引出比较的基准，其中 lo 指代前面的比较内容。`},
+      {es:`De ahí que los modelos híbridos se hayan impuesto como compromiso.`,
+       note:`de ahí que 后必须用虚拟式（hayan impuesto）。hayan impuesto 是自复动词 imponerse 的现在完成虚拟式，表示到目前已经完成的变化。`},
+      {es:`el consenso es más aparente que real`,
+       note:`más… que… 比较结构。注意 aparente 在此意为「表面的」，而非「明显的」——这是个常见的歧义词。`},
+      {es:`Esa pregunta, que durante décadas ni siquiera se planteaba, es probablemente el cambio más profundo de todos.`,
+       note:`逗号之间的 que 引导非限定性定语从句，起补充说明作用。注意谓语是 es，主语是 Esa pregunta，从句插在中间是西语常见结构。`}
+    ],
+    questions:[
+      {q:'¿Qué frontera desapareció con el teletrabajo?', a:'La frontera física entre el empleo y la vida privada.'},
+      {q:'¿Qué cosa incómoda comprobaron las empresas?', a:'Que las ideas de las conversaciones casuales no se reproducen por videollamada.'},
+      {q:'¿Qué crítica hace el texto a los modelos híbridos?', a:'Que se aplican guiados por la desconfianza más que por la evidencia.'},
+      {q:'¿Cuál es, según el texto, el cambio más profundo?', a:'La pregunta sobre quién decide dónde trabajamos y con qué criterios.'}
+    ]
+  },
+  {level:'B2', title:'食品浪费为何难以解决', topic:'经济与环境', minutes:6,
+    paragraphs:[
+      {es:`Se calcula que un tercio de los alimentos producidos en el mundo termina en la basura. La cifra resulta escandalosa en un planeta donde millones de personas pasan hambre, y sin embargo apenas ha cambiado en la última década.`,
+       zh:`据估算，全球生产的食物有三分之一最终进了垃圾桶。在这个数以百万计的人挨饿的星球上，这个数字令人震惊，然而在过去十年里它几乎没有变化。`},
+      {es:`La explicación habitual apunta al consumidor: compramos de más, olvidamos lo que guardamos en la nevera y desechamos productos cuya apariencia no nos convence. Todo eso es cierto, pero solo explica una parte del problema.`,
+       zh:`常见的解释指向消费者：我们买得太多、忘了冰箱里存着什么，还丢弃那些外观不合心意的产品。这些都是事实，但只能解释问题的一部分。`},
+      {es:`Buena parte del desperdicio ocurre antes de que el alimento llegue al supermercado. Las normas estéticas, los calendarios de entrega y los contratos con cláusulas de devolución empujan a los productores a descartar cosechas enteras que son perfectamente comestibles.`,
+       zh:`相当一部分浪费发生在食物到达超市之前。外观标准、交货时间表，以及带有退货条款的合同，都在推动生产者把整季完全可食用的收成当作废品处理。`},
+      {es:`A esto se suma que tirar comida rara vez tiene consecuencias. El coste de desecharla queda diluido en la cadena y no aparece en ninguna factura, de modo que nadie tiene un incentivo claro para evitarlo.`,
+       zh:`此外，扔掉食物很少带来后果。丢弃的成本被稀释在整条产业链中，不出现在任何一张账单上，因此没有人有明确的动力去避免它。`},
+      {es:`Las iniciativas que han funcionado comparten un rasgo: hacen visible el desperdicio. Cuando un ayuntamiento pesa y publica los residuos orgánicos de cada barrio, o cuando un supermercado dona lo que no vende con trazabilidad, la conducta cambia sin necesidad de grandes discursos.`,
+       zh:`那些见效的举措有一个共同特点：让浪费变得可见。当某个市政府称重并公布各街区的厨余垃圾，或者超市可追溯地捐赠未售出的商品时，行为就改变了，无需宏大的说教。`}
+    ],
+    glossary:[
+      {es:'el desperdicio', zh:'浪费'},
+      {es:'escandaloso', zh:'令人震惊的'},
+      {es:'desechar', zh:'丢弃'},
+      {es:'la apariencia', zh:'外观'},
+      {es:'la nevera', zh:'冰箱'},
+      {es:'estético', zh:'外观上的、审美的'},
+      {es:'la cláusula', zh:'条款'},
+      {es:'descartar', zh:'淘汰、丢弃'},
+      {es:'la cosecha', zh:'收成'},
+      {es:'comestible', zh:'可食用的'},
+      {es:'diluido', zh:'被稀释的'},
+      {es:'la trazabilidad', zh:'可追溯性'}
+    ],
+    structures:[
+      {es:`un planeta donde millones de personas pasan hambre`,
+       note:`donde 在此引导关系从句修饰 planeta，相当于 en el que。表示地点的先行词后常用 donde，比 en el que 更简洁。`},
+      {es:`desechamos productos cuya apariencia no nos convence`,
+       note:`cuyo 是关系形容词，表示所属关系，性数随其后名词（apariencia）变化，而非随先行词。此处 cuya apariencia = la apariencia de los cuales。`},
+      {es:`A esto se suma que tirar comida rara vez tiene consecuencias.`,
+       note:`A esto se suma que… 意为「此外还有……」。tirar comida 是名词化不定式作从句主语，谓语用单数 tiene。`},
+      {es:`de modo que nadie tiene un incentivo claro para evitarlo`,
+       note:`de modo que 表示结果。注意若表示目的（「以便」）则需用虚拟式；此处表示实际结果，故用陈述式。`}
+    ],
+    questions:[
+      {q:'¿Qué proporción de los alimentos producidos se desperdicia?', a:'Un tercio.'},
+      {q:'¿Dónde ocurre buena parte del desperdicio?', a:'Antes de que el alimento llegue al supermercado.'},
+      {q:'¿Por qué tirar comida rara vez tiene consecuencias?', a:'Porque el coste queda diluido en la cadena y no aparece en ninguna factura.'},
+      {q:'¿Qué rasgo comparten las iniciativas que funcionan?', a:'Hacen visible el desperdicio.'}
+    ]
+  },
+  {level:'C1', title:'论说理的限度', topic:'思想与社会', minutes:8,
+    paragraphs:[
+      {es:`Existe una convicción ampliamente extendida según la cual, si se expone un argumento con suficiente claridad, cualquier interlocutor razonable acabará aceptándolo. La experiencia, por desgracia, desmiente esa expectativa con una frecuencia desconcertante.`,
+       zh:`有一种广泛流传的信念认为，只要把论点讲得足够清楚，任何通情达理的对话者最终都会接受。遗憾的是，经验以令人困惑的频率否定了这一预期。`},
+      {es:`Ello no se debe a que la gente sea estúpida —esa conclusión, además de soberbia, es falsa—, sino a que los juicios humanos rara vez se apoyan solo en razones. Se asientan también en la identidad, en el grupo al que uno pertenece y en el coste emocional que supone desdecirse.`,
+       zh:`这并非因为人们愚蠢——这个结论既傲慢又错误——而是因为人的判断很少只建立在理由之上。它们还建立在身份、所属群体，以及改口所需付出的情感代价之上。`},
+      {es:`Cuando una creencia forma parte de lo que uno es, rebatirla no se percibe como una corrección sino como una agresión. Y ante una agresión, la respuesta instintiva no es reconsiderar la propia postura, sino reforzarla.`,
+       zh:`当一种信念构成"自己是谁"的一部分时，反驳它不会被感受为纠正，而被感受为攻击。而面对攻击，本能的反应不是重新考虑自己的立场，而是强化它。`},
+      {es:`De ahí que insistir en los datos, por sólidos que sean, resulte a menudo contraproducente. No porque los datos carezcan de valor, sino porque se presentan en el terreno equivocado: el de la lógica, cuando la discusión se libra en el de la pertenencia.`,
+       zh:`因此在数据上纠缠，无论数据多扎实，往往适得其反。不是因为数据没有价值，而是因为它们被呈现在错误的场域：逻辑的场域，而争论实际发生在归属感的场域。`},
+      {es:`Quienes han estudiado el fenómeno coinciden en que el camino más eficaz es indirecto: preguntar antes que afirmar, admitir los propios límites, y sobre todo dejar al otro una salida digna. Nadie cambia de opinión si el cambio equivale a una humillación.`,
+       zh:`研究这一现象的人一致认为，最有效的路径是间接的：先问再断言，承认自身的局限，尤其是给对方留一条体面的退路。如果改变立场等于受辱，没有人会改变。`},
+      {es:`Nada de esto convierte la razón en algo prescindible. Significa, más bien, que la razón es una herramienta poderosa pero frágil, y que ignorar las condiciones en que se la recibe es la manera más segura de desperdiciarla.`,
+       zh:`这一切并没有使理性变得可有可无。它更意味着，理性是一种强大却脆弱的工具，而忽视它被接受时所处的条件，是最稳妥的浪费它的方式。`}
+    ],
+    glossary:[
+      {es:'la convicción', zh:'信念'},
+      {es:'desmentir', zh:'否定、驳斥'},
+      {es:'desconcertante', zh:'令人困惑的'},
+      {es:'soberbia', zh:'傲慢'},
+      {es:'asentarse en', zh:'建立在'},
+      {es:'desdecirse', zh:'改口、收回前言'},
+      {es:'rebatir', zh:'反驳'},
+      {es:'instintivo', zh:'本能的'},
+      {es:'contraproducente', zh:'适得其反的'},
+      {es:'carecer de', zh:'缺乏'},
+      {es:'la pertenencia', zh:'归属'},
+      {es:'libarse', zh:'进行（战斗、争论）'},
+      {es:'prescindible', zh:'可有可无的'},
+      {es:'frágil', zh:'脆弱的'}
+    ],
+    structures:[
+      {es:`según la cual, si se expone un argumento con suficiente claridad, cualquier interlocutor razonable acabará aceptándolo`,
+       note:`según la cual 是「前置词 + 关系代词」结构，la cual 指代前面的 convicción。这类结构比 según que 更正式，且能避免歧义。`},
+      {es:`Ello no se debe a que la gente sea estúpida, sino a que los juicios humanos rara vez se apoyan solo en razones.`,
+       note:`no… sino… 表「不是……而是……」。关键点：no se debe a que 后用虚拟式（sea），因为它否定了一个原因；而肯定部分 a que los juicios… se apoyan 用陈述式。这是西语虚拟式最易错的地方之一。`},
+      {es:`por sólidos que sean`,
+       note:`por + 形容词 + que + 虚拟式，表示让步「无论多么……」。形容词需与主语保持性数一致（此处与 los datos 一致为阳性复数）。`},
+      {es:`cuando la discusión se libra en el de la pertenencia`,
+       note:`el de la pertenencia 中 el 是代词，替代前文提到的 terreno，避免重复。这种「定冠词 + de」的替代手法在书面语中很常见。`},
+      {es:`Nadie cambia de opinión si el cambio equivale a una humillación.`,
+       note:`注意 nadie 作主语时后面若有形容词，需加 no 还是保持否定？此处无形容词，直接否定。若说 nadie inteligente cambia…，则不能用 no。`}
+    ],
+    questions:[
+      {q:'¿Qué convicción extendida cuestiona el texto?', a:'Que basta exponer un argumento con claridad para que cualquiera lo acepte.'},
+      {q:'¿Por qué no se acepta una refutación, según el texto?', a:'Porque cuando la creencia forma parte de la identidad, se percibe como agresión.'},
+      {q:'¿Por qué insistir en los datos puede ser contraproducente?', a:'Porque se presentan en el terreno de la lógica cuando la discusión se libra en el de la pertenencia.'},
+      {q:'¿Qué camino indirecto se propone?', a:'Preguntar antes que afirmar, admitir los propios límites y dejar al otro una salida digna.'},
+      {q:'¿Cómo describe el texto a la razón?', a:'Como una herramienta poderosa pero frágil.'}
+    ]
+  },
+  {level:'C1', title:'算法时代的注意力经济', topic:'科技与社会', minutes:8,
+    paragraphs:[
+      {es:`Durante buena parte del siglo XX, los medios competían por el tiempo libre de las personas. Hoy la competencia es de otra naturaleza: no se disputa únicamente la atención, sino la capacidad misma de sostenerla.`,
+       zh:`在20世纪的大部分时间里，媒体争夺的是人们的闲暇时间。今天这种竞争性质不同：争夺的不只是注意力，而是维持注意力的能力本身。`},
+      {es:`El modelo de negocio subyacente explica por qué. Cuando los ingresos dependen de la publicidad, cada segundo adicional de permanencia se traduce en dinero; en consecuencia, los sistemas se optimizan para prolongar la sesión, no para satisfacer una necesidad concreta del usuario.`,
+       zh:`其背后的商业模式解释了原因。当收入依赖广告时，每多停留一秒都会转化为金钱；因此，系统被优化为延长会话，而不是满足用户的某个具体需求。`},
+      {es:`Cabe objetar que el usuario elige libremente. Pero esa libertad es más formal que efectiva cuando el diseño ha sido concebido por equipos que estudian, con enorme sofisticación, cómo anticipar y vencer la resistencia del usuario.`,
+       zh:`可以反驳说用户是自由选择的。但当设计是由极其精细地研究如何预判并克服用户抵触的团队构想出来的时候，这种自由更多是形式上的，而非实质上的。`},
+      {es:`Lo más inquietante no es el tiempo consumido, sino el hábito que se instala. La atención sostenida, como cualquier capacidad, se atrofia si no se ejercita; y una sociedad que la ha debilitado encuentra dificultades crecientes para leer, deliberar y sostener un argumento largo.`,
+       zh:`最令人不安的不是被消耗的时间，而是被养成的习惯。持续注意力如同任何能力，不锻炼就会萎缩；而一个削弱了它的社会，在阅读、审议和维持长篇论证方面会遇到越来越大的困难。`},
+      {es:`Frente a ello se han ensayado respuestas de distinto signo. Unas apuestan por la regulación —límites a la publicidad dirigida a menores, auditorías de los sistemas de recomendación—; otras confían en la pedagogía, enseñando a reconocer las técnicas de captación.`,
+       zh:`对此人们尝试了不同方向的应对。有的主张监管——限制针对未成年人的定向广告、对推荐系统进行审计；有的信任教育，教人识别这些抓取注意力的手法。`},
+      {es:`Ninguna de las dos basta por separado, y conviene desconfiar de quien promete una solución única. Lo que sí parece claro es que dejar el problema exclusivamente en manos de quien lucra con él no ha funcionado, y difícilmente funcionará.`,
+       zh:`两者单独都不够，而且应当警惕那些许诺唯一解决方案的人。可以明确的是，把问题完全交给从中获利的一方，这一做法至今没有奏效，也很难奏效。`}
+    ],
+    glossary:[
+      {es:'disputar', zh:'争夺'},
+      {es:'la atención', zh:'注意力'},
+      {es:'sostener', zh:'维持'},
+      {es:'subyacente', zh:'背后的、潜在的'},
+      {es:'la permanencia', zh:'停留'},
+      {es:'optimizar', zh:'优化'},
+      {es:'prolongar', zh:'延长'},
+      {es:'objetar', zh:'提出反对'},
+      {es:'la sofisticación', zh:'精细复杂'},
+      {es:'vencer la resistencia', zh:'克服抵触'},
+      {es:'inquietante', zh:'令人不安的'},
+      {es:'atrofiarse', zh:'萎缩'},
+      {es:'deliberar', zh:'审议、商议'},
+      {es:'ensayar', zh:'尝试'},
+      {es:'la captación', zh:'获取、吸引'},
+      {es:'lucrar', zh:'获利'}
+    ],
+    structures:[
+      {es:`no se disputa únicamente la atención, sino la capacidad misma de sostenerla`,
+       note:`no… sino… 结构；注意 sino 后接名词短语。misma 用于加强语气，强调「……本身」。sostenerla 中的 la 回指 la atención。`},
+      {es:`cada segundo adicional de permanencia se traduce en dinero`,
+       note:`traducirse en 意为「转化为」。注意 traducir 与 traducirse en 的含义差别：后者是「体现为、导致」。`},
+      {es:`esa libertad es más formal que efectiva cuando el diseño ha sido concebido por equipos que estudian cómo anticipar y vencer la resistencia del usuario`,
+       note:`más… que… 比较；cuando 引导时间状语从句。ha sido concebido 是被动语态的现在完成时，施动者由 por 引出。`},
+      {es:`La atención sostenida, como cualquier capacidad, se atrofia si no se ejercita.`,
+       note:`como cualquier capacidad 是插入的比较状语。se atrofia 与 se ejercita 均为自复被动（无人称）用法，不指出施动者。`},
+      {es:`dejar el problema exclusivamente en manos de quien lucra con él no ha funcionado`,
+       note:`不定式短语作主语，谓语用第三人称单数。quien lucra 是名词性关系从句，作 en manos de 的宾语；él 回指 el problema。`}
+    ],
+    questions:[
+      {q:'¿En qué se diferencia la competencia actual de la del siglo XX?', a:'Antes se disputaba el tiempo libre; ahora se disputa la capacidad misma de sostener la atención.'},
+      {q:'¿Por qué los sistemas se optimizan para prolongar la sesión?', a:'Porque los ingresos dependen de la publicidad y cada segundo adicional se traduce en dinero.'},
+      {q:'¿Por qué la libertad de elección es «más formal que efectiva»?', a:'Porque el diseño ha sido concebido para anticipar y vencer la resistencia del usuario.'},
+      {q:'¿Qué consecuencia social señala el texto?', a:'Dificultades crecientes para leer, deliberar y sostener un argumento largo.'},
+      {q:'¿Qué dos tipos de respuesta se han ensayado?', a:'La regulación y la pedagogía.'}
+    ]
+  },
+  {level:'C1', title:'专业知识的信任危机', topic:'社会与科学', minutes:8,
+    paragraphs:[
+      {es:`La desconfianza hacia los expertos no es un fenómeno nuevo; lo que resulta novedoso es su generalización. Antes se dudaba de un especialista concreto por motivos concretos; hoy se duda del conocimiento especializado como tal.`,
+       zh:`对专家的不信任并非新现象；新颖之处在于它的普遍化。以前人们因具体缘由怀疑某位具体的专家；如今人们怀疑的是专业知识本身。`},
+      {es:`Sería cómodo atribuirlo a la ignorancia, pero semejante explicación no resiste el menor análisis. Algunas de las corrientes más escépticas hacia la ciencia surgen precisamente entre personas con formación universitaria, y no por casualidad.`,
+       zh:`把它归因于无知会很省事，但这种解释经不起任何推敲。一些对科学最持怀疑态度的思潮恰恰出现在受过大学教育的人群中，而这并非偶然。`},
+      {es:`Una parte de la explicación reside en los propios expertos. Durante décadas, la autoridad científica se presentó como incuestionable, y cuando esa autoridad se equivocó —como inevitablemente ocurre en toda empresa humana—, el coste en credibilidad fue muy superior al del error mismo.`,
+       zh:`一部分解释在于专家自身。几十年来，科学权威被呈现为不容置疑，而当这种权威出错时——正如在一切人类事业中不可避免的那样——其在公信力上的代价远超过错误本身。`},
+      {es:`A ello se añade la velocidad de la información. Un hallazgo preliminar, publicado con las cautelas propias del caso, circula por las redes despojado de esas cautelas y convertido en titular categórico; cuando semanas después se matiza, la rectificación no alcanza a quienes leyeron el titular.`,
+       zh:`除此之外还有信息传播的速度。一项带有应有审慎措辞发表的初步发现，在网络上传播时被剥离了那些审慎，变成了斩钉截铁的标题；几周后加以限定说明时，更正却传不到当初读标题的那些人那里。`},
+      {es:`Restablecer la confianza exigiría, según quienes estudian el problema, dos cosas difíciles de aceptar: que los expertos reconozcan públicamente el alcance de su incertidumbre, y que los ciudadanos acepten convivir con ella. Ninguna de las dos se consigue con campañas de imagen.`,
+       zh:`据研究这一问题的人说，重建信任需要接受两件难以接受的事：专家要公开承认其不确定性的范围，而公民要接受与这种不确定性共存。这两件事都不是靠形象宣传能做到的。`},
+      {es:`Quizá el malentendido de fondo consista en haber confundido la ciencia con un catálogo de certezas. No lo es: es un método para reducir el error, y su virtud no radica en no equivocarse, sino en corregirse.`,
+       zh:`也许根本的误解在于把科学当成了一本确定性的目录。它不是：它是一种减少错误的方法，其优点不在于不犯错，而在于能自我修正。`}
+    ],
+    glossary:[
+      {es:'la desconfianza', zh:'不信任'},
+      {es:'la generalización', zh:'普遍化'},
+      {es:'el conocimiento especializado', zh:'专业知识'},
+      {es:'la ignorancia', zh:'无知'},
+      {es:'resistir el análisis', zh:'经得起分析'},
+      {es:'escéptico', zh:'怀疑的'},
+      {es:'residir en', zh:'在于'},
+      {es:'incuestionable', zh:'不容置疑的'},
+      {es:'la credibilidad', zh:'公信力'},
+      {es:'las cautelas', zh:'审慎、谨慎措辞'},
+      {es:'despojado de', zh:'被剥离了'},
+      {es:'categórico', zh:'斩钉截铁的'},
+      {es:'la rectificación', zh:'更正'},
+      {es:'restablecer', zh:'重建'},
+      {es:'la incertidumbre', zh:'不确定性'},
+      {es:'radicar en', zh:'在于'}
+    ],
+    structures:[
+      {es:`Sería cómodo atribuirlo a la ignorancia, pero semejante explicación no resiste el menor análisis.`,
+       note:`Sería 是条件式，表示「（那样做）会是……」，用于假设性评断。semejante 在此意为「这样的」，而非「相似的」。`},
+      {es:`no por casualidad`,
+       note:`固定短语，意为「并非偶然」。否定词前置时句子其他成分不变，但若出现在句首需注意重音。`},
+      {es:`cuando esa autoridad se equivocó —como inevitablemente ocurre en toda empresa humana—, el coste en credibilidad fue muy superior al del error mismo.`,
+       note:`破折号内是插入的评注从句。superior al… 是比较结构（superior a + 名词），al 是 a + el 的缩合。el del error mismo 中 el 代指 el coste。`},
+      {es:`un hallazgo preliminar… circula por las redes despojado de esas cautelas y convertido en titular categórico`,
+       note:`despojado 与 convertido 是过去分词作主语补足语（表示伴随状态），性数须与 hallazgo 一致（阳性单数）。`},
+      {es:`su virtud no radica en no equivocarse, sino en corregirse.`,
+       note:`radicar en 意为「在于」。no… sino… 结构中，sino 后接与前项平行的成分（此处为 en + 不定式）。`}
+    ],
+    questions:[
+      {q:'¿Qué es lo novedoso de la desconfianza actual?', a:'Su generalización: ya no se duda de un especialista concreto, sino del conocimiento especializado como tal.'},
+      {q:'¿Por qué no basta atribuirla a la ignorancia?', a:'Porque algunas corrientes escépticas surgen entre personas con formación universitaria.'},
+      {q:'¿Qué error cometieron los propios expertos?', a:'Presentar su autoridad como incuestionable.'},
+      {q:'¿Qué ocurre con un hallazgo preliminar en las redes?', a:'Circula despojado de sus cautelas y se convierte en titular categórico.'},
+      {q:'¿En qué radica la virtud de la ciencia según el texto?', a:'No en no equivocarse, sino en corregirse.'}
+    ]
+  },
+  {level:'C2', title:'论翻译的不可能之责', topic:'语言与文学', minutes:9,
+    paragraphs:[
+      {es:`Quien haya traducido un texto que amaba conoce una forma particular de duelo: la certeza de que aquello que se ha escrito no es, ni podrá ser nunca, aquello que se leyó. No se trata de impericia; se trata de una imposibilidad constitutiva.`,
+       zh:`凡是翻译过自己所爱文本的人，都体会过一种特殊的哀悼：确信已写出的东西不是——也永远不可能成为——当初读到的那个东西。这不是技艺不精，而是一种构成性的不可能。`},
+      {es:`La razón es que las lenguas no son sistemas intercambiables de etiquetas. Cada una ha ido sedimentando, a lo largo de siglos, asociaciones que ninguna otra comparte del todo: una palabra arrastra connotaciones, ecos literarios y silencios que no viajan.`,
+       zh:`原因在于语言并非可以互换的标签系统。每一种语言都在数百年间逐渐沉积下其他语言无法完全共享的联想：一个词带着无法同行的内涵、文学回响与沉默。`},
+      {es:`De ahí que la fidelidad, entendida como correspondencia término a término, sea una meta tan atractiva como ilusoria. El traductor que la persigue produce textos correctos y muertos: nada falta y nada respira.`,
+       zh:`因此，把忠实理解为逐词对应，是一个既诱人又虚幻的目标。追求它的译者产出的是正确而死寂的文本：什么都不缺，也什么都不呼吸。`},
+      {es:`Los mejores traductores que he conocido proceden de otro modo. Aceptan que han de perder algo y eligen deliberadamente qué perder, en función de aquello que el original consideraba irrenunciable. Es una decisión ética antes que estética.`,
+       zh:`我认识的最优秀的译者做法不同。他们接受必然有所失，并依据原作视为不可放弃的东西，有意选择失去什么。这首先是一个伦理决定，其次才是美学决定。`},
+      {es:`Esa elección, además, no se hace una vez y para siempre. Cambia con cada época, porque cambia lo que cada época considera irrenunciable. Las retraducciones no responden tanto a que las anteriores envejezcan cuanto a que nosotros ya no somos los mismos lectores.`,
+       zh:`而且这一选择不是一劳永逸的。它随每个时代而变，因为每个时代视为不可放弃的东西在变。重译与其说是因为旧译变老，不如说是因为我们已不再是同样的读者。`},
+      {es:`Se dirá que semejante modestia equivale a renunciar a la objetividad. Quizá. Pero conviene recordar que la alternativa —fingir que existe una equivalencia exacta y proceder como si se hubiera alcanzado— no es más rigurosa: es simplemente menos honesta.`,
+       zh:`有人会说，这种谦逊等于放弃客观性。或许吧。但值得记住的是，另一种选择——假装存在完全的对等并当作已经实现——并不更严谨：它只是更不诚实。`},
+      {es:`Traducir, en suma, no consiste en transportar un significado intacto de una lengua a otra, sino en tomar decisiones responsables sobre lo que se sacrifica. Quien no lo entiende así no traduce: transcribe.`,
+       zh:`总而言之，翻译不在于把意义完好无损地从一种语言运到另一种语言，而在于对牺牲什么做出负责任的决定。不这样理解的人不是在翻译：是在誊抄。`}
+    ],
+    glossary:[
+      {es:'el duelo', zh:'哀悼、丧失之痛'},
+      {es:'la certeza', zh:'确信'},
+      {es:'la impericia', zh:'技艺不精'},
+      {es:'constitutivo', zh:'构成性的'},
+      {es:'la etiqueta', zh:'标签'},
+      {es:'sedimentar', zh:'沉积'},
+      {es:'la connotación', zh:'内涵、言外之意'},
+      {es:'el eco', zh:'回响'},
+      {es:'la correspondencia', zh:'对应'},
+      {es:'ilusorio', zh:'虚幻的'},
+      {es:'irrenunciable', zh:'不可放弃的'},
+      {es:'ético', zh:'伦理的'},
+      {es:'la retraducción', zh:'重译'},
+      {es:'la modestia', zh:'谦逊'},
+      {es:'la equivalencia', zh:'对等'},
+      {es:'riguroso', zh:'严谨的'},
+      {es:'intacto', zh:'完好无损的'},
+      {es:'transcribir', zh:'誊抄'}
+    ],
+    structures:[
+      {es:`Quien haya traducido un texto que amaba conoce una forma particular de duelo.`,
+       note:`quien haya traducido 是名词性关系从句作主语，用现在完成虚拟式表示「凡是曾经……的人」——虚拟式在此表达的是不确定的、泛指的集合，而非具体某人。`},
+      {es:`aquello que se ha escrito no es, ni podrá ser nunca, aquello que se leyó`,
+       note:`aquello que 意为「……的那个东西」。ni… nunca 构成否定加强。注意插入语 ni podrá ser nunca 被逗号隔开，插在主句谓语之间。`},
+      {es:`Cada una ha ido sedimentando, a lo largo de siglos, asociaciones que ninguna otra comparte del todo.`,
+       note:`ir + 副动词（ha ido sedimentando）表示逐渐、持续的过程。a lo largo de 意为「在……期间」。del todo 意为「完全」。`},
+      {es:`De ahí que la fidelidad, entendida como correspondencia término a término, sea una meta tan atractiva como ilusoria.`,
+       note:`de ahí que + 虚拟式（sea）。entendida como… 是过去分词短语作后置定语，修饰 la fidelidad。tan… como… 在此表示「既……又……」。`},
+      {es:`Las retraducciones no responden tanto a que las anteriores envejezcan cuanto a que nosotros ya no somos los mismos lectores.`,
+       note:`no tanto… cuanto… 意为「与其说……不如说……」。关键：a que 后面的动词语式不同——envejezcan 用虚拟式（因其为被否定的原因），somos 用陈述式（因其为被肯定的原因）。`},
+      {es:`la alternativa —fingir que existe una equivalencia exacta y proceder como si se hubiera alcanzado— no es más rigurosa`,
+       note:`como si 后必须用虚拟式过去时（hubiera alcanzado），表示与事实相反的假设。据此可知「已经达到」并非事实。`}
+    ],
+    questions:[
+      {q:'¿Por qué el autor califica la imposibilidad de traducir como «constitutiva»?', a:'Porque las lenguas no son sistemas intercambiables de etiquetas: arrastran asociaciones que no viajan.'},
+      {q:'¿Qué produce el traductor que persigue la fidelidad término a término?', a:'Textos correctos y muertos: nada falta y nada respira.'},
+      {q:'¿Qué caracteriza a los mejores traductores según el autor?', a:'Aceptan que han de perder algo y eligen deliberadamente qué perder.'},
+      {q:'¿Por qué se retraduce a los clásicos?', a:'Porque cambia lo que cada época considera irrenunciable: ya no somos los mismos lectores.'},
+      {q:'¿Qué diferencia hay entre traducir y transcribir?', a:'Traducir es tomar decisiones responsables sobre lo que se sacrifica; transcribir es fingir que el significado se transporta intacto.'}
+    ]
+  },
+  {level:'C2', title:'时间、记忆与自我', topic:'哲学与心理', minutes:9,
+    paragraphs:[
+      {es:`Decimos «yo» con una seguridad que el examen desmiente. Bajo esa palabra no hay una sustancia estable, sino un relato que se reescribe sin cesar y que, precisamente por reescribirse, se percibe como continuo.`,
+       zh:`我们说出"我"时带着一种经不起审视的确定。这个词之下并没有稳固的实体，而是一个不断被改写的叙事，而正因为它被改写，才被感知为连续的。`},
+      {es:`La paradoja merece detenerse. Si cada recuerdo se reconstruye cada vez que se evoca, y si esa reconstrucción incorpora el estado de ánimo del momento, entonces lo que llamamos pasado es en parte un producto del presente que lo recuerda.`,
+       zh:`这个悖论值得停下来想一想。如果每一次回忆被唤起时都被重新构建，而这种重建又融入了当下的心境，那么我们所称的过去，有一部分是回忆它的当下所产出的。`},
+      {es:`De ello no se sigue que la memoria sea pura invención —sería un absurdo—, sino algo más incómodo: que no disponemos de un criterio independiente para distinguir lo que recordamos de lo que hemos ido añadiendo al recordarlo.`,
+       zh:`由此并不能推出记忆纯属虚构——那将是荒谬的——而是推出更令人不适的一点：我们并没有一个独立的标准来区分我们所记住的，与我们在回忆过程中不断添加进去的。`},
+      {es:`Algunos filósofos han extraído de aquí una conclusión radical: que la identidad personal es una ficción útil, una convención que nos permite actuar sin tener que resolver un problema insoluble en cada momento.`,
+       zh:`一些哲学家由此得出一个激进结论：人格同一性是一种有用的虚构，一种让我们无需每时每刻去解决一个无解难题就能行动的约定。`},
+      {es:`Otros, en cambio, consideran que semejante tesis confunde el mapa con el territorio. Que el relato sea revisable no implica que no haya nada que se revise; la fragilidad del testimonio no demuestra la inexistencia del testigo.`,
+       zh:`另一些人则认为，这一论断混淆了地图与疆域。叙事可以被修订，并不意味着没有东西在被修订；证词脆弱，并不能证明证词人不存在。`},
+      {es:`Quizá el desacuerdo no sea resoluble, y quizá eso mismo sea lo interesante. Lo que ambas posiciones comparten es una exigencia de honestidad: renunciar a la ilusión de transparencia y aceptar que, al hablar de nosotros mismos, siempre hablamos también de algo que se nos escapa.`,
+       zh:`或许这一分歧无法解决，而这本身或许才是有意思的地方。两种立场共同拥有的，是一种诚实的要求：放弃透明性的幻觉，接受这一点——当我们谈论自己时，我们总也在谈论某种逃离我们的东西。`}
+    ],
+    glossary:[
+      {es:'la sustancia', zh:'实体'},
+      {es:'el relato', zh:'叙事'},
+      {es:'sin cesar', zh:'不停地'},
+      {es:'la paradoja', zh:'悖论'},
+      {es:'evocar', zh:'唤起（记忆）'},
+      {es:'incorporar', zh:'纳入、融入'},
+      {es:'el estado de ánimo', zh:'心境'},
+      {es:'seguirse de', zh:'由此推出'},
+      {es:'el criterio', zh:'标准'},
+      {es:'extraer', zh:'得出、提取'},
+      {es:'la identidad personal', zh:'人格同一性'},
+      {es:'la convención', zh:'约定'},
+      {es:'insoluble', zh:'无解的'},
+      {es:'revisable', zh:'可修订的'},
+      {es:'la fragilidad', zh:'脆弱性'},
+      {es:'el testigo', zh:'证人'},
+      {es:'la transparencia', zh:'透明'},
+      {es:'escaparse', zh:'逃逸、无法把握'}
+    ],
+    structures:[
+      {es:`un relato que se reescribe sin cesar y que, precisamente por reescribirse, se percibe como continuo`,
+       note:`两个 que 并列引导定语从句修饰 un relato。por + 不定式（por reescribirse）表原因，此处前置于谓语，强调因果。`},
+      {es:`Si cada recuerdo se reconstruye cada vez que se evoca, y si esa reconstrucción incorpora el estado de ánimo del momento, entonces…`,
+       note:`两个 si 引导的条件从句并列。cada vez que 引导时间从句，用陈述式（se evoca），因为描述的是每次都会发生的事实。entonces 引出结论。`},
+      {es:`De ello no se sigue que la memoria sea pura invención, sino algo más incómodo.`,
+       note:`de ello se sigue que 意为「由此得出」。注意 no se sigue que 后接虚拟式（sea），因为否定了一个推论；而 sino 后接的肯定部分保持名词短语。`},
+      {es:`la fragilidad del testimonio no demuestra la inexistencia del testigo`,
+       note:`双重否定在此是修辞手法：no demuestra la inexistencia = 并不证明其不存在。注意 inexistencia 是通过前缀 in- 构成的名词。`},
+      {es:`al hablar de nosotros mismos, siempre hablamos también de algo que se nos escapa`,
+       note:`al + 不定式表示「在做……时」。nosotros mismos 加强语气。se nos escapa 中 se 是自复被动标记，nos 是与格，意为「从我们这里逃逸」。`}
+    ],
+    questions:[
+      {q:'¿Qué se esconde bajo la palabra «yo» según el texto?', a:'No una sustancia estable, sino un relato que se reescribe sin cesar.'},
+      {q:'¿Qué papel juega el estado de ánimo en el recuerdo?', a:'Se incorpora a la reconstrucción, de modo que el pasado es en parte producto del presente.'},
+      {q:'¿Qué conclusión radical extraen algunos filósofos?', a:'Que la identidad personal es una ficción útil y una convención.'},
+      {q:'¿Qué objeción se les opone?', a:'Que confunden el mapa con el territorio: la fragilidad del testimonio no prueba la inexistencia del testigo.'},
+      {q:'¿Qué comparten ambas posiciones?', a:'Una exigencia de honestidad: renunciar a la ilusión de transparencia.'}
+    ]
+  }
+];
 
 /* ============================================
    独立学习模块语料
@@ -2077,6 +3209,108 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Ese es el motivo ___ me fui.', options:['por el que','que','quien','cual'], correct:0, explain:'介词 + 关系代词。'},
     {sentence:'___ más lo pienso, menos lo entiendo.', options:['Cuanto','Tanto','Como','Que'], correct:0, explain:'cuanto más... menos 表比例关系。'},
     {sentence:'Dime ___ quieres.', options:['lo que','que','cual','quien'], correct:0, explain:'lo que 作宾语，表「你想要的东西」。'}
+  ]},
+  {topic:'被动语态 (Voz pasiva)', questions:[
+    {sentence:'La novela ___ publicada en 1982.', options:['fue', 'era', 'estuvo', 'había'], correct:0, explain:'ser + 过去分词构成被动语态，配合时间点用简单过去时。'},
+    {sentence:'El edificio ___ construido por un arquitecto famoso.', options:['fue', 'se', 'está', 'tuvo'], correct:0, explain:'有施动者（por + 人）时用 ser 被动语态。'},
+    {sentence:'Las pruebas ___ entregadas ayer al tribunal.', options:['fueron', 'se', 'estuvieron', 'hubieron'], correct:0, explain:'主语为复数，ser 用 fueron；分词 entregadas 与主语性数一致。'},
+    {sentence:'Este problema ___ resuelto por el equipo técnico.', options:['ha sido', 'se', 'es sido', 'tiene sido'], correct:0, explain:'被动语态的完成时：haber + sido + 过去分词。'},
+    {sentence:'___ construir un puente sobre el río.', options:['Se va a', 'Va a ser', 'Se va', 'Es va a'], correct:0, explain:'被动语态的将来表达：se va a + 不定式（也可用 va a ser construido）。'},
+    {sentence:'La decisión ___ tomada antes de la reunión.', options:['había sido', 'se', 'era sido', 'fue sido'], correct:0, explain:'过去完成时的被动：había sido + 分词。'},
+    {sentence:'El informe ___ por los expertos la semana pasada.', options:['fue revisado', 'se revisó', 'estuvo revisando', 'era revisado'], correct:0, explain:'明确施动者时，用 ser + 分词 + por。'},
+    {sentence:'Los invitados ___ recibidos con gran ceremonia.', options:['fueron', 'se', 'estuvieron', 'son sido'], correct:0, explain:'ser 被动语态，复数 fueron；recibidos 与主语一致。'},
+    {sentence:'Ese cuadro ___ pintado por Velázquez.', options:['fue', 'se', 'estuvo', 'era'], correct:0, explain:'有明确施动者，必须用 ser 被动而非 se 被动。'},
+    {sentence:'La ley ___ aprobada por unanimidad.', options:['fue', 'se', 'era', 'tuvo'], correct:0, explain:'por unanimidad 表方式，但主语为被动受事，用 ser 被动最自然。'},
+    {sentence:'Los resultados ___ dados a conocer mañana.', options:['serán', 'se', 'estarán', 'serían sido'], correct:0, explain:'将来时的被动：serán + 分词。'},
+    {sentence:'La conferencia ___ suspendida por falta de público.', options:['fue', 'se', 'estuvo', 'hubo'], correct:0, explain:'表原因用 por；被动语态用 fue + 分词。'},
+    {sentence:'Este medicamento ___ probado en humanos todavía.', options:['no ha sido', 'no se', 'no es sido', 'no tiene sido'], correct:0, explain:'否定 + 完成被动：no ha sido + 分词。'},
+    {sentence:'Las obras ___ financiadas con fondos públicos.', options:['fueron', 'se', 'estuvieron', 'hubieron'], correct:0, explain:'ser 被动语态，主语复数用 fueron。'},
+    {sentence:'El contrato ___ firmado por ambas partes.', options:['fue', 'se', 'estuvo', 'era'], correct:0, explain:'por ambas partes 为施动者，须用 ser 被动。'}
+  ]},
+  {topic:'被动 se 与无人称 se', questions:[
+    {sentence:'___ venden pisos en esta zona.', options:['Se', 'Son', 'Están', 'Les'], correct:0, explain:'se 被动：主语 pisos 在后，动词与主语保持数的一致（venden）。'},
+    {sentence:'Aquí ___ habla inglés.', options:['se', 'es', 'está', 'hay'], correct:0, explain:'se 无人称结构，动词用第三人称单数，无明确主语。'},
+    {sentence:'___ prohíbe fumar en el interior.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se 无人称，用于公示语，动词单数。'},
+    {sentence:'En España ___ cena muy tarde.', options:['se', 'es', 'está', 'hay'], correct:0, explain:'se 无人称表示泛指的习俗。'},
+    {sentence:'___ necesitan camareros con experiencia.', options:['Se', 'Son', 'Están', 'Hay'], correct:0, explain:'se 被动，主语 camareros 为复数，故用 necesitan。'},
+    {sentence:'___ dice que va a llover.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se dice que ＝「据说」，典型的无人称结构。'},
+    {sentence:'___ alquila habitación para estudiantes.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se 被动，主语为单数 habitación，故动词单数。'},
+    {sentence:'No ___ permite la entrada a menores.', options:['se', 'es', 'está', 'hay'], correct:0, explain:'se 无人称否定式。'},
+    {sentence:'___ construyeron tres puentes el año pasado.', options:['Se', 'Fueron', 'Estuvieron', 'Hubo'], correct:0, explain:'se 被动表「（人们）建造了」，与 fueron construidos 语义相近但更口语。'},
+    {sentence:'___ ruega puntualidad a los asistentes.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se ruega ＝「敬请」，正式场合的无人称表达。'},
+    {sentence:'___ trata de un asunto delicado.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se trata de ＝「这是关于」，固定无人称表达。'},
+    {sentence:'___ observa un aumento de la demanda.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se observa ＝「可以观察到」，书面无人称。'},
+    {sentence:'___ aceptan donaciones en la entrada.', options:['Se', 'Son', 'Están', 'Hay'], correct:0, explain:'se 被动，主语 donaciones 复数 → aceptan。'},
+    {sentence:'___ desconoce el paradero del sospechoso.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se desconoce ＝「尚不清楚」，新闻体无人称。'},
+    {sentence:'___ prevé un crecimiento del dos por ciento.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se prevé que ＝「预计」，经济报道常用。'}
+  ]},
+  {topic:'间接引语 (Estilo indirecto)', questions:[
+    {sentence:'Dijo: «Vengo mañana» → Dijo que ___ al día siguiente.', options:['vendría', 'viene', 'vendrá', 'viniera'], correct:0, explain:'直接引语将来时（mañana）在间接引语中改为条件式（vendría），mañana → al día siguiente。'},
+    {sentence:'Preguntó: «¿Dónde vives?» → Preguntó dónde ___.', options:['vivía', 'vivo', 'viviría', 'viva'], correct:0, explain:'主句为过去时，间接疑问句时态后移：vives → vivía。'},
+    {sentence:'Dijo: «Estoy cansado» → Dijo que ___ cansado.', options:['estaba', 'está', 'estaría', 'estuviera'], correct:0, explain:'现在时后移为未完成过去时。'},
+    {sentence:'Comentó: «He terminado» → Comentó que ___.', options:['había terminado', 'he terminado', 'habría terminado', 'terminara'], correct:0, explain:'现在完成后移为过去完成时。'},
+    {sentence:'Dijo: «Ayer fui al cine» → Dijo que ___ al cine el día anterior.', options:['había ido', 'fui', 'iría', 'fuera'], correct:0, explain:'ayer → el día anterior；简单过去时后移为过去完成时。'},
+    {sentence:'Pidió: «Dame el informe» → Pidió que le ___ el informe.', options:['diera', 'da', 'daría', 'había dado'], correct:0, explain:'命令式在间接引语中改为过去时虚拟式。'},
+    {sentence:'Afirmó: «Es verdad» → Afirmó que ___ verdad.', options:['era', 'es', 'sería', 'fuera'], correct:0, explain:'陈述事实的从句时态后移（era）。'},
+    {sentence:'Expliqué: «Aquí hay un error» → Expliqué que ___ un error allí.', options:['había', 'hay', 'habría', 'hubiera'], correct:0, explain:'aquí → allí；hay 后移为 había。'},
+    {sentence:'Dijo: «Puedo ayudarte» → Dijo que ___ ayudarme.', options:['podía', 'puede', 'podría', 'pudiera'], correct:0, explain:'poder 的时态后移：puedo → podía（表过去的可能性）。'},
+    {sentence:'Preguntó: «¿Has visto a Ana?» → Preguntó si ___ a Ana.', options:['había visto', 'he visto', 'habría visto', 'hubiera visto'], correct:0, explain:'是/否疑问句转为 si 引导，时态后移。'},
+    {sentence:'Dijo: «Ven ahora» → Dijo que ___ en ese momento.', options:['fuera', 'va', 'iría', 'iba'], correct:0, explain:'命令式改虚拟式；ahora → en ese momento。'},
+    {sentence:'Contó: «Mañana salgo de viaje» → Contó que ___ de viaje al día siguiente.', options:['salía', 'salgo', 'saldría', 'saliera'], correct:0, explain:'表将来的现在时（mañana salgo）后移为 salía。'},
+    {sentence:'Admitió: «Me equivoqué» → Admitió que ___ equivocado.', options:['se había', 'se ha', 'se habría', 'se hubiera'], correct:0, explain:'简单过去时后移为过去完成时。'},
+    {sentence:'Sugirió: «Podríamos esperar» → Sugirió que ___ esperar.', options:['pudiéramos', 'podíamos', 'podríamos', 'podamos'], correct:0, explain:'建议类动词后接虚拟式；主句过去时 → 过去时虚拟式。'},
+    {sentence:'Dijo: «Yo no lo hice» → Dijo que él no lo ___.', options:['había hecho', 'hizo', 'haría', 'hiciera'], correct:0, explain:'先于主句的过去动作 → 过去完成时。'}
+  ]},
+  {topic:'虚拟式完成时 (Subjuntivo compuesto)', questions:[
+    {sentence:'No creo que ___ llegado todavía.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'虚拟式完成时：haya + 分词，用于主句为现在时但从句先于主句。'},
+    {sentence:'Me alegra que ___ aprobado el examen.', options:['hayas', 'has', 'habías', 'habrías'], correct:0, explain:'情感动词 + 虚拟式；已完成动作用虚拟式完成时。'},
+    {sentence:'Es posible que ya ___ salido.', options:['hayan', 'han', 'habían', 'habrían'], correct:0, explain:'可能性 + 已完成动作 → 虚拟式完成时。'},
+    {sentence:'Dudo que ___ dicho la verdad.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'dudar que + 虚拟式完成时（针对已发生的事）。'},
+    {sentence:'Lamento que no ___ podido venir.', options:['hayas', 'has', 'habías', 'habrías'], correct:0, explain:'lamentar que 表遗憾，用虚拟式完成时。'},
+    {sentence:'Es una pena que ___ perdido el tren.', options:['hayas', 'has', 'habías', 'habrías'], correct:0, explain:'es una pena que + 虚拟式完成时。'},
+    {sentence:'No me parece bien que ___ actuado así.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'否定评价 + 已完成动作 → 虚拟式完成时。'},
+    {sentence:'Ojalá ___ terminado ya.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'ojalá + 虚拟式完成时，表对已完成之事的愿望或遗憾。'},
+    {sentence:'Es probable que se ___ olvidado.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'es probable que + 虚拟式完成时，表对过去的推测。'},
+    {sentence:'No estoy seguro de que ___ entendido bien.', options:['hayas', 'has', 'habías', 'habrías'], correct:0, explain:'no estar seguro de que + 虚拟式完成时。'},
+    {sentence:'Sentimos mucho que ___ ocurrido eso.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'sentir que 表情感，已完成动作用虚拟式完成时。'},
+    {sentence:'Quizá ya lo ___ hecho sin avisarnos.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'quizá + 虚拟式完成时，表不确定的过去。'},
+    {sentence:'Es raro que no ___ llamado aún.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'es raro que + 虚拟式完成时，表对反常情况的态度。'},
+    {sentence:'Me sorprende que ___ aceptado esa oferta.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'sorprender que + 虚拟式完成时。'},
+    {sentence:'No es que no ___ querido, es que no he podido.', options:['haya', 'he', 'había', 'habría'], correct:0, explain:'no es que + 虚拟式（含完成时）表否定原因；后半句 es que 用陈述式。'}
+  ]},
+  {topic:'关系从句进阶 (Relativas avanzadas)', questions:[
+    {sentence:'El autor ___ obras he leído es argentino.', options:['cuyas', 'que', 'quien', 'cual'], correct:0, explain:'cuyo 的性数随其后名词（obras，阴性复数）变化。'},
+    {sentence:'Es una persona en ___ se puede confiar.', options:['quien', 'que', 'cual', 'cuyo'], correct:0, explain:'前置词 + quien 指人；也可用 en el que。'},
+    {sentence:'La razón ___ me fui nunca la supo.', options:['por la que', 'que', 'quien', 'cual'], correct:0, explain:'表原因需用 por la que / por la cual。'},
+    {sentence:'No hay nada ___ pueda hacer.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'先行词为否定存在（nada）时，关系从句用虚拟式（pueda）。'},
+    {sentence:'Busco un piso ___ tenga terraza.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'寻找不确定的对象时，关系从句用虚拟式。'},
+    {sentence:'El lugar ___ nacimos ya no existe.', options:['donde', 'que', 'cual', 'cuyo'], correct:0, explain:'先行词为地点用 donde。'},
+    {sentence:'Tengo un amigo, ___ padre es médico.', options:['cuyo', 'que', 'quien', 'el que'], correct:0, explain:'cuyo 表所属，与 padre（阳性单数）一致。'},
+    {sentence:'Fue entonces ___ decidí marcharme.', options:['cuando', 'que', 'donde', 'cual'], correct:0, explain:'fue entonces cuando 是强调时间状语的固定结构。'},
+    {sentence:'Dime ___ piensas de verdad.', options:['lo que', 'que', 'cual', 'quien'], correct:0, explain:'lo que ＝「……的东西」，作名词性关系从句。'},
+    {sentence:'Hay quienes ___ que es demasiado tarde.', options:['piensan', 'piensen', 'piensan que', 'pensar'], correct:0, explain:'hay quienes ＝「有些人」，指具体存在的人，用陈述式。'},
+    {sentence:'El motivo ___ se marchó es confidencial.', options:['por el que', 'que', 'cual', 'quien'], correct:0, explain:'表原因用 por el que（阳性单数，先行词 motivo）。'},
+    {sentence:'Cualquiera ___ quiera venir será bienvenido.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'cualquiera que + 虚拟式，表泛指的不确定对象。'},
+    {sentence:'Es el escritor ___ más admiro.', options:['a quien', 'quien', 'que', 'cual'], correct:0, explain:'指人的直接宾语加前置词 a：a quien（也可用 al que）。'},
+    {sentence:'La casa, ___ compramos hace un año, ya se ha revalorizado.', options:['que', 'la que', 'cual', 'quien'], correct:0, explain:'非限定性定语从句用 que 即可；用逗号隔开。'},
+    {sentence:'No conozco a nadie ___ haya estado allí.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'先行词为否定的存在（nadie）→ 关系从句用虚拟式。'}
+  ]},
+  {topic:'连接词与语式配合', questions:[
+    {sentence:'Cuando ___ mayor, quiero ser médico.', options:['sea', 'soy', 'seré', 'era'], correct:0, explain:'cuando 指将来时用虚拟式。'},
+    {sentence:'Cuando ___ pequeño, vivía en el campo.', options:['era', 'fuera', 'fui', 'sea'], correct:0, explain:'cuando 指过去的事实用陈述式（未完成过去时表背景）。'},
+    {sentence:'Aunque ___ frío, saldremos.', options:['haga', 'hace', 'hará', 'hacía'], correct:0, explain:'aunque + 虚拟式表假设或无关紧要的情况。'},
+    {sentence:'Aunque ___ frío, salimos igualmente.', options:['hacía', 'hiciera', 'haga', 'hacía sido'], correct:0, explain:'aunque + 陈述式表已知事实。'},
+    {sentence:'Antes de que ___, avísame.', options:['te vayas', 'te vas', 'te irás', 'te ibas'], correct:0, explain:'antes de que 后接虚拟式。'},
+    {sentence:'Después de que ___ , nos fuimos.', options:['terminó', 'terminara', 'termine', 'terminaría'], correct:0, explain:'después de que 指已发生的事实，可用陈述式（terminó）；指未来则用虚拟式。'},
+    {sentence:'Hasta que no ___ el informe, no podemos decidir.', options:['tengamos', 'tenemos', 'tendremos', 'teníamos'], correct:0, explain:'hasta que 指将来未实现的情况用虚拟式。'},
+    {sentence:'Mientras ___ estudiando, no me llames.', options:['esté', 'estoy', 'estaré', 'estaba'], correct:0, explain:'mientras 指将来的持续状态用虚拟式。'},
+    {sentence:'En cuanto ___ , te aviso.', options:['llegue', 'llego', 'llegaré', 'llegaba'], correct:0, explain:'en cuanto 指将来用虚拟式。'},
+    {sentence:'Siempre que ___ , iremos a la playa.', options:['haga', 'hace', 'hará', 'hacía'], correct:0, explain:'siempre que 表条件，用虚拟式。'},
+    {sentence:'Con tal de que ___ , te lo diré.', options:['calles', 'callas', 'callarás', 'callabas'], correct:0, explain:'con tal de que 表条件，用虚拟式。'},
+    {sentence:'Salvo que ___ lo contrario, iremos.', options:['digan', 'dicen', 'dirán', 'decían'], correct:0, explain:'salvo que 表例外条件，用虚拟式。'},
+    {sentence:'Por si ___ , llévate el paraguas.', options:['llueve', 'llueva', 'llovería', 'lloviera'], correct:0, explain:'por si 后可用陈述式（不确定但可能）或虚拟式过去时（更假设）；此处表可能，用 llueve 亦可，但考试常考 llueva 的备选错误。注意：por si + 陈述式 为标准。'},
+    {sentence:'A menos que ___ , no iremos.', options:['llueva', 'llueve', 'lloverá', 'llovía'], correct:0, explain:'a menos que 后接虚拟式。'},
+    {sentence:'De modo que todos ___ , se aplazó la reunión.', options:['pudieran', 'pueden', 'podrán', 'podían'], correct:0, explain:'de modo que 表目的时用虚拟式；表结果用陈述式。此处表目的。'}
   ]}
 ];
 
@@ -2123,7 +3357,52 @@ const SPEAKING_SENTENCES = [
   {level:'C2', es:'Su discurso, salpicado de citas eruditas, dejó entrever un dejo de resignación.', zh:'他的演讲点缀着博学的引文，却流露出几分无奈。', slow:'Su discurso… salpicado de citas eruditas… dejó entrever… un dejo de resignación.', vocab:['salpicado de','dejar entrever','dejo']},
   {level:'C2', es:'No es tanto que carezca de argumentos, cuanto que rehúye el debate frontal.', zh:'与其说他缺乏论据，不如说他在回避正面交锋。', slow:'No es tanto… que carezca de argumentos… cuanto que… rehúye el debate frontal.', vocab:['no es tanto… cuanto que','carecer de','rehuir']},
   {level:'C2', es:'A fuerza de tanto aplazarlo, el asunto acabó por convertirse en un lastre insostenible.', zh:'由于一再拖延，这件事最终成了无法承受的负担。', slow:'A fuerza de tanto aplazarlo… el asunto… acabó por convertirse… en un lastre insostenible.', vocab:['A fuerza de','acabar por','lastre']},
-  {level:'C2', es:'Quien pretenda zanjar un dilema semejante con una sola frase peca de ingenuidad.', zh:'谁想用一句话就了结这样的两难，那未免太天真了。', slow:'Quien pretenda zanjar… un dilema semejante… con una sola frase… peca de ingenuidad.', vocab:['zanjar','pecar de','ingenuidad']}
+  {level:'C2', es:'Quien pretenda zanjar un dilema semejante con una sola frase peca de ingenuidad.', zh:'谁想用一句话就了结这样的两难，那未免太天真了。', slow:'Quien pretenda zanjar… un dilema semejante… con una sola frase… peca de ingenuidad.', vocab:['zanjar','pecar de','ingenuidad']},
+  {level:'B2', es:'Si me lo hubieras dicho antes, habría cambiado el plan.', zh:'如果你早点告诉我，我就会改计划了。', slow:'Si me lo hubieras dicho… antes… habría cambiado… el plan.', vocab:['Si me lo hubieras dicho', 'habría cambiado']},
+  {level:'B2', es:'No es que no quiera ir, es que no puedo.', zh:'不是我不想去，而是我不能去。', slow:'No es que no quiera ir… es que… no puedo.', vocab:['No es que', 'es que']},
+  {level:'B2', es:'Por mucho que insistas, mi respuesta será la misma.', zh:'无论你怎么坚持，我的回答还是一样。', slow:'Por mucho que insistas… mi respuesta… será la misma.', vocab:['Por mucho que', 'insistas']},
+  {level:'B2', es:'En cuanto termine esto, me pongo contigo.', zh:'我一做完这个就跟你一起。', slow:'En cuanto termine esto… me pongo contigo.', vocab:['En cuanto', 'me pongo contigo']},
+  {level:'B2', es:'A menos que llueva, saldremos a caminar.', zh:'除非下雨，我们就出去走走。', slow:'A menos que llueva… saldremos… a caminar.', vocab:['A menos que', 'saldremos']},
+  {level:'B2', es:'Llevo dos horas esperando y nadie me ha avisado.', zh:'我等了两个小时，没人通知我。', slow:'Llevo dos horas esperando… y nadie… me ha avisado.', vocab:['Llevo dos horas esperando', 'avisar']},
+  {level:'B2', es:'No me cabe duda de que lo hiciste lo mejor que pudiste.', zh:'我毫不怀疑你已经尽力做到了最好。', slow:'No me cabe duda… de que lo hiciste… lo mejor que pudiste.', vocab:['No me cabe duda', 'lo mejor que pudiste']},
+  {level:'B2', es:'Es probable que lleguen tarde por el tráfico.', zh:'他们很可能因为堵车会晚到。', slow:'Es probable que… lleguen tarde… por el tráfico.', vocab:['Es probable que', 'el tráfico']},
+  {level:'B2', es:'Cuanto antes lo resolvamos, mejor para todos.', zh:'我们越早解决，对大家越好。', slow:'Cuanto antes lo resolvamos… mejor para todos.', vocab:['Cuanto antes', 'mejor para todos']},
+  {level:'B2', es:'Me da la sensación de que no me estás escuchando.', zh:'我感觉你没在听我说。', slow:'Me da la sensación… de que no me estás escuchando.', vocab:['Me da la sensación', 'escuchar']},
+  {level:'B2', es:'Dicho esto, sigo pensando que hay margen de mejora.', zh:'话虽如此，我仍然认为还有改进空间。', slow:'Dicho esto… sigo pensando… que hay margen de mejora.', vocab:['Dicho esto', 'margen de mejora']},
+  {level:'B2', es:'Tanto si vienes como si no, avísame.', zh:'不管你来还是不来，都告诉我一声。', slow:'Tanto si vienes… como si no… avísame.', vocab:['Tanto si… como si', 'avísame']},
+  {level:'B2', es:'Se me ocurre otra manera de enfocarlo.', zh:'我想到另一种切入方式。', slow:'Se me ocurre… otra manera… de enfocarlo.', vocab:['Se me ocurre', 'enfocar']},
+  {level:'B2', es:'No vale la pena discutir por algo tan pequeño.', zh:'为这么小的事争论不值得。', slow:'No vale la pena… discutir… por algo tan pequeño.', vocab:['No vale la pena', 'discutir']},
+  {level:'B2', es:'De haberlo sabido, te habría llamado antes.', zh:'早知道我就早点给你打电话了。', slow:'De haberlo sabido… te habría llamado… antes.', vocab:['De haberlo sabido', 'habría llamado']},
+  {level:'C1', es:'Permítame matizar esa afirmación, porque creo que simplifica demasiado.', zh:'请允许我对这个论断做些限定，因为我认为它过于简化了。', slow:'Permítame matizar… esa afirmación… porque creo… que simplifica demasiado.', vocab:['Permítame matizar', 'simplificar']},
+  {level:'C1', es:'Hasta cierto punto estoy de acuerdo, aunque discrepo en el enfoque.', zh:'在某种程度上我同意，但在思路上我有不同意见。', slow:'Hasta cierto punto… estoy de acuerdo… aunque discrepo… en el enfoque.', vocab:['Hasta cierto punto', 'discrepar en']},
+  {level:'C1', es:'Lejos de resolverlo, esa medida lo agrava.', zh:'那项措施非但没有解决问题，反而使之恶化。', slow:'Lejos de resolverlo… esa medida… lo agrava.', vocab:['Lejos de', 'agravar']},
+  {level:'C1', es:'Cabe preguntarse si el problema no estará mal planteado desde el principio.', zh:'不禁要问，这个问题是否从一开始就被提错了。', slow:'Cabe preguntarse… si el problema… no estará mal planteado… desde el principio.', vocab:['Cabe preguntarse', 'estar mal planteado']},
+  {level:'C1', es:'No en vano se ha convertido en referencia obligada del sector.', zh:'它成为该领域必读的参考并非无缘无故。', slow:'No en vano… se ha convertido… en referencia obligada… del sector.', vocab:['No en vano', 'referencia obligada']},
+  {level:'C1', es:'Aun a riesgo de parecer ingenuo, sigo confiando en el diálogo.', zh:'即使冒着显得天真的风险，我仍然相信对话。', slow:'Aun a riesgo de parecer ingenuo… sigo confiando… en el diálogo.', vocab:['Aun a riesgo de', 'confiar en']},
+  {level:'C1', es:'Conviene no confundir la causa con la consecuencia.', zh:'不宜把原因和结果混为一谈。', slow:'Conviene no confundir… la causa… con la consecuencia.', vocab:['Conviene', 'confundir A con B']},
+  {level:'C1', es:'En rigor, los datos no permiten sostener esa conclusión.', zh:'严格说来，这些数据不足以支撑那个结论。', slow:'En rigor… los datos no permiten… sostener esa conclusión.', vocab:['En rigor', 'sostener']},
+  {level:'C1', es:'Hay que reconocer que la propuesta adolece de falta de concreción.', zh:'必须承认，该提案缺乏具体性。', slow:'Hay que reconocer… que la propuesta… adolece de falta de concreción.', vocab:['adolecer de', 'concreción']},
+  {level:'C1', es:'Por más que se insista, la evidencia no respalda esa hipótesis.', zh:'无论怎样强调，证据都不支持那个假设。', slow:'Por más que se insista… la evidencia… no respalda esa hipótesis.', vocab:['Por más que', 'respaldar']},
+  {level:'C1', es:'Se trata, en definitiva, de una cuestión de prioridades.', zh:'归根结底，这是个优先次序问题。', slow:'Se trata… en definitiva… de una cuestión de prioridades.', vocab:['En definitiva', 'prioridad']},
+  {level:'C1', es:'No se me escapa que la decisión tiene un coste político.', zh:'我并非看不出这个决定有政治代价。', slow:'No se me escapa… que la decisión… tiene un coste político.', vocab:['No se me escapa', 'coste político']},
+  {level:'C1', es:'Antes de zanjar el debate, convendría escuchar a quienes lo sufren.', zh:'在了结这场争论之前，应当听听那些承受其后果的人。', slow:'Antes de zanjar el debate… convendría escuchar… a quienes lo sufren.', vocab:['zanjar', 'convendría']},
+  {level:'C1', es:'Es cuando menos discutible que esa medida sea proporcionada.', zh:'那项措施是否适度，至少是有争议的。', slow:'Es cuando menos discutible… que esa medida… sea proporcionada.', vocab:['cuando menos', 'proporcionado']},
+  {level:'C1', es:'Si bien es cierto que ha mejorado, no lo es menos que partía de muy abajo.', zh:'虽说有所改善，但同样属实的是，起点极低。', slow:'Si bien es cierto que ha mejorado… no lo es menos… que partía de muy abajo.', vocab:['Si bien es cierto que', 'no lo es menos que']},
+  {level:'C2', es:'No pretendo zanjar una cuestión que lleva siglos dividiendo a los mejores ingenios.', zh:'我无意了结一个数百年来让最杰出的才智之士分歧不断的问题。', slow:'No pretendo zanjar… una cuestión… que lleva siglos… dividiendo a los mejores ingenios.', vocab:['pretender', 'los mejores ingenios']},
+  {level:'C2', es:'Quien sostenga lo contrario deberá explicar por qué los hechos lo desmienten.', zh:'谁若主张相反的观点，就必须解释为何事实否定了它。', slow:'Quien sostenga lo contrario… deberá explicar… por qué los hechos… lo desmienten.', vocab:['Quien sostenga', 'desmentir']},
+  {level:'C2', es:'De haber mediado buena fe, otro habría sido el desenlace.', zh:'当初若有诚意，结局本会不同。', slow:'De haber mediado buena fe… otro habría sido… el desenlace.', vocab:['mediar', 'desenlace']},
+  {level:'C2', es:'Por mucho que se empeñen, no lograrán dar pábulo a semejante patraña.', zh:'无论他们怎样使劲，也无法让这样的谎言获得信任。', slow:'Por mucho que se empeñen… no lograrán dar pábulo… a semejante patraña.', vocab:['empeñarse', 'dar pábulo', 'patraña']},
+  {level:'C2', es:'La tesis, por sugerente que resulte, no resiste el menor escrutinio.', zh:'这一论点无论多么引人入胜，都经不起任何推敲。', slow:'La tesis… por sugerente que resulte… no resiste… el menor escrutinio.', vocab:['por sugerente que', 'escrutinio']},
+  {level:'C2', es:'Huelga decir que asumo plenamente las consecuencias de lo que afirmo.', zh:'不言而喻，我完全承担自己所言之后果。', slow:'Huelga decir… que asumo plenamente… las consecuencias… de lo que afirmo.', vocab:['Huelga decir', 'asumir las consecuencias']},
+  {level:'C2', es:'Se diría que el autor se complace en dejar cabos sueltos.', zh:'可以说作者乐于留下未了的线索。', slow:'Se diría… que el autor se complace… en dejar cabos sueltos.', vocab:['Se diría que', 'complacer', 'cabos sueltos']},
+  {level:'C2', es:'Lejos de amilanarse, redobló el empeño con renovado brío.', zh:'他非但没有气馁，反而以新的劲头加倍努力。', slow:'Lejos de amilanarse… redobló el empeño… con renovado brío.', vocab:['amilanarse', 'redoblar', 'brío']},
+  {level:'C2', es:'No es tanto que carezca de argumentos cuanto que rehúye el cuerpo a cuerpo.', zh:'与其说他缺乏论据，不如说他在回避正面交锋。', slow:'No es tanto que carezca de argumentos… cuanto que… rehúye el cuerpo a cuerpo.', vocab:['no es tanto… cuanto que', 'rehuir']},
+  {level:'C2', es:'A fuerza de tanto aplazarlo, el asunto acabó por volverse irresoluble.', zh:'由于一再拖延，这事最终变得无法解决。', slow:'A fuerza de tanto aplazarlo… el asunto… acabó por volverse… irresoluble.', vocab:['A fuerza de', 'acabar por', 'irresoluble']},
+  {level:'C2', es:'Conviene desconfiar de quien promete certidumbres en terrenos resbaladizos.', zh:'应当警惕那些在滑溜的领域里许诺确定性的人。', slow:'Conviene desconfiar… de quien promete certidumbres… en terrenos resbaladizos.', vocab:['desconfiar de', 'certidumbre', 'resbaladizo']},
+  {level:'C2', es:'Todo apunta a que la controversia no se resolverá por decreto.', zh:'种种迹象表明，这场争论不会因一纸命令而解决。', slow:'Todo apunta a que… la controversia… no se resolverá… por decreto.', vocab:['Todo apunta a que', 'por decreto']},
+  {level:'C2', es:'Su prosa, salpicada de cultismos, resulta a un tiempo densa y luminosa.', zh:'他的文风点缀着典雅词藻，既浓密又明亮。', slow:'Su prosa… salpicada de cultismos… resulta a un tiempo… densa y luminosa.', vocab:['salpicado de', 'cultismo', 'a un tiempo']},
+  {level:'C2', es:'Mal que nos pese, habrá que aceptar un margen de incertidumbre.', zh:'尽管我们不情愿，也必须接受一定程度的不确定性。', slow:'Mal que nos pese… habrá que aceptar… un margen de incertidumbre.', vocab:['Mal que nos pese', 'margen de incertidumbre']},
+  {level:'C2', es:'Dicho lo cual, no veo motivo para seguir dando vueltas al mismo asunto.', zh:'话虽如此，我看不出还有什么理由继续在同一件事上打转。', slow:'Dicho lo cual… no veo motivo… para seguir dando vueltas… al mismo asunto.', vocab:['Dicho lo cual', 'dar vueltas a']}
 ];
 
 // 听力训练语料（真实场景对话）
@@ -2876,6 +4155,229 @@ FILÓSOFO: En eso no la discutiré.`,
       {q:'¿Qué garantiza la ciencia según ella?', a:'Un procedimiento que castiga el error, no verdades definitivas.'},
       {q:'¿Cuál es el criterio de distinción que propone?', a:'Que unos relatos admiten ser puestos a prueba y otros no.'}
     ]
+  },
+  {level:'B2', title:'社区议事：老城区改造', speaker:'Moderador / Arquitecta / Vecino', duration:'约 1 分 40 秒',
+    es:`MODERADOR: Abrimos el turno de palabra sobre el plan de rehabilitación.
+ARQUITECTA: El proyecto prevé mantener la estructura original y renovar instalaciones. Respetaremos las fachadas catalogadas.
+VECINO: Eso suena bien, pero llevamos veinte años oyendo promesas parecidas.
+ARQUITECTA: Lo entiendo. Por eso esta vez empezamos por las viviendas vacías, que son el cuarenta por ciento del total.
+VECINO: ¿Y los que vivimos aquí? ¿Nos van a realojar durante las obras?
+ARQUITECTA: Solo si la intervención afecta a la estructura. En ese caso, el realojamiento corre a cargo del ayuntamiento.
+VECINO: ¿Cuándo sabríamos si nos toca?
+ARQUITECTA: Tras el informe técnico, que estará listo en tres meses. Y se lo comunicaremos por escrito, no de palabra.
+VECINO: Eso al menos es concreto.`,
+    zh:`主持人：关于改造方案，现在开放发言。
+建筑师：项目计划保留原有结构并进行设备更新。我们会保留列入保护名录的立面。
+居民：听起来不错，但这类承诺我们听了二十年了。
+建筑师：我理解。所以这次我们从空置住房入手，它们占总数的百分之四十。
+居民：那我们这些住户呢？施工期间会给我们安排临时住所吗？
+建筑师：只有干预涉及结构时才会。那种情况下，安置由市政府负责。
+居民：我们什么时候能知道是否轮到自己？
+建筑师：等技术报告出来，三个月内完成。而且我们会书面通知，不是口头说说。
+居民：这至少是具体的。`,
+    keyVocab:[
+      {es:'la rehabilitación', zh:'翻新改造'},
+      {es:'catalogado', zh:'列入保护名录的'},
+      {es:'el realojamiento', zh:'临时安置'},
+      {es:'correr a cargo de', zh:'由……承担'},
+      {es:'la intervención', zh:'工程干预'},
+      {es:'por escrito', zh:'以书面形式'}
+    ],
+    questions:[
+      {q:'¿Qué se propone conservar?', a:'La estructura original y las fachadas catalogadas.'},
+      {q:'¿Por dónde empieza el proyecto?', a:'Por las viviendas vacías, que son el cuarenta por ciento.'},
+      {q:'¿Cuándo hay realojamiento?', a:'Solo cuando la intervención afecta a la estructura.'},
+      {q:'¿Cómo se comunicará la decisión?', a:'Por escrito, tras el informe técnico.'}
+    ]
+  },
+  {level:'B2', title:'职场对话：如何处理冲突', speaker:'Mentora / Joven profesional', duration:'约 1 分 30 秒',
+    es:`MENTORA: Cuéntame qué pasó en la reunión.
+JOVEN: Un compañero descalificó mi propuesta delante de todos. Me quedé sin palabras.
+MENTORA: ¿Y qué hiciste después?
+JOVEN: Nada. Me lo guardé y luego lo pasé fatal.
+MENTORA: Ese es el error más común. Lo que no se aborda se acumula.
+JOVEN: No quería montar un espectáculo.
+MENTORA: Abordarlo no es montar un espectáculo. Puedes hablar con él en privado y describir el hecho, no su personalidad.
+JOVEN: ¿Por ejemplo?
+MENTORA: «Cuando dijiste que mi propuesta era absurda, me costó seguir participando». Sin acusar, sin generalizar.
+JOVEN: Suena más fácil de lo que es.
+MENTORA: Lo es de decir. Pero callarse tiene un coste mayor: acabas evitando a esa persona y el equipo lo nota.`,
+    zh:`导师：跟我说说会上发生了什么。
+年轻人：一位同事当着所有人的面贬低了我的提案。我当时说不出话。
+导师：那你之后怎么做的？
+年轻人：什么也没做。我憋在心里，后来难受了很久。
+导师：这是最常见的错误。没有处理的事会累积起来。
+年轻人：我不想把事情闹大。
+导师：去处理不等于闹大。你可以私下跟他谈，描述事实，而不是评价他的人格。
+年轻人：比如呢？
+导师：『当你说我的提案荒唐时，我很难继续参与』。不指责，不以偏概全。
+年轻人：听起来比做起来容易。
+导师：说是容易。但沉默的代价更大：你最终会回避那个人，而团队会察觉。`,
+    keyVocab:[
+      {es:'descalificar', zh:'贬低、否定'},
+      {es:'quedarse sin palabras', zh:'说不出话'},
+      {es:'guardarse algo', zh:'憋在心里'},
+      {es:'acumularse', zh:'累积'},
+      {es:'montar un espectáculo', zh:'闹大、失态'},
+      {es:'en privado', zh:'私下'},
+      {es:'generalizar', zh:'以偏概全'}
+    ],
+    questions:[
+      {q:'¿Qué hizo el compañero?', a:'Descalificó su propuesta delante de todos.'},
+      {q:'¿Cuál es, según la mentora, el error más común?', a:'No abordar el conflicto y guardárselo.'},
+      {q:'¿Qué recomienda hacer?', a:'Hablar en privado y describir el hecho, no la personalidad.'},
+      {q:'¿Qué coste tiene callarse?', a:'Se acumula y acabas evitando a esa persona.'}
+    ]
+  },
+  {level:'C1', title:'学术访谈：语言与身份认同', speaker:'Periodista / Sociolingüista', duration:'约 2 分钟',
+    es:`PERIODISTA: Se dice que una lengua muere cada dos semanas. ¿Es una cifra fiable?
+SOCIOLINGÜISTA: Como titular es eficaz; como dato es engañoso. Lo que desaparece no es tanto la lengua como su transmisión intergeneracional.
+PERIODISTA: ¿Qué se pierde exactamente cuando eso ocurre?
+SOCIOLINGÜISTA: Se pierde un modo de clasificar el mundo. Hay lenguas que distinguen matices que otras no lexicalizan, y con ellas se va esa distinción.
+PERIODISTA: A veces se responde que basta con traducir.
+SOCIOLINGÜISTA: Traducir es posible, pero no gratuito: siempre se pierde algo, y quien decide qué se pierde no suele ser la comunidad afectada.
+PERIODISTA: ¿Qué ha funcionado para revertirlo?
+SOCIOLINGÜISTA: Tres cosas, y ninguna es folclórica: educación en la lengua propia, presencia en medios y, sobre todo, prestigio social. Sin lo tercero, lo demás se queda en gesto.
+PERIODISTA: ¿Y si la comunidad no quiere mantenerla?
+SOCIOLINGÜISTA: Entonces hay que respetarlo. La lengua no es un monumento: es una práctica.`,
+    zh:`记者：据说每两周就有一种语言消亡。这个数字可靠吗？
+社会语言学家：作为标题很有效；作为数据则有误导性。消失的与其说是语言，不如说是它的代际传承。
+记者：这种情况发生时，究竟失去了什么？
+社会语言学家：失去了一种对世界进行分类的方式。有些语言区分了其他语言没有词汇化的细微差别，而随着语言一起消失的正是那种区分。
+记者：有时有人回答说，翻译就够了。
+社会语言学家：翻译是可能的，但不是无代价的：总会失去些什么，而决定失去什么的人，通常不是受影响的社群本身。
+记者：什么措施对扭转局面有效？
+社会语言学家：三件事，都不是民俗表演：用本族语教育、在媒体中占有一席之地，尤其是社会声望。没有第三点，其余都只是姿态。
+记者：如果那个社群自己不想保留呢？
+社会语言学家：那就必须尊重。语言不是纪念碑，而是一种实践。`,
+    keyVocab:[
+      {es:'fiable', zh:'可靠的'},
+      {es:'engañoso', zh:'误导性的'},
+      {es:'la transmisión intergeneracional', zh:'代际传承'},
+      {es:'lexicalizar', zh:'词汇化'},
+      {es:'gratuito', zh:'无偿的、无代价的'},
+      {es:'revertir', zh:'扭转'},
+      {es:'folclórico', zh:'民俗的、做样子的'},
+      {es:'quedarse en gesto', zh:'停留在姿态上'}
+    ],
+    questions:[
+      {q:'¿Por qué la cifra resulta engañosa?', a:'Porque lo que desaparece no es tanto la lengua como su transmisión intergeneracional.'},
+      {q:'¿Qué se pierde cuando una lengua se extingue?', a:'Un modo de clasificar el mundo, con sus distinciones.'},
+      {q:'¿Qué objeción hace a la solución de traducir?', a:'Que no es gratuita y quien decide qué se pierde no es la comunidad afectada.'},
+      {q:'¿Cuál de las tres medidas es decisiva?', a:'El prestigio social.'}
+    ]
+  },
+  {level:'C1', title:'企业圆桌：可持续与发展', speaker:'Moderadora / Directora de sostenibilidad / Economista', duration:'约 2 分钟',
+    es:`MODERADORA: ¿Es compatible crecer con reducir emisiones?
+DIRECTORA: Depende del tipo de crecimiento. Desacoplar el PIB de las emisiones es posible en algunos sectores y muy difícil en otros.
+ECONOMISTA: Yo añadiría una precisión: hasta ahora el desacoplamiento ha sido relativo, no absoluto. Es decir, contaminamos menos por unidad producida, pero seguimos contaminando más en total.
+DIRECTORA: Es cierto, y ese matiz se omite con demasiada frecuencia en los informes corporativos.
+MODERADORA: ¿Qué haría falta para un desacoplamiento absoluto?
+ECONOMISTA: Cambiar la matriz energética y, sobre todo, reducir la demanda. Lo segundo es impopular y por eso casi nadie lo menciona.
+DIRECTORA: Coincido, aunque matizaría que reducir demanda no equivale a reducir bienestar. Se puede consumir menos y vivir mejor, pero exige replantear qué consideramos progreso.
+MODERADORA: ¿Quién debería liderar ese replanteamiento?
+ECONOMISTA: Quien tenga capacidad de fijar precios e incentivos. La buena voluntad individual, sin señales de precio, no escala.`,
+    zh:`主持人：增长与减排能兼容吗？
+可持续发展总监：取决于什么样的增长。把 GDP 与排放脱钩，在某些行业可行，在另一些行业极难。
+经济学家：我要补充一个限定：迄今为止的脱钩是相对的，不是绝对的。也就是说，单位产出污染更少，但总排放仍在增加。
+可持续发展总监：确实如此，而这个细微差别在公司报告中被遗漏得太频繁了。
+主持人：绝对脱钩需要什么？
+经济学家：改变能源结构，尤其是降低需求。第二点不受欢迎，所以几乎没人提。
+可持续发展总监：我同意，但我想补充：降低需求不等于降低福祉。可以少消费而活得更好，但这要求重新思考我们把什么称为进步。
+主持人：谁来主导这种重新思考？
+经济学家：那些有能力设定价格和激励的人。没有价格信号，个人的善意无法规模化。`,
+    keyVocab:[
+      {es:'el desacoplamiento', zh:'脱钩'},
+      {es:'la matriz energética', zh:'能源结构'},
+      {es:'impopular', zh:'不受欢迎的'},
+      {es:'matizar', zh:'补充限定'},
+      {es:'replantear', zh:'重新思考'},
+      {es:'la señal de precio', zh:'价格信号'},
+      {es:'escalar', zh:'规模化'}
+    ],
+    questions:[
+      {q:'¿Qué precisión aporta el economista?', a:'Que el desacoplamiento ha sido relativo, no absoluto.'},
+      {q:'¿Qué se omite en los informes corporativos?', a:'Que seguimos contaminando más en total.'},
+      {q:'¿Qué haría falta para un desacoplamiento absoluto?', a:'Cambiar la matriz energética y reducir la demanda.'},
+      {q:'¿Quién debería liderar el cambio según el economista?', a:'Quien pueda fijar precios e incentivos.'}
+    ]
+  },
+  {level:'C2', title:'哲学对谈：何为好的生活', speaker:'Entrevistadora / Filósofo', duration:'约 2 分 30 秒',
+    es:`ENTREVISTADORA: Las éticas antiguas preguntaban cómo vivir; las modernas, qué está permitido. ¿Por qué ese desplazamiento?
+FILÓSOFO: Porque dejamos de creer que hubiera una respuesta única sobre la vida buena, y en su lugar construimos reglas que permitieran convivir sin acordar qué es lo mejor.
+ENTREVISTADORA: ¿Es un empobrecimiento?
+FILÓSOFO: Es un intercambio, y conviene no idealizarlo en ningún sentido. Ganamos pluralismo; perdimos la posibilidad de decirle a alguien que su vida está mal planteada, no solo que es injusta con otros.
+ENTREVISTADORA: ¿Puede la filosofía recuperar esa pregunta?
+FILÓSOFO: Puede formularla, pero no resolverla por decreto. Y me parece sano: quien pretende demostrar cómo debe vivirse suele acabar legislándolo.
+ENTREVISTADORA: Entonces, ¿qué queda?
+FILÓSOFO: Queda el trabajo de examinar la propia vida, que no garantiza acierto alguno. Sócrates no prometía la verdad: prometía no vivir sin examinar.
+ENTREVISTADORA: Es una promesa modesta.
+FILÓSOFO: Es la única honesta. Y le aseguro que ya es bastante difícil de cumplir.`,
+    zh:`采访者：古代伦理学问的是如何生活；现代伦理学问的是什么被允许。为什么会有这种转移？
+哲学家：因为我们不再相信关于好生活存在唯一答案，转而建立规则，让人们无需就何为最好达成一致也能共处。
+采访者：这是一种贫化吗？
+哲学家：这是一种交换，任何方向都不宜理想化。我们得到了多元主义；失去了对某人说"你的生活方向是错的"的可能，而只能说他对他人不公。
+采访者：哲学能重新拾起那个问题吗？
+哲学家：它能提出这个问题，但不能靠命令解决它。我认为这是健康的：想证明人应当如何生活的人，往往最后会把它定为法规。
+采访者：那么剩下什么？
+哲学家：剩下审视自身生活这项工作，它并不保证任何正确。苏格拉底并不许诺真理：他许诺的是不未经审视地活着。
+采访者：这是个谦逊的承诺。
+哲学家：这是唯一诚实的。而且我向您保证，它已经够难做到了。`,
+    keyVocab:[
+      {es:'la ética', zh:'伦理学'},
+      {es:'el desplazamiento', zh:'转移'},
+      {es:'el empobrecimiento', zh:'贫化'},
+      {es:'el pluralismo', zh:'多元主义'},
+      {es:'por decreto', zh:'靠命令、武断地'},
+      {es:'legislar', zh:'立法、规定'},
+      {es:'examinar la propia vida', zh:'审视自身生活'},
+      {es:'el acierto', zh:'正确、恰当'},
+      {es:'modesto', zh:'谦逊的、有限的'}
+    ],
+    questions:[
+      {q:'¿Qué diferencia hay entre las éticas antiguas y las modernas según el filósofo?', a:'Las antiguas preguntaban cómo vivir; las modernas, qué está permitido.'},
+      {q:'¿Qué ganamos y qué perdimos con ese desplazamiento?', a:'Ganamos pluralismo; perdimos poder decir que una vida está mal planteada.'},
+      {q:'¿Por qué le parece sano que la filosofía no resuelva la cuestión por decreto?', a:'Porque quien pretende demostrar cómo debe vivirse acaba legislándolo.'},
+      {q:'¿Qué prometía Sócrates?', a:'No vivir sin examinar, no la verdad.'}
+    ]
+  },
+  {level:'C2', title:'文学访谈：失败的文学', speaker:'Crítico / Novelista', duration:'约 2 分 30 秒',
+    es:`CRÍTICO: Ha dicho en alguna ocasión que solo le interesan los libros fracasados. ¿Provocación?
+NOVELISTA: Media provocación y media convicción. Un libro impecable suele ser un libro sin riesgo, y sin riesgo no hay nada que merezca la pena discutir.
+CRÍTICO: ¿No es una coartada cómoda para justificar defectos?
+NOVELISTA: Podría serlo, y por eso distingo. Hay fracaso por ambición desmedida y fracaso por incompetencia. El primero enseña; el segundo solo aburre.
+CRÍTICO: ¿Cómo se distinguen desde fuera?
+NOVELISTA: Por la tensión. Cuando un autor ha intentado algo que no dominaba, se nota en la página: hay una tirantez, un esfuerzo visible. El incompetente, en cambio, ni siquiera lo intenta.
+CRÍTICO: ¿Y sus propias novelas?
+NOVELISTA: Ninguna me satisface del todo, y no lo digo por falsa modestia. La que más me interesa es precisamente la que peor recibió la crítica.
+CRÍTICO: ¿Por qué?
+NOVELISTA: Porque fue donde más me arriesgué, y el riesgo se paga. Si hubiera buscado el aplauso, habría escrito otra cosa.`,
+    zh:`评论家：您曾说过只对失败的书感兴趣。这是挑衅吗？
+小说家：一半挑衅，一半真心。一本无可挑剔的书通常是一本没有风险的书，而没有风险就没有任何值得讨论的东西。
+评论家：这不是为缺陷开脱的便利借口吗？
+小说家：可能是，所以我做了区分。有出于过分野心的失败，也有出于无能的失败。前者有教益；后者只让人厌烦。
+评论家：从外部如何区分？
+小说家：看张力。当作者尝试了某种他并不掌握的东西时，页面上看得出：有一种紧绷感、一种可见的用力。而无能者则连尝试都没有。
+评论家：那您自己的小说呢？
+小说家：没有一本让我完全满意，我这么说不是假谦虚。我最感兴趣的那本，恰恰是批评界评价最差的那本。
+评论家：为什么？
+小说家：因为那是我冒风险最多的地方，而风险是要付出代价的。如果我追求掌声，我会写别的东西。`,
+    keyVocab:[
+      {es:'la provocación', zh:'挑衅'},
+      {es:'impecable', zh:'无可挑剔的'},
+      {es:'la coartada', zh:'借口、托词'},
+      {es:'desmedido', zh:'过分的'},
+      {es:'la incompetencia', zh:'无能'},
+      {es:'la tirantez', zh:'紧绷感'},
+      {es:'la falsa modestia', zh:'假谦虚'},
+      {es:'el aplauso', zh:'掌声、赞誉'}
+    ],
+    questions:[
+      {q:'¿Por qué le interesan los libros fracasados?', a:'Porque un libro impecable suele ser un libro sin riesgo.'},
+      {q:'¿Qué dos tipos de fracaso distingue?', a:'El fracaso por ambición desmedida y el fracaso por incompetencia.'},
+      {q:'¿Cómo se distinguen desde fuera?', a:'Por la tensión: hay una tirantez, un esfuerzo visible.'},
+      {q:'¿Qué relación tiene con la crítica?', a:'Que la novela que peor recibió es la que más le interesa, por ser donde más se arriesgó.'}
+    ]
   }
 ];
 
@@ -2900,7 +4402,9 @@ const ACHIEVEMENTS = [
   {id:'listening-master', title:'听力达人', desc:'完成 5 段听力训练', icon:'🎧', points:100},
   {id:'speaking-master', title:'口语新星', desc:'完成 10 句口语跟读', icon:'🎤', points:100},
   {id:'community', title:'社交达人', desc:'发布第一条社区动态', icon:'💬', points:30},
-  {id:'community-10', title:'活跃博主', desc:'发布 10 条社区动态', icon:'✍️', points:200}
+  {id:'community-10', title:'活跃博主', desc:'发布 10 条社区动态', icon:'✍️', points:200},
+  {id:'first-reading', title:'初读者', desc:'完成第一篇精读', icon:'📖', points:15},
+  {id:'five-readings', title:'博览者', desc:'完成 5 篇精读', icon:'📚', points:60},
 ];
 
 // 社区模拟内容（扩充版）
@@ -2930,3 +4434,30 @@ const COMMUNITY_POSTS = [
    content:'推荐几本适合 B1-B2 水平的西语原版书（已标注蓝思值）：\n\n📖《La sombra del viento》— Carlos Ruiz Zafón（680L）\n适合 B2 的入门小说，哥特风格，叙事节奏好，词汇不太难。被翻译成 40 多种语言不是没有道理。\n\n📖《La casa de las chivas》— Leonor Espinosa（750L）\n短故事集，哥伦比亚作家，魔幻现实风格，故事都很短，适合碎片化阅读。\n\n📖《El cuerpo en que nací》— Jennifer Egan（720L）\n现代美国作家的西语译本，结构精巧，适合喜欢实验叙事的人。\n\n📜 还有一本适合 C1+：《Cien años de soledad》西班牙语原版，百年孤独，不用介绍了吧。',
    likes:112, comments:15, tags:['阅读', '书籍推荐', '西语原版']}
 ];
+
+/* ============================================
+   词库汇总（在全部顶层常量之后构建）
+   ============================================ */
+const ALL_VOCAB = [];
+Object.values(COURSES).forEach(level => {
+  level.units.forEach(unit => {
+    unit.vocab.forEach(word => {
+      ALL_VOCAB.push({ ...word, level: level.level, unit: unit.title });
+    });
+  });
+});
+
+// 精读语篇的生词也纳入总词库（去重，保留首次出现）
+(() => {
+  const seen = new Set(ALL_VOCAB.map(w => (w.es || '').trim().toLowerCase()));
+  if (typeof READING_PASSAGES !== 'undefined') {
+    READING_PASSAGES.forEach(p => {
+      (p.glossary || []).forEach(g => {
+        const k = (g.es || '').trim().toLowerCase();
+        if (!k || seen.has(k)) return;
+        seen.add(k);
+        ALL_VOCAB.push({ es: g.es, zh: g.zh, example: '', level: p.level, unit: '精读：' + p.title, fromReading: true });
+      });
+    });
+  }
+})();
