@@ -1270,6 +1270,7 @@ function renderUnitDetail(levelKey, unitId) {
       <div class="unit-tabs" id="unit-tabs">
         <button class="unit-tab active" data-tab="vocab">${icon('book')} 单词表</button>
         <button class="unit-tab" data-tab="grammar">${icon('pen')} 语法点</button>
+        <button class="unit-tab" data-tab="collocation">${icon('list')} 高级搭配</button>
         <button class="unit-tab" data-tab="practice">${icon('target')} 开始练习</button>
       </div>
       
@@ -1307,6 +1308,47 @@ function renderUnitTab(tab, unit) {
       </div>
       <div style="margin-top:24px;text-align:center;">
         <button class="btn btn-primary" onclick="startLearning('vocab', '${unit.id}')">${icon('cards')} 用卡片开始学习</button>
+      </div>
+    `;
+  } else if (tab === 'collocation') {
+    // 高级搭配：按当前等级取语块，解决「只背单词不会组句」
+    const CO = (typeof COLLOCATIONS !== 'undefined') ? COLLOCATIONS : [];
+    const order = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    const lvEntry = Object.entries(COURSES).find(([k, v]) => v.units.includes(unit));
+    const lv = lvEntry ? lvEntry[0] : (AppState.currentLevel || 'A1');
+    const lvIdx = order.indexOf(lv);
+    // 优先当前等级；本等级没有则回退到最接近的高等级
+    let list = CO.filter(c => c.level === lv);
+    let shownLevel = lv;
+    if (!list.length) {
+      for (let i = lvIdx + 1; i < order.length && !list.length; i++) {
+        list = CO.filter(c => c.level === order[i]);
+        shownLevel = order[i];
+      }
+    }
+    const hint = shownLevel !== lv
+      ? `<div class="progress-meta" style="margin-top:6px;color:var(--terracotta);">${lv} 等级暂无专属搭配，以下为最接近的 ${shownLevel} 内容。</div>`
+      : '';
+    content.innerHTML = list.length ? `
+      <div class="progress-card" style="margin-bottom:18px;">
+        <div class="progress-title" style="margin-bottom:6px;">${icon('list')} ${shownLevel} 高级搭配（${list.length} 条）</div>
+        <div class="progress-meta">固定搭配需整体记忆：前置词与动词的选择往往不能替换。</div>
+        ${hint}
+      </div>
+      <div class="grammar-list">
+        ${list.map((c, i) => `
+          <div class="grammar-item">
+            <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;">
+              <div class="grammar-title" style="margin-bottom:4px;">${c.pattern}</div>
+              <div style="color:var(--text-secondary);font-size:0.9rem;white-space:nowrap;">${c.zh}</div>
+            </div>
+            <div class="grammar-desc" style="font-style:italic;">${c.example}</div>
+          </div>
+        `).join('')}
+      </div>
+    ` : `
+      <div class="grammar-item" style="text-align:center;padding:40px;">
+        <div class="grammar-desc">该等级暂无搭配内容</div>
       </div>
     `;
   } else if (tab === 'grammar') {
