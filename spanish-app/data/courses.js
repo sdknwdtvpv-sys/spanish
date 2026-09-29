@@ -1278,6 +1278,268 @@ const COURSES = {
           {title:'表示程度与进展的动词搭配', desc:'experimentar un avance, registrar un aumento, situarse por debajo de, superar el umbral de, duplicar la cifra。'},
           {title:'未来与预测的表达', desc:'Se espera que + 虚拟式 / Es previsible que + 虚拟式 / De mantenerse la tendencia… / A este ritmo… —— 描述技术趋势。'}
         ]
+      },
+      { id:'b2-u8', title:'心理学与人际关系', subtitle:'Psicología y Relaciones', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La empatía', zh:'共情', example:'La empatía facilita el entendimiento.'},
+          {es:'La asertividad', zh:'自信表达', example:'La asertividad no es agresividad.'},
+          {es:'El apego', zh:'依恋', example:'El apego temprano marca la vida adulta.'},
+          {es:'La autoestima', zh:'自尊', example:'Su autoestima se fortaleció con el tiempo.'},
+          {es:'El autoengaño', zh:'自我欺骗', example:'El autoengaño es cómodo y peligroso.'},
+          {es:'La proyección', zh:'投射', example:'Atribuye a otros su propia proyección.'},
+          {es:'La negación', zh:'否认', example:'La negación es la primera reacción al duelo.'},
+          {es:'El duelo', zh:'丧亲之痛', example:'El duelo necesita tiempo.'},
+          {es:'La frustración', zh:'挫败感', example:'Aprendió a tolerar la frustración.'},
+          {es:'El vínculo', zh:'纽带、联系', example:'Un vínculo sólido resiste las crisis.'},
+          {es:'La confianza', zh:'信任', example:'La confianza se construye despacio.'},
+          {es:'La traición', zh:'背叛', example:'La traición rompió la amistad.'},
+          {es:'El resentimiento', zh:'怨恨', example:'El resentimiento envenena a quien lo guarda.'},
+          {es:'El rencor', zh:'怀恨', example:'Guardaba rencor desde años atrás.'},
+          {es:'La reconciliación', zh:'和解', example:'La reconciliación fue sincera.'},
+          {es:'El perdón', zh:'宽恕', example:'El perdón no exime de responsabilidad.'},
+          {es:'La culpa', zh:'罪责感', example:'La culpa infundada paraliza.'},
+          {es:'La vergüenza', zh:'羞耻', example:'La vergüenza ajena es real.'},
+          {es:'La inhibición', zh:'拘谨、抑制', example:'Su inhibición le impedía participar.'},
+          {es:'La introversión', zh:'内向', example:'La introversión no es timidez.'},
+          {es:'El temperamento', zh:'气质、性情', example:'El temperamento viene en parte dado.'},
+          {es:'El carácter', zh:'性格', example:'Su carácter se forjó en la adversidad.'},
+          {es:'La madurez', zh:'成熟', example:'La madurez llega a ritmos distintos.'},
+          {es:'La lucidez', zh:'清醒、明澈', example:'Habló con una lucidez admirable.'},
+          {es:'La serenidad', zh:'从容', example:'Afrontó la noticia con serenidad.'},
+          {es:'La angustia', zh:'焦虑、痛苦', example:'La angustia le impedía dormir.'},
+          {es:'La ansiedad', zh:'焦虑症', example:'La ansiedad se manifiesta en el cuerpo.'},
+          {es:'El desahogo', zh:'宣泄', example:'Necesitaba desahogarse con alguien.'},
+          {es:'La contención', zh:'克制、安抚', example:'Le ofreció contención sin juzgarlo.'},
+          {es:'La escucha activa', zh:'主动倾听', example:'La escucha activa exige silencio.'},
+          {es:'El malentendido', zh:'误会', example:'Todo fue un malentendido.'},
+          {es:'La discrepancia', zh:'分歧', example:'Resolvieron sus discrepancias hablando.'},
+          {es:'La negociación', zh:'协商', example:'La negociación salvó la relación.'},
+          {es:'El límite', zh:'界限', example:'Poner límites no es egoísmo.'},
+          {es:'La dependencia', zh:'依赖', example:'La dependencia emocional ahoga.'},
+          {es:'El desapego', zh:'抽离、放下', example:'Practica el desapego con serenidad.'},
+          {es:'La vulnerabilidad', zh:'脆弱', example:'Mostrar vulnerabilidad acerca a las personas.'},
+          {es:'La resiliencia', zh:'韧性', example:'Su resiliencia sorprendió a todos.'},
+          {es:'El apoyo mutuo', zh:'相互支持', example:'El apoyo mutuo sostiene la pareja.'},
+          {es:'La convivencia', zh:'共同生活', example:'La convivencia exige cesiones.'},
+          {es:'El reparto de tareas', zh:'分工', example:'El reparto de tareas era desigual.'},
+          {es:'La corresponsabilidad', zh:'共同责任', example:'Hablan de corresponsabilidad doméstica.'},
+          {es:'El rol', zh:'角色', example:'Los roles de género están cambiando.'},
+          {es:'La expectativa', zh:'期望', example:'Las expectativas no siempre se cumplen.'},
+          {es:'El prejuicio', zh:'偏见', example:'El prejuicio se corrige con contacto.'},
+          {es:'La proyección de culpa', zh:'归咎他人', example:'La proyección de culpa impide el diálogo.'},
+          {es:'El desgaste', zh:'消耗、磨损', example:'El desgaste de la relación era evidente.'},
+          {es:'La ruptura', zh:'分手、决裂', example:'La ruptura fue dolorosa y necesaria.'},
+          {es:'Reconciliarse', zh:'和解', example:'Se reconciliaron tras un año.'},
+          {es:'Asumir', zh:'承担、接受', example:'Asumió su parte de responsabilidad.'},
+          {es:'Sobreponerse', zh:'振作、克服', example:'Se sobrepuso a la pérdida.'},
+          {es:'Reprochar', zh:'指责', example:'Le reprochó no haber avisado.'},
+          {es:'Disculparse', zh:'道歉', example:'Se disculpó sin excusas.'},
+          {es:'Contener', zh:'克制、安抚', example:'Contuvo las lágrimas.'},
+          {es:'Desahogarse', zh:'倾诉、宣泄', example:'Se desahogó con su hermana.'},
+          {es:'Comprender', zh:'理解、体谅', example:'Comprender no es estar de acuerdo.'}
+        ],
+        grammar:[
+          {title:'情感类动词 + 虚拟式', desc:'me alegra que / me molesta que / me sorprende que + 虚拟式。主句表达情感时，从句一律用虚拟式。'},
+          {title:'自复动词表示情感变化', desc:'enfadarse, alegrarse, preocuparse, sorprenderse + de/con；与 estar + 形容词的区别：estoy preocupado 描述状态，me preocupo 描述动作。'},
+          {title:'表达推测与保留', desc:'parece que + 陈述式 / no parece que + 虚拟式；puede que + 虚拟式；a lo mejor + 陈述式；quizá(s) 两可。'}
+        ]
+      },
+      { id:'b2-u9', title:'艺术欣赏与评论', subtitle:'Apreciación y Crítica del Arte', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La obra maestra', zh:'杰作', example:'El Quijote es una obra maestra.'},
+          {es:'El lienzo', zh:'画布', example:'El lienzo mide dos metros.'},
+          {es:'El trazo', zh:'笔触', example:'Sus trazos son enérgicos.'},
+          {es:'La pincelada', zh:'笔法', example:'Una pincelada suelta y expresiva.'},
+          {es:'El claroscuro', zh:'明暗对照', example:'El claroscuro crea dramatismo.'},
+          {es:'La perspectiva', zh:'透视', example:'Domina la perspectiva renacentista.'},
+          {es:'El plano', zh:'画面、镜头', example:'El primer plano busca el detalle.'},
+          {es:'La composición', zh:'构图', example:'La composición es equilibrada.'},
+          {es:'El motivo', zh:'题材、花纹', example:'El motivo central es una ventana.'},
+          {es:'El desnudo', zh:'裸体画', example:'El desnudo fue escandaloso en su época.'},
+          {es:'El bodegón', zh:'静物画', example:'Un bodegón de frutas y cacharros.'},
+          {es:'El retrato', zh:'肖像画', example:'El retrato capta su carácter.'},
+          {es:'El paisaje', zh:'风景画', example:'Pintó paisajes de su tierra.'},
+          {es:'La escultura', zh:'雕塑', example:'La escultura es de bronce.'},
+          {es:'El relieve', zh:'浮雕', example:'Un relieve en mármol.'},
+          {es:'La talla', zh:'雕刻', example:'Una talla policromada.'},
+          {es:'El grabado', zh:'版画', example:'Publicó una serie de grabados.'},
+          {es:'El museo', zh:'博物馆', example:'El museo abre los domingos.'},
+          {es:'La exposición', zh:'展览', example:'La exposición itinerante recorre Europa.'},
+          {es:'La retrospectiva', zh:'回顾展', example:'Le dedicaron una retrospectiva.'},
+          {es:'El comisario', zh:'策展人', example:'El comisario explicó el montaje.'},
+          {es:'El catálogo', zh:'图录', example:'El catálogo incluye ensayos.'},
+          {es:'La vanguardia', zh:'先锋派', example:'Fue figura de la vanguardia.'},
+          {es:'El academicismo', zh:'学院派', example:'Rompió con el academicismo.'},
+          {es:'El movimiento', zh:'流派', example:'Pertenece al movimiento surrealista.'},
+          {es:'La corriente', zh:'潮流', example:'Una corriente renovadora del arte.'},
+          {es:'El estilo', zh:'风格', example:'Su estilo es inconfundible.'},
+          {es:'La técnica', zh:'技法', example:'Domina varias técnicas.'},
+          {es:'El óleo', zh:'油画', example:'Pintó al óleo sobre tabla.'},
+          {es:'La acuarela', zh:'水彩', example:'Prefiere la acuarela por su ligereza.'},
+          {es:'El boceto', zh:'草图', example:'Conservan cientos de bocetos.'},
+          {es:'La obra', zh:'作品', example:'Su obra temprana es más libre.'},
+          {es:'El autorretrato', zh:'自画像', example:'Se autorretrató treinta veces.'},
+          {es:'La firma', zh:'签名', example:'La firma aparece abajo a la derecha.'},
+          {es:'El original', zh:'原作', example:'El original está en el Prado.'},
+          {es:'La réplica', zh:'复制品', example:'Es una réplica del siglo XIX.'},
+          {es:'La falsificación', zh:'赝品', example:'Descubrieron una falsificación.'},
+          {es:'La restauración', zh:'修复', example:'La restauración duró dos años.'},
+          {es:'El deterioro', zh:'损坏、老化', example:'El deterioro era irreversible.'},
+          {es:'La procedencia', zh:'来源、出处', example:'Investigan la procedencia de la obra.'},
+          {es:'La subasta', zh:'拍卖', example:'Se vendió en subasta pública.'},
+          {es:'El mecenazgo', zh:'赞助、庇护', example:'El mecenazgo hizo posible la obra.'},
+          {es:'La crítica', zh:'批评、评论', example:'La crítica fue dividida.'},
+          {es:'El juicio estético', zh:'审美判断', example:'El juicio estético no es arbitrario.'},
+          {es:'La sensibilidad', zh:'感受力', example:'Su sensibilidad capta lo sutil.'},
+          {es:'El impacto', zh:'冲击、影响', example:'El impacto emocional fue inmediato.'},
+          {es:'La provocación', zh:'挑衅', example:'Buscaba la provocación estética.'},
+          {es:'El kitsch', zh:'媚俗', example:'El kitsch juega con el mal gusto.'},
+          {es:'La belleza', zh:'美', example:'La belleza no siempre es armonía.'},
+          {es:'La fealdad', zh:'丑', example:'La fealdad puede ser expresiva.'},
+          {es:'El símbolo', zh:'象征', example:'La paloma es símbolo de paz.'},
+          {es:'La alegoría', zh:'寓意', example:'Se trata de una alegoría de la muerte.'},
+          {es:'La abstracción', zh:'抽象', example:'Derivó hacia la abstracción pura.'},
+          {es:'La figuración', zh:'具象', example:'Nunca abandonó del todo la figuración.'},
+          {es:'El soporte', zh:'载体、材质', example:'Cambió de soporte: del papel al muro.'},
+          {es:'La textura', zh:'质感', example:'La textura del yeso es rugosa.'},
+          {es:'Conmover', zh:'打动', example:'La película conmovió al público.'}
+        ],
+        grammar:[
+          {title:'评价性表达', desc:'se trata de / consiste en / destaca por / se caracteriza por / llama la atención que + 虚拟式。'},
+          {title:'被动与自复被动（艺术评论常用）', desc:'La obra fue pintada en 1650；Se conservan tres versiones。评论中常省略施动者，聚焦作品本身。'},
+          {title:'比较与程度修饰', desc:'tan… que / tanto… que（结果）；no menos… que；cuanto más… más；bastante / sumamente / notablemente。'}
+        ]
+      },
+      { id:'b2-u10', title:'历史与史观', subtitle:'Historia y Perspectiva Histórica', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'La época', zh:'时代', example:'Fue una época de cambios.'},
+          {es:'La era', zh:'纪元', example:'La era digital empezó antes de lo que se cree.'},
+          {es:'El siglo', zh:'世纪', example:'El siglo XX fue convulso.'},
+          {es:'El acontecimiento', zh:'事件', example:'El acontecimiento marcó un antes y un después.'},
+          {es:'El hito', zh:'里程碑', example:'Fue un hito en la historia del país.'},
+          {es:'El legado', zh:'遗产、遗泽', example:'El legado cultural es enorme.'},
+          {es:'La herencia', zh:'继承、遗存', example:'La herencia romana pervive.'},
+          {es:'El antepasado', zh:'祖先', example:'Sus antepasados llegaron de Sicilia.'},
+          {es:'La estirpe', zh:'世系', example:'Pertenece a una vieja estirpe.'},
+          {es:'El linaje', zh:'家族血统', example:'Presumía de linaje.'},
+          {es:'La dinastía', zh:'王朝', example:'La dinastía reinó tres siglos.'},
+          {es:'El reinado', zh:'统治时期', example:'Durante su reinado floreció la cultura.'},
+          {es:'El imperio', zh:'帝国', example:'El imperio se fragmentó.'},
+          {es:'La colonia', zh:'殖民地', example:'La colonia se independizó.'},
+          {es:'La revuelta', zh:'起义', example:'La revuelta fue sofocada.'},
+          {es:'El levantamiento', zh:'暴动', example:'El levantamiento popular triunfó.'},
+          {es:'La contienda', zh:'战事', example:'La contienda duró cuatro años.'},
+          {es:'El armisticio', zh:'停战', example:'Firmaron el armisticio en noviembre.'},
+          {es:'El tratado', zh:'条约', example:'El tratado repartió territorios.'},
+          {es:'La posguerra', zh:'战后时期', example:'La posguerra fue durísima.'},
+          {es:'El exilio', zh:'流亡', example:'Murió en el exilio.'},
+          {es:'La diáspora', zh:'离散、海外族群', example:'La diáspora mantiene vínculos.'},
+          {es:'La represión', zh:'镇压', example:'La represión dejó huella.'},
+          {es:'La censura', zh:'审查', example:'La censura silenció voces enteras.'},
+          {es:'La transición', zh:'转型', example:'La transición fue pactada.'},
+          {es:'La amnistía', zh:'大赦', example:'La amnistía fue muy debatida.'},
+          {es:'La reconciliación', zh:'和解', example:'La reconciliación fue incompleta.'},
+          {es:'La memoria histórica', zh:'历史记忆', example:'La memoria histórica sigue dividiendo.'},
+          {es:'El olvido', zh:'遗忘', example:'El olvido también es una decisión política.'},
+          {es:'El archivo', zh:'档案', example:'Consultó el archivo municipal.'},
+          {es:'La fuente primaria', zh:'一手史料', example:'Trabaja con fuentes primarias.'},
+          {es:'La crónica', zh:'编年记', example:'La crónica del cronista real.'},
+          {es:'El testimonio', zh:'证言', example:'El testimonio oral es valioso.'},
+          {es:'La historiografía', zh:'史学', example:'La historiografía ha revisado esa tesis.'},
+          {es:'El anacronismo', zh:'时代错误', example:'Juzgar el pasado con criterios actuales es anacronismo.'},
+          {es:'La periodización', zh:'历史分期', example:'La periodización es discutible.'},
+          {es:'La continuidad', zh:'延续', example:'Hay más continuidad que ruptura.'},
+          {es:'La ruptura', zh:'断裂', example:'La ruptura revolucionaria fue total.'},
+          {es:'La coyuntura', zh:'时局', example:'La coyuntura favoreció el cambio.'},
+          {es:'La causalidad', zh:'因果', example:'La causalidad histórica es múltiple.'},
+          {es:'El determinismo', zh:'决定论', example:'El determinismo histórico tiene límites.'},
+          {es:'La contingencia', zh:'偶然性', example:'La contingencia pesó en el resultado.'},
+          {es:'El devenir', zh:'演变', example:'El devenir de los acontecimientos.'},
+          {es:'La decadencia', zh:'衰落', example:'La decadencia fue lenta.'},
+          {es:'El auge', zh:'兴盛', example:'El auge del comercio marítimo.'},
+          {es:'El apogeo', zh:'鼎盛', example:'En el apogeo del imperio.'},
+          {es:'La hegemonía', zh:'霸权', example:'Disputaron la hegemonía regional.'},
+          {es:'La soberanía', zh:'主权', example:'Defendieron su soberanía.'},
+          {es:'La legitimidad', zh:'合法性', example:'La legitimidad del gobierno era dudosa.'},
+          {es:'La sublevación', zh:'叛乱', example:'La sublevación fracasó.'},
+          {es:'La gesta', zh:'壮举', example:'La gesta se cantó en versos.'},
+          {es:'El mártir', zh:'殉道者', example:'Lo convirtieron en mártir.'},
+          {es:'La efeméride', zh:'纪念日', example:'Se cumple la efeméride.'},
+          {es:'Conmemorar', zh:'纪念', example:'Conmemoran el bicentenario.'},
+          {es:'Rememorar', zh:'追忆', example:'Rememora su infancia.'},
+          {es:'Reivindicar', zh:'主张、平反', example:'Reivindican su figura histórica.'}
+        ],
+        grammar:[
+          {title:'历史叙述的时态体系', desc:'简单过去时（事件链）+ 未完成过去时（背景）+ 过去完成时（更早的过去）。历史叙述中最易混淆，也最能体现叙述层次。'},
+          {title:'无人称与被动（史学写作）', desc:'Se considera que / Se ha documentado que / Fuentes de la época indican que —— 史学文本避免第一人称，追求可核查性。'},
+          {title:'时间与因果连接词', desc:'a raíz de, con posterioridad a, tras lo cual, de resultas de, en vísperas de, a lo largo de —— 组织时间线索。'}
+        ]
+      },
+      { id:'b2-u11', title:'消费与财务素养', subtitle:'Consumo y Educación Financiera', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'El presupuesto familiar', zh:'家庭预算', example:'El presupuesto familiar está ajustado.'},
+          {es:'El ingreso', zh:'收入', example:'Sus ingresos son irregulares.'},
+          {es:'La nómina', zh:'工资单', example:'La nómina llega el día 25.'},
+          {es:'El ahorro', zh:'储蓄', example:'El ahorro apenas crece.'},
+          {es:'La deuda', zh:'债务', example:'La deuda se hizo impagable.'},
+          {es:'La cuota', zh:'月供、份额', example:'La cuota mensual es de seiscientos euros.'},
+          {es:'La hipoteca', zh:'抵押贷款', example:'Firmaron una hipoteca a treinta años.'},
+          {es:'El préstamo', zh:'贷款', example:'Pidió un préstamo personal.'},
+          {es:'El interés', zh:'利息', example:'El interés compuesto es poderoso.'},
+          {es:'El tipo de interés', zh:'利率', example:'Subió el tipo de interés.'},
+          {es:'La comisión', zh:'手续费', example:'La comisión bancaria es abusiva.'},
+          {es:'El recibo', zh:'账单', example:'Domicilió los recibos.'},
+          {es:'El extracto', zh:'账单明细', example:'Revisa el extracto cada mes.'},
+          {es:'La cuenta corriente', zh:'活期账户', example:'Abrió una cuenta corriente.'},
+          {es:'La tarjeta de crédito', zh:'信用卡', example:'La tarjeta de crédito difiere el pago.'},
+          {es:'La tarjeta de débito', zh:'借记卡', example:'Con la de débito pagas al momento.'},
+          {es:'La transferencia', zh:'转账', example:'Hizo una transferencia urgente.'},
+          {es:'El ingreso domiciliado', zh:'自动入账', example:'Cobra por ingreso domiciliado.'},
+          {es:'La morosidad', zh:'逾期未付', example:'Entró en morosidad.'},
+          {es:'El impago', zh:'违约未付', example:'El impago tiene consecuencias.'},
+          {es:'La refinanciación', zh:'再融资', example:'Negociaron la refinanciación.'},
+          {es:'La amortización', zh:'还本', example:'Amortizó parte del capital.'},
+          {es:'El capital', zh:'本金', example:'Devolvió el capital sin intereses.'},
+          {es:'El rendimiento', zh:'收益', example:'El rendimiento fue bajo.'},
+          {es:'La inversión', zh:'投资', example:'La inversión inicial fue modesta.'},
+          {es:'El fondo', zh:'基金', example:'Invirtió en un fondo indexado.'},
+          {es:'La acción', zh:'股票', example:'Las acciones cayeron un cinco por ciento.'},
+          {es:'El bono', zh:'债券', example:'Compró bonos del tesoro.'},
+          {es:'El riesgo', zh:'风险', example:'El riesgo de impago es alto.'},
+          {es:'La rentabilidad', zh:'收益率', example:'La rentabilidad no está garantizada.'},
+          {es:'La diversificación', zh:'分散配置', example:'La diversificación reduce el riesgo.'},
+          {es:'El patrimonio', zh:'净资产', example:'Su patrimonio es modesto.'},
+          {es:'La herencia', zh:'遗产', example:'Recibió una herencia inesperada.'},
+          {es:'El testamento', zh:'遗嘱', example:'Dejó testamento cerrado.'},
+          {es:'La donación', zh:'赠与', example:'Hizo una donación en vida.'},
+          {es:'El impuesto', zh:'税', example:'El impuesto se declara en junio.'},
+          {es:'La declaración', zh:'申报', example:'Presentó la declaración a tiempo.'},
+          {es:'La deducción', zh:'抵扣', example:'Aplicó varias deducciones.'},
+          {es:'El fraude', zh:'欺诈', example:'El fraude fiscal se persigue.'},
+          {es:'La estafa', zh:'诈骗', example:'Cayó en una estafa piramidal.'},
+          {es:'El consumo responsable', zh:'理性消费', example:'Apuesta por el consumo responsable.'},
+          {es:'La compra impulsiva', zh:'冲动消费', example:'La compra impulsiva arruina presupuestos.'},
+          {es:'La publicidad engañosa', zh:'虚假广告', example:'Denunció publicidad engañosa.'},
+          {es:'El sobreendeudamiento', zh:'过度负债', example:'El sobreendeudamiento afecta a las familias.'},
+          {es:'La educación financiera', zh:'金融素养', example:'Falta educación financiera.'},
+          {es:'La previsión', zh:'预判、储备', example:'Conviene tener previsión.'},
+          {es:'El fondo de emergencia', zh:'应急基金', example:'Tener un fondo de emergencia da tranquilidad.'},
+          {es:'La jubilación', zh:'退休', example:'Planifica su jubilación.'},
+          {es:'La pensión', zh:'养老金', example:'La pensión es insuficiente.'},
+          {es:'El plan de pensiones', zh:'养老金计划', example:'Aporta a un plan de pensiones.'},
+          {es:'Ahorrar', zh:'储蓄', example:'Ahorra el veinte por ciento.'},
+          {es:'Endeudarse', zh:'负债', example:'Se endeudó para estudiar.'},
+          {es:'Amortizar', zh:'偿还本金', example:'Amortizó el préstamo en cinco años.'},
+          {es:'Invertir', zh:'投资', example:'Invirtió en formación.'},
+          {es:'Rentabilizar', zh:'使有回报', example:'Rentabilizó la inversión.'},
+          {es:'Asumir un riesgo', zh:'承担风险', example:'Asumió un riesgo calculado.'},
+          {es:'Recortar gastos', zh:'削减开支', example:'Recortaron gastos superfluos.'}
+        ],
+        grammar:[
+          {title:'数量与比例表达', desc:'un tercio de, la mitad de, el doble de, el sesenta por ciento de, la mayoría de —— 注意主谓一致（La mayoría de los clientes paga/pagan 两可）。'},
+          {title:'假设与条件（理财语境）', desc:'Si ahorras cada mes…（真实条件）；De haber invertido antes…（非现实）。De + 完成不定式表非现实条件，是书面语的简练形式。'},
+          {title:'结果与目的连接', desc:'de modo que, así pues, a fin de + 不定式, con el objetivo de + 不定式, para que + 虚拟式。'}
+        ]
       }
     ]
   },
@@ -1573,6 +1835,136 @@ const COURSES = {
           {title:'表达因果、对比与让步的学术连接词', desc:'en tanto que, en la medida en que, si bien, no obstante lo cual, a tenor de, de ahí que + 虚拟式。'},
           {title:'谨慎表达（hedging）', desc:'Parece indicar / Tiende a / En principio / Cabría suponer / Conviene matizar que —— 学术写作避免绝对化。'}
         ]
+      },
+      { id:'c1-u6', title:'公共政策与治理', subtitle:'Políticas Públicas y Gobernanza', lessons:14, duration:'约 55 分钟',
+        vocab:[
+          {es:'La gobernanza', zh:'治理', example:'La gobernanza exige transparencia.'},
+          {es:'La rendición de cuentas', zh:'问责', example:'Sin rendición de cuentas no hay confianza.'},
+          {es:'La transparencia', zh:'透明', example:'Reclaman transparencia en los contratos.'},
+          {es:'La participación ciudadana', zh:'公众参与', example:'La participación ciudadana fue escasa.'},
+          {es:'La consulta pública', zh:'公众咨询', example:'Abrieron una consulta pública de un mes.'},
+          {es:'El referéndum', zh:'公投', example:'El referéndum fue vinculante.'},
+          {es:'La iniciativa legislativa', zh:'立法动议', example:'Presentaron una iniciativa legislativa.'},
+          {es:'El anteproyecto', zh:'法案草案', example:'El anteproyecto pasó al consejo.'},
+          {es:'La tramitación', zh:'立法程序', example:'La tramitación se alargó dos años.'},
+          {es:'El dictamen', zh:'审议意见', example:'El dictamen fue favorable por mayoría.'},
+          {es:'La enmienda', zh:'修正案', example:'Se aprobaron tres enmiendas.'},
+          {es:'El texto refundido', zh:'合并文本', example:'Publicaron el texto refundido.'},
+          {es:'La moratoria', zh:'暂停期', example:'Decretaron una moratoria de un año.'},
+          {es:'La disposición transitoria', zh:'过渡条款', example:'Una disposición transitoria regula el cambio.'},
+          {es:'El reglamento de desarrollo', zh:'实施细则', example:'Falta el reglamento de desarrollo.'},
+          {es:'La evaluación de impacto', zh:'影响评估', example:'Exigen evaluación de impacto ambiental.'},
+          {es:'El informe preceptivo', zh:'强制性报告', example:'El informe preceptivo es vinculante.'},
+          {es:'La memoria económica', zh:'经济说明', example:'La memoria económica calcula el coste.'},
+          {es:'La dotación', zh:'拨款', example:'La dotación presupuestaria es insuficiente.'},
+          {es:'El reparto competencial', zh:'权限划分', example:'El reparto competencial genera conflictos.'},
+          {es:'La competencia exclusiva', zh:'专属权限', example:'Es competencia exclusiva de la comunidad.'},
+          {es:'La descentralización', zh:'权力下放', example:'La descentralización mejoró la gestión.'},
+          {es:'La cogobernanza', zh:'共同治理', example:'Apuestan por la cogobernanza.'},
+          {es:'El consorcio', zh:'联合体', example:'Crearon un consorcio intermunicipal.'},
+          {es:'La mancomunidad', zh:'市镇联合体', example:'La mancomunidad gestiona el agua.'},
+          {es:'La subvención', zh:'补贴', example:'La subvención cubre el sesenta por ciento.'},
+          {es:'La convocatoria', zh:'招标公告', example:'La convocatoria se publica en marzo.'},
+          {es:'El beneficiario', zh:'受益方', example:'Los beneficiarios deben justificar el gasto.'},
+          {es:'La justificación', zh:'报账、证明', example:'La justificación del gasto es obligatoria.'},
+          {es:'El desfase', zh:'时间差、偏差', example:'Hay un desfase entre previsión y realidad.'},
+          {es:'La ejecución presupuestaria', zh:'预算执行', example:'La ejecución presupuestaria fue del setenta por ciento.'},
+          {es:'El remanente', zh:'结余', example:'El remanente se reinvierte.'},
+          {es:'La auditoría', zh:'审计', example:'La auditoría detectó irregularidades.'},
+          {es:'El órgano de control', zh:'监督机构', example:'El órgano de control es independiente.'},
+          {es:'La fiscalización', zh:'监督审查', example:'La fiscalización corresponde al tribunal.'},
+          {es:'La potestad', zh:'权能', example:'La potestad sancionadora es limitada.'},
+          {es:'La sanción', zh:'处罚', example:'La sanción debe ser proporcional.'},
+          {es:'El recurso de alzada', zh:'行政复议', example:'Interpuso un recurso de alzada.'},
+          {es:'La nulidad', zh:'无效', example:'La nulidad del acto fue declarada.'},
+          {es:'La caducidad', zh:'失效', example:'La caducidad del procedimiento es automática.'},
+          {es:'El silencio administrativo', zh:'行政默示', example:'Opera el silencio administrativo positivo.'},
+          {es:'La lealtad institucional', zh:'机构忠诚', example:'Se invoca la lealtad institucional.'},
+          {es:'El principio de proporcionalidad', zh:'比例原则', example:'Rige el principio de proporcionalidad.'},
+          {es:'La seguridad jurídica', zh:'法律确定性', example:'La seguridad jurídica es un principio básico.'},
+          {es:'El interés general', zh:'公共利益', example:'Prevalece el interés general.'},
+          {es:'La prevalencia', zh:'优先', example:'La prevalencia de la ley estatal es clara.'},
+          {es:'La armonización', zh:'协调统一', example:'Buscan la armonización normativa.'},
+          {es:'La subsidiariedad', zh:'辅助性原则', example:'Aplican el principio de subsidiariedad.'},
+          {es:'Dirimir', zh:'裁断', example:'El tribunal dirimió el conflicto.'},
+          {es:'Articular', zh:'协调组织', example:'Hay que articular los distintos niveles.'},
+          {es:'Instrumentar', zh:'落实、配置手段', example:'Falta instrumentar las medidas.'},
+          {es:'Implementar', zh:'实施', example:'Implementar la norma llevará un año.'},
+          {es:'Evaluar', zh:'评估', example:'Evaluarán el impacto a los dos años.'},
+          {es:'Revocar', zh:'撤销', example:'Revocaron la autorización.'},
+          {es:'Ratificar', zh:'批准', example:'El pleno ratificó el acuerdo.'}
+        ],
+        grammar:[
+          {title:'行政与法律文本的固定结构', desc:'A tenor de lo previsto en… / En ejercicio de las competencias… / Previa autorización de… / Sin perjuicio de lo dispuesto en… —— 正式文本框架。'},
+          {title:'将来时与义务式表规定', desc:'正式文本用将来时表强制性：El solicitante presentará…；也可用 quedará obligado a / deberá / habrá de。'},
+          {title:'条件与例外条款', desc:'Salvo que + 虚拟式 / Excepto si + 陈述式 / Siempre que + 虚拟式 / A reserva de —— 用于设定义务边界。'}
+        ]
+      },
+      { id:'c1-u7', title:'修辞与说服', subtitle:'Retórica y Persuasión', lessons:14, duration:'约 55 分钟',
+        vocab:[
+          {es:'La persuasión', zh:'说服', example:'La persuasión no es lo mismo que la coacción.'},
+          {es:'La disuasión', zh:'劝阻、威慑', example:'La disuasión funcionó mejor que la amenaza.'},
+          {es:'El encuadre', zh:'框架设定', example:'El encuadre condiciona la interpretación.'},
+          {es:'La agenda', zh:'议题设定', example:'Quien fija la agenda fija el debate.'},
+          {es:'El eslogan', zh:'口号', example:'Un eslogan memorable.'},
+          {es:'La consigna', zh:'指令性口号', example:'Repetían la consigna sin pensar.'},
+          {es:'El lema', zh:'座右铭、标语', example:'El lema del congreso era la igualdad.'},
+          {es:'La arenga', zh:'鼓动性演说', example:'Pronunció una arenga vibrante.'},
+          {es:'El discurso', zh:'演讲', example:'El discurso duró cuarenta minutos.'},
+          {es:'La alocución', zh:'正式讲话', example:'La alocución fue breve y sobria.'},
+          {es:'El preámbulo', zh:'开场白', example:'Un preámbulo innecesario.'},
+          {es:'La digresión', zh:'离题', example:'La digresión desvió la atención.'},
+          {es:'El epílogo', zh:'结语', example:'El epílogo resultó conmovedor.'},
+          {es:'La conclusión', zh:'结论', example:'Cerró con una conclusión contundente.'},
+          {es:'El silogismo', zh:'三段论', example:'El silogismo es formalmente válido.'},
+          {es:'La analogía', zh:'类比', example:'La analogía es sugerente pero imperfecta.'},
+          {es:'La metáfora', zh:'隐喻', example:'La metáfora organiza el pensamiento.'},
+          {es:'La hipérbole', zh:'夸张', example:'La hipérbole debilita el argumento.'},
+          {es:'La litote', zh:'曲言法', example:'Usa la litote para atenuar.'},
+          {es:'La preterición', zh:'假省略', example:'La preterición dice lo que finge omitir.'},
+          {es:'La apelación emocional', zh:'诉诸情感', example:'La apelación emocional sustituye al dato.'},
+          {es:'El argumento de autoridad', zh:'诉诸权威', example:'El argumento de autoridad no siempre basta.'},
+          {es:'La falacia', zh:'谬误', example:'Detectó la falacia de inmediato.'},
+          {es:'El hombre de paja', zh:'稻草人谬误', example:'Rebatió un hombre de paja.'},
+          {es:'La pendiente resbaladiza', zh:'滑坡谬误', example:'Es una pendiente resbaladiza.'},
+          {es:'El falso dilema', zh:'假两难', example:'Plantea un falso dilema.'},
+          {es:'La petición de principio', zh:'循环论证', example:'Eso es una petición de principio.'},
+          {es:'El sesgo de confirmación', zh:'确认偏差', example:'El sesgo de confirmación lo cegó.'},
+          {es:'La carga de la prueba', zh:'举证责任', example:'La carga de la prueba recae en quien afirma.'},
+          {es:'La falacia de composición', zh:'合成谬误', example:'Incurrió en una falacia de composición.'},
+          {es:'La retractación', zh:'收回前言', example:'Su retractación llegó tarde.'},
+          {es:'La rectificación', zh:'更正', example:'Publicó una rectificación.'},
+          {es:'La matización', zh:'补充限定', example:'Agradezco la matización.'},
+          {es:'El matiz', zh:'细微差别', example:'Un matiz decisivo.'},
+          {es:'La vehemencia', zh:'激烈', example:'Habló con vehemencia.'},
+          {es:'La mesura', zh:'节制', example:'Respondió con mesura.'},
+          {es:'La contundencia', zh:'力度', example:'La contundencia de los datos.'},
+          {es:'La ambigüedad', zh:'含混', example:'La ambigüedad fue deliberada.'},
+          {es:'La elipsis', zh:'省略', example:'La elipsis sugiere sin afirmar.'},
+          {es:'La ironía', zh:'反讽', example:'La ironía exige un lector atento.'},
+          {es:'El eufemismo', zh:'委婉语', example:'El eufemismo oculta el conflicto.'},
+          {es:'La perífrasis', zh:'迂回表达', example:'Prefiere la perífrasis al término directo.'},
+          {es:'El circunloquio', zh:'绕圈子', example:'Se pierde en circunloquios.'},
+          {es:'La concisión', zh:'简洁', example:'La concisión es una virtud retórica.'},
+          {es:'La redundancia', zh:'重复赘述', example:'La redundancia cansa al oyente.'},
+          {es:'El énfasis', zh:'强调', example:'Colocó el énfasis en la segunda parte.'},
+          {es:'La gradación', zh:'递进', example:'Una gradación ascendente muy eficaz.'},
+          {es:'La antítesis', zh:'对照', example:'La antítesis estructura el párrafo.'},
+          {es:'El quiasmo', zh:'交错配列', example:'Un quiasmo bien colocado.'},
+          {es:'El apóstrofe', zh:'呼语', example:'Interpeló al público con un apóstrofe.'},
+          {es:'La interrogación retórica', zh:'反问', example:'La interrogación retórica no espera respuesta.'},
+          {es:'La concesión', zh:'让步', example:'Introdujo una concesión estratégica.'},
+          {es:'La refutación', zh:'驳斥', example:'Su refutación fue sistemática.'},
+          {es:'El contraargumento', zh:'反论', example:'Anticipó los contraargumentos.'},
+          {es:'La réplica', zh:'应答', example:'Su réplica fue inmediata.'},
+          {es:'La audiencia', zh:'受众', example:'Adaptó el tono a la audiencia.'},
+          {es:'El receptor', zh:'接收者', example:'El receptor filtra el mensaje.'}
+        ],
+        grammar:[
+          {title:'强调句式', desc:'Lo que importa es que… / Es precisamente ahí donde… / No fue sino hasta entonces cuando… —— 通过分裂句把焦点推到特定成分上。'},
+          {title:'让步与反驳的语式配合', desc:'Si bien es cierto que + 陈述式, no lo es menos que… / Cierto es que…, pero… / No niego que + 虚拟式 —— 先让步再反驳的经典结构。'},
+          {title:'虚拟式在论辩中的评价功能', desc:'No es que + 虚拟式… sino que + 陈述式；Lejos de + 不定式；Que yo sepa（+ 陈述式，表限定）。'}
+        ]
       }
     ]
   },
@@ -1861,6 +2253,144 @@ const COURSES = {
           {title:'抽象名词化与无人称论述', desc:'el devenir, el acaecer, el advenimiento, la irrupción de, la génesis de —— 哲学文本大量使用名词化压缩命题。'},
           {title:'复杂从句嵌套', desc:'El hecho de que + 虚拟式 / Que + 虚拟式作主语 / En la medida en que + 陈述式 / Por cuanto + 陈述式 —— 学术长句的骨架。'},
           {title:'让步与限定的高层次表达', desc:'Aun a riesgo de / No en vano / Salvo en la medida en que / Siempre y cuando + 虚拟式 —— 精确限定论断范围。'}
+        ]
+      },
+      { id:'c2-u6', title:'美学与艺术哲学', subtitle:'Estética y Filosofía del Arte', lessons:16, duration:'约 60 分钟',
+        vocab:[
+          {es:'La estética', zh:'美学', example:'La estética estudia la experiencia sensible.'},
+          {es:'Lo sublime', zh:'崇高', example:'Lo sublime sobrecoge al espectador.'},
+          {es:'Lo pintoresco', zh:'如画之美', example:'Lo pintoresco agrada sin conmover.'},
+          {es:'La mímesis', zh:'模仿说', example:'La mímesis es imitación de la naturaleza.'},
+          {es:'La catarsis', zh:'净化、宣泄', example:'La tragedia produce catarsis.'},
+          {es:'El pathos', zh:'悲情、感染力', example:'El pathos domina la escena final.'},
+          {es:'El clímax', zh:'高潮', example:'El clímax llega en el tercer acto.'},
+          {es:'La diégesis', zh:'叙事世界', example:'Lo que se narra pertenece a la diégesis.'},
+          {es:'La mímesis diegética', zh:'叙事性模仿', example:'Distingue mímesis de diégesis.'},
+          {es:'El significante', zh:'能指', example:'El significante remite al significado.'},
+          {es:'El significado', zh:'所指', example:'La relación entre significado y referente.'},
+          {es:'La hermenéutica', zh:'诠释学', example:'La hermenéutica interpreta la obra.'},
+          {es:'La interpretación', zh:'解读', example:'Toda interpretación es situada.'},
+          {es:'La recepción', zh:'接受', example:'La estética de la recepción estudia al lector.'},
+          {es:'El horizonte de expectativas', zh:'期待视野', example:'El horizonte de expectativas cambia con la época.'},
+          {es:'El canon', zh:'经典名录', example:'El canon literario se revisa.'},
+          {es:'La legitimación', zh:'合法化', example:'La legitimación del gusto es social.'},
+          {es:'El juicio de gusto', zh:'品味判断', example:'El juicio de gusto aspira a universalidad.'},
+          {es:'La sensibilidad', zh:'感受力', example:'La sensibilidad se educa.'},
+          {es:'El desinterés', zh:'无利害性', example:'El juicio estético exige desinterés.'},
+          {es:'La finalidad sin fin', zh:'无目的的合目的性', example:'Kant habla de finalidad sin fin.'},
+          {es:'Lo apolíneo', zh:'日神精神', example:'Lo apolíneo frente a lo dionisíaco.'},
+          {es:'Lo dionisíaco', zh:'酒神精神', example:'Lo dionisíaco desborda la forma.'},
+          {es:'La mímesis aristotélica', zh:'亚里士多德式模仿', example:'La mímesis aristotélica es creativa.'},
+          {es:'La vanguardia', zh:'先锋派', example:'La vanguardia rompió con el canon.'},
+          {es:'La autonomía del arte', zh:'艺术自律', example:'Defiende la autonomía del arte.'},
+          {es:'La heteronomía', zh:'他律', example:'La heteronomía somete el arte a fines externos.'},
+          {es:'El compromiso', zh:'介入、担当', example:'El compromiso político del artista.'},
+          {es:'El formalismo', zh:'形式主义', example:'El formalismo atiende solo a la forma.'},
+          {es:'El contenido', zh:'内容', example:'Forma y contenido son inseparables.'},
+          {es:'La ambigüedad estética', zh:'审美含混', example:'La ambigüedad estética enriquece la obra.'},
+          {es:'La ironía romántica', zh:'浪漫反讽', example:'La ironía romántica se ríe de sí misma.'},
+          {es:'Lo siniestro', zh:'诡异、令人不安', example:'Freud analizó lo siniestro.'},
+          {es:'Lo grotesco', zh:'怪诞', example:'Lo grotesco mezcla risa y horror.'},
+          {es:'La mímesis fallida', zh:'失败的模仿', example:'La mímesis fallida puede ser productiva.'},
+          {es:'El kitsch', zh:'媚俗', example:'El kitsch imita emociones sin vivirlas.'},
+          {es:'La reproductibilidad', zh:'可复制性', example:'Benjamin escribió sobre la reproductibilidad técnica.'},
+          {es:'El aura', zh:'灵光、本真性', example:'La reproducción técnica destruye el aura.'},
+          {es:'El original', zh:'原作', example:'El original conserva su aura.'},
+          {es:'La performance', zh:'行为艺术', example:'La performance no deja objeto.'},
+          {es:'El ready-made', zh:'现成品', example:'Duchamp inventó el ready-made.'},
+          {es:'La instalación', zh:'装置艺术', example:'Una instalación de gran formato.'},
+          {es:'El espectador', zh:'观者', example:'El espectador completa la obra.'},
+          {es:'La contemplación', zh:'观照', example:'La contemplación exige tiempo.'},
+          {es:'El arrobamiento', zh:'陶醉、出神', example:'Contempló el cuadro con arrobamiento.'},
+          {es:'La fruición', zh:'愉悦享受', example:'Leía con fruición.'},
+          {es:'El deleite', zh:'愉悦', example:'El deleite estético es desinteresado.'},
+          {es:'La exquisitez', zh:'精妙', example:'La exquisitez del detalle sorprende.'},
+          {es:'Lo cursi', zh:'俗气', example:'Lo cursi imita lo sublime sin alcanzarlo.'},
+          {es:'Lo kitsch y lo cursi', zh:'媚俗与俗气', example:'Distingue lo kitsch de lo cursi.'},
+          {es:'La mímesis y el símbolo', zh:'模仿与象征', example:'Frente a la mímesis, el símbolo sugiere.'},
+          {es:'Sugerir', zh:'暗示', example:'El arte moderno prefiere sugerir.'},
+          {es:'Evocar', zh:'唤起', example:'Evoca un paisaje sin describirlo.'},
+          {es:'Sublimar', zh:'升华', example:'Sublima el dolor en forma.'},
+          {es:'Trascender', zh:'超越', example:'El arte trasciende lo anecdótico.'},
+          {es:'Desvelar', zh:'揭示', example:'Desvela lo oculto.'},
+          {es:'Desvirtuar', zh:'扭曲原意', example:'La mala lectura desvirtúa la obra.'},
+          {es:'Encumbrar', zh:'推崇、抬高', example:'La crítica lo encumbró.'},
+          {es:'Deconstruir', zh:'解构', example:'Deconstruye los géneros tradicionales.'}
+        ],
+        grammar:[
+          {title:'抽象论述的名词化', desc:'la irrupción de, el advenimiento de, la quiebra de, el desvelamiento de —— 把命题压缩为名词短语，是哲学文本的主要手段。'},
+          {title:'让步与限制的高阶表达', desc:'Si bien + 陈述式 / Aun cuando + 虚拟式 / En la medida en que + 陈述式 / Salvo en la medida en que —— 限定论断的范围。'},
+          {title:'对比与并列的书面连接', desc:'frente a, a diferencia de, en contraste con, por oposición a, de un lado… de otro —— 组织对立论点。'},
+          {title:'引述与归属', desc:'según X, a juicio de X, en palabras de X, como sostiene X, X sostiene que + 陈述式（引述肯定主张）。'}
+        ]
+      },
+      { id:'c2-u7', title:'科学哲学与方法论', subtitle:'Filosofía de la Ciencia', lessons:16, duration:'约 60 分钟',
+        vocab:[
+          {es:'La falsabilidad', zh:'可证伪性', example:'La falsabilidad distingue ciencia de pseudociencia.'},
+          {es:'La refutación', zh:'证伪', example:'La refutación de una teoría la fortalece.'},
+          {es:'La corroboración', zh:'确证', example:'La corroboración nunca es definitiva.'},
+          {es:'El paradigma', zh:'范式', example:'Un cambio de paradigma científico.'},
+          {es:'La revolución científica', zh:'科学革命', example:'Kuhn describió las revoluciones científicas.'},
+          {es:'La anomalía', zh:'反常', example:'La anomalía acumulada precipita la crisis.'},
+          {es:'La conjetura', zh:'猜测', example:'Toda teoría es una conjetura audaz.'},
+          {es:'El enunciado', zh:'陈述、命题', example:'Un enunciado observable.'},
+          {es:'La observación', zh:'观察', example:'La observación está cargada de teoría.'},
+          {es:'La inducción', zh:'归纳', example:'El problema de la inducción persiste.'},
+          {es:'La deducción', zh:'演绎', example:'La deducción garantiza validez, no verdad.'},
+          {es:'La abducción', zh:'溯因', example:'La abducción genera hipótesis.'},
+          {es:'La inferencia', zh:'推论', example:'La inferencia a la mejor explicación.'},
+          {es:'El criterio de demarcación', zh:'划界标准', example:'Buscan un criterio de demarcación.'},
+          {es:'La verosimilitud', zh:'逼真性', example:'La verosimilitud sustituye a la certeza.'},
+          {es:'El realismo científico', zh:'科学实在论', example:'El realismo científico sostiene que las teorías describen.'},
+          {es:'El instrumentalismo', zh:'工具主义', example:'El instrumentalismo ve las teorías como herramientas.'},
+          {es:'El convencionalismo', zh:'约定论', example:'El convencionalismo niega el contenido factual.'},
+          {es:'El empirismo', zh:'经验主义', example:'El empirismo exige contrastación.'},
+          {es:'El racionalismo', zh:'理性主义', example:'El racionalismo confía en la razón.'},
+          {es:'El relativismo epistémico', zh:'认识论相对主义', example:'El relativismo epistémico es autodestructivo.'},
+          {es:'La carga teórica', zh:'理论负载', example:'La carga teórica de la observación.'},
+          {es:'El holismo', zh:'整体论', example:'El holismo de Duhem-Quine.'},
+          {es:'La infradeterminación', zh:'欠决定性', example:'La infradeterminación de los datos.'},
+          {es:'La ley', zh:'定律', example:'Una ley universal.'},
+          {es:'La hipótesis auxiliar', zh:'辅助假设', example:'Salvaron la teoría con una hipótesis auxiliar.'},
+          {es:'El experimento crucial', zh:'判决性实验', example:'Ningún experimento es del todo crucial.'},
+          {es:'La contrastación', zh:'检验', example:'La contrastación empírica es exigible.'},
+          {es:'La replicabilidad', zh:'可重复性', example:'La crisis de replicabilidad es grave.'},
+          {es:'El sesgo de publicación', zh:'发表偏倚', example:'El sesgo de publicación distorsiona el corpus.'},
+          {es:'La revisión por pares', zh:'同行评审', example:'La revisión por pares tiene fallos.'},
+          {es:'El consenso', zh:'共识', example:'El consenso científico no es unanimidad.'},
+          {es:'La probabilidad', zh:'概率', example:'La probabilidad bayesiana actualiza creencias.'},
+          {es:'La incertidumbre', zh:'不确定性', example:'La incertidumbre es cuantificable.'},
+          {es:'El error', zh:'误差', example:'El error sistemático se corrige.'},
+          {es:'El margen', zh:'裕度', example:'Un margen de error aceptable.'},
+          {es:'La medición', zh:'测量', example:'La medición exige instrumentos calibrados.'},
+          {es:'La calibración', zh:'校准', example:'La calibración es imprescindible.'},
+          {es:'La modelización', zh:'建模', example:'La modelización simplifica la realidad.'},
+          {es:'La idealización', zh:'理想化', example:'Toda ciencia opera con idealizaciones.'},
+          {es:'La simplificación', zh:'简化', example:'La simplificación es inevitable y arriesgada.'},
+          {es:'El reduccionismo', zh:'还原论', example:'El reduccionismo empobrece el análisis.'},
+          {es:'El emergentismo', zh:'突现论', example:'El emergentismo explica propiedades nuevas.'},
+          {es:'La causalidad', zh:'因果性', example:'La causalidad no se observa, se infiere.'},
+          {es:'La correlación', zh:'相关性', example:'Correlación no implica causación.'},
+          {es:'El mecanismo', zh:'机制', example:'Buscan el mecanismo subyacente.'},
+          {es:'La explicación', zh:'解释', example:'Una explicación satisfactoria.'},
+          {es:'La predicción', zh:'预测', example:'La predicción exitosa confirma provisionalmente.'},
+          {es:'La retrodicción', zh:'回溯预测', example:'La retrodicción también cuenta.'},
+          {es:'La heurística', zh:'启发式', example:'Una heurística útil pero falible.'},
+          {es:'El sesgo cognitivo', zh:'认知偏差', example:'El sesgo cognitivo afecta al científico.'},
+          {es:'La objetividad', zh:'客观性', example:'La objetividad es un ideal regulativo.'},
+          {es:'La intersubjetividad', zh:'主体间性', example:'La intersubjetividad sostiene la ciencia.'},
+          {es:'La provisionalidad', zh:'暂时性', example:'La provisionalidad del conocimiento.'},
+          {es:'La conjetura y refutación', zh:'猜测与反驳', example:'El método de conjeturas y refutaciones.'},
+          {es:'El progreso', zh:'进步', example:'El progreso científico no es lineal.'},
+          {es:'La inconmensurabilidad', zh:'不可通约性', example:'La inconmensurabilidad entre paradigmas.'},
+          {es:'Inferir', zh:'推断', example:'De los datos se infiere la ley.'},
+          {es:'Contrastar', zh:'检验', example:'Contrastaron la hipótesis.'},
+          {es:'Refrendar', zh:'确证', example:'Los experimentos refrendan la teoría.'}
+        ],
+        grammar:[
+          {title:'命题态度与归属', desc:'X sostiene que + 陈述式 / X niega que + 虚拟式 / No es que… sino que… —— 引述与评价并存时的语式选择。'},
+          {title:'条件与反事实推理', desc:'Si se hubiera medido con precisión…, habría…（反事实）；De no ser por…；En ausencia de… —— 科学论述中假设推理的常用式。'},
+          {title:'限定与保留的书面表达', desc:'en principio, a reserva de, salvo error u omisión, en la medida en que, hasta donde alcanza nuestro conocimiento —— 学术表达的审慎。'}
         ]
       }
     ]
@@ -3477,6 +4007,229 @@ FILÓSOFO: En eso no la discutiré.`,
       {q:'¿En qué se distingue su relato de una novela histórica?', a:'En que sus afirmaciones son refutables.'},
       {q:'¿Qué garantiza la ciencia según ella?', a:'Un procedimiento que castiga el error, no verdades definitivas.'},
       {q:'¿Cuál es el criterio de distinción que propone?', a:'Que unos relatos admiten ser puestos a prueba y otros no.'}
+    ]
+  },
+  {level:'B2', title:'社区议事：老城区改造', speaker:'Moderador / Arquitecta / Vecino', duration:'约 1 分 40 秒',
+    es:`MODERADOR: Abrimos el turno de palabra sobre el plan de rehabilitación.
+ARQUITECTA: El proyecto prevé mantener la estructura original y renovar instalaciones. Respetaremos las fachadas catalogadas.
+VECINO: Eso suena bien, pero llevamos veinte años oyendo promesas parecidas.
+ARQUITECTA: Lo entiendo. Por eso esta vez empezamos por las viviendas vacías, que son el cuarenta por ciento del total.
+VECINO: ¿Y los que vivimos aquí? ¿Nos van a realojar durante las obras?
+ARQUITECTA: Solo si la intervención afecta a la estructura. En ese caso, el realojamiento corre a cargo del ayuntamiento.
+VECINO: ¿Cuándo sabríamos si nos toca?
+ARQUITECTA: Tras el informe técnico, que estará listo en tres meses. Y se lo comunicaremos por escrito, no de palabra.
+VECINO: Eso al menos es concreto.`,
+    zh:`主持人：关于改造方案，现在开放发言。
+建筑师：项目计划保留原有结构并进行设备更新。我们会保留列入保护名录的立面。
+居民：听起来不错，但这类承诺我们听了二十年了。
+建筑师：我理解。所以这次我们从空置住房入手，它们占总数的百分之四十。
+居民：那我们这些住户呢？施工期间会给我们安排临时住所吗？
+建筑师：只有干预涉及结构时才会。那种情况下，安置由市政府负责。
+居民：我们什么时候能知道是否轮到自己？
+建筑师：等技术报告出来，三个月内完成。而且我们会书面通知，不是口头说说。
+居民：这至少是具体的。`,
+    keyVocab:[
+      {es:'la rehabilitación', zh:'翻新改造'},
+      {es:'catalogado', zh:'列入保护名录的'},
+      {es:'el realojamiento', zh:'临时安置'},
+      {es:'correr a cargo de', zh:'由……承担'},
+      {es:'la intervención', zh:'工程干预'},
+      {es:'por escrito', zh:'以书面形式'}
+    ],
+    questions:[
+      {q:'¿Qué se propone conservar?', a:'La estructura original y las fachadas catalogadas.'},
+      {q:'¿Por dónde empieza el proyecto?', a:'Por las viviendas vacías, que son el cuarenta por ciento.'},
+      {q:'¿Cuándo hay realojamiento?', a:'Solo cuando la intervención afecta a la estructura.'},
+      {q:'¿Cómo se comunicará la decisión?', a:'Por escrito, tras el informe técnico.'}
+    ]
+  },
+  {level:'B2', title:'职场对话：如何处理冲突', speaker:'Mentora / Joven profesional', duration:'约 1 分 30 秒',
+    es:`MENTORA: Cuéntame qué pasó en la reunión.
+JOVEN: Un compañero descalificó mi propuesta delante de todos. Me quedé sin palabras.
+MENTORA: ¿Y qué hiciste después?
+JOVEN: Nada. Me lo guardé y luego lo pasé fatal.
+MENTORA: Ese es el error más común. Lo que no se aborda se acumula.
+JOVEN: No quería montar un espectáculo.
+MENTORA: Abordarlo no es montar un espectáculo. Puedes hablar con él en privado y describir el hecho, no su personalidad.
+JOVEN: ¿Por ejemplo?
+MENTORA: «Cuando dijiste que mi propuesta era absurda, me costó seguir participando». Sin acusar, sin generalizar.
+JOVEN: Suena más fácil de lo que es.
+MENTORA: Lo es de decir. Pero callarse tiene un coste mayor: acabas evitando a esa persona y el equipo lo nota.`,
+    zh:`导师：跟我说说会上发生了什么。
+年轻人：一位同事当着所有人的面贬低了我的提案。我当时说不出话。
+导师：那你之后怎么做的？
+年轻人：什么也没做。我憋在心里，后来难受了很久。
+导师：这是最常见的错误。没有处理的事会累积起来。
+年轻人：我不想把事情闹大。
+导师：去处理不等于闹大。你可以私下跟他谈，描述事实，而不是评价他的人格。
+年轻人：比如呢？
+导师：『当你说我的提案荒唐时，我很难继续参与』。不指责，不以偏概全。
+年轻人：听起来比做起来容易。
+导师：说是容易。但沉默的代价更大：你最终会回避那个人，而团队会察觉。`,
+    keyVocab:[
+      {es:'descalificar', zh:'贬低、否定'},
+      {es:'quedarse sin palabras', zh:'说不出话'},
+      {es:'guardarse algo', zh:'憋在心里'},
+      {es:'acumularse', zh:'累积'},
+      {es:'montar un espectáculo', zh:'闹大、失态'},
+      {es:'en privado', zh:'私下'},
+      {es:'generalizar', zh:'以偏概全'}
+    ],
+    questions:[
+      {q:'¿Qué hizo el compañero?', a:'Descalificó su propuesta delante de todos.'},
+      {q:'¿Cuál es, según la mentora, el error más común?', a:'No abordar el conflicto y guardárselo.'},
+      {q:'¿Qué recomienda hacer?', a:'Hablar en privado y describir el hecho, no la personalidad.'},
+      {q:'¿Qué coste tiene callarse?', a:'Se acumula y acabas evitando a esa persona.'}
+    ]
+  },
+  {level:'C1', title:'学术访谈：语言与身份认同', speaker:'Periodista / Sociolingüista', duration:'约 2 分钟',
+    es:`PERIODISTA: Se dice que una lengua muere cada dos semanas. ¿Es una cifra fiable?
+SOCIOLINGÜISTA: Como titular es eficaz; como dato es engañoso. Lo que desaparece no es tanto la lengua como su transmisión intergeneracional.
+PERIODISTA: ¿Qué se pierde exactamente cuando eso ocurre?
+SOCIOLINGÜISTA: Se pierde un modo de clasificar el mundo. Hay lenguas que distinguen matices que otras no lexicalizan, y con ellas se va esa distinción.
+PERIODISTA: A veces se responde que basta con traducir.
+SOCIOLINGÜISTA: Traducir es posible, pero no gratuito: siempre se pierde algo, y quien decide qué se pierde no suele ser la comunidad afectada.
+PERIODISTA: ¿Qué ha funcionado para revertirlo?
+SOCIOLINGÜISTA: Tres cosas, y ninguna es folclórica: educación en la lengua propia, presencia en medios y, sobre todo, prestigio social. Sin lo tercero, lo demás se queda en gesto.
+PERIODISTA: ¿Y si la comunidad no quiere mantenerla?
+SOCIOLINGÜISTA: Entonces hay que respetarlo. La lengua no es un monumento: es una práctica.`,
+    zh:`记者：据说每两周就有一种语言消亡。这个数字可靠吗？
+社会语言学家：作为标题很有效；作为数据则有误导性。消失的与其说是语言，不如说是它的代际传承。
+记者：这种情况发生时，究竟失去了什么？
+社会语言学家：失去了一种对世界进行分类的方式。有些语言区分了其他语言没有词汇化的细微差别，而随着语言一起消失的正是那种区分。
+记者：有时有人回答说，翻译就够了。
+社会语言学家：翻译是可能的，但不是无代价的：总会失去些什么，而决定失去什么的人，通常不是受影响的社群本身。
+记者：什么措施对扭转局面有效？
+社会语言学家：三件事，都不是民俗表演：用本族语教育、在媒体中占有一席之地，尤其是社会声望。没有第三点，其余都只是姿态。
+记者：如果那个社群自己不想保留呢？
+社会语言学家：那就必须尊重。语言不是纪念碑，而是一种实践。`,
+    keyVocab:[
+      {es:'fiable', zh:'可靠的'},
+      {es:'engañoso', zh:'误导性的'},
+      {es:'la transmisión intergeneracional', zh:'代际传承'},
+      {es:'lexicalizar', zh:'词汇化'},
+      {es:'gratuito', zh:'无偿的、无代价的'},
+      {es:'revertir', zh:'扭转'},
+      {es:'folclórico', zh:'民俗的、做样子的'},
+      {es:'quedarse en gesto', zh:'停留在姿态上'}
+    ],
+    questions:[
+      {q:'¿Por qué la cifra resulta engañosa?', a:'Porque lo que desaparece no es tanto la lengua como su transmisión intergeneracional.'},
+      {q:'¿Qué se pierde cuando una lengua se extingue?', a:'Un modo de clasificar el mundo, con sus distinciones.'},
+      {q:'¿Qué objeción hace a la solución de traducir?', a:'Que no es gratuita y quien decide qué se pierde no es la comunidad afectada.'},
+      {q:'¿Cuál de las tres medidas es decisiva?', a:'El prestigio social.'}
+    ]
+  },
+  {level:'C1', title:'企业圆桌：可持续与发展', speaker:'Moderadora / Directora de sostenibilidad / Economista', duration:'约 2 分钟',
+    es:`MODERADORA: ¿Es compatible crecer con reducir emisiones?
+DIRECTORA: Depende del tipo de crecimiento. Desacoplar el PIB de las emisiones es posible en algunos sectores y muy difícil en otros.
+ECONOMISTA: Yo añadiría una precisión: hasta ahora el desacoplamiento ha sido relativo, no absoluto. Es decir, contaminamos menos por unidad producida, pero seguimos contaminando más en total.
+DIRECTORA: Es cierto, y ese matiz se omite con demasiada frecuencia en los informes corporativos.
+MODERADORA: ¿Qué haría falta para un desacoplamiento absoluto?
+ECONOMISTA: Cambiar la matriz energética y, sobre todo, reducir la demanda. Lo segundo es impopular y por eso casi nadie lo menciona.
+DIRECTORA: Coincido, aunque matizaría que reducir demanda no equivale a reducir bienestar. Se puede consumir menos y vivir mejor, pero exige replantear qué consideramos progreso.
+MODERADORA: ¿Quién debería liderar ese replanteamiento?
+ECONOMISTA: Quien tenga capacidad de fijar precios e incentivos. La buena voluntad individual, sin señales de precio, no escala.`,
+    zh:`主持人：增长与减排能兼容吗？
+可持续发展总监：取决于什么样的增长。把 GDP 与排放脱钩，在某些行业可行，在另一些行业极难。
+经济学家：我要补充一个限定：迄今为止的脱钩是相对的，不是绝对的。也就是说，单位产出污染更少，但总排放仍在增加。
+可持续发展总监：确实如此，而这个细微差别在公司报告中被遗漏得太频繁了。
+主持人：绝对脱钩需要什么？
+经济学家：改变能源结构，尤其是降低需求。第二点不受欢迎，所以几乎没人提。
+可持续发展总监：我同意，但我想补充：降低需求不等于降低福祉。可以少消费而活得更好，但这要求重新思考我们把什么称为进步。
+主持人：谁来主导这种重新思考？
+经济学家：那些有能力设定价格和激励的人。没有价格信号，个人的善意无法规模化。`,
+    keyVocab:[
+      {es:'el desacoplamiento', zh:'脱钩'},
+      {es:'la matriz energética', zh:'能源结构'},
+      {es:'impopular', zh:'不受欢迎的'},
+      {es:'matizar', zh:'补充限定'},
+      {es:'replantear', zh:'重新思考'},
+      {es:'la señal de precio', zh:'价格信号'},
+      {es:'escalar', zh:'规模化'}
+    ],
+    questions:[
+      {q:'¿Qué precisión aporta el economista?', a:'Que el desacoplamiento ha sido relativo, no absoluto.'},
+      {q:'¿Qué se omite en los informes corporativos?', a:'Que seguimos contaminando más en total.'},
+      {q:'¿Qué haría falta para un desacoplamiento absoluto?', a:'Cambiar la matriz energética y reducir la demanda.'},
+      {q:'¿Quién debería liderar el cambio según el economista?', a:'Quien pueda fijar precios e incentivos.'}
+    ]
+  },
+  {level:'C2', title:'哲学对谈：何为好的生活', speaker:'Entrevistadora / Filósofo', duration:'约 2 分 30 秒',
+    es:`ENTREVISTADORA: Las éticas antiguas preguntaban cómo vivir; las modernas, qué está permitido. ¿Por qué ese desplazamiento?
+FILÓSOFO: Porque dejamos de creer que hubiera una respuesta única sobre la vida buena, y en su lugar construimos reglas que permitieran convivir sin acordar qué es lo mejor.
+ENTREVISTADORA: ¿Es un empobrecimiento?
+FILÓSOFO: Es un intercambio, y conviene no idealizarlo en ningún sentido. Ganamos pluralismo; perdimos la posibilidad de decirle a alguien que su vida está mal planteada, no solo que es injusta con otros.
+ENTREVISTADORA: ¿Puede la filosofía recuperar esa pregunta?
+FILÓSOFO: Puede formularla, pero no resolverla por decreto. Y me parece sano: quien pretende demostrar cómo debe vivirse suele acabar legislándolo.
+ENTREVISTADORA: Entonces, ¿qué queda?
+FILÓSOFO: Queda el trabajo de examinar la propia vida, que no garantiza acierto alguno. Sócrates no prometía la verdad: prometía no vivir sin examinar.
+ENTREVISTADORA: Es una promesa modesta.
+FILÓSOFO: Es la única honesta. Y le aseguro que ya es bastante difícil de cumplir.`,
+    zh:`采访者：古代伦理学问的是如何生活；现代伦理学问的是什么被允许。为什么会有这种转移？
+哲学家：因为我们不再相信关于好生活存在唯一答案，转而建立规则，让人们无需就何为最好达成一致也能共处。
+采访者：这是一种贫化吗？
+哲学家：这是一种交换，任何方向都不宜理想化。我们得到了多元主义；失去了对某人说"你的生活方向是错的"的可能，而只能说他对他人不公。
+采访者：哲学能重新拾起那个问题吗？
+哲学家：它能提出这个问题，但不能靠命令解决它。我认为这是健康的：想证明人应当如何生活的人，往往最后会把它定为法规。
+采访者：那么剩下什么？
+哲学家：剩下审视自身生活这项工作，它并不保证任何正确。苏格拉底并不许诺真理：他许诺的是不未经审视地活着。
+采访者：这是个谦逊的承诺。
+哲学家：这是唯一诚实的。而且我向您保证，它已经够难做到了。`,
+    keyVocab:[
+      {es:'la ética', zh:'伦理学'},
+      {es:'el desplazamiento', zh:'转移'},
+      {es:'el empobrecimiento', zh:'贫化'},
+      {es:'el pluralismo', zh:'多元主义'},
+      {es:'por decreto', zh:'靠命令、武断地'},
+      {es:'legislar', zh:'立法、规定'},
+      {es:'examinar la propia vida', zh:'审视自身生活'},
+      {es:'el acierto', zh:'正确、恰当'},
+      {es:'modesto', zh:'谦逊的、有限的'}
+    ],
+    questions:[
+      {q:'¿Qué diferencia hay entre las éticas antiguas y las modernas según el filósofo?', a:'Las antiguas preguntaban cómo vivir; las modernas, qué está permitido.'},
+      {q:'¿Qué ganamos y qué perdimos con ese desplazamiento?', a:'Ganamos pluralismo; perdimos poder decir que una vida está mal planteada.'},
+      {q:'¿Por qué le parece sano que la filosofía no resuelva la cuestión por decreto?', a:'Porque quien pretende demostrar cómo debe vivirse acaba legislándolo.'},
+      {q:'¿Qué prometía Sócrates?', a:'No vivir sin examinar, no la verdad.'}
+    ]
+  },
+  {level:'C2', title:'文学访谈：失败的文学', speaker:'Crítico / Novelista', duration:'约 2 分 30 秒',
+    es:`CRÍTICO: Ha dicho en alguna ocasión que solo le interesan los libros fracasados. ¿Provocación?
+NOVELISTA: Media provocación y media convicción. Un libro impecable suele ser un libro sin riesgo, y sin riesgo no hay nada que merezca la pena discutir.
+CRÍTICO: ¿No es una coartada cómoda para justificar defectos?
+NOVELISTA: Podría serlo, y por eso distingo. Hay fracaso por ambición desmedida y fracaso por incompetencia. El primero enseña; el segundo solo aburre.
+CRÍTICO: ¿Cómo se distinguen desde fuera?
+NOVELISTA: Por la tensión. Cuando un autor ha intentado algo que no dominaba, se nota en la página: hay una tirantez, un esfuerzo visible. El incompetente, en cambio, ni siquiera lo intenta.
+CRÍTICO: ¿Y sus propias novelas?
+NOVELISTA: Ninguna me satisface del todo, y no lo digo por falsa modestia. La que más me interesa es precisamente la que peor recibió la crítica.
+CRÍTICO: ¿Por qué?
+NOVELISTA: Porque fue donde más me arriesgué, y el riesgo se paga. Si hubiera buscado el aplauso, habría escrito otra cosa.`,
+    zh:`评论家：您曾说过只对失败的书感兴趣。这是挑衅吗？
+小说家：一半挑衅，一半真心。一本无可挑剔的书通常是一本没有风险的书，而没有风险就没有任何值得讨论的东西。
+评论家：这不是为缺陷开脱的便利借口吗？
+小说家：可能是，所以我做了区分。有出于过分野心的失败，也有出于无能的失败。前者有教益；后者只让人厌烦。
+评论家：从外部如何区分？
+小说家：看张力。当作者尝试了某种他并不掌握的东西时，页面上看得出：有一种紧绷感、一种可见的用力。而无能者则连尝试都没有。
+评论家：那您自己的小说呢？
+小说家：没有一本让我完全满意，我这么说不是假谦虚。我最感兴趣的那本，恰恰是批评界评价最差的那本。
+评论家：为什么？
+小说家：因为那是我冒风险最多的地方，而风险是要付出代价的。如果我追求掌声，我会写别的东西。`,
+    keyVocab:[
+      {es:'la provocación', zh:'挑衅'},
+      {es:'impecable', zh:'无可挑剔的'},
+      {es:'la coartada', zh:'借口、托词'},
+      {es:'desmedido', zh:'过分的'},
+      {es:'la incompetencia', zh:'无能'},
+      {es:'la tirantez', zh:'紧绷感'},
+      {es:'la falsa modestia', zh:'假谦虚'},
+      {es:'el aplauso', zh:'掌声、赞誉'}
+    ],
+    questions:[
+      {q:'¿Por qué le interesan los libros fracasados?', a:'Porque un libro impecable suele ser un libro sin riesgo.'},
+      {q:'¿Qué dos tipos de fracaso distingue?', a:'El fracaso por ambición desmedida y el fracaso por incompetencia.'},
+      {q:'¿Cómo se distinguen desde fuera?', a:'Por la tensión: hay una tirantez, un esfuerzo visible.'},
+      {q:'¿Qué relación tiene con la crítica?', a:'Que la novela que peor recibió es la que más le interesa, por ser donde más se arriesgó.'}
     ]
   }
 ];
