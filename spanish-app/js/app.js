@@ -86,6 +86,9 @@ const AppState = {
       completedGrammar: [],
       completedLessons: [],
       streakDays: 1,
+      // 断更保护：断一天自动消耗一次冻结，每坚持 7 天 +1（上限 2）
+      freezeTokens: 2,
+      streakFrozenDate: '',
       lastActiveDate: new Date().toDateString(),
       totalStudyMinutes: 0,
       achievements: [],
@@ -335,18 +338,66 @@ const AppState = {
   },
   
   updateStreak() {
+    const p = this.progress;
     const today = new Date().toDateString();
-    const lastActive = this.progress.lastActiveDate;
-    if (lastActive !== today) {
-      const yesterday = new Date(Date.now() - 86400000).toDateString();
-      if (lastActive === yesterday) {
-        this.progress.streakDays++;
+    const lastActive = p.lastActiveDate;
+    if (lastActive === today) return;
+
+    // 相差天数（按自然日计算）
+    const gapDays = (() => {
+      const a = new Date(lastActive);
+      const b = new Date(today);
+      if (isNaN(a.getTime())) return 1;
+      return Math.round((b - a) / 86400000);
+    })();
+
+    let broke = false;
+    let usedFreeze = false;
+    const gapFromPrevious = Math.max(0, gapDays - 1);
+
+    if (gapFromPrevious === 0) {
+      // 连续两天都学习
+      p.streakDays = (p.streakDays || 0) + 1;
+    } else {
+      const tokens = p.freezeTokens == null ? 2 : p.freezeTokens;
+      if (gapFromPrevious === 1 && tokens > 0) {
+        // 只断了一天：自动消耗一次冻结，连续天数延续
+        p.freezeTokens = tokens - 1;
+        p.streakDays = (p.streakDays || 0) + 1;
+        usedFreeze = true;
       } else {
-        this.progress.streakDays = 1;
+        // 中断过久或没有冻结次数：重新开始
+        p.streakDays = 1;
+        broke = true;
       }
-      this.progress.lastActiveDate = today;
-      this.saveProgress();
     }
+
+    // 每坚持 7 天奖励一次冻结（最多存 2 次）
+    if (p.streakDays > 0 && p.streakDays % 7 === 0) {
+      p.freezeTokens = Math.min((p.freezeTokens || 0) + 1, 2);
+    }
+
+    p.lastActiveDate = today;
+    this.saveProgress();
+
+    if (usedFreeze) {
+      showToast(`${icon('flame')} 已自动使用「冻结」，连续 ${p.streakDays} 天保住了！剩余 ${p.freezeTokens} 次`);
+    } else if (broke) {
+      showToast(`连续记录中断了，从今天重新开始 · 还剩 ${p.freezeTokens || 0} 次冻结`);
+    }
+  },
+  
+  // 手动冻结今天（供用户主动补签，消耗一次冻结额度）
+  manualFreeze() {
+    const p = this.progress;
+    if (!p) return { ok: false, reason: '无进度数据' };
+    const tokens = p.freezeTokens == null ? 2 : p.freezeTokens;
+    if (tokens <= 0) return { ok: false, reason: '冻结次数已用完（每坚持 7 天可获得 1 次）' };
+    if (p.streakFrozenDate === new Date().toDateString()) return { ok: false, reason: '今天已经冻结过了' };
+    p.freezeTokens = tokens - 1;
+    p.streakFrozenDate = new Date().toDateString();
+    this.saveProgress();
+    return { ok: true, remaining: p.freezeTokens };
   }
 };
 
@@ -2311,6 +2362,20 @@ function renderProgress() {
               <span style="color:var(--text-secondary);">正确率</span>
               <span style="font-weight:600;color:var(--green);">${progress.quizTotal ? Math.round(progress.quizCorrect / progress.quizTotal * 100) : 0}%</span>
             </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;">
+              <span style="color:var(--text-secondary);">连续天数</span>
+              <span style="font-weight:600;color:var(--terracotta);">${icon('flame')} ${progress.streakDays} 天</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;">
+              <span style="color:var(--text-secondary);">冻结次数</span>
+              <span style="font-weight:600;">${progress.freezeTokens == null ? 2 : progress.freezeTokens} 次</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line);">
+            <div class="progress-meta" style="margin-bottom:12px;line-height:1.6;">
+              断更一天会自动消耗一次「冻结」保住连续记录；每坚持 7 天获得 1 次（最多存 2 次）。
+            </div>
+            <button class="btn btn-ghost" id="btn-freeze" style="width:auto;font-size:0.85rem;padding:8px 16px;">使用冻结补签今天</button>
           </div>
         </div>
       </div>
@@ -2344,6 +2409,20 @@ function renderProgress() {
       const f = e.target.files && e.target.files[0];
       if (f) importProgress(f);
       e.target.value = '';   // 允许重复选择同一文件
+    });
+  }
+  
+  // 手动冻结补签
+  const freezeBtn = document.getElementById('btn-freeze');
+  if (freezeBtn) {
+    freezeBtn.addEventListener('click', () => {
+      const r = AppState.manualFreeze();
+      if (r.ok) {
+        showToast(`${icon('flame')} 已冻结今天，剩余 ${r.remaining} 次`);
+        Router.navigate();
+      } else {
+        showToast(r.reason);
+      }
     });
   }
 }
