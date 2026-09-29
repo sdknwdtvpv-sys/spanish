@@ -1480,6 +1480,11 @@ function renderListening(unit) {
   const nextBtn = document.getElementById('next-audio');
   const transcript = document.getElementById('transcript');
   
+  // 预加载所有行音频（静默缓存）
+  preloadPassageAudio(dialogue);
+  
+  let seqController = null; // _playDialogueSequence 返回的控制器
+  
   // 速度切换
   document.querySelectorAll('.rate-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1503,31 +1508,30 @@ function renderListening(unit) {
     playBtn.classList.toggle('playing', isPlaying);
     playBtn.textContent = isPlaying ? '⏸' : '▶';
     if (isPlaying) {
-      let i = 0;
-      const speakNext = () => {
-        if (i >= dialogue.length || !isPlaying) {
+      seqController = _playDialogueSequence(dialogue, {
+        rate: playbackRate,
+        onLineStart: (i) => {
+          document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
+          const curLine = document.querySelector(`.dl-line[data-idx="${i}"]`);
+          if (curLine) curLine.style.background = 'rgba(230,57,70,0.08)';
+        },
+        onEnded: () => {
           isPlaying = false;
           playBtn.classList.remove('playing');
           playBtn.textContent = '▶';
           nextBtn.style.display = 'inline-flex';
           document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
-          return;
+        },
+        onStop: () => {
+          isPlaying = false;
+          playBtn.classList.remove('playing');
+          playBtn.textContent = '▶';
         }
-        // 高亮当前行
-        document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
-        const curLine = document.querySelector(`.dl-line[data-idx="${i}"]`);
-        if (curLine) curLine.style.background = 'rgba(230,57,70,0.08)';
-        
-        speakWord(dialogue[i].text, {
-          rate: playbackRate,
-          pitch: dialogue[i].pitch,
-          toast: false,
-          interrupt: true
-        });
-        i++;
-        setTimeout(speakNext, 3000 / playbackRate); // 速度越快间隔越短
-      };
-      speakNext();
+      });
+    } else if (seqController) {
+      seqController.stop();
+      seqController = null;
+      document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
     }
   });
   toggleText.addEventListener("click", () => {
@@ -1607,21 +1611,24 @@ function renderListeningNext(passages, idx) {
     </div>
   `;
   
-  // 重绑播放事件
+  // 重绑播放事件（升级为真实音频序列播放）
   const playBtn = document.getElementById('audio-play');
+  const dialogue = parseDialogue(p.es);
+  preloadPassageAudio(dialogue);
+  let seq = null;
   let playing = false;
   playBtn.addEventListener('click', () => {
     playing = !playing;
     playBtn.textContent = playing ? '⏸' : '▶';
     if (playing) {
-      const lines = p.es.split('\n').filter(l => l.trim());
-      let i = 0;
-      const s = () => {
-        if (i >= lines.length || !playing) { playing = false; playBtn.textContent = '▶'; return; }
-        speakWord(lines[i].replace(/^[A-ZÁÉÍÓÚÑ]+:\s*/, '').trim());
-        i++; setTimeout(s, 2500);
-      };
-      s();
+      seq = _playDialogueSequence(dialogue, {
+        rate: 0.9,
+        onEnded: () => { playing = false; playBtn.textContent = '▶'; },
+        onStop: () => { playing = false; playBtn.textContent = '▶'; }
+      });
+    } else if (seq) {
+      seq.stop();
+      seq = null;
     }
   });
 }
@@ -1994,18 +2001,194 @@ function renderSrsBadge(word) {
   return `<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:700;color:${color};border:2px solid ${color};border-radius:20px;padding:3px 10px;letter-spacing:0.5px;" title="stage ${s.stage}, 下次复习 ${days} 天后">🧠 ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
 }
 
+// ========== 真实 TTS 音频（Google Translate）+ 缓存 + fallback ==========
+const _ttsCache = new Map(); // text -> HTMLAudioElement
+let _ttsFailCount = 0;       // 连续失败计数，超过阈值自动关闭 Google TTS
+let _useGoogleTts = true;    // 开关
+
+function googleTtsUrl(text, lang = 'es') {
+  // Google Translate 免费 TTS：不需要 key，短文本稳定
+  // client=tw-ob 是 Twitter old-browser trick，返回真实 mp3
+  // 清理文本：去掉 speaker 前缀，限长
+  const clean = text.trim().slice(0, 200);
+  return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(clean)}&tl=${lang}&client=tw-ob&ttsspeed=1`;
+}
+
+// 预创建并缓存一个 audio 元素（静默加载）
+// 注意：不能设 crossOrigin='anonymous'，Google Translate TTS 不返回 ACAO header，会加载失败
+function ensureAudio(text, lang) {
+  if (_ttsCache.has(text)) return _ttsCache.get(text);
+  const audio = new Audio();
+  audio.preload = 'auto';
+  audio.src = googleTtsUrl(text, lang);
+  _ttsCache.set(text, audio);
+  return audio;
+}
+
+// 全局当前播放 audio
+let _activeAudio = null;
+
 function speakWord(text, opts = {}) {
-  if ('speechSynthesis' in window) {
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = opts.lang || 'es-ES';
-    utter.rate = opts.rate || 0.9;
-    utter.pitch = opts.pitch || 1.0;
-    if (opts.interrupt !== false) window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
-    if (opts.toast !== false) showToast('🔊 正在朗读...');
+  if (!text || !text.trim()) return;
+  const lang = opts.lang || 'es';
+  const rate = opts.rate || 0.9;
+  const pitch = opts.pitch || 1.0;
+  const toast = opts.toast !== false;
+  const interrupt = opts.interrupt !== false;
+
+  // ---- 尝试 Google TTS 真实音频 ----
+  if (_useGoogleTts) {
+    try {
+      // 打断上一个
+      if (interrupt && _activeAudio) {
+        _activeAudio.pause();
+        _activeAudio.currentTime = 0;
+      }
+      if (interrupt && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+
+      const audio = ensureAudio(text, lang);
+      audio.playbackRate = rate;
+      // 每次播放前 reset
+      audio.currentTime = 0;
+
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(err => {
+          // 自动 fallback 到 speechSynthesis
+          _ttsFailCount++;
+          if (_ttsFailCount >= 3) {
+            _useGoogleTts = false;
+            console.warn('[TTS] Google TTS 连续失败，切换到 Web Speech API');
+          }
+          fallbackSpeak(text, { lang, rate, pitch, toast });
+        });
+      } else {
+        _activeAudio = audio;
+        _ttsFailCount = 0;
+        if (toast) showToast('🎧 真实音频播放中...');
+      }
+      return;
+    } catch (e) {
+      fallbackSpeak(text, { lang, rate, pitch, toast });
+    }
   } else {
-    if (opts.toast !== false) showToast('浏览器不支持语音朗读');
+    fallbackSpeak(text, { lang, rate, pitch, toast });
   }
+}
+
+function fallbackSpeak(text, { lang, rate, pitch, toast }) {
+  if (!('speechSynthesis' in window)) {
+    if (toast) showToast('浏览器不支持语音朗读');
+    return;
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  const baseLang = (lang || 'es').toLowerCase().replace('-', '_').split('_')[0];
+  utter.lang = baseLang + '-ES';
+  utter.rate = rate || 0.9;
+  utter.pitch = pitch || 1.0;
+
+  // 选最好的声音：Google/Microsoft 云端声音优先，其次本地西语声音
+  const voices = speechSynthesis.getVoices();
+  const matchVoice = voices
+    .filter(v => v.lang.toLowerCase().startsWith(baseLang))
+    .sort((a, b) => {
+      const score = v => {
+        let s = 0;
+        const n = v.name.toLowerCase();
+        if (!v.localService) s += 3;     // 云端 > 本地（质量好）
+        if (n.includes('google')) s += 2;
+        if (n.includes('microsoft')) s += 1;
+        if (n.includes('natural')) s += 2;
+        if (n.includes('premium')) s += 2;
+        if (v.default) s += 1;
+        return s;
+      };
+      return score(b) - score(a);
+    })[0];
+  if (matchVoice) utter.voice = matchVoice;
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utter);
+  if (toast) showToast('🔊 Web Speech 朗读中...');
+}
+
+// 预加载整个听力段落的所有行（静默缓存）
+function preloadPassageAudio(dialogue) {
+  if (!_useGoogleTts) return;
+  dialogue.forEach(d => {
+    if (d.text) ensureAudio(d.text, 'es');
+  });
+}
+
+// 顺序播放一段对话：优先 Google 真实音频，失败时 fallback speechSynthesis
+// opts: { rate, onLineStart(idx), onEnded, onStop }
+function _playDialogueSequence(dialogue, opts = {}) {
+  const { rate = 0.9, onLineStart, onEnded, onStop } = opts;
+  let idx = 0;
+  let stopped = false;
+  let consecutivePlayFails = 0;
+
+  const playNext = () => {
+    if (stopped || idx >= dialogue.length) {
+      if (onEnded) onEnded();
+      return;
+    }
+    if (onLineStart) onLineStart(idx);
+    const line = dialogue[idx];
+    idx++;
+
+    // ---- 尝试真实音频 ----
+    if (_useGoogleTts) {
+      try {
+        const audio = ensureAudio(line.text, 'es');
+        audio.playbackRate = rate;
+        audio.currentTime = 0;
+        _activeAudio = audio;
+
+        const onAudioEnded = () => {
+          audio.onended = null;
+          audio.onerror = null;
+          consecutivePlayFails = 0;
+          playNext();
+        };
+        const onAudioError = () => {
+          audio.onended = null;
+          audio.onerror = null;
+          consecutivePlayFails++;
+          if (consecutivePlayFails >= 3) {
+            _useGoogleTts = false;
+          }
+          // 用 speechSynthesis 播放这一行
+          speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
+          setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+        };
+
+        audio.onended = onAudioEnded;
+        audio.onerror = onAudioError;
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(onAudioError);
+        }
+        return;
+      } catch (e) {
+        _useGoogleTts = false; // 异常直接关 Google TTS
+      }
+    }
+
+    // ---- Fallback: speechSynthesis + 估算时长 ----
+    speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
+    setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+  };
+
+  const stop = () => {
+    stopped = true;
+    if (_activeAudio) { _activeAudio.onended = null; _activeAudio.onerror = null; _activeAudio.pause(); _activeAudio.currentTime = 0; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (onStop) onStop();
+  };
+
+  playNext();
+  return { stop };
 }
 
 // 把 "NAME: 内容\nNAME2: 内容" 解析成 [{speaker, text, color}] 数组
