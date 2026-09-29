@@ -769,7 +769,6 @@ function renderVocabCards(unit) {
         <div class="flashcard" id="flashcard">
           <div class="flashcard-face flashcard-front">
             <div class="flashcard-word">${vocab[currentIdx].es}</div>
-            <div class="flashcard-pron">[${vocab[currentIdx].pron}]</div>
             <div class="flashcard-hint">点击卡片查看释义</div>
           </div>
           <div class="flashcard-face flashcard-back">
@@ -827,7 +826,6 @@ function renderVocabCards(unit) {
       flashcard.innerHTML = `
         <div class="flashcard-face flashcard-front">
           <div class="flashcard-word">${vocab[currentIdx].es}</div>
-          <div class="flashcard-pron">[${vocab[currentIdx].pron}]</div>
           <div class="flashcard-hint">点击卡片查看释义</div>
         </div>
         <div class="flashcard-face flashcard-back">

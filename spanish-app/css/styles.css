@@ -991,11 +991,6 @@ ul, ol { list-style: none; }
   margin-bottom: 12px;
 }
 
-.flashcard-pron {
-  font-size: 1.2rem;
-  color: rgba(255,255,255,0.5);
-  font-style: italic;
-}
 
 .flashcard-back .flashcard-word {
   font-size: 2.5rem;
