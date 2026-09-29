@@ -2366,17 +2366,53 @@ function renderSrsBadge(vocabOrKey) {
   return `<div class="srs-badge" style="color:${color};border-color:${color};" title="stage ${s.stage}, 下次复习 ${days} 天后">${icon('brain')} ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
 }
 
-// ========== 真实 TTS 音频（Google Translate）+ 缓存 + fallback ==========
+// ========== 语音朗读 ==========
+// 优先使用系统原生语音（Web Speech API / 移动端原生 TTS 引擎）：
+//   · 离线可用，不依赖第三方接口
+//   · 网络受限环境（如国内）依然可用
+// Google Translate 仅作为系统无西语语音时的兜底（非官方接口，可能失效）
 const _ttsCache = new Map(); // text -> HTMLAudioElement
-let _ttsFailCount = 0;       // 连续失败计数，超过阈值自动关闭 Google TTS
-let _useGoogleTts = true;    // 开关
+let _ttsFailCount = 0;       // 连续失败计数，超过阈值停用 Google TTS
+let _useGoogleTts = true;    // Google 兜底开关
 
 function googleTtsUrl(text, lang = 'es') {
   // Google Translate 免费 TTS：不需要 key，短文本稳定
   // client=tw-ob 是 Twitter old-browser trick，返回真实 mp3
-  // 清理文本：去掉 speaker 前缀，限长
   const clean = text.trim().slice(0, 200);
   return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(clean)}&tl=${lang}&client=tw-ob&ttsspeed=1`;
+}
+
+// 系统是否真的安装了对应语言的语音（有些环境存在 API 但没有可用语音）
+// 注意：必须实际调用 getVoices() 判断，只有 'speechSynthesis' in window
+// 在属性存在但为 undefined 时也会返回 true，随后调用会抛错。
+function hasNativeVoice(langBase) {
+  try {
+    if (typeof speechSynthesis === 'undefined' || !speechSynthesis) return false;
+    const voices = speechSynthesis.getVoices();
+    if (!voices || !voices.length) return false;   // 尚未加载出语音，视为不可用
+    return voices.some(v => (v.lang || '').toLowerCase().startsWith(langBase));
+  } catch (e) {
+    return false;
+  }
+}
+
+// 从语音列表里挑最合适的西语语音：云端 > Google/Microsoft > Natural/Premium > 默认
+function pickSpanishVoice(voices) {
+  return (voices || [])
+    .filter(v => (v.lang || '').toLowerCase().startsWith('es'))
+    .sort((a, b) => {
+      const score = v => {
+        let s = 0;
+        const n = (v.name || '').toLowerCase();
+        if (!v.localService) s += 3;
+        if (n.includes('google')) s += 2;
+        if (n.includes('microsoft')) s += 1;
+        if (n.includes('natural') || n.includes('premium')) s += 2;
+        if (v.default) s += 1;
+        return s;
+      };
+      return score(b) - score(a);
+    })[0];
 }
 
 // 预创建并缓存一个 audio 元素（静默加载）
@@ -2401,10 +2437,24 @@ function speakWord(text, opts = {}) {
   const toast = opts.toast !== false;
   const interrupt = opts.interrupt !== false;
 
-  // ---- 尝试 Google TTS 真实音频 ----
+  // ---- 优先：系统原生语音 ----
+  if (hasNativeVoice('es')) {
+    try {
+      if (interrupt && _activeAudio) {
+        _activeAudio.pause();
+        _activeAudio.currentTime = 0;
+      }
+      const started = fallbackSpeak(text, { lang, rate, pitch, toast });
+      if (started) return;
+      // 原生语音启动失败 → 落到 Google 兜底
+    } catch (e) {
+      // 忽略，继续走 Google 兜底
+    }
+  }
+
+  // ---- 兜底：Google Translate 真实音频 ----
   if (_useGoogleTts) {
     try {
-      // 打断上一个
       if (interrupt && _activeAudio) {
         _activeAudio.pause();
         _activeAudio.currentTime = 0;
@@ -2413,38 +2463,36 @@ function speakWord(text, opts = {}) {
 
       const audio = ensureAudio(text, lang);
       audio.playbackRate = rate;
-      // 每次播放前 reset
       audio.currentTime = 0;
 
       const playPromise = audio.play();
       if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(err => {
-          // 自动 fallback 到 speechSynthesis
+        playPromise.catch(() => {
           _ttsFailCount++;
           if (_ttsFailCount >= 3) {
             _useGoogleTts = false;
-            console.warn('[TTS] Google TTS 连续失败，切换到 Web Speech API');
+            console.warn('[TTS] Google TTS 连续失败，已停用该兜底');
           }
-          fallbackSpeak(text, { lang, rate, pitch, toast });
+          if (toast) showToast('语音加载失败，请检查网络');
         });
       } else {
         _activeAudio = audio;
         _ttsFailCount = 0;
-        if (toast) showToast('正在播放真实音频…');
       }
       return;
     } catch (e) {
-      fallbackSpeak(text, { lang, rate, pitch, toast });
+      if (toast) showToast('语音播放失败');
     }
-  } else {
-    fallbackSpeak(text, { lang, rate, pitch, toast });
   }
+
+  if (toast) showToast('当前环境不支持语音朗读');
 }
 
+// 使用系统原生语音朗读；返回是否成功启动（供调用方决定是否回落到 Google TTS）
 function fallbackSpeak(text, { lang, rate, pitch, toast }) {
-  if (!('speechSynthesis' in window)) {
-    if (toast) showToast('浏览器不支持语音朗读');
-    return;
+  if (!hasNativeVoice('es')) {
+    if (toast) showToast('当前环境没有可用的西语语音');
+    return false;
   }
   const utter = new SpeechSynthesisUtterance(text);
   const baseLang = (lang || 'es').toLowerCase().replace('-', '_').split('_')[0];
@@ -2452,34 +2500,22 @@ function fallbackSpeak(text, { lang, rate, pitch, toast }) {
   utter.rate = rate || 0.9;
   utter.pitch = pitch || 1.0;
 
-  // 选最好的声音：Google/Microsoft 云端声音优先，其次本地西语声音
-  const voices = speechSynthesis.getVoices();
-  const matchVoice = voices
-    .filter(v => v.lang.toLowerCase().startsWith(baseLang))
-    .sort((a, b) => {
-      const score = v => {
-        let s = 0;
-        const n = v.name.toLowerCase();
-        if (!v.localService) s += 3;     // 云端 > 本地（质量好）
-        if (n.includes('google')) s += 2;
-        if (n.includes('microsoft')) s += 1;
-        if (n.includes('natural')) s += 2;
-        if (n.includes('premium')) s += 2;
-        if (v.default) s += 1;
-        return s;
-      };
-      return score(b) - score(a);
-    })[0];
-  if (matchVoice) utter.voice = matchVoice;
+  // 选最好的声音；voice 赋值在部分环境会抛类型错误，必须单独保护
+  const matchVoice = pickSpanishVoice(speechSynthesis.getVoices());
+  if (matchVoice) {
+    try { utter.voice = matchVoice; } catch (e) { /* 用默认语音 */ }
+  }
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
-  if (toast) showToast('正在朗读…');
+  return true;
 }
 
 // 预加载整个听力段落的所有行（静默缓存）
 function preloadPassageAudio(dialogue) {
   if (!_useGoogleTts) return;
+  // 有系统西语语音时用原生朗读，不预取 Google 音频，避免无谓的网络请求
+  if (hasNativeVoice('es')) return;
   dialogue.forEach(d => {
     if (d.text) ensureAudio(d.text, 'es');
   });
@@ -2493,6 +2529,45 @@ function _playDialogueSequence(dialogue, opts = {}) {
   let stopped = false;
   let consecutivePlayFails = 0;
 
+  const estimatedMs = (text) => Math.max(800, text.length * 80 / rate);
+
+  // 用系统原生语音朗读一行；返回是否成功启动
+  const speakNative = (line, done) => {
+    if (typeof speechSynthesis === 'undefined' || !speechSynthesis) return false;
+    const voices = speechSynthesis.getVoices() || [];
+    if (!voices.length) return false;
+    if (!voices.some(v => (v.lang || '').toLowerCase().startsWith('es'))) return false;
+
+      try {
+        const utter = new SpeechSynthesisUtterance(line.text);
+        utter.lang = 'es-ES';
+        utter.rate = rate;
+        utter.pitch = line.pitch || 1.0;
+        const match = pickSpanishVoice(voices);
+        // voice 赋值在部分环境会抛错（类型校验），必须单独保护
+        if (match) { try { utter.voice = match; } catch (e) { /* 用默认语音即可 */ } }
+
+        let advanced = false;
+        let timer = null;
+        const finish = () => {
+          if (advanced || stopped) return;
+          advanced = true;
+          if (timer) clearTimeout(timer);
+          done();
+        };
+        // onend 精确衔接；同时用估算时长兜底（部分环境不触发 onend）
+        timer = setTimeout(finish, estimatedMs(line.text));
+        utter.onend = finish;
+        utter.onerror = finish;
+
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utter);
+        return true;
+      } catch (e) {
+        return false;
+      }
+  };
+
   const playNext = () => {
     if (stopped || idx >= dialogue.length) {
       if (onEnded) onEnded();
@@ -2502,7 +2577,10 @@ function _playDialogueSequence(dialogue, opts = {}) {
     const line = dialogue[idx];
     idx++;
 
-    // ---- 尝试真实音频 ----
+    // ---- 优先：系统原生语音（离线可用，不依赖第三方接口） ----
+    if (speakNative(line, playNext)) return;
+
+    // ---- 兜底：Google 真实音频 ----
     if (_useGoogleTts) {
       try {
         const audio = ensureAudio(line.text, 'es');
@@ -2510,23 +2588,28 @@ function _playDialogueSequence(dialogue, opts = {}) {
         audio.currentTime = 0;
         _activeAudio = audio;
 
+        let advanced = false;
+        let timer = null;
         const onAudioEnded = () => {
+          if (advanced) return;
+          advanced = true;
           audio.onended = null;
           audio.onerror = null;
+          if (timer) clearTimeout(timer);
           consecutivePlayFails = 0;
           playNext();
         };
         const onAudioError = () => {
+          if (advanced || stopped) return;
+          advanced = true;
           audio.onended = null;
           audio.onerror = null;
+          if (timer) clearTimeout(timer);
           consecutivePlayFails++;
-          if (consecutivePlayFails >= 3) {
-            _useGoogleTts = false;
-          }
-          // 用 speechSynthesis 播放这一行
-          speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
-          setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+          if (consecutivePlayFails >= 3) _useGoogleTts = false;
+          setTimeout(playNext, estimatedMs(line.text));
         };
+        timer = setTimeout(onAudioError, estimatedMs(line.text) + 4000);
 
         audio.onended = onAudioEnded;
         audio.onerror = onAudioError;
@@ -2542,7 +2625,7 @@ function _playDialogueSequence(dialogue, opts = {}) {
 
     // ---- Fallback: speechSynthesis + 估算时长 ----
     speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
-    setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+    setTimeout(playNext, estimatedMs(line.text));
   };
 
   const stop = () => {
