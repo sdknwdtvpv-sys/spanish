@@ -86,6 +86,9 @@ const AppState = {
       completedGrammar: [],
       completedLessons: [],
       streakDays: 1,
+      // 断更保护：断一天自动消耗一次冻结，每坚持 7 天 +1（上限 2）
+      freezeTokens: 2,
+      streakFrozenDate: '',
       lastActiveDate: new Date().toDateString(),
       totalStudyMinutes: 0,
       achievements: [],
@@ -95,6 +98,7 @@ const AppState = {
       todayWords: 0,
       todayDate: '',
       goalWords: 10,
+      notifyEnabled: false,
       quizCorrect: 0,
       quizTotal: 0
     };
@@ -189,6 +193,68 @@ const AppState = {
     });
   },
   
+  // 到期待复习统计（跨整个词库）
+  srsStats() {
+    const p = this.progress;
+    if (!p) return { due: 0, tracked: 0, nextDueIn: null };
+    const srs = p.srs || {};
+    const now = new Date();
+    let due = 0;
+    let tracked = 0;
+    let nextDue = null;
+    Object.values(srs).forEach(entry => {
+      if (!entry || !entry.due) return;
+      tracked++;
+      const d = new Date(entry.due);
+      if (isNaN(d.getTime())) return;
+      if (d <= now) due++;
+      else if (!nextDue || d < nextDue) nextDue = d;
+    });
+    const nextDueIn = nextDue ? Math.max(1, Math.ceil((nextDue - now) / 86400000)) : null;
+    return { due, tracked, nextDueIn };
+  },
+  
+  // 解析今天该复习哪些词条（返回 [{unitId, es, zh}]）
+  dueVocabItems(limit = 20) {
+    const p = this.progress;
+    if (!p) return [];
+    const srs = p.srs || {};
+    const now = new Date();
+    const out = [];
+    Object.values(COURSES).forEach(level => {
+      (level.units || []).forEach(unit => {
+        (unit.vocab || []).forEach(w => {
+          if (out.length >= limit) return;
+          const key = unit.id + ':' + w.es;
+          const entry = srs[key];
+          if (!entry || !entry.due) return;
+          const d = new Date(entry.due);
+          if (!isNaN(d.getTime()) && d <= now) out.push({ unitId: unit.id, es: w.es, zh: w.zh });
+        });
+      });
+    });
+    return out.slice(0, limit);
+  },
+  
+  // 检查并弹出复习提醒（每个会话只弹一次，依赖用户已授权）
+  maybeNotifyDue() {
+    try {
+      if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return false;
+      if (this._notifiedDue) return false;
+      this._notifiedDue = true;
+      const { due } = this.srsStats();
+      if (due <= 0) return false;
+      new Notification('Lingua · 该复习了', {
+        body: `有 ${due} 个单词到了复习时间，花几分钟巩固一下吧`,
+        tag: 'lingua-review',
+        icon: 'icons/icon-192.png'
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
+  
   // 为 flashcards 排序：到期复习词在前，stage 低的在前（按唯一键取记录）
   srsSort(vocabList) {
     this.ensureSrs();
@@ -227,6 +293,58 @@ const AppState = {
     p.srs = next;
     p.schemaVersion = this.PROGRESS_VERSION;
     this.saveProgress();
+  },
+  
+  // 导出全部学习数据（备份用）
+  exportData() {
+    return {
+      app: 'lingua-spanish',
+      formatVersion: 1,
+      exportedAt: new Date().toISOString(),
+      users: JSON.parse(localStorage.getItem('le_users') || '{}'),
+      progress: JSON.parse(localStorage.getItem('le_progress') || '{}'),
+      currentUser: this.currentUser
+    };
+  },
+  
+  // 备份文件校验
+  validateBackup(data, rawSize) {
+    if (rawSize > 5 * 1024 * 1024) return { ok: false, reason: '文件过大（超过 5MB），可能不是备份文件' };
+    if (!data || typeof data !== 'object') return { ok: false, reason: '文件内容不是有效数据' };
+    if (data.app !== 'lingua-spanish') return { ok: false, reason: '这不是 Lingua 的备份文件' };
+    const p = data.progress;
+    if (!p || typeof p !== 'object' || Array.isArray(p)) return { ok: false, reason: '备份文件里没有学习记录' };
+    const users = Object.keys(p);
+    if (users.length === 0) return { ok: false, reason: '备份文件里没有任何用户记录' };
+    return { ok: true, users };
+  },
+  
+  // 导入备份（覆盖同名用户；合并不同名用户）
+  importData(data) {
+    const inUsers = data.users && typeof data.users === 'object' ? data.users : {};
+    const inProgress = data.progress || {};
+    
+    // 合并用户资料
+    const users = JSON.parse(localStorage.getItem('le_users') || '{}');
+    Object.assign(users, inUsers);
+    localStorage.setItem('le_users', JSON.stringify(users));
+    
+    // 合并学习记录（同名用户以备份为准）
+    const progress = JSON.parse(localStorage.getItem('le_progress') || '{}');
+    Object.keys(inProgress).forEach(u => { progress[u] = inProgress[u]; });
+    localStorage.setItem('le_progress', JSON.stringify(progress));
+    
+    // 清掉内存缓存，强制从 localStorage 重新读取
+    this._progress = null;
+    this._progressUser = null;
+    
+    // 若导入的数据里包含当前用户，立即生效
+    if (this.currentUser && progress[this.currentUser]) {
+      this.migrateProgress();
+      if (this.currentRoute) Router.navigate();
+    }
+    
+    return { users: Object.keys(inProgress) };
   },
   
   // 连续天数计算 + 累计学习时长
@@ -283,18 +401,66 @@ const AppState = {
   },
   
   updateStreak() {
+    const p = this.progress;
     const today = new Date().toDateString();
-    const lastActive = this.progress.lastActiveDate;
-    if (lastActive !== today) {
-      const yesterday = new Date(Date.now() - 86400000).toDateString();
-      if (lastActive === yesterday) {
-        this.progress.streakDays++;
+    const lastActive = p.lastActiveDate;
+    if (lastActive === today) return;
+
+    // 相差天数（按自然日计算）
+    const gapDays = (() => {
+      const a = new Date(lastActive);
+      const b = new Date(today);
+      if (isNaN(a.getTime())) return 1;
+      return Math.round((b - a) / 86400000);
+    })();
+
+    let broke = false;
+    let usedFreeze = false;
+    const gapFromPrevious = Math.max(0, gapDays - 1);
+
+    if (gapFromPrevious === 0) {
+      // 连续两天都学习
+      p.streakDays = (p.streakDays || 0) + 1;
+    } else {
+      const tokens = p.freezeTokens == null ? 2 : p.freezeTokens;
+      if (gapFromPrevious === 1 && tokens > 0) {
+        // 只断了一天：自动消耗一次冻结，连续天数延续
+        p.freezeTokens = tokens - 1;
+        p.streakDays = (p.streakDays || 0) + 1;
+        usedFreeze = true;
       } else {
-        this.progress.streakDays = 1;
+        // 中断过久或没有冻结次数：重新开始
+        p.streakDays = 1;
+        broke = true;
       }
-      this.progress.lastActiveDate = today;
-      this.saveProgress();
     }
+
+    // 每坚持 7 天奖励一次冻结（最多存 2 次）
+    if (p.streakDays > 0 && p.streakDays % 7 === 0) {
+      p.freezeTokens = Math.min((p.freezeTokens || 0) + 1, 2);
+    }
+
+    p.lastActiveDate = today;
+    this.saveProgress();
+
+    if (usedFreeze) {
+      showToast(`${icon('flame')} 已自动使用「冻结」，连续 ${p.streakDays} 天保住了！剩余 ${p.freezeTokens} 次`);
+    } else if (broke) {
+      showToast(`连续记录中断了，从今天重新开始 · 还剩 ${p.freezeTokens || 0} 次冻结`);
+    }
+  },
+  
+  // 手动冻结今天（供用户主动补签，消耗一次冻结额度）
+  manualFreeze() {
+    const p = this.progress;
+    if (!p) return { ok: false, reason: '无进度数据' };
+    const tokens = p.freezeTokens == null ? 2 : p.freezeTokens;
+    if (tokens <= 0) return { ok: false, reason: '冻结次数已用完（每坚持 7 天可获得 1 次）' };
+    if (p.streakFrozenDate === new Date().toDateString()) return { ok: false, reason: '今天已经冻结过了' };
+    p.freezeTokens = tokens - 1;
+    p.streakFrozenDate = new Date().toDateString();
+    this.saveProgress();
+    return { ok: true, remaining: p.freezeTokens };
   }
 };
 
@@ -335,6 +501,11 @@ const Router = {
     // 学习时长统计：离开上一次学习会话时结算，进入新的学习会话时开始计时
     if (AppState._learnStart && route !== 'learn') {
       AppState.endLearnSession();
+    }
+    
+    // 离开单词卡页面时解除键盘快捷键
+    if (route !== 'learn' || AppState.learnMode !== 'vocab') {
+      if (typeof VocabKeyboard !== 'undefined') VocabKeyboard.release();
     }
     
     if (this.routes[route]) {
@@ -389,6 +560,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   Router.init();
   initGlobalEvents();
+  
+  // 到期复习提醒（每个会话最多一次，依赖用户已授权）
+  setTimeout(() => { try { AppState.maybeNotifyDue(); } catch (e) {} }, 2500);
 });
 
 function initGlobalEvents() {
@@ -667,6 +841,8 @@ function renderDashboard() {
   AppState.annotateUnit(currentUnit);
   const learnedInUnit = currentUnit.vocab.filter(w => progress.knownWords.includes(w.es)).length;
   const todayGoal = AppState.todayGoal();
+  const srsStats = AppState.srsStats();
+  const notifyState = (typeof Notification !== 'undefined') ? Notification.permission : 'unsupported';
   
   container.innerHTML = `
     <div class="dashboard">
@@ -730,6 +906,36 @@ function renderDashboard() {
         </div>
       </div>
       
+      <!-- 复习提醒 -->
+      ${srsStats.due > 0 ? `
+        <div class="card" style="margin-bottom:24px;border-left:4px solid var(--terracotta);">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>
+              <div class="progress-title" style="margin-bottom:6px;">${icon('brain')} 今天有 ${srsStats.due} 个单词待复习</div>
+              <div class="progress-meta">
+                间隔重复的关键是「按时复习」。共 ${srsStats.tracked} 条复习记录。
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <button class="btn btn-primary" id="btn-review-now" style="width:auto;">开始复习</button>
+              ${notifyState !== 'granted' ? `<button class="btn btn-ghost" id="btn-enable-notify" style="width:auto;">开启提醒</button>` : ''}
+            </div>
+          </div>
+        </div>
+      ` : (srsStats.tracked > 0 ? `
+        <div class="card" style="margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>
+              <div class="progress-title" style="margin-bottom:6px;">${icon('check')} 今天没有到期复习</div>
+              <div class="progress-meta">
+                已记录 ${srsStats.tracked} 个单词${srsStats.nextDueIn ? ` · 下次复习在 ${srsStats.nextDueIn} 天后` : ''}
+              </div>
+            </div>
+            ${notifyState !== 'granted' ? `<button class="btn btn-ghost" id="btn-enable-notify" style="width:auto;">到期时提醒我</button>` : ''}
+          </div>
+        </div>
+      ` : '')}
+      
       <!-- 个性化推荐 -->
       <div class="recommend-section">
         <h2 class="section-title">为你推荐</h2>
@@ -759,6 +965,44 @@ function renderDashboard() {
   `;
   
   renderRecommendations(progress, level, currentUnit);
+  
+  // 复习提醒按钮
+  const reviewBtn = document.getElementById('btn-review-now');
+  if (reviewBtn) {
+    reviewBtn.addEventListener('click', () => {
+      const items = AppState.dueVocabItems(1);
+      const unitId = items.length ? items[0].unitId : currentUnit.id;
+      // 定位到第一个有到期词的单元，直接进入复习
+      location.hash = `learn/vocab/${unitId}`;
+    });
+  }
+  const notifyBtn = document.getElementById('btn-enable-notify');
+  if (notifyBtn) {
+    notifyBtn.addEventListener('click', async () => {
+      if (typeof Notification === 'undefined') { showToast('当前环境不支持通知'); return; }
+      try {
+        const perm = await Notification.requestPermission();
+        if (perm === 'granted') {
+          AppState.progress.notifyEnabled = true;
+          AppState.saveProgress();
+          showToast('已开启到期复习提醒');
+          AppState._notifiedDue = false;
+          AppState.maybeNotifyDue();
+          // 立刻发一条示例通知，让用户确认识别
+          try {
+            new Notification('Lingua · 提醒已开启', {
+              body: '有单词到期时我会通知你', tag: 'lingua-review-on'
+            });
+          } catch (e) {}
+        } else {
+          showToast('未获得通知权限，可在浏览器设置里开启');
+        }
+        Router.navigate();
+      } catch (e) {
+        showToast('开启提醒失败：' + (e && e.message ? e.message : '未知错误'));
+      }
+    });
+  }
 }
 
 function renderRecommendations(progress, level, currentUnit) {
@@ -1177,7 +1421,12 @@ function renderVocabCards(unit) {
         <button class="card-btn known" id="btn-known">${icon('check')} 已掌握</button>
       </div>
       
-      <div class="learning-footnote">${icon('brain')} 间隔复习 · SM-2 算法</div>
+      <div class="learning-footnote">
+        ${icon('brain')} 间隔复习 · SM-2 算法
+        <span id="kbd-hint" style="margin-left:10px;color:var(--text-muted);">
+          · 快捷键：<b>空格</b> 翻卡 · <b>1</b> 还不会 · <b>2</b> 已掌握 · <b>P</b> 发音
+        </span>
+      </div>
     </div>
   `;
   
@@ -1241,7 +1490,49 @@ function renderVocabCards(unit) {
   
   document.getElementById('btn-known').addEventListener('click', () => nextCard(true));
   document.getElementById('btn-unknown').addEventListener('click', () => nextCard(false));
+  
+  // 键盘快捷键（空格翻卡 / 1 还不会 / 2 已掌握 / P 发音）
+  // 每次渲染注册一次；离开卡片页时由 VocabKeyboard.release() 解除
+  VocabKeyboard.attach({
+    flip: () => flashcard.classList.toggle('flipped'),
+    play: () => speakWord(vocab[currentIdx].es),
+    rate: (learned) => nextCard(learned)
+  });
 }
+
+// ---- 单词卡键盘快捷键 ----
+const VocabKeyboard = {
+  handlers: null,
+  keyHandler: null,
+  
+  attach(handlers) {
+    this.release();
+    this.handlers = handlers;
+    this.keyHandler = (e) => {
+      // 首页 (#flashcard) 不存在时说明已离开卡片页
+      if (!document.getElementById('flashcard')) return;
+      // 输入框内不拦截
+      const tag = (e.target && e.target.tagName) || '';
+      if (/INPUT|TEXTAREA|SELECT/.test(tag) || (e.target && e.target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      
+      const k = e.key;
+      if (k === ' ' || k === 'Spacebar' || k === 'Enter') {
+        e.preventDefault(); this.handlers.flip(); return;
+      }
+      if (k === '1') { e.preventDefault(); this.handlers.rate(false); return; }
+      if (k === '2') { e.preventDefault(); this.handlers.rate(true); return; }
+      if (k === 'p' || k === 'P') { e.preventDefault(); this.handlers.play(); return; }
+    };
+    document.addEventListener('keydown', this.keyHandler);
+  },
+  
+  release() {
+    if (this.keyHandler) document.removeEventListener('keydown', this.keyHandler);
+    this.keyHandler = null;
+    this.handlers = null;
+  }
+};
 
 function showVocabComplete(unit) {
   const container = document.querySelector('.learning-container');
@@ -1364,7 +1655,10 @@ function renderGrammarQuiz(unit) {
 }
 
 function generateGrammarQuestions(unit) {
-  // 使用真实语法题库，每个主题抽 5 题，随机打乱
+  // 从真实语法题库中随机抽题（题库共 150+ 题，每轮只取一部分，
+  // 这样每次练习都不一样，也不会一次丢给用户上百道题）
+  const GRAMMAR_PER_SESSION = 12;
+  const VOCAB_PER_SESSION = 3;
   const allQs = [];
   
   if (typeof GRAMMAR_QUIZZES !== 'undefined') {
@@ -1382,7 +1676,7 @@ function generateGrammarQuestions(unit) {
   }
   
   // 再加一些单元词汇理解题
-  const wordQuestions = (unit.vocab || []).slice(0, 3).map(w => {
+  const wordQuestions = (unit.vocab || []).slice(0, VOCAB_PER_SESSION).map(w => {
     const otherWords = ALL_VOCAB.filter(v => v.es !== w.es).sort(() => Math.random() - 0.5).slice(0, 3);
     const options = [w.es, ...otherWords.map(v => v.es)].sort(() => Math.random() - 0.5);
     const correct = options.indexOf(w.es);
@@ -1392,7 +1686,8 @@ function generateGrammarQuestions(unit) {
     };
   });
   
-  return [...allQs, ...wordQuestions].sort(() => Math.random() - 0.5);
+  return [...allQs.sort(() => Math.random() - 0.5).slice(0, GRAMMAR_PER_SESSION), ...wordQuestions]
+    .sort(() => Math.random() - 0.5);
 }
 
 function showQuizComplete(questions, lastCorrect) {
@@ -1428,15 +1723,28 @@ function renderSpeaking(unit) {
   const currentLevel = AppState.currentLevel || 'A1';
   const levelOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const currentIdxLevel = levelOrder.indexOf(currentLevel);
-  const allowedLevels = levelOrder.slice(0, Math.min(currentIdxLevel + 1, 4));
-  
-  let pool = (typeof SPEAKING_SENTENCES !== 'undefined') 
-    ? SPEAKING_SENTENCES.filter(s => allowedLevels.includes(s.level)) 
-    : [];
-  if (pool.length === 0) {
-    pool = (typeof SPEAKING_SENTENCES !== 'undefined') ? SPEAKING_SENTENCES.slice(0, 5) : [];
+  const allowedLevels = levelOrder.slice(0, Math.min(currentIdxLevel + 1, levelOrder.length));
+
+  // 优先当前等级，其次相邻等级；等级差越大权重越低
+  // （原先在全等级里随机抽，C2 用户经常抽到 A1 句子）
+  const all = (typeof SPEAKING_SENTENCES !== 'undefined') ? SPEAKING_SENTENCES : [];
+  const weightOf = (lv) => {
+    const gap = currentIdxLevel - levelOrder.indexOf(lv);
+    if (gap < 0 || gap > 2) return 0;   // 不高于当前等级，且最多回看两级
+    return [8, 2, 1][gap];
+  };
+  const weighted = [];
+  all.forEach(s => {
+    const w = weightOf(s.level);
+    for (let i = 0; i < w; i++) weighted.push(s);
+  });
+  const shuffled = (arr) => [...arr].sort(() => Math.random() - 0.5);
+  let sentences = shuffled(weighted).slice(0, 5);
+  if (sentences.length === 0) {
+    // 兜底：当前等级没有可用语料时，退回到全部等级
+    sentences = shuffled(all).slice(0, 5);
   }
-  const sentences = pool.sort(() => Math.random() - 0.5).slice(0, 5);
+  sentences = shuffled(sentences).slice(0, 5);
   
   let currentIdx = 0;
   let isRecording = false;
@@ -1573,10 +1881,19 @@ function renderSpeaking(unit) {
 function renderListening(unit) {
   const container = showAppShell();
   
-  // 从真实语料库选听力材料
-  const passages = (typeof LISTENING_PASSAGES !== 'undefined')
+  // 从真实语料库选听力材料，按当前等级由易到难筛选
+  // （原先完全不过滤，A1 学习者会直接听到 B2 材料）
+  const ALL_PASSAGES = (typeof LISTENING_PASSAGES !== 'undefined' && LISTENING_PASSAGES.length)
     ? LISTENING_PASSAGES
     : [{es:'Buenos días.', zh:'早上好。', level:'A1', title:'示例', speaker:'', duration:'0:02', keyVocab:[], questions:[]}];
+  const lvOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const myLevelIdx = lvOrder.indexOf(AppState.currentLevel || 'A1');
+  // 优先用「当前等级及以下」的材料；若不足 3 段则放宽到全库
+  let scoped = ALL_PASSAGES.filter(p => lvOrder.indexOf(p.level) <= myLevelIdx);
+  if (scoped.length < 3) scoped = ALL_PASSAGES;
+  const currentPassage = scoped.find(p => p.level === (AppState.currentLevel || 'A1')) || scoped[0];
+  const reordered = [currentPassage, ...scoped.filter(p => p !== currentPassage)];
+  const passages = reordered;
   
   let currentIdx = 0;
   let isPlaying = false;
@@ -2185,11 +2502,69 @@ function renderProgress() {
               <span style="color:var(--text-secondary);">正确率</span>
               <span style="font-weight:600;color:var(--green);">${progress.quizTotal ? Math.round(progress.quizCorrect / progress.quizTotal * 100) : 0}%</span>
             </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;">
+              <span style="color:var(--text-secondary);">连续天数</span>
+              <span style="font-weight:600;color:var(--terracotta);">${icon('flame')} ${progress.streakDays} 天</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;">
+              <span style="color:var(--text-secondary);">冻结次数</span>
+              <span style="font-weight:600;">${progress.freezeTokens == null ? 2 : progress.freezeTokens} 次</span>
+            </div>
           </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line);">
+            <div class="progress-meta" style="margin-bottom:12px;line-height:1.6;">
+              断更一天会自动消耗一次「冻结」保住连续记录；每坚持 7 天获得 1 次（最多存 2 次）。
+            </div>
+            <button class="btn btn-ghost" id="btn-freeze" style="width:auto;font-size:0.85rem;padding:8px 16px;">使用冻结补签今天</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 数据备份与恢复 -->
+      <div class="card" style="margin-top:32px;">
+        <div class="progress-title" style="margin-bottom:8px;">${icon('bookmark')} 数据备份与恢复</div>
+        <div class="progress-meta" style="margin-bottom:20px;">
+          学习进度只保存在本机浏览器中。清理浏览器数据会导致进度永久丢失，建议定期导出备份。
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-primary" id="btn-export" style="width:auto;">导出备份</button>
+          <button class="btn btn-ghost" id="btn-import" style="width:auto;">从备份恢复</button>
+          <input type="file" id="import-file" accept="application/json,.json" style="display:none;">
+        </div>
+        <div class="progress-meta" style="margin-top:16px;">
+          当前记录：${progress.knownWords.length} 个单词 · ${Object.keys(progress.srs || {}).length} 条复习记录 · ${progress.totalStudyMinutes} 分钟学习时长
         </div>
       </div>
     </div>
   `;
+  
+  // 绑定备份按钮
+  const exportBtn = document.getElementById('btn-export');
+  const importBtn = document.getElementById('btn-import');
+  const fileInput = document.getElementById('import-file');
+  if (exportBtn) exportBtn.addEventListener('click', exportProgress);
+  if (importBtn && fileInput) {
+    importBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (f) importProgress(f);
+      e.target.value = '';   // 允许重复选择同一文件
+    });
+  }
+  
+  // 手动冻结补签
+  const freezeBtn = document.getElementById('btn-freeze');
+  if (freezeBtn) {
+    freezeBtn.addEventListener('click', () => {
+      const r = AppState.manualFreeze();
+      if (r.ok) {
+        showToast(`${icon('flame')} 已冻结今天，剩余 ${r.remaining} 次`);
+        Router.navigate();
+      } else {
+        showToast(r.reason);
+      }
+    });
+  }
 }
 
 // ============================================
@@ -2210,17 +2585,53 @@ function renderSrsBadge(vocabOrKey) {
   return `<div class="srs-badge" style="color:${color};border-color:${color};" title="stage ${s.stage}, 下次复习 ${days} 天后">${icon('brain')} ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
 }
 
-// ========== 真实 TTS 音频（Google Translate）+ 缓存 + fallback ==========
+// ========== 语音朗读 ==========
+// 优先使用系统原生语音（Web Speech API / 移动端原生 TTS 引擎）：
+//   · 离线可用，不依赖第三方接口
+//   · 网络受限环境（如国内）依然可用
+// Google Translate 仅作为系统无西语语音时的兜底（非官方接口，可能失效）
 const _ttsCache = new Map(); // text -> HTMLAudioElement
-let _ttsFailCount = 0;       // 连续失败计数，超过阈值自动关闭 Google TTS
-let _useGoogleTts = true;    // 开关
+let _ttsFailCount = 0;       // 连续失败计数，超过阈值停用 Google TTS
+let _useGoogleTts = true;    // Google 兜底开关
 
 function googleTtsUrl(text, lang = 'es') {
   // Google Translate 免费 TTS：不需要 key，短文本稳定
   // client=tw-ob 是 Twitter old-browser trick，返回真实 mp3
-  // 清理文本：去掉 speaker 前缀，限长
   const clean = text.trim().slice(0, 200);
   return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(clean)}&tl=${lang}&client=tw-ob&ttsspeed=1`;
+}
+
+// 系统是否真的安装了对应语言的语音（有些环境存在 API 但没有可用语音）
+// 注意：必须实际调用 getVoices() 判断，只有 'speechSynthesis' in window
+// 在属性存在但为 undefined 时也会返回 true，随后调用会抛错。
+function hasNativeVoice(langBase) {
+  try {
+    if (typeof speechSynthesis === 'undefined' || !speechSynthesis) return false;
+    const voices = speechSynthesis.getVoices();
+    if (!voices || !voices.length) return false;   // 尚未加载出语音，视为不可用
+    return voices.some(v => (v.lang || '').toLowerCase().startsWith(langBase));
+  } catch (e) {
+    return false;
+  }
+}
+
+// 从语音列表里挑最合适的西语语音：云端 > Google/Microsoft > Natural/Premium > 默认
+function pickSpanishVoice(voices) {
+  return (voices || [])
+    .filter(v => (v.lang || '').toLowerCase().startsWith('es'))
+    .sort((a, b) => {
+      const score = v => {
+        let s = 0;
+        const n = (v.name || '').toLowerCase();
+        if (!v.localService) s += 3;
+        if (n.includes('google')) s += 2;
+        if (n.includes('microsoft')) s += 1;
+        if (n.includes('natural') || n.includes('premium')) s += 2;
+        if (v.default) s += 1;
+        return s;
+      };
+      return score(b) - score(a);
+    })[0];
 }
 
 // 预创建并缓存一个 audio 元素（静默加载）
@@ -2245,10 +2656,24 @@ function speakWord(text, opts = {}) {
   const toast = opts.toast !== false;
   const interrupt = opts.interrupt !== false;
 
-  // ---- 尝试 Google TTS 真实音频 ----
+  // ---- 优先：系统原生语音 ----
+  if (hasNativeVoice('es')) {
+    try {
+      if (interrupt && _activeAudio) {
+        _activeAudio.pause();
+        _activeAudio.currentTime = 0;
+      }
+      const started = fallbackSpeak(text, { lang, rate, pitch, toast });
+      if (started) return;
+      // 原生语音启动失败 → 落到 Google 兜底
+    } catch (e) {
+      // 忽略，继续走 Google 兜底
+    }
+  }
+
+  // ---- 兜底：Google Translate 真实音频 ----
   if (_useGoogleTts) {
     try {
-      // 打断上一个
       if (interrupt && _activeAudio) {
         _activeAudio.pause();
         _activeAudio.currentTime = 0;
@@ -2257,38 +2682,36 @@ function speakWord(text, opts = {}) {
 
       const audio = ensureAudio(text, lang);
       audio.playbackRate = rate;
-      // 每次播放前 reset
       audio.currentTime = 0;
 
       const playPromise = audio.play();
       if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(err => {
-          // 自动 fallback 到 speechSynthesis
+        playPromise.catch(() => {
           _ttsFailCount++;
           if (_ttsFailCount >= 3) {
             _useGoogleTts = false;
-            console.warn('[TTS] Google TTS 连续失败，切换到 Web Speech API');
+            console.warn('[TTS] Google TTS 连续失败，已停用该兜底');
           }
-          fallbackSpeak(text, { lang, rate, pitch, toast });
+          if (toast) showToast('语音加载失败，请检查网络');
         });
       } else {
         _activeAudio = audio;
         _ttsFailCount = 0;
-        if (toast) showToast('正在播放真实音频…');
       }
       return;
     } catch (e) {
-      fallbackSpeak(text, { lang, rate, pitch, toast });
+      if (toast) showToast('语音播放失败');
     }
-  } else {
-    fallbackSpeak(text, { lang, rate, pitch, toast });
   }
+
+  if (toast) showToast('当前环境不支持语音朗读');
 }
 
+// 使用系统原生语音朗读；返回是否成功启动（供调用方决定是否回落到 Google TTS）
 function fallbackSpeak(text, { lang, rate, pitch, toast }) {
-  if (!('speechSynthesis' in window)) {
-    if (toast) showToast('浏览器不支持语音朗读');
-    return;
+  if (!hasNativeVoice('es')) {
+    if (toast) showToast('当前环境没有可用的西语语音');
+    return false;
   }
   const utter = new SpeechSynthesisUtterance(text);
   const baseLang = (lang || 'es').toLowerCase().replace('-', '_').split('_')[0];
@@ -2296,34 +2719,22 @@ function fallbackSpeak(text, { lang, rate, pitch, toast }) {
   utter.rate = rate || 0.9;
   utter.pitch = pitch || 1.0;
 
-  // 选最好的声音：Google/Microsoft 云端声音优先，其次本地西语声音
-  const voices = speechSynthesis.getVoices();
-  const matchVoice = voices
-    .filter(v => v.lang.toLowerCase().startsWith(baseLang))
-    .sort((a, b) => {
-      const score = v => {
-        let s = 0;
-        const n = v.name.toLowerCase();
-        if (!v.localService) s += 3;     // 云端 > 本地（质量好）
-        if (n.includes('google')) s += 2;
-        if (n.includes('microsoft')) s += 1;
-        if (n.includes('natural')) s += 2;
-        if (n.includes('premium')) s += 2;
-        if (v.default) s += 1;
-        return s;
-      };
-      return score(b) - score(a);
-    })[0];
-  if (matchVoice) utter.voice = matchVoice;
+  // 选最好的声音；voice 赋值在部分环境会抛类型错误，必须单独保护
+  const matchVoice = pickSpanishVoice(speechSynthesis.getVoices());
+  if (matchVoice) {
+    try { utter.voice = matchVoice; } catch (e) { /* 用默认语音 */ }
+  }
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
-  if (toast) showToast('正在朗读…');
+  return true;
 }
 
 // 预加载整个听力段落的所有行（静默缓存）
 function preloadPassageAudio(dialogue) {
   if (!_useGoogleTts) return;
+  // 有系统西语语音时用原生朗读，不预取 Google 音频，避免无谓的网络请求
+  if (hasNativeVoice('es')) return;
   dialogue.forEach(d => {
     if (d.text) ensureAudio(d.text, 'es');
   });
@@ -2337,6 +2748,45 @@ function _playDialogueSequence(dialogue, opts = {}) {
   let stopped = false;
   let consecutivePlayFails = 0;
 
+  const estimatedMs = (text) => Math.max(800, text.length * 80 / rate);
+
+  // 用系统原生语音朗读一行；返回是否成功启动
+  const speakNative = (line, done) => {
+    if (typeof speechSynthesis === 'undefined' || !speechSynthesis) return false;
+    const voices = speechSynthesis.getVoices() || [];
+    if (!voices.length) return false;
+    if (!voices.some(v => (v.lang || '').toLowerCase().startsWith('es'))) return false;
+
+      try {
+        const utter = new SpeechSynthesisUtterance(line.text);
+        utter.lang = 'es-ES';
+        utter.rate = rate;
+        utter.pitch = line.pitch || 1.0;
+        const match = pickSpanishVoice(voices);
+        // voice 赋值在部分环境会抛错（类型校验），必须单独保护
+        if (match) { try { utter.voice = match; } catch (e) { /* 用默认语音即可 */ } }
+
+        let advanced = false;
+        let timer = null;
+        const finish = () => {
+          if (advanced || stopped) return;
+          advanced = true;
+          if (timer) clearTimeout(timer);
+          done();
+        };
+        // onend 精确衔接；同时用估算时长兜底（部分环境不触发 onend）
+        timer = setTimeout(finish, estimatedMs(line.text));
+        utter.onend = finish;
+        utter.onerror = finish;
+
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utter);
+        return true;
+      } catch (e) {
+        return false;
+      }
+  };
+
   const playNext = () => {
     if (stopped || idx >= dialogue.length) {
       if (onEnded) onEnded();
@@ -2346,7 +2796,10 @@ function _playDialogueSequence(dialogue, opts = {}) {
     const line = dialogue[idx];
     idx++;
 
-    // ---- 尝试真实音频 ----
+    // ---- 优先：系统原生语音（离线可用，不依赖第三方接口） ----
+    if (speakNative(line, playNext)) return;
+
+    // ---- 兜底：Google 真实音频 ----
     if (_useGoogleTts) {
       try {
         const audio = ensureAudio(line.text, 'es');
@@ -2354,23 +2807,28 @@ function _playDialogueSequence(dialogue, opts = {}) {
         audio.currentTime = 0;
         _activeAudio = audio;
 
+        let advanced = false;
+        let timer = null;
         const onAudioEnded = () => {
+          if (advanced) return;
+          advanced = true;
           audio.onended = null;
           audio.onerror = null;
+          if (timer) clearTimeout(timer);
           consecutivePlayFails = 0;
           playNext();
         };
         const onAudioError = () => {
+          if (advanced || stopped) return;
+          advanced = true;
           audio.onended = null;
           audio.onerror = null;
+          if (timer) clearTimeout(timer);
           consecutivePlayFails++;
-          if (consecutivePlayFails >= 3) {
-            _useGoogleTts = false;
-          }
-          // 用 speechSynthesis 播放这一行
-          speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
-          setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+          if (consecutivePlayFails >= 3) _useGoogleTts = false;
+          setTimeout(playNext, estimatedMs(line.text));
         };
+        timer = setTimeout(onAudioError, estimatedMs(line.text) + 4000);
 
         audio.onended = onAudioEnded;
         audio.onerror = onAudioError;
@@ -2386,7 +2844,7 @@ function _playDialogueSequence(dialogue, opts = {}) {
 
     // ---- Fallback: speechSynthesis + 估算时长 ----
     speakWord(line.text, { rate, pitch: line.pitch || 1.0, toast: false, interrupt: false });
-    setTimeout(playNext, Math.max(800, line.text.length * 80 / rate));
+    setTimeout(playNext, estimatedMs(line.text));
   };
 
   const stop = () => {
@@ -2402,33 +2860,111 @@ function _playDialogueSequence(dialogue, opts = {}) {
 
 // 把 "NAME: 内容\nNAME2: 内容" 解析成 [{speaker, text, color}] 数组
 function parseDialogue(text) {
-  const speakerColors = [
-    {name:'CAMARERO', color:'#E63946', pitch:1.05},
-    {name:'CLIENTE', color:'#6B8FBB', pitch:0.88},
-    {name:'ENTREVISTADORA', color:'#9B7DB8', pitch:1.12},
-    {name:'CANDIDATO', color:'#8BD4B8', pitch:0.85},
-    {name:'MARÍA', color:'#F4A261', pitch:1.15},
-    {name:'PABLO', color:'#2D2D2D', pitch:0.82},
-    {name:'AGENTE', color:'#6B8FBB', pitch:0.95},
-    {name:'PERIODISTA', color:'#E63946', pitch:1.0},
-    {name:'EXPERTO', color:'#8BD4B8', pitch:0.88},
-    {name:'PASEANTE', color:'#6B8FBB', pitch:0.9},
-    {name:'TURISTA', color:'#F4A261', pitch:1.05},
-    {name:'SPEAKER 1', color:'#E63946', pitch:1.0},
-    {name:'SPEAKER 2', color:'#6B8FBB', pitch:0.9}
-  ];
+  // 已知说话人的固定配色与音高（保证听感一致）
+  const known = {
+    'CAMARERO':     { color:'#E63946', pitch:1.05 },
+    'CLIENTE':      { color:'#6B8FBB', pitch:0.88 },
+    'ENTREVISTADORA':{ color:'#9B7DB8', pitch:1.12 },
+    'CANDIDATO':    { color:'#8BD4B8', pitch:0.85 },
+    'MARÍA':        { color:'#F4A261', pitch:1.15 },
+    'PABLO':        { color:'#2D2D2D', pitch:0.82 },
+    'AGENTE':       { color:'#6B8FBB', pitch:0.95 },
+    'PERIODISTA':   { color:'#E63946', pitch:1.0 },
+    'EXPERTO':      { color:'#8BD4B8', pitch:0.88 },
+    'PASEANTE':     { color:'#6B8FBB', pitch:0.9 },
+    'TURISTA':      { color:'#F4A261', pitch:1.05 },
+    'SPEAKER 1':    { color:'#E63946', pitch:1.0 },
+    'SPEAKER 2':    { color:'#6B8FBB', pitch:0.9 }
+  };
+  // 未知说话人按出现顺序从调色板取色，保证同一段内两人颜色/音高不同
+  const palette = ['#E63946', '#2E5C8A', '#5F7043', '#9B7DB8', '#D3982A', '#7A2438', '#2D2D2D', '#C0563A'];
+  const pitches = [1.02, 0.86, 1.12, 0.92];
+
   const lines = text.split('\n').filter(l => l.trim());
+  const assigned = {};   // 本段内已分配的说话人
+  let autoIdx = 0;
+
+  const pick = (name) => {
+    if (assigned[name]) return assigned[name];
+    let entry = known[name];
+    if (!entry) {
+      // 允许前缀匹配（如 AGENTE DE CHECK-IN 命中 AGENTE）
+      const hit = Object.keys(known).find(k => name.includes(k.split(' ')[0]));
+      entry = hit ? known[hit] : null;
+    }
+    const result = entry
+      ? { ...entry }
+      : { color: palette[autoIdx % palette.length], pitch: pitches[autoIdx % pitches.length] };
+    autoIdx++;
+    assigned[name] = result;
+    return result;
+  };
+
   return lines.map(line => {
     const m = line.match(/^([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜ\s]*?):\s*(.*)$/);
     if (!m) return { speaker: null, text: line.trim(), color: '#888', pitch: 1.0 };
     const name = m[1].trim().toUpperCase();
-    const entry = speakerColors.find(s => s.name === name) || speakerColors.find(s => name.includes(s.name.split(' ')[0]));
-    const autoColor = entry ? entry.color : (speakerColors.find(s => !speakerColors.find(x => x.color === s.color && lines.some(l => l.includes(x.name)))) || speakerColors[0]).color;
-    const autoPitch = entry ? entry.pitch : 0.95;
-    return { speaker: name, text: m[2].trim(), color: autoColor, pitch: autoPitch };
+    const { color, pitch } = pick(name);
+    return { speaker: name, text: m[2].trim(), color, pitch };
   });
 }
 
+
+// ============================================
+// 学习数据备份 / 恢复
+// ============================================
+function exportProgress() {
+  try {
+    const data = AppState.exportData();
+    const json = JSON.stringify(data, null, 2);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const filename = `lingua-备份-${AppState.currentUser || 'user'}-${stamp}.json`;
+    
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    
+    const words = data.progress[AppState.currentUser]?.knownWords?.length || 0;
+    showToast(`已导出备份（含 ${words} 个单词记录）`);
+  } catch (e) {
+    showToast('导出失败：' + (e && e.message ? e.message : '未知错误'));
+  }
+}
+
+function importProgress(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let data;
+    try {
+      data = JSON.parse(String(reader.result));
+    } catch (e) {
+      showToast('导入失败：文件不是有效的 JSON');
+      return;
+    }
+    const v = AppState.validateBackup(data, file.size);
+    if (!v.ok) {
+      showToast('导入失败：' + v.reason);
+      return;
+    }
+    if (!confirm(`将导入 ${v.users.length} 个用户的学习记录：${v.users.join('、')}\n\n同名用户的现有进度会被覆盖，确定继续吗？`)) return;
+    try {
+      const res = AppState.importData(data);
+      showToast(`导入成功：已恢复 ${res.users.length} 个用户的学习记录`);
+      setTimeout(() => Router.navigate(), 300);
+    } catch (e) {
+      showToast('导入失败：' + (e && e.message ? e.message : '未知错误'));
+    }
+  };
+  reader.onerror = () => showToast('读取文件失败');
+  reader.readAsText(file);
+}
 
 // 听力理解题答案显示
 function showAnswerBtn(btn, answer) {

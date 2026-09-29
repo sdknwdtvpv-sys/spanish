@@ -11,8 +11,7 @@ const COURSES = {
     color: '#C0563A',
     units: [
       { id:'a1-u1', title:'问候与介绍', subtitle:'Saludos y Presentaciones', lessons:10, duration:'约 30 分钟',
-        vocab:[
-          {es:'Hola', zh:'你好', example:'Hola, ¿cómo estás?'},
+        vocab:[          {es:'Hola', zh:'你好', example:'Hola, ¿cómo estás?'},
           {es:'Buenos días', zh:'早上好', example:'Buenos días, señor.'},
           {es:'Buenas tardes', zh:'下午好', example:'Buenas tardes, ¿en qué puedo ayudarle?'},
           {es:'Buenas noches', zh:'晚上好 / 晚安', example:'Buenas noches, hasta mañana.'},
@@ -31,8 +30,16 @@ const COURSES = {
           {es:'Soy de China', zh:'我来自中国', example:'Soy de China, de Beijing.'},
           {es:'Yo también', zh:'我也是', example:'¡Yo también soy de Madrid!'},
           {es:'Muchas gracias', zh:'非常感谢', example:'Muchas gracias por tu ayuda.'},
-          {es:'De nada', zh:'不客气', example:'De nada, ha sido un placer.'}
-        ],
+          {es:'De nada', zh:'不客气', example:'De nada, ha sido un placer.'},
+          {es:'¿Qué tal?', zh:'怎么样？', example:'¡Hola! ¿Qué tal?'},
+          {es:'Encantado', zh:'幸会（男）', example:'Encantado de conocerte.'},
+          {es:'Señor', zh:'先生', example:'Buenos días, señor.'},
+          {es:'Señora', zh:'女士', example:'Buenas tardes, señora.'},
+          {es:'Cómo te va', zh:'你过得怎么样', example:'¿Cómo te va todo?'},
+          {es:'Nos vemos', zh:'再见 / 回头见', example:'Nos vemos mañana.'},
+          {es:'Igualmente', zh:'同样地 / 彼此彼此', example:'Mucho gusto. — Igualmente.'},
+          {es:'Por favor', zh:'请', example:'Un café, por favor.'},
+],
         grammar:[
           {title:'动词 ser · 现在时 (soy / eres / es / somos / sois / son)', desc:'最基础的"是"的表达，用于身份、国籍、特征。Yo soy estudiante. Él es español.'},
           {title:'Me llamo / Te llamas 句式', desc:'用于自我介绍和询问对方名字，是最常用的口语套话。'},
@@ -65,7 +72,19 @@ const COURSES = {
           {es:'Hoy', zh:'今天', example:'Hoy hace sol.'},
           {es:'Semana', zh:'星期 / 周', example:'Una semana tiene siete días.'},
           {es:'Domingo', zh:'星期日', example:'El domingo descanso.'},
-          {es:'Lunes', zh:'星期一', example:'El lunes trabajo.'}
+          {es:'Lunes', zh:'星期一', example:'El lunes trabajo.'},
+        
+          {es:'La semana', zh:'星期 / 周', example:'La semana tiene siete días.'},
+          {es:'El mes', zh:'月份', example:'El mes que viene viajo.'},
+          {es:'El año', zh:'年', example:'El año pasado fui a México.'},
+          {es:'El lunes', zh:'星期一', example:'El lunes tengo clase.'},
+          {es:'El sábado', zh:'星期六', example:'El sábado no trabajo.'},
+          {es:'El domingo', zh:'星期日', example:'El domingo descanso.'},
+          {es:'Mediodía', zh:'中午', example:'Comemos al mediodía.'},
+          {es:'Medianoche', zh:'午夜', example:'Llegó a medianoche.'},
+          {es:'El reloj', zh:'钟 / 表', example:'El reloj marca las tres.'},
+          {es:'Temprano', zh:'早', example:'Me levanto temprano.'},
+          {es:'Tarde', zh:'晚 / 迟', example:'Llegó tarde a la reunión.'},
         ],
         grammar:[
           {title:'数字 0 - 100', desc:'uno, dos, tres... hasta cien。注意 21-29 是 veintiuno, veintidós... 而 31 以上要加 y：treinta y uno。'},
@@ -98,7 +117,18 @@ const COURSES = {
           {es:'Fruta', zh:'水果', example:'Como fruta todos los días.'},
           {es:'Manzana', zh:'苹果', example:'Una manzana al día.'},
           {es:'Zapato', zh:'鞋子', example:'Necesito unos zapatos nuevos.'},
-          {es:'Ropa', zh:'衣服', example:'Me gusta tu ropa.'}
+          {es:'Ropa', zh:'衣服', example:'Me gusta tu ropa.'},
+        
+          {es:'El hermano', zh:'兄弟', example:'Mi hermano estudia medicina.'},
+          {es:'La hermana', zh:'姐妹', example:'Mi hermana vive en Madrid.'},
+          {es:'El abuelo', zh:'祖父', example:'Mi abuelo tiene ochenta años.'},
+          {es:'La abuela', zh:'祖母', example:'Mi abuela cocina muy bien.'},
+          {es:'El primo', zh:'表/堂兄弟', example:'Mi primo es profesor.'},
+          {es:'La mesa', zh:'桌子', example:'El libro está sobre la mesa.'},
+          {es:'La silla', zh:'椅子', example:'Siéntate en la silla.'},
+          {es:'La cama', zh:'床', example:'Duermo ocho horas en la cama.'},
+          {es:'La ventana', zh:'窗户', example:'Abre la ventana, hace calor.'},
+          {es:'La llave', zh:'钥匙', example:'He perdido las llaves.'},
         ],
         grammar:[
           {title:'名词的性（阳性 / 阴性）', desc:'大多数 -o 结尾为阳性（el libro），-a 结尾为阴性（la manzana）。但有很多例外，需要慢慢积累。'},
@@ -128,7 +158,18 @@ const COURSES = {
           {es:'Argentina', zh:'阿根廷', example:'Buenos Aires es la capital.'},
           {es:'Idioma', zh:'语言', example:'Hablar varios idiomas es útil.'},
           {es:'Español', zh:'西班牙语', example:'Estoy aprendiendo español.'},
-          {es:'Inglés', zh:'英语', example:'También hablo inglés.'}
+          {es:'Inglés', zh:'英语', example:'También hablo inglés.'},
+        
+          {es:'El apellido', zh:'姓', example:'Mi apellido es García.'},
+          {es:'La edad', zh:'年龄', example:'¿Qué edad tienes?'},
+          {es:'Casado', zh:'已婚的', example:'Estoy casado desde 2019.'},
+          {es:'Soltero', zh:'未婚的', example:'Mi hermano sigue soltero.'},
+          {es:'El barrio', zh:'街区 / 社区', example:'Vivo en un barrio tranquilo.'},
+          {es:'La dirección', zh:'地址', example:'¿Cuál es tu dirección?'},
+          {es:'El correo', zh:'邮件 / 邮局', example:'Te mando un correo.'},
+          {es:'Aficionado', zh:'爱好者', example:'Soy aficionado a la fotografía.'},
+          {es:'El hobby', zh:'爱好', example:'Mi hobby es cocinar.'},
+          {es:'Simpático', zh:'友善的', example:'Tu amigo es muy simpático.'},
         ],
         grammar:[
           {title:'Ser vs Estar（初阶）', desc:'Ser 用于永久/本质（soy estudiante），Estar 用于临时/状态（estoy cansado）。是西语最重要的区分之一。'},
@@ -138,8 +179,7 @@ const COURSES = {
       },
 
       { id:'a1-u5', title:'日常活动', subtitle:'Actividades Diarias', lessons:10, duration:'约 30 分钟',
-        vocab:[
-          {es:'Levantarse', zh:'起床', example:'Me levanto a las siete.'},
+        vocab:[          {es:'Levantarse', zh:'起床', example:'Me levanto a las siete.'},
           {es:'Desayunar', zh:'吃早餐', example:'Desayuno a las ocho.'},
           {es:'Ir al trabajo', zh:'去上班', example:'Voy al trabajo en autobús.'},
           {es:'Ir a clase', zh:'去上课', example:'Voy a clase todos los días.'},
@@ -163,8 +203,12 @@ const COURSES = {
           {es:'Salir', zh:'出门 / 外出', example:'Esta noche salgo con amigos.'},
           {es:'Volver', zh:'回来', example:'Vuelvo a las seis.'},
           {es:'Trabajar', zh:'工作', example:'Trabajo de lunes a viernes.'},
-          {es:'Estudiar', zh:'学习', example:'Estudio español dos horas al día.'}
-        ],
+          {es:'Estudiar', zh:'学习', example:'Estudio español dos horas al día.'},
+          {es:'Despertarse', zh:'醒来', example:'Me despierto a las siete.'},
+          {es:'Ducharse', zh:'洗澡', example:'Me ducho por la mañana.'},
+          {es:'Acostarse', zh:'上床睡觉', example:'Me acuesto tarde.'},
+          {es:'Pasear', zh:'散步', example:'Paseamos por el parque.'},
+],
         grammar:[
           {title:'规则动词现在时（-ar / -er / -ir）', desc:'hablar: hablo, hablas, habla, hablamos, habláis, hablan。comer / vivir 同理。'},
           {title:'反身代词 me / te / se / nos / os / se', desc:'Me levanto, te levantas, se levanta... 表示自己做给自己的动作。'},
@@ -173,8 +217,7 @@ const COURSES = {
       },
 
       { id:'a1-u6', title:'购物', subtitle:'Compras', lessons:8, duration:'约 25 分钟',
-        vocab:[
-          {es:'Tienda', zh:'商店', example:'Voy a la tienda.'},
+        vocab:[          {es:'Tienda', zh:'商店', example:'Voy a la tienda.'},
           {es:'Mercado', zh:'市场', example:'El mercado está cerca.'},
           {es:'Supermercado', zh:'超市', example:'Compro todo en el supermercado.'},
           {es:'Ropa', zh:'衣服', example:'Necesito ropa nueva.'},
@@ -198,8 +241,16 @@ const COURSES = {
           {es:'Azul', zh:'蓝色', example:'El azul es mi color favorito.'},
           {es:'Negro', zh:'黑色', example:'Llevo unos zapatos negros.'},
           {es:'Blanco', zh:'白色', example:'Una camisa blanca.'},
-          {es:'Amarillo', zh:'黄色', example:'El amarillo es alegre.'}
-        ],
+          {es:'Amarillo', zh:'黄色', example:'El amarillo es alegre.'},
+          {es:'La tienda', zh:'商店', example:'Voy a la tienda de ropa.'},
+          {es:'El precio', zh:'价格', example:'El precio es razonable.'},
+          {es:'La talla', zh:'尺码', example:'¿Tiene una talla más grande?'},
+          {es:'El descuento', zh:'折扣', example:'Hay un descuento del veinte por ciento.'},
+          {es:'Pagar', zh:'付款', example:'¿Puedo pagar con tarjeta?'},
+          {es:'La caja', zh:'收银台', example:'Pague en la caja, por favor.'},
+          {es:'La bolsa', zh:'袋子', example:'¿Me da una bolsa?'},
+          {es:'Probarse', zh:'试穿', example:'¿Puedo probarme esta camisa?'},
+],
         grammar:[
           {title:'Qué / Cuál / Cuánto 的用法', desc:'Qué 用于无范围提问；Cuál 从几个中选；Cuánto 问数量。¿Qué quieres? ¿Cuál prefieres? ¿Cuánto cuesta?'},
           {title:'Adjetivos 形容词配合', desc:'颜色、大小、形状形容词必须与名词在性和数上一致。una camisa roja, unos zapatos negros.'},
@@ -208,8 +259,7 @@ const COURSES = {
       },
 
       { id:'a1-u7', title:'餐厅点餐', subtitle:'En el Restaurante', lessons:8, duration:'约 25 分钟',
-        vocab:[
-          {es:'Restaurante', zh:'餐厅', example:'El restaurante es muy bonito.'},
+        vocab:[          {es:'Restaurante', zh:'餐厅', example:'El restaurante es muy bonito.'},
           {es:'Camarero', zh:'服务员', example:'El camarero es muy amable.'},
           {es:'Menú', zh:'菜单', example:'Pásame el menú, por favor.'},
           {es:'Carta', zh:'菜单（正式）', example:'La carta está en español.'},
@@ -229,8 +279,17 @@ const COURSES = {
           {es:'Frío', zh:'冷的', example:'Una ensalada fría.'},
           {es:'Rico', zh:'好吃', example:'¡Qué rico está!'},
           {es:'Buen provecho', zh:'慢慢吃', example:'¡Buen provecho!'},
-          {es:'La cuenta', zh:'结账', example:'La cuenta, por favor.'}
-        ],
+          {es:'La cuenta', zh:'结账', example:'La cuenta, por favor.'},
+          {es:'La carta', zh:'菜单 / 信', example:'¿Me trae la carta?'},
+          {es:'El primer plato', zh:'第一道菜', example:'De primer plato, sopa.'},
+          {es:'El postre', zh:'甜点', example:'De postre, flan.'},
+          {es:'La propina', zh:'小费', example:'Dejamos una propina.'},
+          {es:'Delicioso', zh:'美味的', example:'La paella estaba deliciosa.'},
+          {es:'Sin gluten', zh:'无麸质', example:'¿Tienen opciones sin gluten?'},
+          {es:'Para llevar', zh:'外带', example:'Lo quiero para llevar.'},
+          {es:'La especialidad', zh:'特色菜', example:'¿Cuál es la especialidad de la casa?'},
+          {es:'Reservar', zh:'预订', example:'Quiero reservar una mesa.'},
+],
         grammar:[
           {title:'Querer + 动词原形', desc:'Quiero pedir la cuenta. Quisiera 是更礼貌的委婉表达，虚拟式用法。'},
           {title:'Pedírselo / Pasármelo 等宾语代词组合', desc:'me, te, lo, la 放在动词前：Lo quiero. Te lo doy.'},
@@ -260,7 +319,18 @@ const COURSES = {
           {es:'Recto', zh:'直行', example:'Sigue recto.'},
           {es:'Cerca de', zh:'在……附近', example:'La estación está cerca de mi casa.'},
           {es:'Lejos de', zh:'离……远', example:'El aeropuerto está lejos.'},
-          {es:'Perdido', zh:'迷路', example:'Estoy perdido, necesito ayuda.'}
+          {es:'Perdido', zh:'迷路', example:'Estoy perdido, necesito ayuda.'},
+        
+          {es:'El billete', zh:'票', example:'Compré un billete de ida.'},
+          {es:'El andén', zh:'站台', example:'El tren sale del andén tres.'},
+          {es:'El retraso', zh:'延误', example:'El vuelo lleva dos horas de retraso.'},
+          {es:'La parada', zh:'车站', example:'Bájate en la próxima parada.'},
+          {es:'El conductor', zh:'司机', example:'El conductor fue muy amable.'},
+          {es:'Perderse', zh:'迷路', example:'Me perdí en el centro.'},
+          {es:'El mapa', zh:'地图', example:'Mira el mapa del metro.'},
+          {es:'A la derecha', zh:'向右', example:'Gire a la derecha.'},
+          {es:'A la izquierda', zh:'向左', example:'Siga recto y luego a la izquierda.'},
+          {es:'Cerca', zh:'近', example:'La estación está cerca.'},
         ],
         grammar:[
           {title:'方位介词 en / a / de / por / para', desc:'en el aeropuerto, a la derecha, de Madrid a Barcelona。por la calle, para viajar。'},
@@ -278,8 +348,7 @@ const COURSES = {
     color: '#D3982A',
     units: [
       { id:'a2-u1', title:'家庭与社交圈', subtitle:'Familia y Círculo Social', lessons:12, duration:'约 40 分钟',
-        vocab:[
-          {es:'Tío', zh:'叔叔 / 舅舅', example:'Mi tío vive en Barcelona.'},
+        vocab:[          {es:'Tío', zh:'叔叔 / 舅舅', example:'Mi tío vive en Barcelona.'},
           {es:'Tía', zh:'阿姨 / 姑姑', example:'Mi tía es muy simpática.'},
           {es:'Primo', zh:'表兄弟', example:'Mi primo se casó el año pasado.'},
           {es:'Prima', zh:'表姐妹', example:'Tengo una prima artista.'},
@@ -300,8 +369,17 @@ const COURSES = {
           {es:'Cumpleaños', zh:'生日', example:'Mañana es mi cumpleaños.'},
           {es:'Invitación', zh:'邀请', example:'Recibí una invitación a su boda.'},
           {es:'Invitar', zh:'邀请', example:'¿Me invitas a tu casa?'},
-          {es:'Celebrar', zh:'庆祝', example:'Vamos a celebrar el éxito.'}
-        ],
+          {es:'Celebrar', zh:'庆祝', example:'Vamos a celebrar el éxito.'},
+          {es:'El suegro', zh:'岳父 / 公公', example:'Mi suegro es muy simpático.'},
+          {es:'La cuñada', zh:'嫂子 / 弟媳', example:'Mi cuñada trabaja en un banco.'},
+          {es:'El sobrino', zh:'侄子', example:'Mi sobrino tiene cinco años.'},
+          {es:'El vecino', zh:'邻居', example:'Mis vecinos son muy ruidosos.'},
+          {es:'El conocido', zh:'熟人', example:'Es solo un conocido.'},
+          {es:'La pareja', zh:'伴侣 / 情侣', example:'Vienen con sus parejas.'},
+          {es:'El novio', zh:'男朋友', example:'Su novio es arquitecto.'},
+          {es:'La boda', zh:'婚礼', example:'La boda será en junio.'},
+          {es:'Llevarse bien', zh:'相处融洽', example:'Me llevo bien con mi familia.'},
+],
         grammar:[
           {title:'所有格形容词完整表', desc:'mi(s), tu(s), su(s), nuestro(s)/nuestra(s), vuestro(s)/vuestra(s), su(s)。nuestro 要配合名词性数。'},
           {title:'estar con / ir con / salir con', desc:'表示和某人一起做某事。Salgo con mis amigos los sábados.'},
@@ -310,8 +388,7 @@ const COURSES = {
       },
 
       { id:'a2-u2', title:'描述外貌与性格', subtitle:'Describir Apariencia y Personalidad', lessons:10, duration:'约 30 分钟',
-        vocab:[
-          {es:'Alto', zh:'高', example:'Es muy alto.'},
+        vocab:[          {es:'Alto', zh:'高', example:'Es muy alto.'},
           {es:'Bajo', zh:'矮', example:'Mi abuelo es bajo.'},
           {es:'Gordo', zh:'胖', example:'Está un poco gordo.'},
           {es:'Delgado', zh:'瘦', example:'Es delgado pero fuerte.'},
@@ -332,8 +409,13 @@ const COURSES = {
           {es:'Trabajador', zh:'勤奋', example:'Mi jefe es muy trabajador.'},
           {es:'Perezoso', zh:'懒', example:'Es un poco perezoso.'},
           {es:'Inteligente', zh:'聪明', example:'Su hijo es muy inteligente.'},
-          {es:'Gracioso', zh:'幽默', example:'Es el más gracioso de la clase.'}
-        ],
+          {es:'Gracioso', zh:'幽默', example:'Es el más gracioso de la clase.'},
+          {es:'El bigote', zh:'胡子', example:'Lleva bigote desde joven.'},
+          {es:'Las gafas', zh:'眼镜', example:'Llevo gafas para leer.'},
+          {es:'El pelo', zh:'头发', example:'Tiene el pelo rizado.'},
+          {es:'Tímido', zh:'害羞的', example:'Es un chico tímido.'},
+          {es:'Antipático', zh:'不友好的', example:'El jefe parece antipático.'},
+],
         grammar:[
           {title:'Ser 表示外貌 / 性格', desc:'描述某人的特征用 ser。Es alto. Es simpático. Es inteligente.'},
           {title:'比较级 más / menos / tan ... como', desc:'Es más alto que yo. Es menos tímido que ella. Es tan alto como su padre.'},
@@ -358,7 +440,18 @@ const COURSES = {
           {es:'Viajar', zh:'旅行', example:'Viajé a Francia el verano pasado.'},
           {es:'Aprender', zh:'学习', example:'Aprendí español hace tres años.'},
           {es:'Tener hambre', zh:'饿了', example:'Tuve mucha hambre ayer.'},
-          {es:'Tener frío', zh:'冷', example:'Anoche tuve mucho frío.'}
+          {es:'Tener frío', zh:'冷', example:'Anoche tuve mucho frío.'},
+        
+          {es:'El recuerdo', zh:'回忆', example:'Tengo buenos recuerdos de aquel viaje.'},
+          {es:'Aquella vez', zh:'那一次', example:'Aquella vez no dije nada.'},
+          {es:'De repente', zh:'突然', example:'De repente empezó a llover.'},
+          {es:'Al final', zh:'最后', example:'Al final decidimos quedarnos.'},
+          {es:'Entonces', zh:'那时 / 于是', example:'Entonces yo tenía diez años.'},
+          {es:'Soler', zh:'惯常（做某事）', example:'Solía caminar por el río.'},
+          {es:'Contar', zh:'讲述', example:'Mi abuela contaba historias.'},
+          {es:'Recordar', zh:'记得', example:'Recuerdo perfectamente ese día.'},
+          {es:'Olvidar', zh:'忘记', example:'Olvidé cerrar la puerta.'},
+          {es:'Suceder', zh:'发生', example:'¿Qué sucedió aquella noche?'},
         ],
         grammar:[
           {title:'Preterito Indefinido（简单过去时）规则动词', desc:'-ar: -é, -aste, -ó, -amos, -asteis, -aron。-er/-ir: -í, -iste, -ió, -imos, -isteis, -ieron。'},
@@ -368,8 +461,7 @@ const COURSES = {
       },
 
       { id:'a2-u4', title:'表达喜好', subtitle:'Gustos y Preferencias', lessons:8, duration:'约 28 分钟',
-        vocab:[
-          {es:'Me gusta', zh:'我喜欢', example:'Me gusta el café.'},
+        vocab:[          {es:'Me gusta', zh:'我喜欢', example:'Me gusta el café.'},
           {es:'Me gusta mucho', zh:'我很喜欢', example:'Me gusta mucho la música.'},
           {es:'No me gusta', zh:'我不喜欢', example:'No me gusta el pescado.'},
           {es:'A mí me gusta', zh:'我（强调）喜欢', example:'A mí me gusta más el té.'},
@@ -381,8 +473,15 @@ const COURSES = {
           {es:'Claro que sí', zh:'当然', example:'¿Quieres venir? Claro que sí.'},
           {es:'Claro que no', zh:'当然不', example:'¿Puedo fumar aquí? Claro que no.'},
           {es:'Tal vez', zh:'也许', example:'Tal vez venga mañana.'},
-          {es:'Gustar + 名词 / 动词原形', desc:'Gusta + 单数，Gustan + 复数。Me gusta el libro. Me gustan los libros.'}
-        ],
+          {es:'Odio', zh:'讨厌', example:'Odio levantarme temprano.'},
+          {es:'Interesar', zh:'使感兴趣', example:'Me interesa la historia.'},
+          {es:'Apasionar', zh:'使着迷', example:'Le apasiona el cine.'},
+          {es:'El gusto', zh:'喜好 / 品味', example:'Es una cuestión de gustos.'},
+          {es:'Dar igual', zh:'都行 / 无所谓', example:'Me da igual, tú decides.'},
+          {es:'Merecer la pena', zh:'值得', example:'Vale la pena verlo.'},
+          {es:'Aburrir', zh:'使厌烦', example:'Las noticias me aburren.'},
+          {es:'Divertido', zh:'有趣的', example:'Es una película muy divertida.'},
+],
         grammar:[
           {title:'Gustar 的真正用法', desc:'动词和后面的名词/动词一致。Me gusta el libro. Me gustan los libros. Me gusta leer.'}
         ]
@@ -405,7 +504,18 @@ const COURSES = {
           {es:'Otoño', zh:'秋天', example:'El otoño es mi estación favorita.'},
           {es:'Primavera', zh:'春天', example:'En primavera hay flores.'},
           {es:'Vacaciones de verano', zh:'暑假', example:'Mis vacaciones de verano son en julio.'},
-          {es:'Fin de semana', zh:'周末', example:'Fin de semana voy a la playa.'}
+          {es:'Fin de semana', zh:'周末', example:'Fin de semana voy a la playa.'},
+        
+          {es:'La nube', zh:'云', example:'El cielo está lleno de nubes.'},
+          {es:'La tormenta', zh:'暴风雨', example:'Viene una tormenta fuerte.'},
+          {es:'El rayo', zh:'闪电', example:'Un rayo iluminó el cielo.'},
+          {es:'La niebla', zh:'雾', example:'Hay mucha niebla esta mañana.'},
+          {es:'El grado', zh:'度', example:'Estamos a treinta grados.'},
+          {es:'Húmedo', zh:'潮湿的', example:'El clima aquí es muy húmedo.'},
+          {es:'Seco', zh:'干燥的', example:'El verano fue muy seco.'},
+          {es:'La primavera', zh:'春天', example:'En primavera todo florece.'},
+          {es:'El otoño', zh:'秋天', example:'El otoño es mi estación favorita.'},
+          {es:'El invierno', zh:'冬天', example:'En invierno nieva mucho.'},
         ],
         grammar:[
           {title:'Hace + 天气名词', desc:'固定搭配：hace calor / hace frío / hace sol / hace viento / hace buen tiempo。'},
@@ -435,7 +545,18 @@ const COURSES = {
           {es:'Operación', zh:'手术', example:'Tuvo una operación el año pasado.'},
           {es:'Salud', zh:'健康', example:'¡Salud! (brindis)'},
           {es:'Me siento mal', zh:'我不舒服', example:'Me siento mal, voy a casa.'},
-          {es:'Me siento mejor', zh:'我好点了', example:'Con el medicamento me siento mejor.'}
+          {es:'Me siento mejor', zh:'我好点了', example:'Con el medicamento me siento mejor.'},
+        
+          {es:'El síntoma', zh:'症状', example:'¿Cuáles son sus síntomas?'},
+          {es:'La fiebre', zh:'发烧', example:'Tiene fiebre alta.'},
+          {es:'La tos', zh:'咳嗽', example:'Esta tos no se me quita.'},
+          {es:'El dolor', zh:'疼痛', example:'Siento dolor en el pecho.'},
+          {es:'La receta', zh:'处方', example:'Aquí tiene la receta.'},
+          {es:'El análisis', zh:'化验', example:'Los análisis salieron bien.'},
+          {es:'La cita', zh:'预约', example:'Tengo cita a las cinco.'},
+          {es:'La urgencia', zh:'急诊', example:'Fuimos a urgencias.'},
+          {es:'Curarse', zh:'痊愈', example:'Se curó en una semana.'},
+          {es:'Descansar', zh:'休养', example:'Debe descansar unos días.'},
         ],
         grammar:[
           {title:'Me duele + 身体部位', desc:'无人称用法。Me duele la cabeza. Me duelen los pies.'},
@@ -445,8 +566,7 @@ const COURSES = {
       },
 
       { id:'a2-u7', title:'工作与学习', subtitle:'Trabajo y Estudio', lessons:12, duration:'约 40 分钟',
-        vocab:[
-          {es:'Trabajo', zh:'工作 / 职位', example:'Busco trabajo.'},
+        vocab:[          {es:'Trabajo', zh:'工作 / 职位', example:'Busco trabajo.'},
           {es:'Empleo', zh:'就业', example:'El empleo está difícil.'},
           {es:'Entrevista', zh:'面试', example:'Tengo una entrevista mañana.'},
           {es:'Currículum', zh:'简历', example:'He enviado mi currículum.'},
@@ -469,8 +589,17 @@ const COURSES = {
           {es:'Biblioteca', zh:'图书馆', example:'Estudio en la biblioteca.'},
           {es:'Tutoría', zh:'辅导', example:'Tengo tutoría con el profesor.'},
           {es:'Prácticas', zh:'实习', example:'Hago prácticas en una empresa.'},
-          {es:'Graduarse', zh:'毕业', example:'Me gradúo este año.'}
-        ],
+          {es:'Graduarse', zh:'毕业', example:'Me gradúo este año.'},
+          {es:'La empresa', zh:'公司', example:'Trabajo en una empresa española.'},
+          {es:'El puesto', zh:'职位', example:'Ocupa un puesto directivo.'},
+          {es:'El sueldo', zh:'工资', example:'El sueldo es competitivo.'},
+          {es:'La carrera', zh:'专业 / 职业', example:'Estudia la carrera de Derecho.'},
+          {es:'La beca', zh:'奖学金', example:'Consiguió una beca en el extranjero.'},
+          {es:'La asignatura', zh:'课程 / 科目', example:'Es mi asignatura favorita.'},
+          {es:'El horario', zh:'时间表', example:'Mi horario es flexible.'},
+          {es:'La reunión', zh:'会议', example:'Tenemos una reunión a las diez.'},
+          {es:'El plazo', zh:'截止期限', example:'El plazo termina el viernes.'},
+],
         grammar:[
           {title:'Ser 表示职业 / estar 表示暂时状态', desc:'Soy ingeniero（职业）. Estoy de prácticas（暂时）.'},
           {title:'现在进行时完整', desc:'Estoy trabajando. Está estudiando. Estamos teniendo una reunión. 正在进行的动作。'},
@@ -479,8 +608,7 @@ const COURSES = {
       },
 
       { id:'a2-u8', title:'旅行预订', subtitle:'Reservas y Viajes', lessons:10, duration:'约 35 分钟',
-        vocab:[
-          {es:'Reservar', zh:'预订', example:'Reservo una habitación.'},
+        vocab:[          {es:'Reservar', zh:'预订', example:'Reservo una habitación.'},
           {es:'Reserva', zh:'预订', example:'Tengo una reserva a nombre de García.'},
           {es:'Hotel', zh:'酒店', example:'El hotel es muy cómodo.'},
           {es:'Habitación', zh:'房间', example:'Una habitación doble.'},
@@ -499,8 +627,17 @@ const COURSES = {
           {es:'Euro', zh:'欧元', example:'Cuesta cincuenta euros.'},
           {es:'Factura', zh:'发票', example:'¿Me da una factura?'},
           {es:'Cancelar', zh:'取消', example:'Tuve que cancelar el viaje.'},
-          {es:'Seguro de viaje', zh:'旅行保险', example:'Comprar un seguro de viaje.'}
-        ],
+          {es:'Seguro de viaje', zh:'旅行保险', example:'Comprar un seguro de viaje.'},
+          {es:'La reserva', zh:'预订', example:'Tengo una reserva a nombre de López.'},
+          {es:'El alojamiento', zh:'住宿', example:'El alojamiento incluye desayuno.'},
+          {es:'La habitación doble', zh:'双人房', example:'Quisiera una habitación doble.'},
+          {es:'La llegada', zh:'到达', example:'La llegada está prevista a las seis.'},
+          {es:'La salida', zh:'离开', example:'La salida es a mediodía.'},
+          {es:'Confirmar', zh:'确认', example:'¿Puede confirmar la reserva?'},
+          {es:'El equipaje', zh:'行李', example:'Mi equipaje pesa demasiado.'},
+          {es:'La tarjeta de embarque', zh:'登机牌', example:'Muestra la tarjeta de embarque.'},
+          {es:'La aduana', zh:'海关', example:'Pasamos por la aduana sin problemas.'},
+],
         grammar:[
           {title:'一般现在时表计划好的将来', desc:'El vuelo sale a las 8. Llegamos mañana. 表示确定的安排。'},
           {title:'por + 原因 / para + 目的', desc:'Voy por trabajo（原因）. Voy para conocer la ciudad（目的）.'},
@@ -543,7 +680,20 @@ const COURSES = {
           {es:'Emprendedor', zh:'创业者', example:'Es un emprendedor nato.'},
           {es:'Startup', zh:'创业公司', example:'Trabajo en una startup de tecnología.'},
           {es:'Proyecto', zh:'项目', example:'Mi proyecto es muy interesante.'},
-          {es:'Equipo', zh:'团队', example:'Tenemos un equipo muy dinámico.'}
+          {es:'Equipo', zh:'团队', example:'Tenemos un equipo muy dinámico.'},
+        
+          {es:'La entrevista', zh:'面试', example:'La entrevista fue bien.'},
+          {es:'El currículum', zh:'简历', example:'Envié mi currículum ayer.'},
+          {es:'El ascenso', zh:'晋升', example:'Le dieron un ascenso merecido.'},
+          {es:'El contrato', zh:'合同', example:'Firmé un contrato indefinido.'},
+          {es:'El becario', zh:'实习生', example:'Empezó como becario.'},
+          {es:'La experiencia', zh:'经验', example:'Tiene diez años de experiencia.'},
+          {es:'La habilidad', zh:'技能', example:'Es una habilidad muy valorada.'},
+          {es:'El equipo', zh:'团队', example:'Trabajo en un equipo pequeño.'},
+          {es:'El liderazgo', zh:'领导力', example:'Demuestra buen liderazgo.'},
+          {es:'El despido', zh:'解雇', example:'El despido fue improcedente.'},
+          {es:'La jornada', zh:'工作日', example:'Tengo jornada completa.'},
+          {es:'El título', zh:'学位 / 头衔', example:'Tiene un título de posgrado.'},
         ],
         grammar:[
           {title:'Preterito vs Imperfecto', desc:'两个过去时的区别核心。Indefinido 表完结/点动作；Imperfecto 表背景/习惯/未完成。Cuando llegué (indef), él trabajaba (imperf).'},
@@ -573,7 +723,20 @@ const COURSES = {
           {es:'Orgánico', zh:'有机', example:'Comemos productos orgánicos.'},
           {es:'Cultivar', zh:'种植', example:'Cultivamos nuestro propio huerto.'},
           {es:'Árbol', zh:'树', example:'Plantamos árboles cada año.'},
-          {es:'Bosque', zh:'森林', example:'Los bosques nos dan oxígeno.'}
+          {es:'Bosque', zh:'森林', example:'Los bosques nos dan oxígeno.'},
+        
+          {es:'El reciclaje', zh:'回收', example:'El reciclaje es fundamental.'},
+          {es:'La contaminación', zh:'污染', example:'La contaminación del aire empeora.'},
+          {es:'La energía renovable', zh:'可再生能源', example:'Apuestan por energías renovables.'},
+          {es:'El calentamiento global', zh:'全球变暖', example:'El calentamiento global es urgente.'},
+          {es:'La sequía', zh:'干旱', example:'La sequía afecta al sur.'},
+          {es:'Sostenible', zh:'可持续的', example:'Buscamos un modelo sostenible.'},
+          {es:'La huella de carbono', zh:'碳足迹', example:'Reduce tu huella de carbono.'},
+          {es:'El residuo', zh:'废弃物', example:'Los residuos deben separarse.'},
+          {es:'Consumir', zh:'消耗 / 消费', example:'Consumimos demasiada energía.'},
+          {es:'La especie', zh:'物种', example:'Muchas especies están en peligro.'},
+          {es:'Proteger', zh:'保护', example:'Hay que proteger los bosques.'},
+          {es:'Concienciar', zh:'提高意识', example:'Campañas para concienciar a la gente.'},
         ],
         grammar:[
           {title:'与可持续性相关的正式表达', desc:'Debemos reducir las emisiones. Es necesario proteger el planeta.'},
@@ -583,8 +746,7 @@ const COURSES = {
       },
 
       { id:'b1-u3', title:'科技与社交媒体', subtitle:'Tecnología y Redes Sociales', lessons:10, duration:'约 35 分钟',
-        vocab:[
-          {es:'Ordenador', zh:'电脑', example:'Necesito un ordenador nuevo.'},
+        vocab:[          {es:'Ordenador', zh:'电脑', example:'Necesito un ordenador nuevo.'},
           {es:'Teléfono móvil', zh:'手机', example:'Mi teléfono móvil es viejo.'},
           {es:'Tablet', zh:'平板电脑', example:'Uso una tablet para estudiar.'},
           {es:'Internet', zh:'互联网', example:'Busca en Internet.'},
@@ -608,8 +770,17 @@ const COURSES = {
           {es:'Virus', zh:'病毒', example:'Tengo un virus en el ordenador.'},
           {es:'Actualizar', zh:'更新', example:'Actualiza tu software.'},
           {es:'Descargar', zh:'下载', example:'Descargué una película.'},
-          {es:'Subir (archivo)', zh:'上传', example:'Subí la foto a la nube.'}
-        ],
+          {es:'Subir (archivo)', zh:'上传', example:'Subí la foto a la nube.'},
+          {es:'La red social', zh:'社交网络', example:'Paso horas en las redes sociales.'},
+          {es:'La pantalla', zh:'屏幕', example:'Mira menos la pantalla.'},
+          {es:'El archivo', zh:'文件', example:'Adjunto el archivo en el correo.'},
+          {es:'La contraseña', zh:'密码', example:'He olvidado la contraseña.'},
+          {es:'El algoritmo', zh:'算法', example:'El algoritmo decide qué vemos.'},
+          {es:'La privacidad', zh:'隐私', example:'La privacidad es un derecho.'},
+          {es:'El dato', zh:'数据', example:'Protegen nuestros datos personales.'},
+          {es:'La nube', zh:'云端', example:'Guardo las fotos en la nube.'},
+          {es:'Compartir', zh:'分享', example:'Compartió el enlace con todos.'},
+],
         grammar:[
           {title:'网络社交常用动词', desc:'Publicar, comentar, darle like, seguir, compartir, etiquetar, chatear...'},
           {title:'未来时 Ir a + 动词 / 简单将来时', desc:'Voy a estudiar esta noche. Estudiaré esta noche. 前者更口语，后者更书面。'},
@@ -641,7 +812,20 @@ const COURSES = {
           {es:'Obra maestra', zh:'杰作', example:'Las Meninas es una obra maestra.'},
           {es:'Género', zh:'类型 / 体裁', example:'¿Qué género de música te gusta?'},
           {es:'Tema', zh:'主题', example:'El tema central es el amor.'},
-          {es:'Personaje', zh:'人物 / 角色', example:'El personaje principal es muy interesante.'}
+          {es:'Personaje', zh:'人物 / 角色', example:'El personaje principal es muy interesante.'},
+        
+          {es:'La novela', zh:'小说', example:'Es una novela fascinante.'},
+          {es:'El autor', zh:'作者', example:'El autor firma ejemplares hoy.'},
+          {es:'El personaje', zh:'人物', example:'El personaje principal es complejo.'},
+          {es:'El argumento', zh:'情节', example:'El argumento me enganchó.'},
+          {es:'La obra', zh:'作品 / 剧作', example:'Vimos una obra de Lorca.'},
+          {es:'La escultura', zh:'雕塑', example:'La escultura es de mármol.'},
+          {es:'La exposición', zh:'展览', example:'Hay una exposición en el museo.'},
+          {es:'El cuadro', zh:'画作', example:'Este cuadro es de Goya.'},
+          {es:'El ensayo', zh:'散文 / 论文', example:'Escribió un ensayo sobre el amor.'},
+          {es:'El poema', zh:'诗', example:'Recitó un poema de Neruda.'},
+          {es:'La trama', zh:'情节线索', example:'La trama tiene muchos giros.'},
+          {es:'Inolvidable', zh:'难忘的', example:'Fue una experiencia inolvidable.'},
         ],
         grammar:[
           {title:'gustar 进阶 + 主语前置', desc:'Me gusta la obra de Gaudí. A mí lo que más me impresiona es...'},
@@ -674,7 +858,20 @@ const COURSES = {
           {es:'Descanso', zh:'休息', example:'El descanso es tan importante como el ejercicio.'},
           {es:'Dormir bien', zh:'睡好', example:'Es fundamental dormir bien.'},
           {es:'Estresado', zh:'压力大', example:'Estoy muy estresado estos días.'},
-          {es:'Relax', zh:'放松', example:'Necesito tiempo para relax.'}
+          {es:'Relax', zh:'放松', example:'Necesito tiempo para relax.'},
+        
+          {es:'El entrenamiento', zh:'训练', example:'El entrenamiento dura una hora.'},
+          {es:'El músculo', zh:'肌肉', example:'Me duelen los músculos.'},
+          {es:'Estirar', zh:'拉伸', example:'No olvides estirar después.'},
+          {es:'La resistencia', zh:'耐力', example:'Mejora tu resistencia corriendo.'},
+          {es:'El descanso', zh:'休息', example:'El descanso es parte del plan.'},
+          {es:'La dieta', zh:'饮食', example:'Lleva una dieta equilibrada.'},
+          {es:'La proteína', zh:'蛋白质', example:'Necesitas más proteínas.'},
+          {es:'El estrés', zh:'压力', example:'El estrés afecta a la salud.'},
+          {es:'Relajarse', zh:'放松', example:'Intento relajarme con yoga.'},
+          {es:'El hábito', zh:'习惯', example:'Crear un hábito lleva tiempo.'},
+          {es:'La lesión', zh:'受伤', example:'Se recuperó de una lesión.'},
+          {es:'Rendir', zh:'发挥 / 产出', example:'Rindo mejor por la mañana.'},
         ],
         grammar:[
           {title:'es importante / es fundamental + que', desc:'Es importante que hagas ejercicio. Es fundamental que duermas bien. 触发虚拟式现在时。'},
@@ -716,7 +913,20 @@ const COURSES = {
           {es:'Dialecto', zh:'方言', example:'Hay muchos dialectos del español.'},
           {es:'Acento', zh:'口音', example:'El acento argentino es muy distinto.'},
           {es:'Palabra', zh:'单词', example:'Cada palabra tiene su historia.'},
-          {es:'Léxico', zh:'词汇', example:'El léxico mexicano tiene muchas diferencias.'}
+          {es:'Léxico', zh:'词汇', example:'El léxico mexicano tiene muchas diferencias.'},
+        
+          {es:'La identidad', zh:'身份认同', example:'La identidad cultural es compleja.'},
+          {es:'La costumbre', zh:'习俗', example:'Es una costumbre muy antigua.'},
+          {es:'El patrimonio', zh:'遗产', example:'Protegen el patrimonio histórico.'},
+          {es:'La tradición', zh:'传统', example:'Mantienen vivas sus tradiciones.'},
+          {es:'El estereotipo', zh:'刻板印象', example:'Hay que superar los estereotipos.'},
+          {es:'La diversidad', zh:'多样性', example:'La diversidad nos enriquece.'},
+          {es:'Pertenecer', zh:'属于', example:'Pertenezco a dos culturas.'},
+          {es:'La raíz', zh:'根源', example:'Sus raíces están en Andalucía.'},
+          {es:'El choque cultural', zh:'文化冲击', example:'Sufrí un choque cultural.'},
+          {es:'Integrarse', zh:'融入', example:'Le costó integrarse al principio.'},
+          {es:'La lengua materna', zh:'母语', example:'Su lengua materna es el quechua.'},
+          {es:'Reivindicar', zh:'主张 / 捍卫', example:'Reivindican su derecho a la tierra.'},
         ],
         grammar:[
           {title:'虚拟式现在时用法总结', desc:'表达愿望、怀疑、情感、可能性、命令。是 B2 的核心。Ojalá venga. Dudo que venga. Me alegro de que venga.'},
@@ -748,7 +958,20 @@ const COURSES = {
           {es:'Sufragio', zh:'选举权', example:'El sufragio es universal.'},
           {es:'Manifestación', zh:'示威', example:'Hubo una manifestación ayer.'},
           {es:'Indignación', zh:'愤慨', example:'Hay mucha indignación social.'},
-          {es:'Redistribución', zh:'再分配', example:'Una redistribución más justa de la riqueza.'}
+          {es:'Redistribución', zh:'再分配', example:'Una redistribución más justa de la riqueza.'},
+        
+          {es:'La desigualdad', zh:'不平等', example:'La desigualdad sigue creciendo.'},
+          {es:'La migración', zh:'移民', example:'La migración es un fenómeno global.'},
+          {es:'El desempleo', zh:'失业', example:'El desempleo juvenil es alto.'},
+          {es:'La pobreza', zh:'贫困', example:'Medidas para reducir la pobreza.'},
+          {es:'La brecha salarial', zh:'工资差距', example:'La brecha salarial persiste.'},
+          {es:'El desarrollo', zh:'发展', example:'Impulsan el desarrollo rural.'},
+          {es:'La sanidad pública', zh:'公共卫生', example:'Defienden la sanidad pública.'},
+          {es:'La educación', zh:'教育', example:'La educación es la base de todo.'},
+          {es:'El derecho', zh:'权利', example:'Es un derecho fundamental.'},
+          {es:'La política social', zh:'社会政策', example:'Debatieron la política social.'},
+          {es:'Invertir', zh:'投资', example:'Hay que invertir en investigación.'},
+          {es:'La sostenibilidad', zh:'可持续性', example:'La sostenibilidad ya no es opcional.'},
         ],
         grammar:[
           {title:'虚拟式现在时 + 主句现在时/将来时', desc:'是 B2 的核心语法。Es necesario que... Queremos que... Cuando llegues (subj), te esperaré.'},
@@ -792,7 +1015,22 @@ const COURSES = {
           {es:'Fusionar', zh:'合并', example:'Dos empresas van a fusionar.'},
           {es:'Adquisición', zh:'收购', example:'Una adquisición muy polémica.'},
           {es:'Empresa matriz', zh:'母公司', example:'La empresa matriz está en Alemania.'},
-          {es:'Filial', zh:'子公司', example:'La filial en México crece mucho.'}
+          {es:'Filial', zh:'子公司', example:'La filial en México crece mucho.'},
+        
+          {es:'La cláusula', zh:'条款', example:'Revisa la cláusula octava.'},
+          {es:'El convenio', zh:'协议', example:'Firmaron un convenio colectivo.'},
+          {es:'La negociación', zh:'谈判', example:'La negociación fue tensa.'},
+          {es:'El margen', zh:'利润率 / 余地', example:'El margen es muy estrecho.'},
+          {es:'La facturación', zh:'营业额', example:'La facturación creció un diez por ciento.'},
+          {es:'El proveedor', zh:'供应商', example:'Cambiamos de proveedor.'},
+          {es:'La garantía', zh:'保障 / 质保', example:'El producto tiene dos años de garantía.'},
+          {es:'La cláusula abusiva', zh:'不公平条款', example:'La cláusula abusiva fue anulada.'},
+          {es:'El litigio', zh:'诉讼', example:'Resolvieron el litigio fuera de los tribunales.'},
+          {es:'La cláusula de confidencialidad', zh:'保密条款', example:'Firmó una cláusula de confidencialidad.'},
+          {es:'El socio', zh:'合伙人', example:'Es socio fundador de la firma.'},
+          {es:'La indemnización', zh:'赔偿金', example:'Exigen una indemnización.'},
+          {es:'Ratificar', zh:'批准 / 认可', example:'El consejo ratificó el acuerdo.'},
+          {es:'La reunión de seguimiento', zh:'跟进会议', example:'Habrá una reunión de seguimiento.'},
         ],
         grammar:[
           {title:'虚拟式过去时完整（imperfecto 形式）', desc:'Si tuviera más tiempo, lo haría. Ojalá hubiera sabido antes. 是 C1 商务和表达假设的核心。'},
@@ -823,7 +1061,22 @@ const COURSES = {
           {es:'Palabras clave', zh:'关键词', example:'Las palabras clave facilitan la búsqueda.'},
           {es:'Tesis', zh:'论文 / 论点', example:'Defendí mi tesis doctoral.'},
           {es:'Innovación', zh:'创新', example:'Una innovación metodológica.'},
-          {es:'Aporte', zh:'贡献', example:'Nuestro aporte es relevante.'}
+          {es:'Aporte', zh:'贡献', example:'Nuestro aporte es relevante.'},
+        
+          {es:'La hipótesis', zh:'假设', example:'La hipótesis se confirmó.'},
+          {es:'La metodología', zh:'方法论', example:'Explica la metodología empleada.'},
+          {es:'La muestra', zh:'样本', example:'La muestra era demasiado pequeña.'},
+          {es:'El enfoque', zh:'研究视角', example:'Adoptaron un enfoque cualitativo.'},
+          {es:'Citar', zh:'引用', example:'Conviene citar las fuentes.'},
+          {es:'La bibliografía', zh:'参考文献', example:'La bibliografía está al final.'},
+          {es:'El resumen', zh:'摘要', example:'El resumen no debe superar 200 palabras.'},
+          {es:'La conclusión', zh:'结论', example:'Las conclusiones son provisionales.'},
+          {es:'El marco teórico', zh:'理论框架', example:'Falta desarrollar el marco teórico.'},
+          {es:'La variable', zh:'变量', example:'Controlaron todas las variables.'},
+          {es:'Contrastar', zh:'验证 / 对照', example:'Hay que contrastar los datos.'},
+          {es:'El sesgo', zh:'偏差', example:'El estudio presenta cierto sesgo.'},
+          {es:'La revisión por pares', zh:'同行评审', example:'La revista aplica revisión por pares.'},
+          {es:'La tesis doctoral', zh:'博士论文', example:'Defendió su tesis doctoral.'},
         ],
         grammar:[
           {title:'学术书面语结构', desc:'Se ha demostrado que... / Cabe destacar que... / No obstante... / Por consiguiente...'},
@@ -843,7 +1096,7 @@ const COURSES = {
       { id:'c2-u1', title:'文学修辞与语言艺术', subtitle:'Arte del Lenguaje', lessons:16, duration:'约 60 分钟',
         vocab:[
           {es:'Matiz', zh:'细微差别', example:'Cada matiz cuenta en su discurso.'},
-          {es:'Eloquencia', zh:'雄辩', example:'Admiro su elocuencia natural.'},
+          {es:'Elocuencia', zh:'雄辩', example:'Admiro su elocuencia natural.'},
           {es:'Retórica', zh:'修辞学', example:'El estudio de la retórica antigua.'},
           {es:'Metáfora', zh:'隐喻', example:'Una metáfora inolvidable.'},
           {es:'Metonimia', zh:'借代', example:'La pluma es más fuerte que la espada (metonimia).'},
@@ -851,7 +1104,7 @@ const COURSES = {
           {es:'Sarcasmo', zh:'挖苦', example:'Su sarcasmo hirió a todos.'},
           {es:'Hipérbole', zh:'夸张', example:'Esa historia es una hipérbole.'},
           {es:'Eufemismo', zh:'委婉语', example:'"Falleció" es un eufemismo.'},
-          {es:'Litanía', zh:'排比 / 长串', example:'Una letanía de quejas.'},
+          {es:'Letanía', zh:'连词排比', example:'Una letanía de quejas.'},
           {es:'Arcaísmo', zh:'古语', example:'Lee textos llenos de arcaísmos.'},
           {es:'Neologismo', zh:'新词', example:'"Tuitear" es un neologismo.'},
           {es:'Sociolécto', zh:'社会方言', example:'Cada clase social tiene su sociolecto.'},
@@ -865,7 +1118,28 @@ const COURSES = {
           {es:'Soneto', zh:'十四行诗', example:'Los sonetos de Quevedo son sublimes.'},
           {es:'Novela negra', zh:'悬疑小说', example:'La novela negra española tiene auge.'},
           {es:'Barroco', zh:'巴洛克', example:'La literatura barroca es compleja.'},
-          {es:'Siglo de Oro', zh:'黄金时代', example:'El Quijote es cumbre del Siglo de Oro.'}
+          {es:'Siglo de Oro', zh:'黄金时代', example:'El Quijote es cumbre del Siglo de Oro.'},
+        
+          {es:'La elipsis', zh:'省略', example:'La elipsis da ritmo al texto.'},
+          {es:'La anáfora', zh:'首语重复', example:'La anáfora refuerza la emoción.'},
+          {es:'La aliteración', zh:'头韵', example:'La aliteración crea musicalidad.'},
+          {es:'El hipérbaton', zh:'倒装', example:'El hipérbaton altera el orden natural.'},
+          {es:'La paradoja', zh:'悖论', example:'Enuncia una paradoja deslumbrante.'},
+          {es:'El oxímoron', zh:'矛盾修辞', example:'"Silencio atronador" es un oxímoron.'},
+          {es:'La prosopopeya', zh:'拟人', example:'La prosopopeya anima lo inanimado.'},
+          {es:'El registro', zh:'语域', example:'Cambia de registro según el público.'},
+          {es:'La connotación', zh:'内涵 / 言外之意', example:'Esa palabra tiene connotaciones negativas.'},
+          {es:'La ambigüedad', zh:'歧义', example:'La ambigüedad puede ser deliberada.'},
+          {es:'El aforismo', zh:'格言', example:'Escribe aforismos memorables.'},
+          {es:'La sátira', zh:'讽刺文学', example:'La sátira ridiculiza el poder.'},
+          {es:'El narrador', zh:'叙述者', example:'El narrador es poco fiable.'},
+          {es:'El clímax', zh:'高潮', example:'La novela alcanza su clímax al final.'},
+          {es:'El desenlace', zh:'结局', example:'El desenlace resultó inesperado.'},
+          {es:'La cadencia', zh:'韵律 / 节奏', example:'La cadencia de sus versos es única.'},
+          {es:'La elocuencia', zh:'雄辩', example:'Habló con enorme elocuencia.'},
+          {es:'La letanía', zh:'连祷 / 一连串', example:'Una letanía de quejas.'},
+          {es:'El matiz irónico', zh:'讽刺意味', example:'Captó el matiz irónico de inmediato.'},
+          {es:'La sinestesia', zh:'通感', example:'"Azul sonoro" es una sinestesia.'},
         ],
         grammar:[
           {title:'虚拟式全时态精通', desc:'现在时、过去未完成时、过去完成时、将来时（虽已少用但文学中仍见）。'},
@@ -944,8 +1218,8 @@ const GRAMMAR_QUIZZES = [
     {sentence:'___ (venir) aquí, por favor.', options:['Ven','Viene','Vengas','Venir'], correct:0, explain:'tú 命令式：venir → ven。'},
     {sentence:'No ___ (hablar) tan alto.', options:['hables','habla','hablas','hablar'], correct:0, explain:'tú 否定命令式用虚拟式现在时第二人称：no hables。'},
     {sentence:'___ (abrir) la puerta, señora.', options:['Abra','Abres','Abre','Abrir'], correct:0, explain:'usted 命令式 = 虚拟式现在时第三人称：abra。'},
-    {sentence:'Vamos a ___ (comer).', options:['comer','comamos','comemos','comamos'], correct:0, explain:'nosotros 命令式（劝诱）= 虚拟式现在时第一人称复数：comamos。'},
-    {sentence:'___ (traer) tu identificación.', options:['Trae','Trae','Traiga','Traerás'], correct:0, explain:'traer tú 命令式不规则：trae（tú）/ traiga（usted）。usted 形式也正确但不是 tú 命令式。'}
+    {sentence:'___ (comer) juntos, ¿vale?', options:['Comamos','Comemos','Comer','Comeremos'], correct:0, explain:'nosotros 劝诱命令式 = 虚拟式现在时第一人称复数：comamos。'},
+    {sentence:'___ (traer) tu identificación. (tú)', options:['Trae','Traiga','Traes','Traerás'], correct:0, explain:'traer 的 tú 命令式不规则：trae。（traiga 是 usted 形式）'}
   ]},
   
   // 直接宾语代词
@@ -955,6 +1229,138 @@ const GRAMMAR_QUIZZES = [
     {sentence:'¿Me llamas? Sí, ___ llamo ahora mismo.', options:['te','me','lo','le'], correct:0, explain:'tú 第二人称直接宾语 → te。'},
     {sentence:'A la profesora? Sí, ___ voy a preguntar.', options:['la','le','se','los'], correct:1, explain:'间接宾语 a la profesora → le。Preguntar algo a alguien。'},
     {sentence:'A Juan? No, ___ no conozco.', options:['lo','le','se','la'], correct:0, explain:'conocer 直接宾语，a Juan → lo（阳性）。'}
+  ]}  ,
+  {topic:'虚拟式现在时 (Subjuntivo presente)', questions:[
+    {sentence:'Espero que ___ a tiempo.', options:['llegues','llegas','llegarás','llegabas'], correct:0, explain:'esperar que 后接虚拟式。'},
+    {sentence:'No creo que ___ razón.', options:['tengas','tienes','tendrás','tenías'], correct:0, explain:'否定信念动词（no creer）后接虚拟式。'},
+    {sentence:'Quiero que ___ conmigo.', options:['vengas','vienes','vendrás','venías'], correct:0, explain:'querer que 表达愿望，用虚拟式。'},
+    {sentence:'Es necesario que ___ más.', options:['estudies','estudias','estudiarás','estudiabas'], correct:0, explain:'es necesario que 表价值判断，用虚拟式。'},
+    {sentence:'Dudo que ___ verdad.', options:['sea','es','será','era'], correct:0, explain:'dudar que 表怀疑，用虚拟式。'},
+    {sentence:'Me alegro de que ___ bien.', options:['estés','estás','estarás','estabas'], correct:0, explain:'情感表达（alegrarse de que）用虚拟式。'},
+    {sentence:'Es posible que ___ mañana.', options:['llueva','llueve','lloverá','llovía'], correct:0, explain:'es posible que 表可能性，用虚拟式。'},
+    {sentence:'Ojalá ___ sol mañana.', options:['haga','hace','hará','hacía'], correct:0, explain:'ojalá 后必须用虚拟式。'},
+    {sentence:'Le pido que ___ la puerta.', options:['cierre','cierra','cerrará','cerraba'], correct:0, explain:'pedir que 表请求，用虚拟式。'},
+    {sentence:'Es una pena que no ___ venir.', options:['puedas','puedes','podrás','podías'], correct:0, explain:'es una pena que 表情感，用虚拟式。'},
+    {sentence:'Antes de que ___, avísame.', options:['te vayas','te vas','te irás','te ibas'], correct:0, explain:'antes de que 后接虚拟式。'},
+    {sentence:'Cuando ___ mayor, seré médico.', options:['sea','soy','seré','era'], correct:0, explain:'cuando 指将来时用虚拟式。'},
+    {sentence:'Aunque ___ frío, saldremos.', options:['haga','hace','hará','hacía'], correct:0, explain:'aunque + 将来/不确定用虚拟式。'},
+    {sentence:'Sin que nadie lo ___, se marchó.', options:['supiera','supo','sabrá','sabía'], correct:0, explain:'sin que 后接虚拟式。'},
+    {sentence:'No es cierto que ___ culpable.', options:['sea','es','será','era'], correct:0, explain:'no es cierto que 表否定判断，用虚拟式。'},
+    {sentence:'Busco a alguien que ___ inglés.', options:['hable','habla','hablará','hablaba'], correct:0, explain:'寻找不确定的对象用虚拟式。'},
+    {sentence:'Conviene que ___ descansar.', options:['vayas','vas','irás','ibas'], correct:0, explain:'convenir que 表建议，用虚拟式。'},
+    {sentence:'Por más que ___, no te creerá.', options:['insistas','insistes','insistirás','insistías'], correct:0, explain:'por más que 表让步，用虚拟式。'},
+    {sentence:'Es importante que ___ puntual.', options:['seas','eres','serás','eras'], correct:0, explain:'es importante que 用虚拟式。'},
+    {sentence:'A menos que ___, no iremos.', options:['llueva','llueve','lloverá','llovía'], correct:0, explain:'a menos que 后接虚拟式。'}
+  ]},
+  {topic:'虚拟式过去时 (Subjuntivo imperfecto)', questions:[
+    {sentence:'Si ___ dinero, viajaría más.', options:['tuviera','tengo','tendré','tenía'], correct:0, explain:'与现在事实相反的条件句：si + 虚拟式过去时。'},
+    {sentence:'Me pidió que le ___ la verdad.', options:['dijera','digo','diré','decía'], correct:0, explain:'主句过去时，从句用虚拟式过去时。'},
+    {sentence:'Quisiera que ___ más temprano.', options:['llegaras','llegas','llegarás','llegabas'], correct:0, explain:'过去愿望用虚拟式过去时。'},
+    {sentence:'Si ___ rico, compraría una isla.', options:['fuera','soy','seré','era'], correct:0, explain:'虚拟式过去时表非现实假设。'},
+    {sentence:'No creía que ___ tan difícil.', options:['fuera','es','será','era'], correct:0, explain:'主句为过去时，从句相应用过去时虚拟式。'},
+    {sentence:'Le aconsejé que ___ reposo.', options:['hiciera','hace','hará','hacía'], correct:0, explain:'aconsejar que 用虚拟式，主句过去时则用过去时虚拟式。'},
+    {sentence:'Era necesario que ___ antes.', options:['llegáramos','llegamos','llegaremos','llegábamos'], correct:0, explain:'era necesario que 后接过去时虚拟式。'},
+    {sentence:'Si ___ tiempo, te acompañaría.', options:['tuviera','tengo','tendré','tenía'], correct:0, explain:'非现实条件用虚拟式过去时。'},
+    {sentence:'Ojalá ___ aquí ahora.', options:['estuviera','está','estará','estaba'], correct:0, explain:'ojalá 表不可能实现的愿望，用过去时虚拟式。'},
+    {sentence:'Como si ___ un niño.', options:['fuera','es','será','era'], correct:0, explain:'como si 后固定用虚拟式过去时。'},
+    {sentence:'Dudaba que ___ capaz.', options:['fuera','es','será','era'], correct:0, explain:'主句过去时 + dudar que → 过去时虚拟式。'},
+    {sentence:'Me alegró que ___ venido.', options:['hubieras','has','habrás','habías'], correct:0, explain:'主句过去时，从句先于主句 → 虚拟式过去完成时。'},
+    {sentence:'Si lo ___ sabido, habría venido.', options:['hubiera','he','habré','había'], correct:0, explain:'与过去事实相反：si + 虚拟式过去完成时。'},
+    {sentence:'Le sugerí que ___ otra vez.', options:['intentara','intenta','intentará','intentaba'], correct:0, explain:'sugerir que 用虚拟式过去时。'},
+    {sentence:'Aunque ___ tarde, iríamos.', options:['fuera','es','será','era'], correct:0, explain:'让步虚拟式表非现实。'},
+    {sentence:'No había nadie que lo ___.', options:['conociera','conoce','conocerá','conocía'], correct:0, explain:'先行词不存在 → 虚拟式过去时。'},
+    {sentence:'Si ___ más joven, estudiaría otra carrera.', options:['fuera','soy','seré','era'], correct:0, explain:'非现实假设用虚拟式过去时。'},
+    {sentence:'Te dije que no ___ así.', options:['hablaras','hablas','hablarás','hablabas'], correct:0, explain:'decir que 命令/请求含义时用虚拟式过去时。'},
+    {sentence:'Era posible que ___ equivocado.', options:['estuviera','está','estará','estaba'], correct:0, explain:'era posible que 用过去时虚拟式。'},
+    {sentence:'Por si ___, llévate el paraguas.', options:['lloviera','llueve','lloverá','llovía'], correct:0, explain:'por si 后接虚拟式过去时。'}
+  ]},
+  {topic:'简单过去时 vs 未完成过去时', questions:[
+    {sentence:'Ayer ___ al cine con mis amigos.', options:['fui','iba','voy','iré'], correct:0, explain:'一次性完成的动作 → 简单过去时。'},
+    {sentence:'Cuando era niño, ___ al parque todos los días.', options:['iba','fui','voy','iré'], correct:0, explain:'过去习惯性动作 → 未完成过去时。'},
+    {sentence:'___ las tres cuando llamaste.', options:['Eran','Fueron','Son','Serán'], correct:0, explain:'过去的时间描述 → 未完成过去时。'},
+    {sentence:'El año pasado ___ a España.', options:['viajé','viajaba','viajo','viajaré'], correct:0, explain:'明确的过去时间点、一次性事件 → 简单过去时。'},
+    {sentence:'Mientras ___, sonó el teléfono.', options:['leía','leí','leo','leeré'], correct:0, explain:'正在进行的背景动作 → 未完成过去时。'},
+    {sentence:'De repente ___ a llover.', options:['empezó','empezaba','empieza','empezará'], correct:0, explain:'突发动作 → 简单过去时。'},
+    {sentence:'Todos los veranos ___ a la playa.', options:['íbamos','fuimos','vamos','iremos'], correct:0, explain:'反复发生的过去动作 → 未完成过去时。'},
+    {sentence:'Anoche ___ una película muy buena.', options:['vi','veía','veo','veré'], correct:0, explain:'具体过去时间的一次动作 → 简单过去时。'},
+    {sentence:'___ veinte años cuando se casó.', options:['Tenía','Tuvo','Tiene','Tendrá'], correct:0, explain:'描述年龄状态 → 未完成过去时。'},
+    {sentence:'El lunes ___ tres horas estudiando.', options:['pasé','pasaba','paso','pasaré'], correct:0, explain:'有明确时长和终点 → 简单过去时。'},
+    {sentence:'Mientras ella ___, él cocinaba.', options:['estudiaba','estudió','estudia','estudiará'], correct:0, explain:'两个同时进行的过去动作 → 都用未完成过去时。'},
+    {sentence:'___ y ___ la puerta.', options:['Entré / cerré','Entraba / cerraba','Entro / cierro','Entraré / cerraré'], correct:0, explain:'连续完成的动作 → 简单过去时。'},
+    {sentence:'Aquella casa ___ muy antigua.', options:['era','fue','es','será'], correct:0, explain:'描写过去的状态 → 未完成过去时。'},
+    {sentence:'___ tres veces al médico el mes pasado.', options:['Fui','Iba','Voy','Iré'], correct:0, explain:'明确次数的过去事件 → 简单过去时。'},
+    {sentence:'Cuando llegué, ellos ya ___.', options:['habían comido','comieron','comen','comerán'], correct:0, explain:'过去的过去 → 过去完成时。'},
+    {sentence:'Siempre ___ café por la mañana.', options:['tomaba','tomé','tomo','tomaré'], correct:0, explain:'过去的一贯习惯 → 未完成过去时。'},
+    {sentence:'___ mucho frío aquel invierno.', options:['Hacía','Hizo','Hace','Hará'], correct:0, explain:'过去的天气背景描写 → 未完成过去时。'},
+    {sentence:'___ el informe en dos días.', options:['Terminé','Terminaba','Termino','Terminaré'], correct:0, explain:'限定时间内完成的动作 → 简单过去时。'},
+    {sentence:'Mientras ___ por la calle, me encontré a Juan.', options:['caminaba','caminé','camino','caminaré'], correct:0, explain:'背景动作 → 未完成过去时；插入事件 → 简单过去时。'},
+    {sentence:'La fiesta ___ muy animada.', options:['estaba','estuvo','está','estará'], correct:0, explain:'描写过去场景 → 未完成过去时。'}
+  ]},
+  {topic:'por vs para', questions:[
+    {sentence:'Este regalo es ___ ti.', options:['para','por','a','de'], correct:0, explain:'para 表对象、接受者。'},
+    {sentence:'Gracias ___ tu ayuda.', options:['por','para','de','con'], correct:0, explain:'gracias por 固定搭配，表原因。'},
+    {sentence:'Salgo ___ Madrid mañana.', options:['para','por','a','en'], correct:0, explain:'para 表目的地。'},
+    {sentence:'Caminé ___ el parque.', options:['por','para','a','en'], correct:0, explain:'por 表经过、穿越的场所。'},
+    {sentence:'Estudio español ___ trabajar en España.', options:['para','por','de','a'], correct:0, explain:'para 表目的。'},
+    {sentence:'Pagué veinte euros ___ el libro.', options:['por','para','de','en'], correct:0, explain:'por 表交换、价格。'},
+    {sentence:'Tengo que terminar esto ___ el viernes.', options:['para','por','en','a'], correct:0, explain:'para 表截止期限。'},
+    {sentence:'Lo hice ___ amor.', options:['por','para','de','con'], correct:0, explain:'por 表动机、原因。'},
+    {sentence:'___ ser tan joven, habla muy bien.', options:['Para','Por','De','Con'], correct:0, explain:'para 表「考虑到、相对于」。'},
+    {sentence:'El tren pasa ___ aquí.', options:['por','para','a','en'], correct:0, explain:'por 表经过的地点。'},
+    {sentence:'Compré flores ___ mi madre.', options:['para','por','a','de'], correct:0, explain:'para 表给予的对象。'},
+    {sentence:'Estoy preocupado ___ el examen.', options:['por','para','de','en'], correct:0, explain:'preocuparse por 表因某事担心。'},
+    {sentence:'___ mí, no hay problema.', options:['Para','Por','De','En'], correct:0, explain:'para mí 表「就我而言」。'},
+    {sentence:'Trabajo ___ una empresa española.', options:['para','por','en','a'], correct:0, explain:'trabajar para 表雇主。'},
+    {sentence:'Se disculpó ___ llegar tarde.', options:['por','para','de','en'], correct:0, explain:'por 表原因。'},
+    {sentence:'La carta fue escrita ___ Cervantes.', options:['por','para','de','con'], correct:0, explain:'被动语态的施动者用 por。'},
+    {sentence:'Voy ___ la autopista.', options:['por','para','a','en'], correct:0, explain:'por 表路线。'},
+    {sentence:'Es un libro ___ niños.', options:['para','por','de','a'], correct:0, explain:'para 表适用对象。'},
+    {sentence:'___ lo general, llega puntual.', options:['Por','Para','De','En'], correct:0, explain:'por lo general 固定短语。'},
+    {sentence:'Luchar ___ la libertad.', options:['por','para','de','a'], correct:0, explain:'luchar por 表为目标奋斗。'}
+  ]},
+  {topic:'宾语与与格代词', questions:[
+    {sentence:'¿El libro? ___ leí ayer.', options:['Lo','Le','La','Les'], correct:0, explain:'直接宾语阳性单数用 lo。'},
+    {sentence:'¿Las cartas? ___ envié ayer.', options:['Las','Los','Les','La'], correct:0, explain:'直接宾语阴性复数用 las。'},
+    {sentence:'___ di el regalo a María.', options:['Le','La','Lo','Les'], correct:0, explain:'间接宾语（给她）用 le。'},
+    {sentence:'___ di el libro a ellos.', options:['Les','Los','Le','Las'], correct:0, explain:'间接宾语复数用 les。'},
+    {sentence:'___ veo todos los días.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'直接宾语代词 te。'},
+    {sentence:'___ lo dije ayer.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'间接宾语代词 te。'},
+    {sentence:'___ compré un coche a mi hijo.', options:['Le','Lo','La','Les'], correct:0, explain:'给他买车 → 间接宾语 le。'},
+    {sentence:'¿Me prestas el bolígrafo? Sí, ___ presto.', options:['te lo','lo te','te le','le te'], correct:0, explain:'间接 + 直接：te lo。'},
+    {sentence:'___ expliqué la lección a los alumnos.', options:['Les','Los','Le','Las'], correct:0, explain:'向学生讲解 → 间接宾语 les。'},
+    {sentence:'Ese libro, ___ he leído ya.', options:['lo','le','la','los'], correct:0, explain:'复指直接宾语用 lo。'},
+    {sentence:'A María ___ gustan las flores.', options:['le','la','lo','les'], correct:0, explain:'gustar 类动词的主语是物，人是间接宾语 → le。'},
+    {sentence:'___ invité a cenar.', options:['Los','Les','Le','Las'], correct:0, explain:'invitar a alguien 的直接宾语用 los。'},
+    {sentence:'Dámelo: 其中 «lo» 指代：', options:['直接宾语','间接宾语','主语','所有格'], correct:0, explain:'lo 是直接宾语代词。'},
+    {sentence:'¿Has visto a Ana? Sí, ___ vi en el mercado.', options:['la','le','lo','las'], correct:0, explain:'直接宾语阴性单数用 la。'},
+    {sentence:'___ duele la cabeza.', options:['Me','Yo','Mi','Mí'], correct:0, explain:'doler 结构：me duele。'},
+    {sentence:'Se ___ olvidó las llaves.', options:['le','la','lo','les'], correct:0, explain:'se le olvidó 结构表无意忘记。'},
+    {sentence:'___ escribí una carta a mi abuela.', options:['Le','La','Lo','Les'], correct:0, explain:'给祖母写信 → 间接宾语 le。'},
+    {sentence:'Os ___ recomendamos.', options:['lo','le','les','la'], correct:0, explain:'os lo recomendamos：间接 os + 直接 lo。'},
+    {sentence:'___ conozco desde hace años.', options:['Lo','Le','La','Les'], correct:0, explain:'conocer a alguien 的直接宾语用 lo。'},
+    {sentence:'No ___ digas nada a ella.', options:['le','la','lo','les'], correct:0, explain:'对她说 → 间接宾语 le。'}
+  ]},
+  {topic:'关系从句与连接词', questions:[
+    {sentence:'El hombre ___ vive allí es mi tío.', options:['que','quien','cual','cuyo'], correct:0, explain:'限定性关系从句用 que。'},
+    {sentence:'La casa ___ compramos es grande.', options:['que','quien','cual','donde'], correct:0, explain:'que 作直接宾语。'},
+    {sentence:'El libro ___ autor es famoso.', options:['cuyo','que','quien','cual'], correct:0, explain:'cuyo 表所属。'},
+    {sentence:'La ciudad ___ nací es pequeña.', options:['donde','que','quien','cual'], correct:0, explain:'donde 表地点。'},
+    {sentence:'No es eso ___ quiero.', options:['lo que','que','quien','cual'], correct:0, explain:'lo que 表「……的东西」。'},
+    {sentence:'___ llegues, avísame.', options:['Cuando','Si','Aunque','Porque'], correct:0, explain:'cuando 表时间。'},
+    {sentence:'No fui ___ estaba enfermo.', options:['porque','para','aunque','cuando'], correct:0, explain:'porque 表原因。'},
+    {sentence:'___ llueva, iremos.', options:['Aunque','Porque','Cuando','Si'], correct:0, explain:'aunque 表让步。'},
+    {sentence:'Estudia ___ aprobar.', options:['para','por','porque','aunque'], correct:0, explain:'para 表目的。'},
+    {sentence:'Es tan alto ___ su padre.', options:['como','que','cual','cuanto'], correct:0, explain:'tan... como 表同等比较。'},
+    {sentence:'Es más listo ___ yo.', options:['que','como','cual','de'], correct:0, explain:'más... que 表比较。'},
+    {sentence:'___ trabajes, tendrás éxito.', options:['Si','Aunque','Cuando','Porque'], correct:0, explain:'si 表条件。'},
+    {sentence:'No sé ___ vendrá.', options:['si','que','cual','quien'], correct:0, explain:'间接疑问用 si 表「是否」。'},
+    {sentence:'El chico ___ me presentaron es simpático.', options:['que','quien','cual','cuyo'], correct:0, explain:'关系代词 que 作宾语。'},
+    {sentence:'Tanto tú ___ yo estamos de acuerdo.', options:['como','que','y','o'], correct:0, explain:'tanto... como 表「既……又」。'},
+    {sentence:'___ estudies, no aprobarás.', options:['A menos que','Aunque','Porque','Cuando'], correct:0, explain:'a menos que 表「除非」。'},
+    {sentence:'Lo hice ___ tú me dijiste.', options:['como','que','cual','cuanto'], correct:0, explain:'como 表方式。'},
+    {sentence:'Ese es el motivo ___ me fui.', options:['por el que','que','quien','cual'], correct:0, explain:'介词 + 关系代词。'},
+    {sentence:'___ más lo pienso, menos lo entiendo.', options:['Cuanto','Tanto','Como','Que'], correct:0, explain:'cuanto más... menos 表比例关系。'},
+    {sentence:'Dime ___ quieres.', options:['lo que','que','cual','quien'], correct:0, explain:'lo que 作宾语，表「你想要的东西」。'}
   ]}
 ];
 
@@ -986,7 +1392,22 @@ const SPEAKING_SENTENCES = [
   {level:'B2', es:'Me gustaría que escribieras un artículo para nuestro blog.', zh:'我希望你为我们的博客写篇文章。', slow:'Me gustaría que… escribieras… un artículo… para nuestro blog.', vocab:['Me gustaría que','escribieras','artículo','blog']},
   {level:'B2', es:'La globalización ha transformado radicalmente nuestras vidas.', zh:'全球化从根本上改变了我们的生活。', slow:'La globalización… ha transformado… radicalmente… nuestras vidas.', vocab:['La globalización','ha transformado','radicalmente']},
   {level:'B2', es:'Si hubiera tenido más tiempo, habría preparado algo mejor.', zh:'如果当时有更多时间，我会准备得更好。', slow:'Si hubiera tenido… más tiempo… habría preparado… algo mejor.', vocab:['Si hubiera tenido','habría preparado']},
-  {level:'B2', es:'Los jóvenes de hoy en día se comunican principalmente por redes sociales.', zh:'现在的年轻人主要通过社交网络交流。', slow:'Los jóvenes… de hoy en día… se comunican… principalmente… por redes sociales.', vocab:['de hoy en día','se comunican','principalmente','redes sociales']}
+  {level:'B2', es:'Los jóvenes de hoy en día se comunican principalmente por redes sociales.', zh:'现在的年轻人主要通过社交网络交流。', slow:'Los jóvenes… de hoy en día… se comunican… principalmente… por redes sociales.', vocab:['de hoy en día','se comunican','principalmente','redes sociales']},
+
+  
+  // C1 —— 抽象议题、论证与委婉表达
+  {level:'C1', es:'A menos que se tomen medidas drásticas, el problema no dejará de agravarse.', zh:'除非采取果断措施，否则问题只会不断恶化。', slow:'A menos que… se tomen medidas drásticas… el problema… no dejará de agravarse.', vocab:['A menos que','medidas drásticas','agravarse']},
+  {level:'C1', es:'Cabe destacar que la propuesta, si bien ambiciosa, adolece de un presupuesto realista.', zh:'值得指出的是，该提案虽有雄心，却缺乏切合实际的预算。', slow:'Cabe destacar… que la propuesta… si bien ambiciosa… adolece de… un presupuesto realista.', vocab:['Cabe destacar','si bien','adolecer de']},
+  {level:'C1', es:'Lejos de amilanarse ante las críticas, redobló sus esfuerzos por sacar el proyecto adelante.', zh:'面对批评他非但没有退缩，反而加倍努力推动项目。', slow:'Lejos de amilanarse… ante las críticas… redobló sus esfuerzos… por sacar el proyecto adelante.', vocab:['Lejos de','amilanarse','redoblar esfuerzos']},
+  {level:'C1', es:'Me da la impresión de que se está pasando por alto un factor determinante.', zh:'我觉得有个决定性因素被忽略了。', slow:'Me da la impresión… de que se está pasando por alto… un factor determinante.', vocab:['Me da la impresión','pasar por alto','determinante']},
+  {level:'C1', es:'Por más que insistiera, no conseguiría convencer a un público tan escéptico.', zh:'无论他怎样坚持，也无法说服如此怀疑的听众。', slow:'Por más que insistiera… no conseguiría convencer… a un público… tan escéptico.', vocab:['Por más que','insistiera','escéptico']},
+
+  // C2 —— 近母语：文学、修辞与高级惯用
+  {level:'C2', es:'De haberlo sabido, jamás me habría embarcado en semejante empresa.', zh:'早知如此，我绝不会投身于这样一桩事业。', slow:'De haberlo sabido… jamás… me habría embarcado… en semejante empresa.', vocab:['De haberlo sabido','jamás','embarcarse en']},
+  {level:'C2', es:'Su discurso, salpicado de citas eruditas, dejó entrever un dejo de resignación.', zh:'他的演讲点缀着博学的引文，却流露出几分无奈。', slow:'Su discurso… salpicado de citas eruditas… dejó entrever… un dejo de resignación.', vocab:['salpicado de','dejar entrever','dejo']},
+  {level:'C2', es:'No es tanto que carezca de argumentos, cuanto que rehúye el debate frontal.', zh:'与其说他缺乏论据，不如说他在回避正面交锋。', slow:'No es tanto… que carezca de argumentos… cuanto que… rehúye el debate frontal.', vocab:['no es tanto… cuanto que','carecer de','rehuir']},
+  {level:'C2', es:'A fuerza de tanto aplazarlo, el asunto acabó por convertirse en un lastre insostenible.', zh:'由于一再拖延，这件事最终成了无法承受的负担。', slow:'A fuerza de tanto aplazarlo… el asunto… acabó por convertirse… en un lastre insostenible.', vocab:['A fuerza de','acabar por','lastre']},
+  {level:'C2', es:'Quien pretenda zanjar un dilema semejante con una sola frase peca de ingenuidad.', zh:'谁想用一句话就了结这样的两难，那未免太天真了。', slow:'Quien pretenda zanjar… un dilema semejante… con una sola frase… peca de ingenuidad.', vocab:['zanjar','pecar de','ingenuidad']}
 ];
 
 // 听力训练语料（真实场景对话）
@@ -1086,6 +1507,220 @@ const LISTENING_PASSAGES = [
       {q:'¿Cuánto ha subido la temperatura?', a:'Casi un grado en cien años.'},
       {q:'Mencione dos consecuencias.', a:'El deshielo y el aumento del nivel del mar.'},
       {q:'¿Qué pide a los gobiernos?', a:'Que adopten políticas más ambiciosas.'}
+    ]
+  }
+  ,
+  {level:'C1', title:'圆桌辩论：人工智能与就业', speaker:'Moderadora / Economista / Ingeniera', duration:'约 2 分钟',
+    es:`MODERADORA: Buenas tardes. El tema de hoy es espinoso: ¿la inteligencia artificial destruye empleo o lo transforma?\nECONOMISTA: Permítame matizar la premisa. Historicamente, la tecnologia ha reconfigurado el mercado laboral más que eliminarlo, aunque las transiciones nunca han sido indoloras.\nINGENIERA: Coincido en parte, pero conviene no caer en el optimismo complaciente. La diferencia radica en la velocidad: los puestos que desaparecen exigen una reconversión que el sistema formativo no alcanza a absorber.\nMODERADORA: ¿Qué papel deberían desempeñar las administraciones públicas?\nECONOMISTA: A mi juicio, su tarea consiste en garantizar redes de protección y formación continua, no en frenar la innovación.\nINGENIERA: Yo añadiría que, sin una fiscalidad redistributiva, los beneficios se concentrarán en muy pocas manos.\nMODERADORA: Un apunte para cerrar: ¿son ustedes optimistas?\nECONOMISTA: Moderadamente. Depende de las decisiones que tomemos en la próxima década.\nINGENIERA: Prefiero decir que soy prudente, no pesimista.`,
+    zh:'主持人：下午好。今天的话题相当棘手：人工智能是在摧毁就业，还是在改造就业？\n经济学家：请允许我对这个前提做个澄清。从历史上看，技术更多是在重构劳动力市场，而不是消灭它，尽管转型从来都不是无痛的。\n工程师：我部分同意，但不宜陷入盲目的乐观。差别在于速度：消失的岗位要求人们转型，而培训体系来不及吸收。\n主持人：公共行政部门应当扮演什么角色？\n经济学家：依我看，它们的任务是保障保护网和持续培训，而不是遏制创新。\n工程师：我还要补充，如果没有再分配的税收制度，收益会集中在极少数人手里。\n主持人：最后问一句：你们乐观吗？\n经济学家：适度乐观。取决于我们未来十年做出什么选择。\n工程师：我更愿意说我是谨慎，而不是悲观。',
+    keyVocab:[
+      {es:'El tema es espinoso', zh:'话题很棘手'},
+      {es:'Permítame matizar la premisa', zh:'请允许我对前提作澄清'},
+      {es:'optimismo complaciente', zh:'一厢情愿的乐观'},
+      {es:'La diferencia radica en...', zh:'差别在于……'},
+      {es:'reconversión profesional', zh:'职业转型'},
+      {es:'A mi juicio', zh:'依我看'},
+      {es:'fiscalidad redistributiva', zh:'再分配税收制度'}
+    ],
+    questions:[
+      {q:'¿Cuál es el tema del debate?', a:'El impacto de la inteligencia artificial en el empleo.'},
+      {q:'¿En qué coincide parcialmente la ingeniera?', a:'En que la tecnología reconfigura el mercado laboral.'},
+      {q:'¿Dónde sitúa ella el problema principal?', a:'En la velocidad del cambio y la falta de recualificación.'},
+      {q:'¿Qué pide la ingeniera además de formación?', a:'Una fiscalidad redistributiva.'}
+    ]
+  },
+  {level:'C2', title:'文学访谈：写作与记忆', speaker:'Entrevistador / Novelista', duration:'约 2 分 30 秒',
+    es:`ENTREVISTADOR: Su última novela se adentra en terrenos que rozan lo autobiográfico. ¿Le costó despojarse de pudor?\nNOVELISTA: En absoluto. Siempre he sostenido que quien escribe no debe nada a su intimidad, pero tampoco puede hurtarle del todo lo que ha vivido. La memoria, en fin, es un material esquivo: cuanto más la forzamos, más se nos escabulle.\nENTREVISTADOR: Hay quien sostiene que toda escritura es, en el fondo, una forma encubierta de autobiografía.\nNOVELISTA: Es una afirmación seductora y, como casi todas las afirmaciones seductoras, media verdad. Uno escribe con lo que es, desde luego, pero también con lo que querría ser y con lo que teme llegar a ser.\nENTREVISTADOR: ¿Y el estilo? Se le ha reprochado cierta inclinación a la frase larga.\nNOVELISTA: Los reproches me tienen sin cuidado. Detesto la prosa que se allana para no incomodar a nadie; prefiero una sintaxis que obligue al lector a detenerse y respirar. Aunque, se lo concedo, ese camino tiene sus riesgos.\nENTREVISTADOR: ¿Está trabajando en algo nuevo?\nNOVELISTA: En algo que, de momento, se me resiste. Y ojalá siga resistiéndose un tiempo: cuando un libro deja de oponer resistencia, es señal de que ha dejado de interesarme.`,
+    zh:'采访者：您最新的小说触及了近乎自传的领域。放下矜持困难吗？\n小说家：一点也不。我一直认为，写作的人不欠自己的私生活什么，但也不能完全回避自己经历过的。说到底，记忆是一种难以捉摸的材料：我们越是用力去抓，它越是溜走。\n采访者：有人认为，一切写作本质上都是变相的自传。\n小说家：这是个诱人的说法，而和几乎所有诱人的说法一样，只有一半是真的。人确实是带着自己本来的样子去写，但也带着自己想成为的样子、以及害怕成为的样子去写。\n采访者：那风格呢？有人批评您偏好长句。\n小说家：批评我并不在意。我讨厌那种为了不得罪任何人而变得平淡的散文；我宁愿选择一种迫使读者停下来喘口气的句法。不过，我承认，这条路有它的风险。\n采访者：在写新东西吗？\n小说家：在写某个目前还在抗拒我的东西。但愿它再多抗拒一阵子：当一本书不再抗拒你，就说明它已经不再让我感兴趣了。',
+    keyVocab:[
+      {es:'rozar lo autobiográfico', zh:'近乎自传'},
+      {es:'despojarse de pudor', zh:'放下矜持'},
+      {es:'hurtar', zh:'回避、偷走'},
+      {es:'un material esquivo', zh:'难以捉摸的材料'},
+      {es:'escabullirse', zh:'溜走、逃脱'},
+      {es:'media verdad', zh:'半真半假'},
+      {es:'tener sin cuidado', zh:'毫不在意'},
+      {es:'sintaxis', zh:'句法'}
+    ],
+    questions:[
+      {q:'¿Qué opina la novelista sobre la memoria como material?', a:'Que es esquiva: cuanto más se la fuerza, más se escabulle.'},
+      {q:'¿Cómo califica la idea de que toda escritura es autobiografía?', a:'Una afirmación seductora pero solo media verdad.'},
+      {q:'¿Por qué defiende la frase larga?', a:'Porque obliga al lector a detenerse y respirar.'},
+      {q:'¿Qué significa para ella que un libro oponga resistencia?', a:'Que sigue interesándole.'}
+    ]
+  },
+  {level:'A1', title:'在超市', speaker:'Dependienta / Cliente', duration:'约 35 秒',
+    es:`DEPENDIENTA: Buenos días, ¿le atiendo?\nCLIENTE: Sí, busco leche y pan, por favor.\nDEPENDIENTA: La leche está al fondo, a la derecha. El pan está aquí al lado.\nCLIENTE: Gracias. ¿Cuánto cuesta el pan?\nDEPENDIENTA: Un euro con veinte.\nCLIENTE: Muy bien. ¿Puedo pagar con tarjeta?\nDEPENDIENTA: Claro que sí.`,
+    zh:'店员：早上好，需要帮忙吗？\n顾客：是的，我想找牛奶和面包。\n店员：牛奶在里面，右手边。面包就在旁边。\n顾客：谢谢。面包多少钱？\n店员：一欧二十。\n顾客：好的。可以刷卡吗？\n店员：当然可以。',
+    keyVocab:[
+      {es:'¿Le atiendo?', zh:'需要为您服务吗？'},
+      {es:'al fondo', zh:'在里面、尽头'},
+      {es:'al lado', zh:'在旁边'},
+      {es:'¿Cuánto cuesta?', zh:'多少钱？'},
+      {es:'pagar con tarjeta', zh:'刷卡支付'}
+    ],
+    questions:[
+      {q:'¿Qué busca el cliente?', a:'Leche y pan.'},
+      {q:'¿Dónde está la leche?', a:'Al fondo, a la derecha.'},
+      {q:'¿Cómo quiere pagar?', a:'Con tarjeta.'}
+    ]
+  },
+  {level:'A1', title:'自我介绍', speaker:'Ana / Luis', duration:'约 30 秒',
+    es:`ANA: Hola, me llamo Ana. ¿Y tú?\nLUIS: Yo soy Luis. Mucho gusto.\nANA: Encantada. ¿De dónde eres?\nLUIS: Soy de México, pero vivo en Barcelona.\nANA: ¡Qué bien! Yo soy española, de Valencia.\nLUIS: ¿Y a qué te dedicas?\nANA: Soy profesora de inglés.`,
+    zh:'安娜：你好，我叫安娜。你呢？\n路易斯：我是路易斯。很高兴认识你。\n安娜：幸会。你来自哪里？\n路易斯：我来自墨西哥，但住在巴塞罗那。\n安娜：真好！我是西班牙人，来自瓦伦西亚。\n路易斯：你是做什么工作的？\n安娜：我是英语老师。',
+    keyVocab:[
+      {es:'Mucho gusto', zh:'很高兴认识你'},
+      {es:'¿De dónde eres?', zh:'你来自哪里？'},
+      {es:'vivo en', zh:'我住在'},
+      {es:'¿A qué te dedicas?', zh:'你做什么工作？'},
+      {es:'profesora', zh:'女教师'}
+    ],
+    questions:[
+      {q:'¿De dónde es Luis?', a:'De México.'},
+      {q:'¿Dónde vive ahora?', a:'En Barcelona.'},
+      {q:'¿Cuál es la profesión de Ana?', a:'Es profesora de inglés.'}
+    ]
+  },
+  {level:'A2', title:'看医生', speaker:'Médica / Paciente', duration:'约 45 秒',
+    es:`MÉDICA: Buenos días, ¿qué le pasa?\nPACIENTE: Me duele la garganta desde hace tres días y tengo fiebre.\nMÉDICA: ¿Ha tomado algo?\nPACIENTE: Solo paracetamol, pero no me ha hecho mucho efecto.\nMÉDICA: Abra la boca, por favor. Sí, tiene la garganta muy inflamada.\nPACIENTE: ¿Es grave?\nMÉDICA: No se preocupe. Le receto un antibiótico y mucho reposo.`,
+    zh:'医生：早上好，您哪里不舒服？\n患者：我喉咙痛了三天，还发烧。\n医生：吃过什么药吗？\n患者：只吃了扑热息痛，但效果不大。\n医生：请张开嘴。是的，喉咙发炎很厉害。\n患者：严重吗？\n医生：别担心。我给您开抗生素，多休息。',
+    keyVocab:[
+      {es:'¿Qué le pasa?', zh:'您怎么了？'},
+      {es:'Me duele la garganta', zh:'我喉咙痛'},
+      {es:'desde hace tres días', zh:'已经三天了'},
+      {es:'inflamada', zh:'发炎的'},
+      {es:'Le receto', zh:'我给您开（药）'},
+      {es:'reposo', zh:'休息'}
+    ],
+    questions:[
+      {q:'¿Qué síntomas tiene el paciente?', a:'Dolor de garganta y fiebre.'},
+      {q:'¿Qué medicina ha tomado?', a:'Paracetamol.'},
+      {q:'¿Qué le receta la médica?', a:'Un antibiótico y reposo.'}
+    ]
+  },
+  {level:'A2', title:'租房看房', speaker:'Agente / Inquilina', duration:'约 50 秒',
+    es:`AGENTE: Este es el piso. Tiene dos habitaciones y un baño.\nINQUILINA: ¿Cuánto es el alquiler mensual?\nAGENTE: Ochocientos euros, gastos incluidos.\nINQUILINA: ¿Está amueblado?\nAGENTE: Sí, completamente. La cocina es nueva.\nINQUILINA: ¿Hay ascensor?\nAGENTE: No, es un tercer piso sin ascensor.\nINQUILINA: Entiendo. ¿Puedo pensarlo hasta mañana?`,
+    zh:'中介：这就是那套房子。有两个卧室和一个卫生间。\n租客：月租多少？\n中介：八百欧，含杂费。\n租客：带家具吗？\n中介：是的，全配。厨房是新的。\n租客：有电梯吗？\n中介：没有，是三楼没电梯。\n租客：明白了。我可以考虑到明天吗？',
+    keyVocab:[
+      {es:'el alquiler mensual', zh:'月租'},
+      {es:'gastos incluidos', zh:'含杂费'},
+      {es:'amueblado', zh:'带家具的'},
+      {es:'ascensor', zh:'电梯'},
+      {es:'tercer piso', zh:'三楼'}
+    ],
+    questions:[
+      {q:'¿Cuántas habitaciones tiene el piso?', a:'Dos.'},
+      {q:'¿Cuánto cuesta al mes?', a:'Ochocientos euros, gastos incluidos.'},
+      {q:'¿Tiene ascensor?', a:'No, es un tercero sin ascensor.'}
+    ]
+  },
+  {level:'B1', title:'工作面试：讨论经验', speaker:'Reclutadora / Candidato', duration:'约 1 分钟',
+    es:`RECLUTADORA: Veo que trabajó dos años en una startup. ¿Por qué se marchó?\nCANDIDATO: Buscaba un proyecto con más recorrido. La empresa era muy pequeña y no había margen para crecer.\nRECLUTADORA: ¿Cuál diría que es su mayor fortaleza?\nCANDIDATO: La capacidad de aprender rápido. Cuando entré, no sabía nada del sector y en tres meses llevaba yo solo un proyecto completo.\nRECLUTADORA: ¿Y su mayor debilidad?\nCANDIDATO: Me cuesta delegar. Tiendo a querer controlarlo todo, y soy consciente de que eso no escala.\nRECLUTADORA: Se lo agradezco, es una respuesta sincera.`,
+    zh:'招聘主管：我看到您在一家初创公司工作了两年。为什么离职？\n应聘者：我想找一个更有发展空间的项​​目。那家公司很小，没有成长余地。\n招聘主管：您认为自己最大的优势是什么？\n应聘者：快速学习的能力。刚入职时我对这个行业一无所知，三个月后我已经独自负责一个完整项目了。\n招聘主管：那最大的缺点呢？\n应聘者：我不太会授权。总想什么都自己掌控，我也明白这样无法规模化。\n招聘主管：谢谢您，这是个很坦诚的回答。',
+    keyVocab:[
+      {es:'con más recorrido', zh:'更有发展空间'},
+      {es:'no había margen para crecer', zh:'没有成长余地'},
+      {es:'mayor fortaleza', zh:'最大优势'},
+      {es:'delegar', zh:'授权、分派任务'},
+      {es:'no escala', zh:'无法规模化'},
+      {es:'sincera', zh:'坦诚的'}
+    ],
+    questions:[
+      {q:'¿Por qué dejó el candidato su trabajo anterior?', a:'Buscaba un proyecto con más recorrido.'},
+      {q:'¿Cuál es su mayor fortaleza?', a:'La capacidad de aprender rápido.'},
+      {q:'¿Qué debilidad reconoce?', a:'Le cuesta delegar.'}
+    ]
+  },
+  {level:'B1', title:'讨论环保习惯', speaker:'Elena / Marcos', duration:'约 55 秒',
+    es:`ELENA: Últimamente intento reducir el plástico. Llevo bolsas de tela al mercado.\nMARCOS: Yo empecé hace poco a separar la basura, pero reconozco que me cuesta.\nELENA: Lo difícil es la constancia, ¿verdad?\nMARCOS: Totalmente. Al principio te parece un rollo, pero luego se convierte en rutina.\nELENA: En mi oficina hemos puesto puntos de reciclaje y funciona bastante bien.\nMARCOS: Es buena idea. A veces basta con que alguien dé el primer paso.\nELENA: Exacto. Si cada uno pone su granito de arena, se nota.`,
+    zh:'埃莱娜：最近我在尽量减少塑料。去市场都带布袋。\n马科斯：我刚开始垃圾分类，但说实话挺难的。\n埃莱娜：难的是坚持，对吧？\n马科斯：完全同意。一开始觉得是麻烦事，后来就成了习惯。\n埃莱娜：我们办公室放了回收点，效果还不错。\n马科斯：好主意。有时候只要有人迈出第一步就够了。\n埃莱娜：没错。每个人都出一份力，就能看到效果。',
+    keyVocab:[
+      {es:'reducir el plástico', zh:'减少塑料'},
+      {es:'bolsas de tela', zh:'布袋'},
+      {es:'separar la basura', zh:'垃圾分类'},
+      {es:'la constancia', zh:'坚持'},
+      {es:'puntos de reciclaje', zh:'回收点'},
+      {es:'poner su granito de arena', zh:'出一份力'}
+    ],
+    questions:[
+      {q:'¿Qué hace Elena para reducir el plástico?', a:'Lleva bolsas de tela al mercado.'},
+      {q:'¿Qué le cuesta a Marcos?', a:'Separar la basura con constancia.'},
+      {q:'¿Qué han puesto en la oficina de Elena?', a:'Puntos de reciclaje.'}
+    ]
+  },
+  {level:'B2', title:'学术讲座：睡眠与记忆', speaker:'Conferenciante', duration:'约 1 分 30 秒',
+    es:`CONFERENCIANTE: Buenos días. Hoy abordaré la relación entre el sueño y la consolidación de la memoria.\nDurante décadas se creyó que dormir era un estado pasivo, una simple pausa. Hoy sabemos que ocurre todo lo contrario.\nMientras dormimos, el cerebro reorganiza lo aprendido durante el día y lo transfiere a la memoria a largo plazo.\nLos estudios demuestran que quienes duermen menos de seis horas rinden hasta un treinta por ciento peor en tareas de retención.\nConviene aclarar que no basta con dormir mucho: la calidad importa tanto como la cantidad.\nEn conclusión, si pretenden aprender algo nuevo, dormir bien no es una pérdida de tiempo, sino parte del proceso.`,
+    zh:'演讲者：早上好。今天我要讲的是睡眠与记忆巩固之间的关系。\n几十年来人们认为睡眠是一种被动状态，只是一段简单的停顿。如今我们知道恰恰相反。\n我们睡觉时，大脑会重新组织白天学到的东西，并将其转入长期记忆。\n研究表明，睡眠少于六小时的人在记忆保持任务上表现差多达百分之三十。\n需要说明的是，光睡得久还不够：睡眠质量和时长同样重要。\n总之，如果你想学会新东西，睡好觉不是浪费时间，而是学习过程的一部分。',
+    keyVocab:[
+      {es:'consolidación de la memoria', zh:'记忆巩固'},
+      {es:'estado pasivo', zh:'被动状态'},
+      {es:'memoria a largo plazo', zh:'长期记忆'},
+      {es:'retención', zh:'保持、记忆'},
+      {es:'no basta con...', zh:'仅仅……还不够'},
+      {es:'conviene aclarar', zh:'有必要说明'}
+    ],
+    questions:[
+      {q:'¿Qué creencia antigua se menciona?', a:'Que dormir era un estado pasivo.'},
+      {q:'¿Qué hace el cerebro mientras dormimos?', a:'Reorganiza lo aprendido y lo transfiere a la memoria a largo plazo.'},
+      {q:'¿Cuánto rinden peor quienes duermen menos de seis horas?', a:'Hasta un treinta por ciento.'},
+      {q:'¿Qué importa además de la cantidad de sueño?', a:'La calidad.'}
+    ]
+  },
+  {level:'B2', title:'播客片段：城市生活成本', speaker:'Presentadora / Invitado', duration:'约 1 分 20 秒',
+    es:`PRESENTADORA: Hoy hablamos del encarecimiento de la vivienda en las grandes ciudades. ¿Es un fenómeno inevitable?\nINVITADO: Inevitable no diría, pero desde luego es estructural. Llevamos décadas construyendo menos de lo que necesitamos.\nPRESENTADORA: Muchos culpan a los alquileres turísticos.\nINVITADO: Es un factor, aunque no el único. El problema de fondo es que la oferta no ha seguido el ritmo de la demanda.\nPRESENTADORA: ¿Qué medidas funcionarían?\nINVITADO: No existe una solución mágica. Hace falta construir más vivienda pública y regular ciertos usos, pero sin caer en medidas que ahuyenten la inversión.\nPRESENTADORA: O sea, que no hay atajos.\nINVITADO: Me temo que no.`,
+    zh:'主持人：今天我们来聊大城市住房越来越贵的问题。这是不可避免的现象吗？\n嘉宾：我不会说不可避免，但它确实是结构性的。几十年来我们建的房子一直少于所需。\n主持人：很多人把责任归到旅游短租上。\n嘉宾：这是一个因素，但不是唯一的。根本问题在于供给没有跟上需求的节奏。\n主持人：什么措施会有效？\n嘉宾：没有万能药方。需要建更多公共住房、规范某些用途，但又不能采取把投资吓跑的措施。\n主持人：也就是说，没有捷径。\n嘉宾：恐怕是的。',
+    keyVocab:[
+      {es:'encarecimiento de la vivienda', zh:'住房涨价'},
+      {es:'estructural', zh:'结构性的'},
+      {es:'alquileres turísticos', zh:'旅游短租'},
+      {es:'oferta y demanda', zh:'供给与需求'},
+      {es:'vivienda pública', zh:'公共住房'},
+      {es:'ahuyentar la inversión', zh:'吓跑投资'}
+    ],
+    questions:[
+      {q:'¿Cómo califica el invitado el problema?', a:'Estructural.'},
+      {q:'¿Cuál es el problema de fondo según él?', a:'Que la oferta no ha seguido el ritmo de la demanda.'},
+      {q:'¿Qué dos medidas propone?', a:'Construir más vivienda pública y regular ciertos usos.'}
+    ]
+  },
+  {level:'C1', title:'学术研讨：语言与思维', speaker:'Ponente / Comentarista', duration:'约 2 分钟',
+    es:`PONENTE: La hipótesis de Sapir-Whorf sostiene que la lengua que hablamos condiciona nuestra manera de percibir la realidad.\nCOMENTARISTA: Permítame disentir en parte. Si se interpreta en su versión fuerte, resulta insostenible; en su versión débil, en cambio, es bastante plausible.\nPONENTE: De acuerdo. Nadie defiende hoy que el idioma determine el pensamiento de forma absoluta.\nCOMENTARISTA: Lo que sí parece demostrado es que influye en la facilidad con que categorizamos ciertos matices. Los hablantes de lenguas con más términos para los colores los distinguen con mayor rapidez.\nPONENTE: Ahí radica precisamente el interés del asunto: no en lo que nos impide pensar, sino en lo que nos facilita expresar.\nCOMENTARISTA: Y conviene no exagerar la conclusión. Que un idioma facilite una distinción no implica que quienes no la tienen sean incapaces de percibirla.\nPONENTE: Matiz imprescindible, sin duda.`,
+    zh:'发言者：萨皮尔-沃尔夫假说认为，我们所说的语言会制约我们感知现实的方式。\n评论人：请允许我部分不同意。如果按其强式解读，它站不住脚；但按其弱式解读，则相当可信。\n发言者：我同意。今天没有人主张语言绝对决定思维。\n评论人：似乎已获证实的是，它确实会影响我们为某些细微差别分类的难易程度。词汇中颜色词更多的语言使用者，辨别颜色更快。\n发言者：问题恰恰就在这里：不在于语言妨碍我们思考什么，而在于它让我们更容易表达什么。\n评论人：结论不宜夸大。一种语言便于做出某种区分，并不意味着没有这种区分的人就无法感知它。\n发言者：这个限定必不可少。',
+    keyVocab:[
+      {es:'la hipótesis de Sapir-Whorf', zh:'萨皮尔-沃尔夫假说'},
+      {es:'condicionar', zh:'制约、影响'},
+      {es:'disentir', zh:'持不同意见'},
+      {es:'insostenible', zh:'站不住脚的'},
+      {es:'plausible', zh:'可信的'},
+      {es:'categorizar matices', zh:'为细微差别分类'},
+      {es:'ahí radica', zh:'恰恰就在这里'},
+      {es:'matiz imprescindible', zh:'必不可少的限定'}
+    ],
+    questions:[
+      {q:'¿Qué sostiene la hipótesis de Sapir-Whorf?', a:'Que la lengua condiciona nuestra percepción de la realidad.'},
+      {q:'¿Qué opina el comentarista de la versión fuerte?', a:'Que es insostenible.'},
+      {q:'¿Qué parece demostrado según él?', a:'Que la lengua influye en la facilidad para categorizar matices.'},
+      {q:'¿Qué matiz añade al final?', a:'Que facilitar una distinción no implica que otros sean incapaces de percibirla.'}
+    ]
+  },
+  {level:'C2', title:'文化评论：论翻译的限度', speaker:'Crítico / Traductora', duration:'约 2 分 30 秒',
+    es:`CRÍTICO: Se ha dicho hasta la saciedad que toda traducción es una traición. ¿Comparte semejante sentencia?\nTRADUCTORA: La comparto en su intención, no en su fatalismo. Traicionar no es lo mismo que fracasar: se traiciona el texto para serle fiel al efecto que busca producir.\nCRÍTICO: Es una reformulación elegante. ¿Y qué sucede con la poesía, donde la forma es inseparable del sentido?\nTRADUCTORA: Ahí el traductor se enfrenta a un dilema irresoluble y debe optar. Yo suelo anteponer la música del verso al sentido literal, a sabiendas de que alguien me lo reprochará.\nCRÍTICO: Hay quien sostiene lo contrario: que la fidelidad semántica está por encima de todo.\nTRADUCTORA: Es una postura respetable, aunque peca de cierta ingenuidad. Supone que existe un sentido único y estable, cuando en realidad el significado se construye también con el ritmo y la sonoridad.\nCRÍTICO: ¿Cabría entonces hablar de traducciones definitivas?\nTRADUCTORA: No hay tales. Cada generación vuelve a traducir los clásicos porque cada época oye en ellos algo distinto. Eso, lejos de ser un defecto, es la prueba de que siguen vivos.`,
+    zh:'评论家：人们反复说，一切翻译都是背叛。您认同这种说法吗？\n译者：我认同它的用意，但不认同它的宿命论。背叛不等于失败：你之所以背叛文本，是为了忠实于它想要产生的效果。\n评论家：这是个优雅的重述。那么在诗歌中呢？形式与意义不可分割。\n译者：在那里译者面对一个无解的两难，必须做出取舍。我通常把诗句的音乐性置于字面意义之上，明知有人会因此责难我。\n评论家：也有人主张相反：语义的忠实高于一切。\n译者：这种立场值得尊重，但未免有点天真。它假定存在一个唯一而稳定的意义，而实际上意义也由节奏和音响构成。\n评论家：那还能谈得上定本译作吗？\n译者：没有这种东西。每一代人都重新翻译经典，因为每个时代从中听到的东西不同。而这远非缺陷，恰恰证明它们仍然活着。',
+    keyVocab:[
+      {es:'hasta la saciedad', zh:'一再地、反复地'},
+      {es:'semejante sentencia', zh:'这样的论断'},
+      {es:'fatalismo', zh:'宿命论'},
+      {es:'dilema irresoluble', zh:'无解的两难'},
+      {es:'anteponer A a B', zh:'把 A 置于 B 之上'},
+      {es:'a sabiendas de que', zh:'明知'},
+      {es:'pecar de ingenuidad', zh:'失之于天真'},
+      {es:'sonoridad', zh:'音响、音韵'}
+    ],
+    questions:[
+      {q:'¿En qué sentido comparte la traductora la sentencia?', a:'En su intención, pero no en su fatalismo.'},
+      {q:'¿Qué antepone ella en la poesía?', a:'La música del verso al sentido literal.'},
+      {q:'¿Por qué considera ingenua la postura contraria?', a:'Porque supone un sentido único y estable.'},
+      {q:'¿Qué opina de las traducciones definitivas?', a:'Que no existen: cada época vuelve a traducir los clásicos.'}
     ]
   }
 ];
