@@ -1,0 +1,27 @@
+{
+  "name": "lingua-spanish",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lingua · 西班牙语学习应用（Capacitor 原生壳 + PWA）",
+  "scripts": {
+    "icons": "node scripts/gen-icons.mjs",
+    "sync:web": "node scripts/sync-www.mjs",
+    "sync": "npm run sync:web && cap sync",
+    "add:android": "cap add android",
+    "add:ios": "cap add ios",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios",
+    "build:android": "npm run sync && cd android && ./gradlew assembleDebug",
+    "serve": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.0.0",
+    "sharp": "^0.34.0"
+  }
+}
