@@ -229,6 +229,58 @@ const AppState = {
     this.saveProgress();
   },
   
+  // 导出全部学习数据（备份用）
+  exportData() {
+    return {
+      app: 'lingua-spanish',
+      formatVersion: 1,
+      exportedAt: new Date().toISOString(),
+      users: JSON.parse(localStorage.getItem('le_users') || '{}'),
+      progress: JSON.parse(localStorage.getItem('le_progress') || '{}'),
+      currentUser: this.currentUser
+    };
+  },
+  
+  // 备份文件校验
+  validateBackup(data, rawSize) {
+    if (rawSize > 5 * 1024 * 1024) return { ok: false, reason: '文件过大（超过 5MB），可能不是备份文件' };
+    if (!data || typeof data !== 'object') return { ok: false, reason: '文件内容不是有效数据' };
+    if (data.app !== 'lingua-spanish') return { ok: false, reason: '这不是 Lingua 的备份文件' };
+    const p = data.progress;
+    if (!p || typeof p !== 'object' || Array.isArray(p)) return { ok: false, reason: '备份文件里没有学习记录' };
+    const users = Object.keys(p);
+    if (users.length === 0) return { ok: false, reason: '备份文件里没有任何用户记录' };
+    return { ok: true, users };
+  },
+  
+  // 导入备份（覆盖同名用户；合并不同名用户）
+  importData(data) {
+    const inUsers = data.users && typeof data.users === 'object' ? data.users : {};
+    const inProgress = data.progress || {};
+    
+    // 合并用户资料
+    const users = JSON.parse(localStorage.getItem('le_users') || '{}');
+    Object.assign(users, inUsers);
+    localStorage.setItem('le_users', JSON.stringify(users));
+    
+    // 合并学习记录（同名用户以备份为准）
+    const progress = JSON.parse(localStorage.getItem('le_progress') || '{}');
+    Object.keys(inProgress).forEach(u => { progress[u] = inProgress[u]; });
+    localStorage.setItem('le_progress', JSON.stringify(progress));
+    
+    // 清掉内存缓存，强制从 localStorage 重新读取
+    this._progress = null;
+    this._progressUser = null;
+    
+    // 若导入的数据里包含当前用户，立即生效
+    if (this.currentUser && progress[this.currentUser]) {
+      this.migrateProgress();
+      if (this.currentRoute) Router.navigate();
+    }
+    
+    return { users: Object.keys(inProgress) };
+  },
+  
   // 连续天数计算 + 累计学习时长
   // 学习时长：每次进入学习页记一次开始时间，离开时累加（无操作超时不计）
   _learnStart: null,
@@ -2210,8 +2262,38 @@ function renderProgress() {
           </div>
         </div>
       </div>
+      
+      <!-- 数据备份与恢复 -->
+      <div class="card" style="margin-top:32px;">
+        <div class="progress-title" style="margin-bottom:8px;">${icon('bookmark')} 数据备份与恢复</div>
+        <div class="progress-meta" style="margin-bottom:20px;">
+          学习进度只保存在本机浏览器中。清理浏览器数据会导致进度永久丢失，建议定期导出备份。
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-primary" id="btn-export" style="width:auto;">导出备份</button>
+          <button class="btn btn-ghost" id="btn-import" style="width:auto;">从备份恢复</button>
+          <input type="file" id="import-file" accept="application/json,.json" style="display:none;">
+        </div>
+        <div class="progress-meta" style="margin-top:16px;">
+          当前记录：${progress.knownWords.length} 个单词 · ${Object.keys(progress.srs || {}).length} 条复习记录 · ${progress.totalStudyMinutes} 分钟学习时长
+        </div>
+      </div>
     </div>
   `;
+  
+  // 绑定备份按钮
+  const exportBtn = document.getElementById('btn-export');
+  const importBtn = document.getElementById('btn-import');
+  const fileInput = document.getElementById('import-file');
+  if (exportBtn) exportBtn.addEventListener('click', exportProgress);
+  if (importBtn && fileInput) {
+    importBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (f) importProgress(f);
+      e.target.value = '';   // 允许重复选择同一文件
+    });
+  }
 }
 
 // ============================================
@@ -2473,6 +2555,62 @@ function parseDialogue(text) {
   });
 }
 
+
+// ============================================
+// 学习数据备份 / 恢复
+// ============================================
+function exportProgress() {
+  try {
+    const data = AppState.exportData();
+    const json = JSON.stringify(data, null, 2);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const filename = `lingua-备份-${AppState.currentUser || 'user'}-${stamp}.json`;
+    
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    
+    const words = data.progress[AppState.currentUser]?.knownWords?.length || 0;
+    showToast(`已导出备份（含 ${words} 个单词记录）`);
+  } catch (e) {
+    showToast('导出失败：' + (e && e.message ? e.message : '未知错误'));
+  }
+}
+
+function importProgress(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    let data;
+    try {
+      data = JSON.parse(String(reader.result));
+    } catch (e) {
+      showToast('导入失败：文件不是有效的 JSON');
+      return;
+    }
+    const v = AppState.validateBackup(data, file.size);
+    if (!v.ok) {
+      showToast('导入失败：' + v.reason);
+      return;
+    }
+    if (!confirm(`将导入 ${v.users.length} 个用户的学习记录：${v.users.join('、')}\n\n同名用户的现有进度会被覆盖，确定继续吗？`)) return;
+    try {
+      const res = AppState.importData(data);
+      showToast(`导入成功：已恢复 ${res.users.length} 个用户的学习记录`);
+      setTimeout(() => Router.navigate(), 300);
+    } catch (e) {
+      showToast('导入失败：' + (e && e.message ? e.message : '未知错误'));
+    }
+  };
+  reader.onerror = () => showToast('读取文件失败');
+  reader.readAsText(file);
+}
 
 // 听力理解题答案显示
 function showAnswerBtn(btn, answer) {
