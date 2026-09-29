@@ -98,6 +98,7 @@ const AppState = {
       todayWords: 0,
       todayDate: '',
       goalWords: 10,
+      notifyEnabled: false,
       quizCorrect: 0,
       quizTotal: 0
     };
@@ -190,6 +191,68 @@ const AppState = {
       if (!entry) return true;
       return new Date(entry.due) <= now;
     });
+  },
+  
+  // 到期待复习统计（跨整个词库）
+  srsStats() {
+    const p = this.progress;
+    if (!p) return { due: 0, tracked: 0, nextDueIn: null };
+    const srs = p.srs || {};
+    const now = new Date();
+    let due = 0;
+    let tracked = 0;
+    let nextDue = null;
+    Object.values(srs).forEach(entry => {
+      if (!entry || !entry.due) return;
+      tracked++;
+      const d = new Date(entry.due);
+      if (isNaN(d.getTime())) return;
+      if (d <= now) due++;
+      else if (!nextDue || d < nextDue) nextDue = d;
+    });
+    const nextDueIn = nextDue ? Math.max(1, Math.ceil((nextDue - now) / 86400000)) : null;
+    return { due, tracked, nextDueIn };
+  },
+  
+  // 解析今天该复习哪些词条（返回 [{unitId, es, zh}]）
+  dueVocabItems(limit = 20) {
+    const p = this.progress;
+    if (!p) return [];
+    const srs = p.srs || {};
+    const now = new Date();
+    const out = [];
+    Object.values(COURSES).forEach(level => {
+      (level.units || []).forEach(unit => {
+        (unit.vocab || []).forEach(w => {
+          if (out.length >= limit) return;
+          const key = unit.id + ':' + w.es;
+          const entry = srs[key];
+          if (!entry || !entry.due) return;
+          const d = new Date(entry.due);
+          if (!isNaN(d.getTime()) && d <= now) out.push({ unitId: unit.id, es: w.es, zh: w.zh });
+        });
+      });
+    });
+    return out.slice(0, limit);
+  },
+  
+  // 检查并弹出复习提醒（每个会话只弹一次，依赖用户已授权）
+  maybeNotifyDue() {
+    try {
+      if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return false;
+      if (this._notifiedDue) return false;
+      this._notifiedDue = true;
+      const { due } = this.srsStats();
+      if (due <= 0) return false;
+      new Notification('Lingua · 该复习了', {
+        body: `有 ${due} 个单词到了复习时间，花几分钟巩固一下吧`,
+        tag: 'lingua-review',
+        icon: 'icons/icon-192.png'
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
   },
   
   // 为 flashcards 排序：到期复习词在前，stage 低的在前（按唯一键取记录）
@@ -497,6 +560,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   Router.init();
   initGlobalEvents();
+  
+  // 到期复习提醒（每个会话最多一次，依赖用户已授权）
+  setTimeout(() => { try { AppState.maybeNotifyDue(); } catch (e) {} }, 2500);
 });
 
 function initGlobalEvents() {
@@ -775,6 +841,8 @@ function renderDashboard() {
   AppState.annotateUnit(currentUnit);
   const learnedInUnit = currentUnit.vocab.filter(w => progress.knownWords.includes(w.es)).length;
   const todayGoal = AppState.todayGoal();
+  const srsStats = AppState.srsStats();
+  const notifyState = (typeof Notification !== 'undefined') ? Notification.permission : 'unsupported';
   
   container.innerHTML = `
     <div class="dashboard">
@@ -838,6 +906,36 @@ function renderDashboard() {
         </div>
       </div>
       
+      <!-- 复习提醒 -->
+      ${srsStats.due > 0 ? `
+        <div class="card" style="margin-bottom:24px;border-left:4px solid var(--terracotta);">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>
+              <div class="progress-title" style="margin-bottom:6px;">${icon('brain')} 今天有 ${srsStats.due} 个单词待复习</div>
+              <div class="progress-meta">
+                间隔重复的关键是「按时复习」。共 ${srsStats.tracked} 条复习记录。
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <button class="btn btn-primary" id="btn-review-now" style="width:auto;">开始复习</button>
+              ${notifyState !== 'granted' ? `<button class="btn btn-ghost" id="btn-enable-notify" style="width:auto;">开启提醒</button>` : ''}
+            </div>
+          </div>
+        </div>
+      ` : (srsStats.tracked > 0 ? `
+        <div class="card" style="margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>
+              <div class="progress-title" style="margin-bottom:6px;">${icon('check')} 今天没有到期复习</div>
+              <div class="progress-meta">
+                已记录 ${srsStats.tracked} 个单词${srsStats.nextDueIn ? ` · 下次复习在 ${srsStats.nextDueIn} 天后` : ''}
+              </div>
+            </div>
+            ${notifyState !== 'granted' ? `<button class="btn btn-ghost" id="btn-enable-notify" style="width:auto;">到期时提醒我</button>` : ''}
+          </div>
+        </div>
+      ` : '')}
+      
       <!-- 个性化推荐 -->
       <div class="recommend-section">
         <h2 class="section-title">为你推荐</h2>
@@ -867,6 +965,44 @@ function renderDashboard() {
   `;
   
   renderRecommendations(progress, level, currentUnit);
+  
+  // 复习提醒按钮
+  const reviewBtn = document.getElementById('btn-review-now');
+  if (reviewBtn) {
+    reviewBtn.addEventListener('click', () => {
+      const items = AppState.dueVocabItems(1);
+      const unitId = items.length ? items[0].unitId : currentUnit.id;
+      // 定位到第一个有到期词的单元，直接进入复习
+      location.hash = `learn/vocab/${unitId}`;
+    });
+  }
+  const notifyBtn = document.getElementById('btn-enable-notify');
+  if (notifyBtn) {
+    notifyBtn.addEventListener('click', async () => {
+      if (typeof Notification === 'undefined') { showToast('当前环境不支持通知'); return; }
+      try {
+        const perm = await Notification.requestPermission();
+        if (perm === 'granted') {
+          AppState.progress.notifyEnabled = true;
+          AppState.saveProgress();
+          showToast('已开启到期复习提醒');
+          AppState._notifiedDue = false;
+          AppState.maybeNotifyDue();
+          // 立刻发一条示例通知，让用户确认识别
+          try {
+            new Notification('Lingua · 提醒已开启', {
+              body: '有单词到期时我会通知你', tag: 'lingua-review-on'
+            });
+          } catch (e) {}
+        } else {
+          showToast('未获得通知权限，可在浏览器设置里开启');
+        }
+        Router.navigate();
+      } catch (e) {
+        showToast('开启提醒失败：' + (e && e.message ? e.message : '未知错误'));
+      }
+    });
+  }
 }
 
 function renderRecommendations(progress, level, currentUnit) {
