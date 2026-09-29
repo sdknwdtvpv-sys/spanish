@@ -85,6 +85,10 @@ const AppState = {
       srs: {},
       completedGrammar: [],
       completedLessons: [],
+      // 已读精读语篇索引
+      readPassages: [],
+      // 社区发帖计数（用于成就判断）
+      postCount: 0,
       streakDays: 1,
       // 断更保护：断一天自动消耗一次冻结，每坚持 7 天 +1（上限 2）
       freezeTokens: 2,
@@ -470,6 +474,8 @@ const Router = {
     'login': 'renderAuth',
     'dashboard': 'renderDashboard',
     'courses': 'renderCourses',
+    'reading': 'renderReadingList',
+    'read': 'renderReading',
     'unit': 'renderUnitDetail',
     'learn': 'renderLearn',
     'community': 'renderCommunity',
@@ -778,6 +784,10 @@ function showAppShell() {
           <div class="nav-item" data-route="courses" onclick="location.hash='courses'">
             <span class="nav-icon">${icon('book')}</span>
             <span class="nav-label">分级课程</span>
+          </div>
+          <div class="nav-item" data-route="reading" onclick="location.hash='reading'">
+            <span class="nav-icon">${icon('eye')}</span>
+            <span class="nav-label">精读训练</span>
           </div>
           <div class="nav-item" data-route="progress" onclick="location.hash='progress'">
             <span class="nav-icon">${icon('chart')}</span>
@@ -1534,6 +1544,198 @@ const VocabKeyboard = {
   }
 };
 
+// ============================================
+// 精读训练（阅读理解）
+// ============================================
+// 与「分级课程」并列的独立能力项：语篇阅读 + 生词 + 长难句解析 + 理解题
+
+function readingLevelOrder() {
+  return ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+}
+
+function readingPassagesForLevel(level) {
+  const all = (typeof READING_PASSAGES !== 'undefined') ? READING_PASSAGES : [];
+  return all.filter(p => p.level === level);
+}
+
+function renderReadingList() {
+  const container = showAppShell();
+  const progress = AppState.progress;
+  const all = (typeof READING_PASSAGES !== 'undefined') ? READING_PASSAGES : [];
+
+  if (!all.length) {
+    container.innerHTML = `<div style="padding:60px;text-align:center;color:var(--text-muted);">精读语篇尚未加载</div>`;
+    return;
+  }
+
+  const order = readingLevelOrder();
+  const myLevel = progress.currentLevel || 'A1';
+  const myIdx = order.indexOf(myLevel);
+  // 只展示当前等级及以下的语篇
+  const visible = all.filter(p => order.indexOf(p.level) <= myIdx);
+  const list = visible.length ? visible : all;
+
+  const readSet = new Set(progress.readPassages || []);
+  const byLevel = {};
+  list.forEach(p => { (byLevel[p.level] = byLevel[p.level] || []).push(p); });
+
+  container.innerHTML = `
+    <div class="courses-container">
+      <h1 class="section-title" style="margin-bottom:8px;">精读训练</h1>
+      <p class="section-subtitle">逐段精读 · 生词标注 · 长难句解析 · 理解题</p>
+
+      <div class="progress-card" style="margin-bottom:28px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div>
+            <div class="progress-title" style="margin-bottom:6px;">${icon('eye')} 已读 ${readSet.size} / ${all.length} 篇</div>
+            <div class="progress-meta">建议先通读西语原文，再对照中文与解析；读完后做理解题检验。</div>
+          </div>
+        </div>
+      </div>
+
+      ${order.filter(lv => byLevel[lv]).map(lv => `
+        <div style="margin-bottom:32px;">
+          <h2 class="section-title" style="font-size:1.1rem;margin-bottom:14px;">
+            ${lv} · ${byLevel[lv].length} 篇
+          </h2>
+          <div class="dash-grid">
+            ${byLevel[lv].map((p, i) => {
+              const idx = all.indexOf(p);
+              const done = readSet.has(idx);
+              const words = (p.glossary || []).length;
+              return `
+                <div class="progress-card" style="cursor:pointer;" onclick="location.hash='read/${idx}'">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                    <span class="recommend-type" style="font-size:0.75rem;">${p.level}</span>
+                    ${done ? `<span style="color:var(--green);font-size:0.8rem;">${icon('check')} 已读</span>` : ''}
+                  </div>
+                  <div class="progress-title" style="margin-bottom:6px;">${p.title}</div>
+                  <div class="progress-meta" style="margin-bottom:10px;">${p.topic} · 约 ${p.minutes} 分钟</div>
+                  <div class="progress-meta">${(p.paragraphs || []).length} 段 · ${words} 生词 · ${(p.questions || []).length} 题</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderReading(idxRaw) {
+  const container = showAppShell();
+  const all = (typeof READING_PASSAGES !== 'undefined') ? READING_PASSAGES : [];
+  const idx = parseInt(idxRaw, 10);
+  const p = all[idx];
+  if (!p) {
+    container.innerHTML = `<div style="padding:60px;text-align:center;color:var(--text-muted);">未找到该语篇</div>`;
+    return;
+  }
+
+  const progress = AppState.progress;
+  if (!progress.readPassages) progress.readPassages = [];
+
+  container.innerHTML = `
+    <div class="learning-container">
+      <div class="learning-header">
+        <div class="learning-header-main">
+          <div class="unit-breadcrumb"><a href="#reading">${icon('chevronLeft')} 返回精读列表</a></div>
+          <div class="learning-title">${icon('eye')} ${p.title}</div>
+          <div class="learning-meta">${p.level} · ${p.topic} · 约 ${p.minutes} 分钟</div>
+        </div>
+      </div>
+
+      <!-- 阅读控制 -->
+      <div class="card" style="margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+        <button class="btn btn-ghost" id="rd-toggle-zh" style="width:auto;">显示 / 隐藏中文</button>
+        <button class="btn btn-ghost" id="rd-toggle-gloss" style="width:auto;">显示 / 隐藏生词表</button>
+        <button class="btn btn-ghost" id="rd-toggle-struct" style="width:auto;">显示 / 隐藏长难句解析</button>
+      </div>
+
+      <!-- 正文 -->
+      <div id="rd-body">
+        ${(p.paragraphs || []).map((para, i) => `
+          <div class="progress-card" style="margin-bottom:18px;">
+            <div class="progress-meta" style="margin-bottom:8px;">第 ${i + 1} 段</div>
+            <div style="font-size:1.02rem;line-height:1.9;color:var(--text);margin-bottom:10px;">${para.es}</div>
+            <div class="rd-zh" style="display:none;font-size:0.95rem;line-height:1.8;color:var(--text-secondary);padding-top:10px;border-top:1px dashed var(--line);">${para.zh}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- 生词表 -->
+      <div class="progress-card" id="rd-gloss" style="margin-bottom:20px;display:none;">
+        <div class="progress-title" style="margin-bottom:14px;">${icon('book')} 生词表（${(p.glossary || []).length}）</div>
+        ${(p.glossary || []).map(g => `
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid var(--line);">
+            <span style="font-weight:600;color:var(--text);">${g.es}</span>
+            <span style="color:var(--text-secondary);text-align:right;">${g.zh}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- 长难句解析 -->
+      <div class="progress-card" id="rd-struct" style="margin-bottom:20px;display:none;">
+        <div class="progress-title" style="margin-bottom:14px;">${icon('pen')} 长难句解析（${(p.structures || []).length}）</div>
+        ${(p.structures || []).map((s, i) => `
+          <div style="margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line);">
+            <div style="font-size:0.95rem;line-height:1.7;color:var(--text);margin-bottom:8px;font-style:italic;">${i + 1}. ${s.es}</div>
+            <div style="font-size:0.9rem;line-height:1.8;color:var(--text-secondary);">${s.note}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- 理解题 -->
+      <div class="progress-card" style="margin-bottom:20px;">
+        <div class="progress-title" style="margin-bottom:14px;">${icon('list')} 理解题（${(p.questions || []).length}）</div>
+        ${(p.questions || []).map((q, i) => `
+          <div style="margin-bottom:16px;">
+            <div style="font-size:0.95rem;color:var(--text);margin-bottom:8px;">${i + 1}. ${q.q}</div>
+            <button class="btn btn-ghost" style="width:auto;font-size:0.85rem;padding:6px 14px;"
+                    onclick="this.textContent='${(q.a || '').replace(/'/g, "\\'")}'; this.disabled=true; this.style.opacity='0.8';">查看参考答案</button>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="display:flex;gap:12px;justify-content:center;padding:20px 0;">
+        <button class="btn btn-primary" id="rd-done" style="width:auto;">标记为已读</button>
+        <button class="btn btn-outline" onclick="location.hash='reading'">返回列表</button>
+      </div>
+    </div>
+  `;
+
+  // 交互绑定
+  const body = document.getElementById('rd-body');
+  document.getElementById('rd-toggle-zh').addEventListener('click', () => {
+    body.querySelectorAll('.rd-zh').forEach(el => {
+      el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+    });
+  });
+  const gloss = document.getElementById('rd-gloss');
+  document.getElementById('rd-toggle-gloss').addEventListener('click', () => {
+    gloss.style.display = gloss.style.display === 'none' ? 'block' : 'none';
+  });
+  const struct = document.getElementById('rd-struct');
+  document.getElementById('rd-toggle-struct').addEventListener('click', () => {
+    struct.style.display = struct.style.display === 'none' ? 'block' : 'none';
+  });
+  const doneBtn = document.getElementById('rd-done');
+  doneBtn.addEventListener('click', () => {
+    const prog = AppState.progress;
+    if (!prog.readPassages) prog.readPassages = [];
+    if (!prog.readPassages.includes(idx)) {
+      prog.readPassages.push(idx);
+      prog.points = (prog.points || 0) + 15;
+      AppState.saveProgress();
+      checkAchievements();
+      showToast('已读完一篇精读 · +15 分');
+    } else {
+      showToast('这篇已经标记过啦');
+    }
+    Router.navigate();
+  });
+}
+
 function showVocabComplete(unit) {
   const container = document.querySelector('.learning-container');
   container.innerHTML = `
@@ -2253,6 +2455,7 @@ function submitPost() {
   
   // 检查成就
   const progress = AppState.progress;
+  progress.postCount = (progress.postCount || 0) + 1;
   if (!progress.achievements.includes('community')) {
     progress.achievements.push('community');
     progress.points += 30;
@@ -2376,11 +2579,16 @@ function checkAchievements() {
       case 'fifty-words': unlocked = progress.learnedWords >= 50; break;
       case 'first-lesson': unlocked = progress.completedLessons.length >= 1; break;
       case 'level-a1': unlocked = progress.currentUnitIndex >= 3; break;
+      case 'first-reading': unlocked = (progress.readPassages || []).length >= 1; break;
+      case 'five-readings': unlocked = (progress.readPassages || []).length >= 5; break;
       case 'streak-3': unlocked = progress.streakDays >= 3; break;
       case 'streak-7': unlocked = progress.streakDays >= 7; break;
       case 'streak-30': unlocked = progress.streakDays >= 30; break;
       case 'grammar-master': unlocked = progress.quizTotal >= 20; break;
-      case 'community': unlocked = true; // 已在发帖时处理
+      // 'community' 必须留给 submitPost() 处理：那里在真正发帖时才解锁。
+      // 这里若写 unlocked = true，任何人触发一次成就检查就会白拿 30 分。
+      case 'community': unlocked = false; break;
+      case 'community-10': unlocked = (progress.postCount || 0) >= 10; break;
     }
     
     if (unlocked) {

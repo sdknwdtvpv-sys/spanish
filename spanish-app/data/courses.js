@@ -1870,14 +1870,147 @@ const COURSES = {
 /* ============================================
    扁平化词汇表（用于随机复习）
    ============================================ */
-const ALL_VOCAB = [];
-Object.values(COURSES).forEach(level => {
-  level.units.forEach(unit => {
-    unit.vocab.forEach(word => {
-      ALL_VOCAB.push({ ...word, level: level.level, unit: unit.title });
-    });
-  });
-});
+/* ============================================
+   精读语篇（阅读理解）
+   ============================================ */
+// 精读语篇（阅读理解）
+const READING_PASSAGES = [
+  {level:'B2', title:'共享单车为何改变了城市', topic:'城市与交通', minutes:6,
+    paragraphs:[
+      {es:`Cuando en 2016 aparecieron las primeras bicicletas compartidas sin estación en las calles de Pekín, nadie imaginó la magnitud del fenómeno. Bastaba con escanear un código para desbloquear una bici y dejarla, al terminar el trayecto, en cualquier lugar permitido.`,
+       zh:`2016年，当第一批无桩共享单车出现在北京街头时，没有人预料到这一现象的规模。只需扫一个码就能解锁一辆单车，行程结束后把它停在任何允许的地方即可。`},
+      {es:`La promesa era sencilla y atractiva: resolver el llamado «último kilómetro», ese tramo incómodo entre la parada del transporte público y el destino final. Para millones de personas, supuso una alternativa real frente al taxi o a caminar bajo la lluvia.`,
+       zh:`这个承诺简单而诱人：解决所谓的"最后一公里"，即公共交通站点与最终目的地之间那段别扭的路程。对数以百万计的人来说，它成了替代出租车或冒雨步行的一个真实选择。`},
+      {es:`Sin embargo, el éxito trajo consigo problemas imprevistos. Las aceras se saturaron de vehículos amontonados, muchos en mal estado; los operadores, enfrascados en una guerra de precios, acumularon pérdidas millonarias; y las administraciones, pilladas por sorpresa, improvisaron normativas que a menudo llegaban tarde.`,
+       zh:`然而，成功也带来了始料未及的问题。人行道被堆积如山的车辆占满，其中许多状况糟糕；运营商陷于价格战，累积了巨额亏损；而措手不及的行政部门临时制定规章，往往为时已晚。`},
+      {es:`Lo que ocurrió después resulta más interesante que el auge inicial. Varias ciudades dejaron de limitarse a prohibir y empezaron a regular con criterios claros: cupos máximos por operador, obligación de retirar las bicis averiadas en plazos concretos y sistemas de aparcamiento señalizados. El resultado, lejos de ser perfecto, fue notablemente mejor.`,
+       zh:`此后发生的事情比最初的繁荣更有意思。一些城市不再只满足于禁止，而是开始以明确的标准进行规范：单一运营商的最高投放配额、限期清理故障车辆的义务，以及划定的停车区域。结果虽远非完美，却明显更好。`},
+      {es:`La lección quizá trascienda el caso concreto. Las innovaciones que irrumpen con fuerza suelen desbordar los marcos existentes, y la tentación de responder con prohibiciones es comprensible pero poco eficaz. Regular a tiempo, con datos y con margen para corregir, parece haber funcionado mejor que prohibir a destiempo.`,
+       zh:`这个教训或许超出了具体案例本身。强势涌现的创新往往会冲垮既有的框架，而以禁令回应的诱惑可以理解，却收效甚微。及时且基于数据、并留有修正余地的规范，似乎比事后的禁止更有效。`}
+    ],
+    glossary:[
+      {es:'el trayecto', zh:'行程、路段'},
+      {es:'el último kilómetro', zh:'最后一公里'},
+      {es:'el tramo', zh:'一段路程'},
+      {es:'la acera', zh:'人行道'},
+      {es:'amontonado', zh:'堆积的'},
+      {es:'enfrascarse en', zh:'埋头于、陷入'},
+      {es:'millonario', zh:'数以百万计的'},
+      {es:'improvisar', zh:'临时应付、即兴而为'},
+      {es:'el cupo', zh:'配额'},
+      {es:'averiado', zh:'故障的、损坏的'},
+      {es:'señalizado', zh:'有标识的'},
+      {es:'trascender', zh:'超越'},
+      {es:'irrumpir', zh:'闯入、涌现'},
+      {es:'desbordar', zh:'溢出、冲垮'},
+      {es:'a destiempo', zh:'不合时宜地、为时已晚'}
+    ],
+    structures:[
+      {es:`Bastaba con escanear un código para desbloquear una bici y dejarla, al terminar el trayecto, en cualquier lugar permitido.`,
+       note:`bastar con + 不定式，表示「只需……就够了」。中间的 al terminar el trayecto 是插入的时间状语，插在动词和它的宾语补足语之间，是西语常见的「分隔」手法，翻译时要还原语序。`},
+      {es:`los operadores, enfrascados en una guerra de precios, acumularon pérdidas millonarias`,
+       note:`enfrascados en… 是过去分词短语作后置定语（相当于一个省略了 which were 的定语从句）。这类结构在书面语里极为常见，能让句子更紧凑，但要注意分词的性与数必须和中心词一致。`},
+      {es:`El resultado, lejos de ser perfecto, fue notablemente mejor.`,
+       note:`lejos de + 不定式 ＝「远非、不但没有」。这里同样是用逗号插入，起让步作用。注意它和表示距离的 lejos de（远离）要区分。`},
+      {es:`Regular a tiempo, con datos y con margen para corregir, parece haber funcionado mejor que prohibir a destiempo.`,
+       note:`主语是一个不定式短语（Regular a tiempo…），谓语 parece 用第三人称单数。haber funcionado 是完成不定式，表示「（到当时为止）已经奏效」，与 parece 搭配表示推测过去。`}
+    ],
+    questions:[
+      {q:'¿Qué problema resolvían las bicicletas compartidas?', a:'El llamado «último kilómetro» entre el transporte público y el destino final.'},
+      {q:'¿Qué problemas trajo el éxito?', a:'Aceras saturadas, operadores con pérdidas millonarias y normativas improvisadas.'},
+      {q:'¿Qué cambio de enfoque se produjo después?', a:'Las ciudades pasaron de prohibir a regular con criterios claros.'},
+      {q:'¿Cuál es la lección general del texto?', a:'Que regular a tiempo con datos y margen de corrección funciona mejor que prohibir a destiempo.'}
+    ]
+  },
+  {level:'B2', title:'为什么我们记不住读过的东西', topic:'认知与学习', minutes:6,
+    paragraphs:[
+      {es:`Pocas sensaciones resultan tan frustrantes como terminar un libro y descubrir que apenas recordamos su contenido. La reacción habitual es culpar a la memoria, pero el problema suele estar en cómo leemos, no en cuánto retenemos.`,
+       zh:`很少有哪种感受比读完一本书却发现自己几乎记不住内容更令人沮丧。通常的反应是怪罪记忆力，但问题往往出在我们怎么读，而不是我们能记住多少。`},
+      {es:`La lectura pasiva —esa que consiste en deslizar la vista por las líneas mientras la mente divaga— produce una ilusión de comprensión. Creemos haber entendido porque las frases nos resultan familiares, aunque no hayamos reconstruido su significado.`,
+       zh:`被动阅读——也就是目光在字行间滑过、思绪却在游荡的那种——会产生一种「懂了」的错觉。我们以为自己理解了，因为这些句子读起来熟悉，尽管我们并没有重建它们的含义。`},
+      {es:`La investigación sobre aprendizaje señala que la comprensión se consolida cuando el lector genera algo: una pregunta, un resumen, un ejemplo propio. Dicho de otro modo, recordamos lo que elaboramos, no lo que simplemente recibimos.`,
+       zh:`关于学习的研究指出，当读者产出某些东西时，理解才会巩固：一个问题、一段摘要、一个自己的例子。换句话说，我们记住的是自己加工过的东西，而不是仅仅接收到的。`},
+      {es:`De ahí que las técnicas más eficaces resulten, paradójicamente, las más incómodas: cerrar el libro y tratar de explicar lo leído, escribir preguntas que el texto responde o compararlo con algo que ya sabíamos. Todas exigen un esfuerzo que la lectura cómoda evita.`,
+       zh:`因此，最有效的技巧反而悖论式地是最不舒服的：合上书试着复述所读内容、写下文本能回答的问题，或者把它与已知的东西作比较。它们都要求付出一种舒适阅读所回避的努力。`},
+      {es:`Esto no significa que leer por placer sea una pérdida de tiempo. Significa que, si el objetivo es aprender, conviene interrumpir la lectura de vez en cuando y hacer algo con ella. La incomodidad, en este caso, no es un síntoma de que algo va mal: es la señal de que algo está ocurriendo.`,
+       zh:`这并不意味着为消遣而读书是浪费时间。它的意思是，如果目标是学习，就该时不时打断阅读，拿它做点什么。在这种情况下，不适感并不是出了问题，而是正在发生什么的信号。`}
+    ],
+    glossary:[
+      {es:'frustrante', zh:'令人沮丧的'},
+      {es:'retener', zh:'记住、保持'},
+      {es:'divagar', zh:'走神、漫谈'},
+      {es:'la ilusión de comprensión', zh:'理解的错觉'},
+      {es:'reconstruir', zh:'重建'},
+      {es:'consolidarse', zh:'巩固'},
+      {es:'elaborar', zh:'加工、制作'},
+      {es:'paradójicamente', zh:'悖论式地'},
+      {es:'de ahí que', zh:'因此（+虚拟式）'},
+      {es:'exigir', zh:'要求'},
+      {es:'el síntoma', zh:'症状、信号'},
+      {es:'conviene', zh:'宜、应当'}
+    ],
+    structures:[
+      {es:`Pocas sensaciones resultan tan frustrantes como terminar un libro y descubrir que apenas recordamos su contenido.`,
+       note:`tan… como… 表示同级比较。这里主语 Pocas sensaciones 与后面的不定式短语作对比项。注意 apenas 在这里是「几乎不」，不是「刚刚」。`},
+      {es:`Creemos haber entendido porque las frases nos resultan familiares, aunque no hayamos reconstruido su significado.`,
+       note:`haber entendido 是完成不定式，作 creer 的直接宾语，表示「认为自己已经懂了」。aunque + 虚拟式（hayamos）表示让步且说话人对该事实持保留态度。`},
+      {es:`De ahí que las técnicas más eficaces resulten, paradójicamente, las más incómodas.`,
+       note:`de ahí que 后面必须接虚拟式（resulten），这是固定要求。paradójicamente 用逗号插入作评注性状语。`},
+      {es:`La incomodidad, en este caso, no es un síntoma de que algo va mal: es la señal de que algo está ocurriendo.`,
+       note:`un síntoma de que 后面用陈述式（va mal），因为这是说话人认定的事实；如果换成 no es que…，则需用虚拟式。冒号后的 es la señal de que 起对比强调作用。`}
+    ],
+    questions:[
+      {q:'¿Por qué la lectura pasiva resulta engañosa?', a:'Porque produce una ilusión de comprensión: las frases resultan familiares sin que se reconstruya el significado.'},
+      {q:'¿Qué dice la investigación sobre la comprensión?', a:'Que se consolida cuando el lector genera algo propio.'},
+      {q:'Cite dos técnicas eficaces mencionadas.', a:'Cerrar el libro y explicar lo leído; escribir preguntas que el texto responde.'},
+      {q:'¿Cómo interpreta el texto la incomodidad?', a:'Como señal de que algo está ocurriendo, no como síntoma de que algo va mal.'}
+    ]
+  },
+  {level:'B2', title:'城市的噪音与健康', topic:'健康与环境', minutes:6,
+    paragraphs:[
+      {es:`El ruido del tráfico rara vez se percibe como un problema sanitario. Sin embargo, la Organización Mundial de la Salud lo sitúa entre los principales riesgos ambientales para la salud, por detrás únicamente de la contaminación del aire.`,
+       zh:`交通噪音很少被视为一个健康问题。然而，世界卫生组织将其列为环境健康的主要风险之一，仅次于空气污染。`},
+      {es:`El mecanismo no es tan intuitivo como parece. El oído capta el sonido, pero es el cerebro quien lo interpreta como amenaza; esa interpretación activa respuestas de estrés que, mantenidas durante años, afectan al sistema cardiovascular.`,
+       zh:`其机制并不像看上去那么直观。耳朵捕捉声音，但把它解读为威胁的是大脑；这种解读会激活应激反应，而长期持续便会影响心血管系统。`},
+      {es:`Lo llamativo es que los efectos se producen incluso durante el sueño. Aunque quien duerme no recuerde haberse despertado, el organismo registra cada subida de intensidad y responde con microdespertares que fragmentan el descanso sin dejar rastro consciente.`,
+       zh:`值得注意的是，这些影响甚至在睡眠中也发生。即便睡着的人不记得自己醒过，身体仍会记录每一次强度的升高，并以微觉醒作出反应，在不留下意识痕迹的情况下使休息变得破碎。`},
+      {es:`Por eso los expertos insisten en que las medidas deben centrarse en la fuente y no solo en el aislamiento acústico de las viviendas. Aislar ayuda, desde luego, pero traslada el problema a quien no puede permitirse reformar su casa.`,
+       zh:`因此专家坚持认为，措施应当着眼于源头，而不只是住宅的隔音。隔音固然有帮助，但它把问题转嫁给了无力改造住房的人。`},
+      {es:`Las soluciones que han dado mejores resultados combinan varias capas: asfalto fonoabsorbente, límites de velocidad nocturnos, peatonalización de calles residenciales y planificación urbana que evite situar hospitales y escuelas junto a vías rápidas.`,
+       zh:`效果最好的方案结合了多个层面：吸音沥青、夜间限速、住宅街道步行化，以及避免把医院和学校设在快速路旁的城市规划。`}
+    ],
+    glossary:[
+      {es:'el ruido', zh:'噪音'},
+      {es:'sanitario', zh:'卫生的、健康的'},
+      {es:'la amenaza', zh:'威胁'},
+      {es:'cardiovascular', zh:'心血管的'},
+      {es:'llamativo', zh:'引人注意的'},
+      {es:'el microdespertar', zh:'微觉醒'},
+      {es:'fragmentar', zh:'使破碎'},
+      {es:'el aislamiento acústico', zh:'隔音'},
+      {es:'trasladar', zh:'转移'},
+      {es:'fonoabsorbente', zh:'吸音的'},
+      {es:'la vía rápida', zh:'快速路'},
+      {es:'la capa', zh:'层面、层'}
+    ],
+    structures:[
+      {es:`la Organización Mundial de la Salud lo sitúa entre los principales riesgos ambientales para la salud, por detrás únicamente de la contaminación del aire.`,
+       note:`lo sitúa 中的 lo 是直接宾语代词，前指 el ruido。por detrás únicamente de… 表示排名位置，「仅次于」。`},
+      {es:`es el cerebro quien lo interpreta como amenaza`,
+       note:`es… quien… 是强调句式，用于强调主语（el cerebro）。注意 quien 与先行词单复数一致；此处也可用 el que。`},
+      {es:`Aunque quien duerme no recuerde haberse despertado, el organismo registra cada subida de intensidad.`,
+       note:`quien duerme 是名词性关系从句作主语，意为「睡着的那个人」。recuerde 用虚拟式，因为 aunque 在此表让步且对事实不作断言。haberse despertado 是完成不定式的自复形式。`},
+      {es:`Aislar ayuda, desde luego, pero traslada el problema a quien no puede permitirse reformar su casa.`,
+       note:`Aislar 是名词化不定式作主语。a quien no puede… 中 quien 是关系代词，前面带前置词 a，表「转嫁给（某个）无力……的人」。`}
+    ],
+    questions:[
+      {q:'¿Qué lugar ocupa el ruido entre los riesgos ambientales según la OMS?', a:'El segundo, solo por detrás de la contaminación del aire.'},
+      {q:'¿Dónde se produce realmente la interpretación del sonido como amenaza?', a:'En el cerebro, no en el oído.'},
+      {q:'¿Por qué el ruido afecta incluso a quien no se despierta?', a:'Porque el organismo registra las subidas de intensidad y responde con microdespertares.'},
+      {q:'¿Por qué los expertos prefieren actuar sobre la fuente?', a:'Porque el aislamiento traslada el problema a quien no puede costearlo.'}
+    ]
+  }
+];
 
 /* ============================================
    独立学习模块语料
@@ -2900,7 +3033,9 @@ const ACHIEVEMENTS = [
   {id:'listening-master', title:'听力达人', desc:'完成 5 段听力训练', icon:'🎧', points:100},
   {id:'speaking-master', title:'口语新星', desc:'完成 10 句口语跟读', icon:'🎤', points:100},
   {id:'community', title:'社交达人', desc:'发布第一条社区动态', icon:'💬', points:30},
-  {id:'community-10', title:'活跃博主', desc:'发布 10 条社区动态', icon:'✍️', points:200}
+  {id:'community-10', title:'活跃博主', desc:'发布 10 条社区动态', icon:'✍️', points:200},
+  {id:'first-reading', title:'初读者', desc:'完成第一篇精读', icon:'📖', points:15},
+  {id:'five-readings', title:'博览者', desc:'完成 5 篇精读', icon:'📚', points:60},
 ];
 
 // 社区模拟内容（扩充版）
@@ -2930,3 +3065,30 @@ const COMMUNITY_POSTS = [
    content:'推荐几本适合 B1-B2 水平的西语原版书（已标注蓝思值）：\n\n📖《La sombra del viento》— Carlos Ruiz Zafón（680L）\n适合 B2 的入门小说，哥特风格，叙事节奏好，词汇不太难。被翻译成 40 多种语言不是没有道理。\n\n📖《La casa de las chivas》— Leonor Espinosa（750L）\n短故事集，哥伦比亚作家，魔幻现实风格，故事都很短，适合碎片化阅读。\n\n📖《El cuerpo en que nací》— Jennifer Egan（720L）\n现代美国作家的西语译本，结构精巧，适合喜欢实验叙事的人。\n\n📜 还有一本适合 C1+：《Cien años de soledad》西班牙语原版，百年孤独，不用介绍了吧。',
    likes:112, comments:15, tags:['阅读', '书籍推荐', '西语原版']}
 ];
+
+/* ============================================
+   词库汇总（在全部顶层常量之后构建）
+   ============================================ */
+const ALL_VOCAB = [];
+Object.values(COURSES).forEach(level => {
+  level.units.forEach(unit => {
+    unit.vocab.forEach(word => {
+      ALL_VOCAB.push({ ...word, level: level.level, unit: unit.title });
+    });
+  });
+});
+
+// 精读语篇的生词也纳入总词库（去重，保留首次出现）
+(() => {
+  const seen = new Set(ALL_VOCAB.map(w => (w.es || '').trim().toLowerCase()));
+  if (typeof READING_PASSAGES !== 'undefined') {
+    READING_PASSAGES.forEach(p => {
+      (p.glossary || []).forEach(g => {
+        const k = (g.es || '').trim().toLowerCase();
+        if (!k || seen.has(k)) return;
+        seen.add(k);
+        ALL_VOCAB.push({ es: g.es, zh: g.zh, example: '', level: p.level, unit: '精读：' + p.title, fromReading: true });
+      });
+    });
+  }
+})();
