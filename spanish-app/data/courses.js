@@ -986,7 +986,22 @@ const SPEAKING_SENTENCES = [
   {level:'B2', es:'Me gustaría que escribieras un artículo para nuestro blog.', zh:'我希望你为我们的博客写篇文章。', slow:'Me gustaría que… escribieras… un artículo… para nuestro blog.', vocab:['Me gustaría que','escribieras','artículo','blog']},
   {level:'B2', es:'La globalización ha transformado radicalmente nuestras vidas.', zh:'全球化从根本上改变了我们的生活。', slow:'La globalización… ha transformado… radicalmente… nuestras vidas.', vocab:['La globalización','ha transformado','radicalmente']},
   {level:'B2', es:'Si hubiera tenido más tiempo, habría preparado algo mejor.', zh:'如果当时有更多时间，我会准备得更好。', slow:'Si hubiera tenido… más tiempo… habría preparado… algo mejor.', vocab:['Si hubiera tenido','habría preparado']},
-  {level:'B2', es:'Los jóvenes de hoy en día se comunican principalmente por redes sociales.', zh:'现在的年轻人主要通过社交网络交流。', slow:'Los jóvenes… de hoy en día… se comunican… principalmente… por redes sociales.', vocab:['de hoy en día','se comunican','principalmente','redes sociales']}
+  {level:'B2', es:'Los jóvenes de hoy en día se comunican principalmente por redes sociales.', zh:'现在的年轻人主要通过社交网络交流。', slow:'Los jóvenes… de hoy en día… se comunican… principalmente… por redes sociales.', vocab:['de hoy en día','se comunican','principalmente','redes sociales']},
+
+  
+  // C1 —— 抽象议题、论证与委婉表达
+  {level:'C1', es:'A menos que se tomen medidas drásticas, el problema no dejará de agravarse.', zh:'除非采取果断措施，否则问题只会不断恶化。', slow:'A menos que… se tomen medidas drásticas… el problema… no dejará de agravarse.', vocab:['A menos que','medidas drásticas','agravarse']},
+  {level:'C1', es:'Cabe destacar que la propuesta, si bien ambiciosa, adolece de un presupuesto realista.', zh:'值得指出的是，该提案虽有雄心，却缺乏切合实际的预算。', slow:'Cabe destacar… que la propuesta… si bien ambiciosa… adolece de… un presupuesto realista.', vocab:['Cabe destacar','si bien','adolecer de']},
+  {level:'C1', es:'Lejos de amilanarse ante las críticas, redobló sus esfuerzos por sacar el proyecto adelante.', zh:'面对批评他非但没有退缩，反而加倍努力推动项目。', slow:'Lejos de amilanarse… ante las críticas… redobló sus esfuerzos… por sacar el proyecto adelante.', vocab:['Lejos de','amilanarse','redoblar esfuerzos']},
+  {level:'C1', es:'Me da la impresión de que se está pasando por alto un factor determinante.', zh:'我觉得有个决定性因素被忽略了。', slow:'Me da la impresión… de que se está pasando por alto… un factor determinante.', vocab:['Me da la impresión','pasar por alto','determinante']},
+  {level:'C1', es:'Por más que insistiera, no conseguiría convencer a un público tan escéptico.', zh:'无论他怎样坚持，也无法说服如此怀疑的听众。', slow:'Por más que insistiera… no conseguiría convencer… a un público… tan escéptico.', vocab:['Por más que','insistiera','escéptico']},
+
+  // C2 —— 近母语：文学、修辞与高级惯用
+  {level:'C2', es:'De haberlo sabido, jamás me habría embarcado en semejante empresa.', zh:'早知如此，我绝不会投身于这样一桩事业。', slow:'De haberlo sabido… jamás… me habría embarcado… en semejante empresa.', vocab:['De haberlo sabido','jamás','embarcarse en']},
+  {level:'C2', es:'Su discurso, salpicado de citas eruditas, dejó entrever un dejo de resignación.', zh:'他的演讲点缀着博学的引文，却流露出几分无奈。', slow:'Su discurso… salpicado de citas eruditas… dejó entrever… un dejo de resignación.', vocab:['salpicado de','dejar entrever','dejo']},
+  {level:'C2', es:'No es tanto que carezca de argumentos, cuanto que rehúye el debate frontal.', zh:'与其说他缺乏论据，不如说他在回避正面交锋。', slow:'No es tanto… que carezca de argumentos… cuanto que… rehúye el debate frontal.', vocab:['no es tanto… cuanto que','carecer de','rehuir']},
+  {level:'C2', es:'A fuerza de tanto aplazarlo, el asunto acabó por convertirse en un lastre insostenible.', zh:'由于一再拖延，这件事最终成了无法承受的负担。', slow:'A fuerza de tanto aplazarlo… el asunto… acabó por convertirse… en un lastre insostenible.', vocab:['A fuerza de','acabar por','lastre']},
+  {level:'C2', es:'Quien pretenda zanjar un dilema semejante con una sola frase peca de ingenuidad.', zh:'谁想用一句话就了结这样的两难，那未免太天真了。', slow:'Quien pretenda zanjar… un dilema semejante… con una sola frase… peca de ingenuidad.', vocab:['zanjar','pecar de','ingenuidad']}
 ];
 
 // 听力训练语料（真实场景对话）
@@ -1086,6 +1101,220 @@ const LISTENING_PASSAGES = [
       {q:'¿Cuánto ha subido la temperatura?', a:'Casi un grado en cien años.'},
       {q:'Mencione dos consecuencias.', a:'El deshielo y el aumento del nivel del mar.'},
       {q:'¿Qué pide a los gobiernos?', a:'Que adopten políticas más ambiciosas.'}
+    ]
+  }
+  ,
+  {level:'C1', title:'圆桌辩论：人工智能与就业', speaker:'Moderadora / Economista / Ingeniera', duration:'约 2 分钟',
+    es:`MODERADORA: Buenas tardes. El tema de hoy es espinoso: ¿la inteligencia artificial destruye empleo o lo transforma?\nECONOMISTA: Permítame matizar la premisa. Historicamente, la tecnologia ha reconfigurado el mercado laboral más que eliminarlo, aunque las transiciones nunca han sido indoloras.\nINGENIERA: Coincido en parte, pero conviene no caer en el optimismo complaciente. La diferencia radica en la velocidad: los puestos que desaparecen exigen una reconversión que el sistema formativo no alcanza a absorber.\nMODERADORA: ¿Qué papel deberían desempeñar las administraciones públicas?\nECONOMISTA: A mi juicio, su tarea consiste en garantizar redes de protección y formación continua, no en frenar la innovación.\nINGENIERA: Yo añadiría que, sin una fiscalidad redistributiva, los beneficios se concentrarán en muy pocas manos.\nMODERADORA: Un apunte para cerrar: ¿son ustedes optimistas?\nECONOMISTA: Moderadamente. Depende de las decisiones que tomemos en la próxima década.\nINGENIERA: Prefiero decir que soy prudente, no pesimista.`,
+    zh:'主持人：下午好。今天的话题相当棘手：人工智能是在摧毁就业，还是在改造就业？\n经济学家：请允许我对这个前提做个澄清。从历史上看，技术更多是在重构劳动力市场，而不是消灭它，尽管转型从来都不是无痛的。\n工程师：我部分同意，但不宜陷入盲目的乐观。差别在于速度：消失的岗位要求人们转型，而培训体系来不及吸收。\n主持人：公共行政部门应当扮演什么角色？\n经济学家：依我看，它们的任务是保障保护网和持续培训，而不是遏制创新。\n工程师：我还要补充，如果没有再分配的税收制度，收益会集中在极少数人手里。\n主持人：最后问一句：你们乐观吗？\n经济学家：适度乐观。取决于我们未来十年做出什么选择。\n工程师：我更愿意说我是谨慎，而不是悲观。',
+    keyVocab:[
+      {es:'El tema es espinoso', zh:'话题很棘手'},
+      {es:'Permítame matizar la premisa', zh:'请允许我对前提作澄清'},
+      {es:'optimismo complaciente', zh:'一厢情愿的乐观'},
+      {es:'La diferencia radica en...', zh:'差别在于……'},
+      {es:'reconversión profesional', zh:'职业转型'},
+      {es:'A mi juicio', zh:'依我看'},
+      {es:'fiscalidad redistributiva', zh:'再分配税收制度'}
+    ],
+    questions:[
+      {q:'¿Cuál es el tema del debate?', a:'El impacto de la inteligencia artificial en el empleo.'},
+      {q:'¿En qué coincide parcialmente la ingeniera?', a:'En que la tecnología reconfigura el mercado laboral.'},
+      {q:'¿Dónde sitúa ella el problema principal?', a:'En la velocidad del cambio y la falta de recualificación.'},
+      {q:'¿Qué pide la ingeniera además de formación?', a:'Una fiscalidad redistributiva.'}
+    ]
+  },
+  {level:'C2', title:'文学访谈：写作与记忆', speaker:'Entrevistador / Novelista', duration:'约 2 分 30 秒',
+    es:`ENTREVISTADOR: Su última novela se adentra en terrenos que rozan lo autobiográfico. ¿Le costó despojarse de pudor?\nNOVELISTA: En absoluto. Siempre he sostenido que quien escribe no debe nada a su intimidad, pero tampoco puede hurtarle del todo lo que ha vivido. La memoria, en fin, es un material esquivo: cuanto más la forzamos, más se nos escabulle.\nENTREVISTADOR: Hay quien sostiene que toda escritura es, en el fondo, una forma encubierta de autobiografía.\nNOVELISTA: Es una afirmación seductora y, como casi todas las afirmaciones seductoras, media verdad. Uno escribe con lo que es, desde luego, pero también con lo que querría ser y con lo que teme llegar a ser.\nENTREVISTADOR: ¿Y el estilo? Se le ha reprochado cierta inclinación a la frase larga.\nNOVELISTA: Los reproches me tienen sin cuidado. Detesto la prosa que se allana para no incomodar a nadie; prefiero una sintaxis que obligue al lector a detenerse y respirar. Aunque, se lo concedo, ese camino tiene sus riesgos.\nENTREVISTADOR: ¿Está trabajando en algo nuevo?\nNOVELISTA: En algo que, de momento, se me resiste. Y ojalá siga resistiéndose un tiempo: cuando un libro deja de oponer resistencia, es señal de que ha dejado de interesarme.`,
+    zh:'采访者：您最新的小说触及了近乎自传的领域。放下矜持困难吗？\n小说家：一点也不。我一直认为，写作的人不欠自己的私生活什么，但也不能完全回避自己经历过的。说到底，记忆是一种难以捉摸的材料：我们越是用力去抓，它越是溜走。\n采访者：有人认为，一切写作本质上都是变相的自传。\n小说家：这是个诱人的说法，而和几乎所有诱人的说法一样，只有一半是真的。人确实是带着自己本来的样子去写，但也带着自己想成为的样子、以及害怕成为的样子去写。\n采访者：那风格呢？有人批评您偏好长句。\n小说家：批评我并不在意。我讨厌那种为了不得罪任何人而变得平淡的散文；我宁愿选择一种迫使读者停下来喘口气的句法。不过，我承认，这条路有它的风险。\n采访者：在写新东西吗？\n小说家：在写某个目前还在抗拒我的东西。但愿它再多抗拒一阵子：当一本书不再抗拒你，就说明它已经不再让我感兴趣了。',
+    keyVocab:[
+      {es:'rozar lo autobiográfico', zh:'近乎自传'},
+      {es:'despojarse de pudor', zh:'放下矜持'},
+      {es:'hurtar', zh:'回避、偷走'},
+      {es:'un material esquivo', zh:'难以捉摸的材料'},
+      {es:'escabullirse', zh:'溜走、逃脱'},
+      {es:'media verdad', zh:'半真半假'},
+      {es:'tener sin cuidado', zh:'毫不在意'},
+      {es:'sintaxis', zh:'句法'}
+    ],
+    questions:[
+      {q:'¿Qué opina la novelista sobre la memoria como material?', a:'Que es esquiva: cuanto más se la fuerza, más se escabulle.'},
+      {q:'¿Cómo califica la idea de que toda escritura es autobiografía?', a:'Una afirmación seductora pero solo media verdad.'},
+      {q:'¿Por qué defiende la frase larga?', a:'Porque obliga al lector a detenerse y respirar.'},
+      {q:'¿Qué significa para ella que un libro oponga resistencia?', a:'Que sigue interesándole.'}
+    ]
+  },
+  {level:'A1', title:'在超市', speaker:'Dependienta / Cliente', duration:'约 35 秒',
+    es:`DEPENDIENTA: Buenos días, ¿le atiendo?\nCLIENTE: Sí, busco leche y pan, por favor.\nDEPENDIENTA: La leche está al fondo, a la derecha. El pan está aquí al lado.\nCLIENTE: Gracias. ¿Cuánto cuesta el pan?\nDEPENDIENTA: Un euro con veinte.\nCLIENTE: Muy bien. ¿Puedo pagar con tarjeta?\nDEPENDIENTA: Claro que sí.`,
+    zh:'店员：早上好，需要帮忙吗？\n顾客：是的，我想找牛奶和面包。\n店员：牛奶在里面，右手边。面包就在旁边。\n顾客：谢谢。面包多少钱？\n店员：一欧二十。\n顾客：好的。可以刷卡吗？\n店员：当然可以。',
+    keyVocab:[
+      {es:'¿Le atiendo?', zh:'需要为您服务吗？'},
+      {es:'al fondo', zh:'在里面、尽头'},
+      {es:'al lado', zh:'在旁边'},
+      {es:'¿Cuánto cuesta?', zh:'多少钱？'},
+      {es:'pagar con tarjeta', zh:'刷卡支付'}
+    ],
+    questions:[
+      {q:'¿Qué busca el cliente?', a:'Leche y pan.'},
+      {q:'¿Dónde está la leche?', a:'Al fondo, a la derecha.'},
+      {q:'¿Cómo quiere pagar?', a:'Con tarjeta.'}
+    ]
+  },
+  {level:'A1', title:'自我介绍', speaker:'Ana / Luis', duration:'约 30 秒',
+    es:`ANA: Hola, me llamo Ana. ¿Y tú?\nLUIS: Yo soy Luis. Mucho gusto.\nANA: Encantada. ¿De dónde eres?\nLUIS: Soy de México, pero vivo en Barcelona.\nANA: ¡Qué bien! Yo soy española, de Valencia.\nLUIS: ¿Y a qué te dedicas?\nANA: Soy profesora de inglés.`,
+    zh:'安娜：你好，我叫安娜。你呢？\n路易斯：我是路易斯。很高兴认识你。\n安娜：幸会。你来自哪里？\n路易斯：我来自墨西哥，但住在巴塞罗那。\n安娜：真好！我是西班牙人，来自瓦伦西亚。\n路易斯：你是做什么工作的？\n安娜：我是英语老师。',
+    keyVocab:[
+      {es:'Mucho gusto', zh:'很高兴认识你'},
+      {es:'¿De dónde eres?', zh:'你来自哪里？'},
+      {es:'vivo en', zh:'我住在'},
+      {es:'¿A qué te dedicas?', zh:'你做什么工作？'},
+      {es:'profesora', zh:'女教师'}
+    ],
+    questions:[
+      {q:'¿De dónde es Luis?', a:'De México.'},
+      {q:'¿Dónde vive ahora?', a:'En Barcelona.'},
+      {q:'¿Cuál es la profesión de Ana?', a:'Es profesora de inglés.'}
+    ]
+  },
+  {level:'A2', title:'看医生', speaker:'Médica / Paciente', duration:'约 45 秒',
+    es:`MÉDICA: Buenos días, ¿qué le pasa?\nPACIENTE: Me duele la garganta desde hace tres días y tengo fiebre.\nMÉDICA: ¿Ha tomado algo?\nPACIENTE: Solo paracetamol, pero no me ha hecho mucho efecto.\nMÉDICA: Abra la boca, por favor. Sí, tiene la garganta muy inflamada.\nPACIENTE: ¿Es grave?\nMÉDICA: No se preocupe. Le receto un antibiótico y mucho reposo.`,
+    zh:'医生：早上好，您哪里不舒服？\n患者：我喉咙痛了三天，还发烧。\n医生：吃过什么药吗？\n患者：只吃了扑热息痛，但效果不大。\n医生：请张开嘴。是的，喉咙发炎很厉害。\n患者：严重吗？\n医生：别担心。我给您开抗生素，多休息。',
+    keyVocab:[
+      {es:'¿Qué le pasa?', zh:'您怎么了？'},
+      {es:'Me duele la garganta', zh:'我喉咙痛'},
+      {es:'desde hace tres días', zh:'已经三天了'},
+      {es:'inflamada', zh:'发炎的'},
+      {es:'Le receto', zh:'我给您开（药）'},
+      {es:'reposo', zh:'休息'}
+    ],
+    questions:[
+      {q:'¿Qué síntomas tiene el paciente?', a:'Dolor de garganta y fiebre.'},
+      {q:'¿Qué medicina ha tomado?', a:'Paracetamol.'},
+      {q:'¿Qué le receta la médica?', a:'Un antibiótico y reposo.'}
+    ]
+  },
+  {level:'A2', title:'租房看房', speaker:'Agente / Inquilina', duration:'约 50 秒',
+    es:`AGENTE: Este es el piso. Tiene dos habitaciones y un baño.\nINQUILINA: ¿Cuánto es el alquiler mensual?\nAGENTE: Ochocientos euros, gastos incluidos.\nINQUILINA: ¿Está amueblado?\nAGENTE: Sí, completamente. La cocina es nueva.\nINQUILINA: ¿Hay ascensor?\nAGENTE: No, es un tercer piso sin ascensor.\nINQUILINA: Entiendo. ¿Puedo pensarlo hasta mañana?`,
+    zh:'中介：这就是那套房子。有两个卧室和一个卫生间。\n租客：月租多少？\n中介：八百欧，含杂费。\n租客：带家具吗？\n中介：是的，全配。厨房是新的。\n租客：有电梯吗？\n中介：没有，是三楼没电梯。\n租客：明白了。我可以考虑到明天吗？',
+    keyVocab:[
+      {es:'el alquiler mensual', zh:'月租'},
+      {es:'gastos incluidos', zh:'含杂费'},
+      {es:'amueblado', zh:'带家具的'},
+      {es:'ascensor', zh:'电梯'},
+      {es:'tercer piso', zh:'三楼'}
+    ],
+    questions:[
+      {q:'¿Cuántas habitaciones tiene el piso?', a:'Dos.'},
+      {q:'¿Cuánto cuesta al mes?', a:'Ochocientos euros, gastos incluidos.'},
+      {q:'¿Tiene ascensor?', a:'No, es un tercero sin ascensor.'}
+    ]
+  },
+  {level:'B1', title:'工作面试：讨论经验', speaker:'Reclutadora / Candidato', duration:'约 1 分钟',
+    es:`RECLUTADORA: Veo que trabajó dos años en una startup. ¿Por qué se marchó?\nCANDIDATO: Buscaba un proyecto con más recorrido. La empresa era muy pequeña y no había margen para crecer.\nRECLUTADORA: ¿Cuál diría que es su mayor fortaleza?\nCANDIDATO: La capacidad de aprender rápido. Cuando entré, no sabía nada del sector y en tres meses llevaba yo solo un proyecto completo.\nRECLUTADORA: ¿Y su mayor debilidad?\nCANDIDATO: Me cuesta delegar. Tiendo a querer controlarlo todo, y soy consciente de que eso no escala.\nRECLUTADORA: Se lo agradezco, es una respuesta sincera.`,
+    zh:'招聘主管：我看到您在一家初创公司工作了两年。为什么离职？\n应聘者：我想找一个更有发展空间的项​​目。那家公司很小，没有成长余地。\n招聘主管：您认为自己最大的优势是什么？\n应聘者：快速学习的能力。刚入职时我对这个行业一无所知，三个月后我已经独自负责一个完整项目了。\n招聘主管：那最大的缺点呢？\n应聘者：我不太会授权。总想什么都自己掌控，我也明白这样无法规模化。\n招聘主管：谢谢您，这是个很坦诚的回答。',
+    keyVocab:[
+      {es:'con más recorrido', zh:'更有发展空间'},
+      {es:'no había margen para crecer', zh:'没有成长余地'},
+      {es:'mayor fortaleza', zh:'最大优势'},
+      {es:'delegar', zh:'授权、分派任务'},
+      {es:'no escala', zh:'无法规模化'},
+      {es:'sincera', zh:'坦诚的'}
+    ],
+    questions:[
+      {q:'¿Por qué dejó el candidato su trabajo anterior?', a:'Buscaba un proyecto con más recorrido.'},
+      {q:'¿Cuál es su mayor fortaleza?', a:'La capacidad de aprender rápido.'},
+      {q:'¿Qué debilidad reconoce?', a:'Le cuesta delegar.'}
+    ]
+  },
+  {level:'B1', title:'讨论环保习惯', speaker:'Elena / Marcos', duration:'约 55 秒',
+    es:`ELENA: Últimamente intento reducir el plástico. Llevo bolsas de tela al mercado.\nMARCOS: Yo empecé hace poco a separar la basura, pero reconozco que me cuesta.\nELENA: Lo difícil es la constancia, ¿verdad?\nMARCOS: Totalmente. Al principio te parece un rollo, pero luego se convierte en rutina.\nELENA: En mi oficina hemos puesto puntos de reciclaje y funciona bastante bien.\nMARCOS: Es buena idea. A veces basta con que alguien dé el primer paso.\nELENA: Exacto. Si cada uno pone su granito de arena, se nota.`,
+    zh:'埃莱娜：最近我在尽量减少塑料。去市场都带布袋。\n马科斯：我刚开始垃圾分类，但说实话挺难的。\n埃莱娜：难的是坚持，对吧？\n马科斯：完全同意。一开始觉得是麻烦事，后来就成了习惯。\n埃莱娜：我们办公室放了回收点，效果还不错。\n马科斯：好主意。有时候只要有人迈出第一步就够了。\n埃莱娜：没错。每个人都出一份力，就能看到效果。',
+    keyVocab:[
+      {es:'reducir el plástico', zh:'减少塑料'},
+      {es:'bolsas de tela', zh:'布袋'},
+      {es:'separar la basura', zh:'垃圾分类'},
+      {es:'la constancia', zh:'坚持'},
+      {es:'puntos de reciclaje', zh:'回收点'},
+      {es:'poner su granito de arena', zh:'出一份力'}
+    ],
+    questions:[
+      {q:'¿Qué hace Elena para reducir el plástico?', a:'Lleva bolsas de tela al mercado.'},
+      {q:'¿Qué le cuesta a Marcos?', a:'Separar la basura con constancia.'},
+      {q:'¿Qué han puesto en la oficina de Elena?', a:'Puntos de reciclaje.'}
+    ]
+  },
+  {level:'B2', title:'学术讲座：睡眠与记忆', speaker:'Conferenciante', duration:'约 1 分 30 秒',
+    es:`CONFERENCIANTE: Buenos días. Hoy abordaré la relación entre el sueño y la consolidación de la memoria.\nDurante décadas se creyó que dormir era un estado pasivo, una simple pausa. Hoy sabemos que ocurre todo lo contrario.\nMientras dormimos, el cerebro reorganiza lo aprendido durante el día y lo transfiere a la memoria a largo plazo.\nLos estudios demuestran que quienes duermen menos de seis horas rinden hasta un treinta por ciento peor en tareas de retención.\nConviene aclarar que no basta con dormir mucho: la calidad importa tanto como la cantidad.\nEn conclusión, si pretenden aprender algo nuevo, dormir bien no es una pérdida de tiempo, sino parte del proceso.`,
+    zh:'演讲者：早上好。今天我要讲的是睡眠与记忆巩固之间的关系。\n几十年来人们认为睡眠是一种被动状态，只是一段简单的停顿。如今我们知道恰恰相反。\n我们睡觉时，大脑会重新组织白天学到的东西，并将其转入长期记忆。\n研究表明，睡眠少于六小时的人在记忆保持任务上表现差多达百分之三十。\n需要说明的是，光睡得久还不够：睡眠质量和时长同样重要。\n总之，如果你想学会新东西，睡好觉不是浪费时间，而是学习过程的一部分。',
+    keyVocab:[
+      {es:'consolidación de la memoria', zh:'记忆巩固'},
+      {es:'estado pasivo', zh:'被动状态'},
+      {es:'memoria a largo plazo', zh:'长期记忆'},
+      {es:'retención', zh:'保持、记忆'},
+      {es:'no basta con...', zh:'仅仅……还不够'},
+      {es:'conviene aclarar', zh:'有必要说明'}
+    ],
+    questions:[
+      {q:'¿Qué creencia antigua se menciona?', a:'Que dormir era un estado pasivo.'},
+      {q:'¿Qué hace el cerebro mientras dormimos?', a:'Reorganiza lo aprendido y lo transfiere a la memoria a largo plazo.'},
+      {q:'¿Cuánto rinden peor quienes duermen menos de seis horas?', a:'Hasta un treinta por ciento.'},
+      {q:'¿Qué importa además de la cantidad de sueño?', a:'La calidad.'}
+    ]
+  },
+  {level:'B2', title:'播客片段：城市生活成本', speaker:'Presentadora / Invitado', duration:'约 1 分 20 秒',
+    es:`PRESENTADORA: Hoy hablamos del encarecimiento de la vivienda en las grandes ciudades. ¿Es un fenómeno inevitable?\nINVITADO: Inevitable no diría, pero desde luego es estructural. Llevamos décadas construyendo menos de lo que necesitamos.\nPRESENTADORA: Muchos culpan a los alquileres turísticos.\nINVITADO: Es un factor, aunque no el único. El problema de fondo es que la oferta no ha seguido el ritmo de la demanda.\nPRESENTADORA: ¿Qué medidas funcionarían?\nINVITADO: No existe una solución mágica. Hace falta construir más vivienda pública y regular ciertos usos, pero sin caer en medidas que ahuyenten la inversión.\nPRESENTADORA: O sea, que no hay atajos.\nINVITADO: Me temo que no.`,
+    zh:'主持人：今天我们来聊大城市住房越来越贵的问题。这是不可避免的现象吗？\n嘉宾：我不会说不可避免，但它确实是结构性的。几十年来我们建的房子一直少于所需。\n主持人：很多人把责任归到旅游短租上。\n嘉宾：这是一个因素，但不是唯一的。根本问题在于供给没有跟上需求的节奏。\n主持人：什么措施会有效？\n嘉宾：没有万能药方。需要建更多公共住房、规范某些用途，但又不能采取把投资吓跑的措施。\n主持人：也就是说，没有捷径。\n嘉宾：恐怕是的。',
+    keyVocab:[
+      {es:'encarecimiento de la vivienda', zh:'住房涨价'},
+      {es:'estructural', zh:'结构性的'},
+      {es:'alquileres turísticos', zh:'旅游短租'},
+      {es:'oferta y demanda', zh:'供给与需求'},
+      {es:'vivienda pública', zh:'公共住房'},
+      {es:'ahuyentar la inversión', zh:'吓跑投资'}
+    ],
+    questions:[
+      {q:'¿Cómo califica el invitado el problema?', a:'Estructural.'},
+      {q:'¿Cuál es el problema de fondo según él?', a:'Que la oferta no ha seguido el ritmo de la demanda.'},
+      {q:'¿Qué dos medidas propone?', a:'Construir más vivienda pública y regular ciertos usos.'}
+    ]
+  },
+  {level:'C1', title:'学术研讨：语言与思维', speaker:'Ponente / Comentarista', duration:'约 2 分钟',
+    es:`PONENTE: La hipótesis de Sapir-Whorf sostiene que la lengua que hablamos condiciona nuestra manera de percibir la realidad.\nCOMENTARISTA: Permítame disentir en parte. Si se interpreta en su versión fuerte, resulta insostenible; en su versión débil, en cambio, es bastante plausible.\nPONENTE: De acuerdo. Nadie defiende hoy que el idioma determine el pensamiento de forma absoluta.\nCOMENTARISTA: Lo que sí parece demostrado es que influye en la facilidad con que categorizamos ciertos matices. Los hablantes de lenguas con más términos para los colores los distinguen con mayor rapidez.\nPONENTE: Ahí radica precisamente el interés del asunto: no en lo que nos impide pensar, sino en lo que nos facilita expresar.\nCOMENTARISTA: Y conviene no exagerar la conclusión. Que un idioma facilite una distinción no implica que quienes no la tienen sean incapaces de percibirla.\nPONENTE: Matiz imprescindible, sin duda.`,
+    zh:'发言者：萨皮尔-沃尔夫假说认为，我们所说的语言会制约我们感知现实的方式。\n评论人：请允许我部分不同意。如果按其强式解读，它站不住脚；但按其弱式解读，则相当可信。\n发言者：我同意。今天没有人主张语言绝对决定思维。\n评论人：似乎已获证实的是，它确实会影响我们为某些细微差别分类的难易程度。词汇中颜色词更多的语言使用者，辨别颜色更快。\n发言者：问题恰恰就在这里：不在于语言妨碍我们思考什么，而在于它让我们更容易表达什么。\n评论人：结论不宜夸大。一种语言便于做出某种区分，并不意味着没有这种区分的人就无法感知它。\n发言者：这个限定必不可少。',
+    keyVocab:[
+      {es:'la hipótesis de Sapir-Whorf', zh:'萨皮尔-沃尔夫假说'},
+      {es:'condicionar', zh:'制约、影响'},
+      {es:'disentir', zh:'持不同意见'},
+      {es:'insostenible', zh:'站不住脚的'},
+      {es:'plausible', zh:'可信的'},
+      {es:'categorizar matices', zh:'为细微差别分类'},
+      {es:'ahí radica', zh:'恰恰就在这里'},
+      {es:'matiz imprescindible', zh:'必不可少的限定'}
+    ],
+    questions:[
+      {q:'¿Qué sostiene la hipótesis de Sapir-Whorf?', a:'Que la lengua condiciona nuestra percepción de la realidad.'},
+      {q:'¿Qué opina el comentarista de la versión fuerte?', a:'Que es insostenible.'},
+      {q:'¿Qué parece demostrado según él?', a:'Que la lengua influye en la facilidad para categorizar matices.'},
+      {q:'¿Qué matiz añade al final?', a:'Que facilitar una distinción no implica que otros sean incapaces de percibirla.'}
+    ]
+  },
+  {level:'C2', title:'文化评论：论翻译的限度', speaker:'Crítico / Traductora', duration:'约 2 分 30 秒',
+    es:`CRÍTICO: Se ha dicho hasta la saciedad que toda traducción es una traición. ¿Comparte semejante sentencia?\nTRADUCTORA: La comparto en su intención, no en su fatalismo. Traicionar no es lo mismo que fracasar: se traiciona el texto para serle fiel al efecto que busca producir.\nCRÍTICO: Es una reformulación elegante. ¿Y qué sucede con la poesía, donde la forma es inseparable del sentido?\nTRADUCTORA: Ahí el traductor se enfrenta a un dilema irresoluble y debe optar. Yo suelo anteponer la música del verso al sentido literal, a sabiendas de que alguien me lo reprochará.\nCRÍTICO: Hay quien sostiene lo contrario: que la fidelidad semántica está por encima de todo.\nTRADUCTORA: Es una postura respetable, aunque peca de cierta ingenuidad. Supone que existe un sentido único y estable, cuando en realidad el significado se construye también con el ritmo y la sonoridad.\nCRÍTICO: ¿Cabría entonces hablar de traducciones definitivas?\nTRADUCTORA: No hay tales. Cada generación vuelve a traducir los clásicos porque cada época oye en ellos algo distinto. Eso, lejos de ser un defecto, es la prueba de que siguen vivos.`,
+    zh:'评论家：人们反复说，一切翻译都是背叛。您认同这种说法吗？\n译者：我认同它的用意，但不认同它的宿命论。背叛不等于失败：你之所以背叛文本，是为了忠实于它想要产生的效果。\n评论家：这是个优雅的重述。那么在诗歌中呢？形式与意义不可分割。\n译者：在那里译者面对一个无解的两难，必须做出取舍。我通常把诗句的音乐性置于字面意义之上，明知有人会因此责难我。\n评论家：也有人主张相反：语义的忠实高于一切。\n译者：这种立场值得尊重，但未免有点天真。它假定存在一个唯一而稳定的意义，而实际上意义也由节奏和音响构成。\n评论家：那还能谈得上定本译作吗？\n译者：没有这种东西。每一代人都重新翻译经典，因为每个时代从中听到的东西不同。而这远非缺陷，恰恰证明它们仍然活着。',
+    keyVocab:[
+      {es:'hasta la saciedad', zh:'一再地、反复地'},
+      {es:'semejante sentencia', zh:'这样的论断'},
+      {es:'fatalismo', zh:'宿命论'},
+      {es:'dilema irresoluble', zh:'无解的两难'},
+      {es:'anteponer A a B', zh:'把 A 置于 B 之上'},
+      {es:'a sabiendas de que', zh:'明知'},
+      {es:'pecar de ingenuidad', zh:'失之于天真'},
+      {es:'sonoridad', zh:'音响、音韵'}
+    ],
+    questions:[
+      {q:'¿En qué sentido comparte la traductora la sentencia?', a:'En su intención, pero no en su fatalismo.'},
+      {q:'¿Qué antepone ella en la poesía?', a:'La música del verso al sentido literal.'},
+      {q:'¿Por qué considera ingenua la postura contraria?', a:'Porque supone un sentido único y estable.'},
+      {q:'¿Qué opina de las traducciones definitivas?', a:'Que no existen: cada época vuelve a traducir los clásicos.'}
     ]
   }
 ];

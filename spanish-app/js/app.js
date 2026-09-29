@@ -1428,15 +1428,28 @@ function renderSpeaking(unit) {
   const currentLevel = AppState.currentLevel || 'A1';
   const levelOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const currentIdxLevel = levelOrder.indexOf(currentLevel);
-  const allowedLevels = levelOrder.slice(0, Math.min(currentIdxLevel + 1, 4));
-  
-  let pool = (typeof SPEAKING_SENTENCES !== 'undefined') 
-    ? SPEAKING_SENTENCES.filter(s => allowedLevels.includes(s.level)) 
-    : [];
-  if (pool.length === 0) {
-    pool = (typeof SPEAKING_SENTENCES !== 'undefined') ? SPEAKING_SENTENCES.slice(0, 5) : [];
+  const allowedLevels = levelOrder.slice(0, Math.min(currentIdxLevel + 1, levelOrder.length));
+
+  // 优先当前等级，其次相邻等级；等级差越大权重越低
+  // （原先在全等级里随机抽，C2 用户经常抽到 A1 句子）
+  const all = (typeof SPEAKING_SENTENCES !== 'undefined') ? SPEAKING_SENTENCES : [];
+  const weightOf = (lv) => {
+    const gap = currentIdxLevel - levelOrder.indexOf(lv);
+    if (gap < 0 || gap > 2) return 0;   // 不高于当前等级，且最多回看两级
+    return [8, 2, 1][gap];
+  };
+  const weighted = [];
+  all.forEach(s => {
+    const w = weightOf(s.level);
+    for (let i = 0; i < w; i++) weighted.push(s);
+  });
+  const shuffled = (arr) => [...arr].sort(() => Math.random() - 0.5);
+  let sentences = shuffled(weighted).slice(0, 5);
+  if (sentences.length === 0) {
+    // 兜底：当前等级没有可用语料时，退回到全部等级
+    sentences = shuffled(all).slice(0, 5);
   }
-  const sentences = pool.sort(() => Math.random() - 0.5).slice(0, 5);
+  sentences = shuffled(sentences).slice(0, 5);
   
   let currentIdx = 0;
   let isRecording = false;
@@ -1573,10 +1586,19 @@ function renderSpeaking(unit) {
 function renderListening(unit) {
   const container = showAppShell();
   
-  // 从真实语料库选听力材料
-  const passages = (typeof LISTENING_PASSAGES !== 'undefined')
+  // 从真实语料库选听力材料，按当前等级由易到难筛选
+  // （原先完全不过滤，A1 学习者会直接听到 B2 材料）
+  const ALL_PASSAGES = (typeof LISTENING_PASSAGES !== 'undefined' && LISTENING_PASSAGES.length)
     ? LISTENING_PASSAGES
     : [{es:'Buenos días.', zh:'早上好。', level:'A1', title:'示例', speaker:'', duration:'0:02', keyVocab:[], questions:[]}];
+  const lvOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const myLevelIdx = lvOrder.indexOf(AppState.currentLevel || 'A1');
+  // 优先用「当前等级及以下」的材料；若不足 3 段则放宽到全库
+  let scoped = ALL_PASSAGES.filter(p => lvOrder.indexOf(p.level) <= myLevelIdx);
+  if (scoped.length < 3) scoped = ALL_PASSAGES;
+  const currentPassage = scoped.find(p => p.level === (AppState.currentLevel || 'A1')) || scoped[0];
+  const reordered = [currentPassage, ...scoped.filter(p => p !== currentPassage)];
+  const passages = reordered;
   
   let currentIdx = 0;
   let isPlaying = false;
@@ -2402,30 +2424,52 @@ function _playDialogueSequence(dialogue, opts = {}) {
 
 // 把 "NAME: 内容\nNAME2: 内容" 解析成 [{speaker, text, color}] 数组
 function parseDialogue(text) {
-  const speakerColors = [
-    {name:'CAMARERO', color:'#E63946', pitch:1.05},
-    {name:'CLIENTE', color:'#6B8FBB', pitch:0.88},
-    {name:'ENTREVISTADORA', color:'#9B7DB8', pitch:1.12},
-    {name:'CANDIDATO', color:'#8BD4B8', pitch:0.85},
-    {name:'MARÍA', color:'#F4A261', pitch:1.15},
-    {name:'PABLO', color:'#2D2D2D', pitch:0.82},
-    {name:'AGENTE', color:'#6B8FBB', pitch:0.95},
-    {name:'PERIODISTA', color:'#E63946', pitch:1.0},
-    {name:'EXPERTO', color:'#8BD4B8', pitch:0.88},
-    {name:'PASEANTE', color:'#6B8FBB', pitch:0.9},
-    {name:'TURISTA', color:'#F4A261', pitch:1.05},
-    {name:'SPEAKER 1', color:'#E63946', pitch:1.0},
-    {name:'SPEAKER 2', color:'#6B8FBB', pitch:0.9}
-  ];
+  // 已知说话人的固定配色与音高（保证听感一致）
+  const known = {
+    'CAMARERO':     { color:'#E63946', pitch:1.05 },
+    'CLIENTE':      { color:'#6B8FBB', pitch:0.88 },
+    'ENTREVISTADORA':{ color:'#9B7DB8', pitch:1.12 },
+    'CANDIDATO':    { color:'#8BD4B8', pitch:0.85 },
+    'MARÍA':        { color:'#F4A261', pitch:1.15 },
+    'PABLO':        { color:'#2D2D2D', pitch:0.82 },
+    'AGENTE':       { color:'#6B8FBB', pitch:0.95 },
+    'PERIODISTA':   { color:'#E63946', pitch:1.0 },
+    'EXPERTO':      { color:'#8BD4B8', pitch:0.88 },
+    'PASEANTE':     { color:'#6B8FBB', pitch:0.9 },
+    'TURISTA':      { color:'#F4A261', pitch:1.05 },
+    'SPEAKER 1':    { color:'#E63946', pitch:1.0 },
+    'SPEAKER 2':    { color:'#6B8FBB', pitch:0.9 }
+  };
+  // 未知说话人按出现顺序从调色板取色，保证同一段内两人颜色/音高不同
+  const palette = ['#E63946', '#2E5C8A', '#5F7043', '#9B7DB8', '#D3982A', '#7A2438', '#2D2D2D', '#C0563A'];
+  const pitches = [1.02, 0.86, 1.12, 0.92];
+
   const lines = text.split('\n').filter(l => l.trim());
+  const assigned = {};   // 本段内已分配的说话人
+  let autoIdx = 0;
+
+  const pick = (name) => {
+    if (assigned[name]) return assigned[name];
+    let entry = known[name];
+    if (!entry) {
+      // 允许前缀匹配（如 AGENTE DE CHECK-IN 命中 AGENTE）
+      const hit = Object.keys(known).find(k => name.includes(k.split(' ')[0]));
+      entry = hit ? known[hit] : null;
+    }
+    const result = entry
+      ? { ...entry }
+      : { color: palette[autoIdx % palette.length], pitch: pitches[autoIdx % pitches.length] };
+    autoIdx++;
+    assigned[name] = result;
+    return result;
+  };
+
   return lines.map(line => {
     const m = line.match(/^([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜ\s]*?):\s*(.*)$/);
     if (!m) return { speaker: null, text: line.trim(), color: '#888', pitch: 1.0 };
     const name = m[1].trim().toUpperCase();
-    const entry = speakerColors.find(s => s.name === name) || speakerColors.find(s => name.includes(s.name.split(' ')[0]));
-    const autoColor = entry ? entry.color : (speakerColors.find(s => !speakerColors.find(x => x.color === s.color && lines.some(l => l.includes(x.name)))) || speakerColors[0]).color;
-    const autoPitch = entry ? entry.pitch : 0.95;
-    return { speaker: name, text: m[2].trim(), color: autoColor, pitch: autoPitch };
+    const { color, pitch } = pick(name);
+    return { speaker: name, text: m[2].trim(), color, pitch };
   });
 }
 
