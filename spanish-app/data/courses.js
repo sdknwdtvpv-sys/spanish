@@ -909,24 +909,24 @@ const GRAMMAR_QUIZZES = [
   
   // 现在时不规则动词
   {topic:'Presente de Verbos Irregulares', questions:[
-    {sentence:'Yo ___ (hacer) la tarea ahora.', options:['hago','haces','hace','hacer'], correct:0, explain:'hacer 第一人称单数不规则：hago。'},
-    {sentence:'Él ___ (conocer) a mi hermana.', options:['conoce','conoce','conoce','conoce'], correct:0, explain:'conocer 也是 o→ue 变化：conozco, conoces, conoce...'},
-    {sentence:'Nosotros ___ (tener) mucha hambre.', options:['tenemos','tenemos','tenemos','tenemos'], correct:0, explain:'tener 第一人称复数：tenemos。'},
-    {sentence:'Ellos ___ (ir) al mercado.', options:['van','van','van','van'], correct:0, explain:'ir 完全不规则：voy, vas, va, vamos, vais, van。'},
-    {sentence:'Yo ___ (poder) ayudarte.', options:['puedo','puedo','puedo','puedo'], correct:0, explain:'poder o→ue：puedo, puedes, puede...'},
-    {sentence:'Ella ___ (querer) un café.', options:['quiere','quiere','quiere','quiere'], correct:0, explain:'querer e→ie：quiero, quieres, quiere...'},
-    {sentence:'Nosotros ___ (empezar) a las ocho.', options:['empezamos','empezamos','empezamos','empezamos'], correct:0, explain:'empezar e→ie，但第一人称复数：empezamos。'},
-    {sentence:'Tú ___ (dar) muy buenos consejos.', options:['das','das','das','das'], correct:0, explain:'dar 完全不规则：doy, das, da, damos, dais, dan。'}
+    {sentence:'Yo ___ (hacer) la tarea ahora.', options:['hago','haces','hace','hacer'], correct:0, explain:'hacer 第一人称单数不规则：hago。haces 第二人称，hace 第三人称。'},
+    {sentence:'Él ___ (conocer) a mi hermana.', options:['conoce','conoces','conozco','conocerá'], correct:0, explain:'conocer o→ue 变化，但第三人称保持 conoce（不变元音）。conozco 是第一人称单数。'},
+    {sentence:'Nosotros ___ (tener) mucha hambre.', options:['tenemos','tiene','tienen','tenemos que'], correct:0, explain:'tener 第一人称复数：tenemos。tiene 单三，tienen 单三（ustedes）。'},
+    {sentence:'Ellos ___ (ir) al mercado.', options:['van','vas','va','irán'], correct:0, explain:'ir 完全不规则：voy, vas, va, vamos, vais, van。van 是第三人称复数。'},
+    {sentence:'Yo ___ (poder) ayudarte.', options:['puedo','puede','podemos','podré'], correct:0, explain:'poder o→ue：puedo, puedes, puede, podemos... 第一人称用 puedo。'},
+    {sentence:'Ella ___ (querer) un café.', options:['quiere','quiero','quieres','querrá'], correct:0, explain:'querer e→ie：quiero, quieres, quiere, queremos... ella 第三人称用 quiere。'},
+    {sentence:'Nosotros ___ (empezar) a las ocho.', options:['empezamos','empiezo','empieza','empezaré'], correct:0, explain:'empezar e→ie 变化，但第一人称复数：empezamos（元音不变化）。empiezo 单一，empieza 单三。'},
+    {sentence:'Tú ___ (dar) muy buenos consejos.', options:['das','da','doy','darás'], correct:0, explain:'dar 完全不规则：doy, das, da, damos, dais, dan。tú 第二人称是 das。'}
   ]},
   
   // Preterito 不规则
   {topic:'Preterito Indefinido Irregular', questions:[
-    {sentence:'Ayer yo ___ (ir) al cine.', options:['fui','fuí','iba','ido'], correct:0, explain:'ir 的简单过去时同 ser：fui, fuiste, fue, fuimos, fuisteis, fueron。'},
-    {sentence:'Ella ___ (tener) que trabajar el sábado.', options:['tuvo','tuve','tenía','tiene'], correct:0, explain:'tener 过去时：tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron。'},
-    {sentence:'Nosotros ___ (hacer) una fiesta.', options:['hicimos','hacíamos','hecho','hacemos'], correct:0, explain:'hacer 过去时：hice, hiciste, hizo, hicimos...'},
-    {sentence:'El año pasado ellos ___ (conocer) París.', options:['conocieron','conocieron','conocieron','conocieron'], correct:0, explain:'conocer 过去时：conocí, conociste, conoció, conocimos, conocisteis, conocieron。'},
-    {sentence:'Tú ___ (ver) la película?', options:['Viste','Viste','Viste','Viste'], correct:0, explain:'ver 过去时：vi, viste, vio, vimos, visteis, vieron。'},
-    {sentence:'Yo ___ (poder) aprobar el examen.', options:['pude','pude','pude','pude'], correct:0, explain:'poder 过去时：pude, pudiste, pudo, pudimos, pudisteis, pudieron。'}
+    {sentence:'Ayer yo ___ (ir) al cine.', options:['fui','iba','iré','he ido'], correct:0, explain:'ir 的简单过去时同 ser：fui, fuiste, fue, fuimos, fuisteis, fueron。iba 是过去未完成时。'},
+    {sentence:'Ella ___ (tener) que trabajar el sábado.', options:['tuvo','tenía','tendrá','ha tenido'], correct:0, explain:'tener 过去时：tuve, tuviste, tuvo, tuvimos... tuvo 是第三人称单数过去式。tenía 是过去未完成时。'},
+    {sentence:'Nosotros ___ (hacer) una fiesta.', options:['hicimos','hacíamos','haríamos','hemos hecho'], correct:0, explain:'hacer 过去时：hice, hiciste, hizo, hicimos... hicimos 是我们做了。hacíamos 是过去未完成时（经常做）。'},
+    {sentence:'El año pasado ellos ___ (conocer) París.', options:['conocieron','conocían','conocerán','han conocido'], correct:0, explain:'conocer 过去时：conocí, conociste, conoció, conocimos, conocisteis, conocieron。conocieron 是第三人称复数。'},
+    {sentence:'Tú ___ (ver) la película anoche?', options:['viste','veías','verás','has visto'], correct:0, explain:'ver 过去时：vi, viste, vio, vimos, visteis, vieron。viste 是第二人称过去式。veías 是过去未完成时。'},
+    {sentence:'Yo ___ (poder) aprobar el examen de la semana pasada.', options:['pude','podía','podré','he podido'], correct:0, explain:'poder 过去时：pude, pudiste, pudo, pudimos, pudisteis, pudieron。pude 是第一人称单数过去式。podía 是过去未完成时。'}
   ]},
   
   // 虚拟式现在时
@@ -945,7 +945,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'No ___ (hablar) tan alto.', options:['hables','habla','hablas','hablar'], correct:0, explain:'tú 否定命令式用虚拟式现在时第二人称：no hables。'},
     {sentence:'___ (abrir) la puerta, señora.', options:['Abra','Abres','Abre','Abrir'], correct:0, explain:'usted 命令式 = 虚拟式现在时第三人称：abra。'},
     {sentence:'Vamos a ___ (comer).', options:['comer','comamos','comemos','comamos'], correct:0, explain:'nosotros 命令式（劝诱）= 虚拟式现在时第一人称复数：comamos。'},
-    {sentence:'___ (traer) tu identificación.', options:['Trae','Trae','Trae','Trae'], correct:0, explain:'traer 命令式不规则：trae（tú）/ traiga（usted）.'}
+    {sentence:'___ (traer) tu identificación.', options:['Trae','Trae','Traiga','Traerás'], correct:0, explain:'traer tú 命令式不规则：trae（tú）/ traiga（usted）。usted 形式也正确但不是 tú 命令式。'}
   ]},
   
   // 直接宾语代词

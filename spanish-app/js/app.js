@@ -466,40 +466,84 @@ function renderDashboard() {
 }
 
 function renderRecommendations(progress, level, currentUnit) {
-  const recommendations = [
-    {
-      type: 'vocab',
-      title: `${currentUnit.title} · 词汇预复习`,
-      desc: `学习 ${currentUnit.vocab.length} 个核心单词，为课程打好基础`,
-      duration: '约 15 分钟',
-      action: () => startLearning('vocab', currentUnit.id)
-    },
-    {
-      type: 'grammar',
-      title: `${level.level} · 语法要点精讲`,
-      desc: `${currentUnit.grammar[0].title} - ${currentUnit.grammar[0].desc}`,
-      duration: '约 10 分钟',
-      action: () => startLearning('grammar', currentUnit.id)
-    },
-    {
-      type: 'speaking',
-      title: '日常对话 · 口语练习',
-      desc: '跟读模拟真实场景对话，提升语感和发音',
-      duration: '约 8 分钟',
-      action: () => startLearning('speaking', currentUnit.id)
-    },
-    {
-      type: 'listening',
-      title: '慢速听力训练',
-      desc: '配合文本精听，训练西语语感和理解力',
-      duration: '约 12 分钟',
-      action: () => startLearning('listening', currentUnit.id)
-    }
-  ];
+  const knownCount = progress.knownWords.length;
+  const totalInUnit = currentUnit.vocab.length;
+  const learnedInUnit = currentUnit.vocab.filter(w => progress.knownWords.includes(w.es)).length;
+  const allDone = learnedInUnit >= totalInUnit;
+  
+  const currentLevelKey = level.level;
+  const nextLevelObj = Object.values(COURSES).find(l => l.level.charCodeAt(1) === currentLevelKey.charCodeAt(1) + 1);
+  const nextUnit = level.units[progress.currentUnitIndex + 1];
+  
+  // 精准个性化建议
+  let tips = [];
+  
+  // 1. 还没学任何单词 → 先过词汇
+  if (knownCount === 0) {
+    tips.push({
+      type:'vocab', title:`从 ${currentUnit.title} 开始`,
+      desc:`这是你的第一课。${totalInUnit} 个高频词，一个一个翻过去。`,
+      duration:'约 15 分钟', action:() => startLearning('vocab', currentUnit.id),
+      badge:'第一步', accent:true
+    });
+  }
+  
+  // 2. 词汇还没学完
+  if (knownCount > 0 && !allDone) {
+    const remaining = totalInUnit - learnedInUnit;
+    tips.push({
+      type:'vocab', title:`继续记单词 · ${remaining} 个未掌握`,
+      desc:`本单元 ${totalInUnit} 词已过 ${learnedInUnit}。点击复习剩下的。`,
+      duration:'约 10 分钟', action:() => startLearning('vocab', currentUnit.id),
+      progress:`${learnedInUnit}/${totalInUnit}`
+    });
+  }
+  
+  // 3. 词汇已完 → 做语法
+  if (allDone && currentUnit.grammar && currentUnit.grammar.length) {
+    tips.push({
+      type:'grammar', title:`${currentUnit.grammar[0].title}`,
+      desc:currentUnit.grammar[0].desc,
+      duration:'约 10 分钟', action:() => startLearning('grammar', currentUnit.id),
+      badge:'下一步'
+    });
+  }
+  
+  // 4. 进阶建议：口语/听力
+  tips.push({
+    type:'speaking', title:'真实场景口语',
+    desc:'跟读带等级的真实句子，含慢速拆解和关键词高亮',
+    duration:'约 8 分钟', action:() => startLearning('speaking', currentUnit.id)
+  });
+  
+  tips.push({
+    type:'listening', title:'多人对话听力',
+    desc:'真实西语场景对话（咖啡馆/机场/面试），可切换原文和翻译',
+    duration:'约 12 分钟', action:() => startLearning('listening', currentUnit.id)
+  });
+  
+  // 5. 如果本单元全部完了 → 下一单元/下一等级
+  if (nextUnit && allDone) {
+    tips.unshift({
+      type:'vocab', title:`下一站：${nextUnit.title}`,
+      desc:`${nextUnit.vocab.length} 个词等你。${nextUnit.duration}`,
+      duration:'约 15 分钟',
+      action:() => {
+        progress.currentUnitIndex++;
+        AppState.saveProgress();
+        const newLevel = COURSES[level.level];
+        const newUnit = newLevel.units[progress.currentUnitIndex];
+        startLearning('vocab', newUnit.id);
+      },
+      badge:'🎉 进入下一单元', accent:true
+    });
+  }
   
   const list = document.getElementById('recommend-list');
-  list.innerHTML = recommendations.map(r => `
-    <div class="recommend-card">
+  list.innerHTML = tips.map(r => `
+    <div class="recommend-card" ${r.accent ? 'style="border-color:var(--red);"' : ''}>
+      ${r.badge ? `<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;color:var(--red);font-weight:600;">${r.badge}</div>` : ''}
+      ${r.progress ? `<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;color:var(--text-muted);">已学 ${r.progress}</div>` : ''}
       <span class="recommend-type ${r.type}">
         ${r.type === 'vocab' ? '词汇' : r.type === 'grammar' ? '语法' : r.type === 'speaking' ? '口语' : '听力'}
       </span>
@@ -511,7 +555,7 @@ function renderRecommendations(progress, level, currentUnit) {
   
   // 绑定点击
   list.querySelectorAll('.recommend-card').forEach((card, i) => {
-    card.addEventListener('click', recommendations[i].action);
+    card.addEventListener('click', tips[i].action);
   });
 }
 
@@ -622,6 +666,20 @@ function renderUnitDetail(levelKey, unitId) {
   AppState.currentLevel = levelKey;
   AppState.currentUnit = unit;
   
+  const progress = AppState.progress;
+  const knownInUnit = unit.vocab.filter(w => progress.knownWords.includes(w.es)).length;
+  const unitIdx = level.units.indexOf(unit);
+  const prevUnit = level.units[unitIdx - 1];
+  const nextUnit = level.units[unitIdx + 1];
+  
+  // 学习路线图节点
+  const steps = [
+    {label:'📚 记单词', done: knownInUnit >= unit.vocab.length, action:`startLearning('vocab','${unit.id}')`, detail:`${knownInUnit}/${unit.vocab.length}`},
+    {label:'✍️ 学语法', done: progress.completedGrammar.includes(unit.id) || (knownInUnit >= unit.vocab.length), action:`startLearning('grammar','${unit.id}')`, detail:`${unit.grammar.length} 个语法点`},
+    {label:'🎤 说出来', done: false, action:`startLearning('speaking','${unit.id}')`, detail:'跟读练习'},
+    {label:'🎧 听得懂', done: false, action:`startLearning('listening','${unit.id}')`, detail:'真实对话'}
+  ];
+  
   container.innerHTML = `
     <div class="unit-detail">
       <div class="unit-header">
@@ -632,6 +690,26 @@ function renderUnitDetail(levelKey, unitId) {
         </div>
         <h1 class="unit-main-title">${unit.title}</h1>
         <div class="unit-main-subtitle">${unit.subtitle}</div>
+      </div>
+      
+      <!-- 学习路线图 -->
+      <div style="background:var(--surface);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:32px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+          <div style="font-weight:600;">📌 学习路径</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);">${prevUnit ? `← ${prevUnit.title}` : ''} <span style="color:var(--text);margin:0 8px;">|</span> <strong style="color:${level.color};">当前：${unit.title}</strong> <span style="color:var(--text);margin:0 8px;">|</span> ${nextUnit ? `${nextUnit.title} →` : '到顶啦 🎉'}</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:stretch;">
+          ${steps.map((s, i) => `
+            <div style="flex:1;background:${s.done ? 'rgba(139,212,184,0.1)' : 'var(--bg-alt)'};border-radius:var(--radius-md);padding:16px;cursor:pointer;transition:all 0.2s;" onclick="${s.action}">
+              <div style="font-size:0.7rem;color:${s.done ? 'var(--green)' : 'var(--text-muted)'};font-weight:600;margin-bottom:6px;">
+                ${s.done ? '✓ 已完成' : '步骤 ' + (i+1)}
+              </div>
+              <div style="font-weight:600;font-size:0.95rem;margin-bottom:4px;">${s.label}</div>
+              <div style="font-size:0.8rem;color:var(--text-muted);">${s.detail}</div>
+            </div>
+            ${i < steps.length - 1 ? '<div style="display:flex;align-items:center;color:var(--text-muted);font-size:1.2rem;">→</div>' : ''}
+          `).join('')}
+        </div>
       </div>
       
       <div class="unit-tabs" id="unit-tabs">
@@ -1243,7 +1321,7 @@ function renderListening(unit) {
               ${p.questions.map((q, i) => `
                 <div style="margin-bottom:12px;">
                   <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
-                  <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="this.textContent='✅ ' + ${JSON.stringify(q.a)}; this.disabled=true;">显示答案</button>
+                  <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="showAnswerBtn(this, '${q.a.replace(/'/g, "\'")}')">显示答案</button>
                 </div>
               `).join('')}
             </div>
@@ -1354,7 +1432,7 @@ function renderListeningNext(passages, idx) {
           ${p.questions.map((q, i) => `
             <div style="margin-bottom:12px;">
               <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
-              <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="this.textContent='✅ ' + ${JSON.stringify(q.a)}; this.disabled=true;">显示答案</button>
+              <button class="btn btn-ghost" style="padding:6px 12px;font-size:0.8rem;" onclick="showAnswerBtn(this, '${q.a.replace(/'/g, "\'")}')">显示答案</button>
             </div>
           `).join('')}
         </div>
@@ -1755,4 +1833,13 @@ function speakWord(text) {
   } else {
     showToast('浏览器不支持语音朗读');
   }
+}
+
+
+// 听力理解题答案显示
+function showAnswerBtn(btn, answer) {
+    btn.textContent = '✅ ' + answer;
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    btn.style.cursor = 'default';
 }
