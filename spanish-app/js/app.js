@@ -389,6 +389,11 @@ const Router = {
       AppState.endLearnSession();
     }
     
+    // 离开单词卡页面时解除键盘快捷键
+    if (route !== 'learn' || AppState.learnMode !== 'vocab') {
+      if (typeof VocabKeyboard !== 'undefined') VocabKeyboard.release();
+    }
+    
     if (this.routes[route]) {
       const fn = window[this.routes[route]];
       if (fn) fn.apply(null, params);
@@ -1229,7 +1234,12 @@ function renderVocabCards(unit) {
         <button class="card-btn known" id="btn-known">${icon('check')} 已掌握</button>
       </div>
       
-      <div class="learning-footnote">${icon('brain')} 间隔复习 · SM-2 算法</div>
+      <div class="learning-footnote">
+        ${icon('brain')} 间隔复习 · SM-2 算法
+        <span id="kbd-hint" style="margin-left:10px;color:var(--text-muted);">
+          · 快捷键：<b>空格</b> 翻卡 · <b>1</b> 还不会 · <b>2</b> 已掌握 · <b>P</b> 发音
+        </span>
+      </div>
     </div>
   `;
   
@@ -1293,7 +1303,49 @@ function renderVocabCards(unit) {
   
   document.getElementById('btn-known').addEventListener('click', () => nextCard(true));
   document.getElementById('btn-unknown').addEventListener('click', () => nextCard(false));
+  
+  // 键盘快捷键（空格翻卡 / 1 还不会 / 2 已掌握 / P 发音）
+  // 每次渲染注册一次；离开卡片页时由 VocabKeyboard.release() 解除
+  VocabKeyboard.attach({
+    flip: () => flashcard.classList.toggle('flipped'),
+    play: () => speakWord(vocab[currentIdx].es),
+    rate: (learned) => nextCard(learned)
+  });
 }
+
+// ---- 单词卡键盘快捷键 ----
+const VocabKeyboard = {
+  handlers: null,
+  keyHandler: null,
+  
+  attach(handlers) {
+    this.release();
+    this.handlers = handlers;
+    this.keyHandler = (e) => {
+      // 首页 (#flashcard) 不存在时说明已离开卡片页
+      if (!document.getElementById('flashcard')) return;
+      // 输入框内不拦截
+      const tag = (e.target && e.target.tagName) || '';
+      if (/INPUT|TEXTAREA|SELECT/.test(tag) || (e.target && e.target.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      
+      const k = e.key;
+      if (k === ' ' || k === 'Spacebar' || k === 'Enter') {
+        e.preventDefault(); this.handlers.flip(); return;
+      }
+      if (k === '1') { e.preventDefault(); this.handlers.rate(false); return; }
+      if (k === '2') { e.preventDefault(); this.handlers.rate(true); return; }
+      if (k === 'p' || k === 'P') { e.preventDefault(); this.handlers.play(); return; }
+    };
+    document.addEventListener('keydown', this.keyHandler);
+  },
+  
+  release() {
+    if (this.keyHandler) document.removeEventListener('keydown', this.keyHandler);
+    this.keyHandler = null;
+    this.handlers = null;
+  }
+};
 
 function showVocabComplete(unit) {
   const container = document.querySelector('.learning-container');
