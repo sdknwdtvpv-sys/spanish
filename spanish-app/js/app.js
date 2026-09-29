@@ -59,15 +59,20 @@ const AppState = {
     localStorage.setItem('le_users', JSON.stringify(val));
   },
   
-  // 当前用户进度
+  // 当前用户进度（缓存同一引用：读取与写入必须落在同一个对象上）
+  _progress: null,
+  _progressUser: null,
   get progress() {
     if (!this.currentUser) return null;
+    if (this._progress && this._progressUser === this.currentUser) return this._progress;
     const allProgress = JSON.parse(localStorage.getItem('le_progress') || '{}');
     if (!allProgress[this.currentUser]) {
       allProgress[this.currentUser] = this.initProgress();
       localStorage.setItem('le_progress', JSON.stringify(allProgress));
     }
-    return allProgress[this.currentUser];
+    this._progress = allProgress[this.currentUser];
+    this._progressUser = this.currentUser;
+    return this._progress;
   },
   
   initProgress() {
@@ -86,6 +91,10 @@ const AppState = {
       achievements: [],
       points: 0,
       learnedWords: 0,
+      // 每日目标：todayWords 在跨天时自动归零，goalWords 为当天目标
+      todayWords: 0,
+      todayDate: '',
+      goalWords: 10,
       quizCorrect: 0,
       quizTotal: 0
     };
@@ -93,29 +102,61 @@ const AppState = {
   
   saveProgress() {
     const allProgress = JSON.parse(localStorage.getItem('le_progress') || '{}');
-    allProgress[this.currentUser] = this.progress;
+    allProgress[this.currentUser] = this._progress || this.progress;
     localStorage.setItem('le_progress', JSON.stringify(allProgress));
   },
   
   // ========== 间隔重复 (SM-2 简化版) ==========
+  // 进度数据版本：v2 起 SRS 改用「唯一词条键」，解决多义词共用一条记录的问题
+  PROGRESS_VERSION: 2,
+  
   ensureSrs() {
-    if (!this.progress) this.progress = {};
-    if (!this.progress.srs) this.progress.srs = {};
+    const progress = this.progress;
+    if (!progress) return;
+    if (!progress.srs) progress.srs = {};
+  },
+  
+  // 同一个西语词可能出现在不同单元（如 reunión = 聚会 / 会议），
+  // 因此 SRS 以「单元ID:西语词」为唯一键，避免共享同一条学习记录。
+  // 词条上的 unitId 由 annotateUnit() 在渲染单元时挂上。
+  vocabKey(vocab) {
+    if (!vocab) return '';
+    if (vocab.unitId) return vocab.unitId + ':' + vocab.es;
+    return String(vocab.es || '');
+  },
+  
+  // 给单元内词条标注所属单元，这样即使同一西语词出现在多个单元，
+  // 也各自拥有独立的复习记录
+  annotateUnit(unit) {
+    if (!unit || !unit.vocab) return;
+    unit.vocab.forEach(w => {
+      if (w && !w.unitId) w.unitId = unit.id;
+    });
+  },
+  
+  // 读取某个词条的 SRS 记录（自动兼容 v1 的旧键）
+  srsEntry(key) {
+    const srs = this.progress ? this.progress.srs : null;
+    if (!srs) return undefined;
+    if (srs[key]) return srs[key];
+    const i = String(key).indexOf(':');
+    if (i > 0) return srs[String(key).slice(i + 1)];
+    return undefined;
   },
   
   // stage 0 = 新词, 1-5 = 复习阶段
-  srsInit(word) {
+  srsInit(key) {
     this.ensureSrs();
-    if (!this.progress.srs[word]) {
-      this.progress.srs[word] = { stage: 0, ef: 2.5, lapses: 0, due: new Date().toISOString() };
+    if (!this.progress.srs[key]) {
+      this.progress.srs[key] = { stage: 0, ef: 2.5, lapses: 0, due: new Date().toISOString() };
     }
   },
   
   // quality: 0-5. >=3 通过, <3 失败
-  srsReview(word, quality) {
+  srsReview(key, quality) {
     this.ensureSrs();
-    this.srsInit(word);
-    const s = this.progress.srs[word];
+    this.srsInit(key);
+    const s = this.progress.srs[key];
     const passed = quality >= 3;
     
     if (!passed) {
@@ -126,7 +167,8 @@ const AppState = {
       if (s.stage > 5) s.stage = 5;
     }
     
-    const intervals = [0, 1, 3, 7, 14, 30, 60];
+    // SM-2 间隔表：stage 0→当天，1→1 天，2→3 天，3→7 天，4→14 天，5→30 天
+    const intervals = [0, 1, 3, 7, 14, 30];
     const days = intervals[s.stage] || 30;
     const due = new Date();
     due.setDate(due.getDate() + days);
@@ -135,28 +177,24 @@ const AppState = {
     this.saveProgress();
   },
   
-  // 获取到期要复习的词
-  srsDueWords(unitVocab) {
+  // 获取到期要复习的词条（传入词条对象，内部用唯一键判断）
+  srsDueWords(vocabItems) {
     this.ensureSrs();
     const now = new Date();
-    const srs = this.progress.srs;
-    return unitVocab.filter(w => {
-      const es = w && w.es;
-      if (!es) return false;
-      const entry = srs[es];
+    return vocabItems.filter(w => {
+      if (!w) return false;
+      const entry = this.srsEntry(this.vocabKey(w));
       if (!entry) return true;
       return new Date(entry.due) <= now;
     });
   },
   
-  // 为 flashcards 排序：到期复习词在前，stage 低的在前
+  // 为 flashcards 排序：到期复习词在前，stage 低的在前（按唯一键取记录）
   srsSort(vocabList) {
-
     this.ensureSrs();
-    const srs = this.progress.srs;
     return [...vocabList].sort((a, b) => {
-      const sa = a && a.es ? srs[a.es] : undefined;
-      const sb = b && b.es ? srs[b.es] : undefined;
+      const sa = this.srsEntry(this.vocabKey(a));
+      const sb = this.srsEntry(this.vocabKey(b));
       if (!sa && sb) return -1;
       if (sa && !sb) return 1;
       if (!sa && !sb) return 0;
@@ -164,7 +202,86 @@ const AppState = {
     });
   },
   
-  // 连续天数计算
+  // 迁移旧数据：v1 的 SRS 以纯西语词为键，升级为「单元ID:词」唯一键
+  migrateProgress() {
+    const p = this.progress;
+    if (!p) return;
+    if (p.schemaVersion === this.PROGRESS_VERSION) return;
+    const srs = p.srs || {};
+    
+    // 建立「纯词 → 唯一键」映射；多义词把旧记录给第一个出现的单元
+    const wordToKey = {};
+    Object.values(COURSES).forEach(l => (l.units || []).forEach(u => {
+      (u.vocab || []).forEach(w => {
+        if (w && w.es && !wordToKey[w.es]) wordToKey[w.es] = u.id + ':' + w.es;
+      });
+    }));
+    
+    const next = {};
+    Object.entries(srs).forEach(([k, v]) => {
+      if (k.indexOf(':') > 0) { next[k] = v; return; }   // 已经是新键
+      const nk = wordToKey[k];
+      if (nk && !next[nk]) next[nk] = v;                 // 旧键 → 新键
+    });
+    
+    p.srs = next;
+    p.schemaVersion = this.PROGRESS_VERSION;
+    this.saveProgress();
+  },
+  
+  // 连续天数计算 + 累计学习时长
+  // 学习时长：每次进入学习页记一次开始时间，离开时累加（无操作超时不计）
+  _learnStart: null,
+  _activeMs: 0,
+  
+  beginLearnSession() {
+    this._learnStart = Date.now();
+    this._activeMs = 0;
+  },
+  
+  endLearnSession() {
+    if (!this._learnStart) return;
+    // 距上次交互超过 120 秒视为挂机，只计到 120 秒
+    const elapsed = this._activeMs > 0
+      ? Math.min(Date.now() - this._learnStart, this._activeMs + 120000)
+      : 0;
+    if (elapsed > 0) {
+      const minutes = Math.round(elapsed / 60000);
+      if (minutes > 0) {
+        const p = this.progress;
+        if (p) { p.totalStudyMinutes = (p.totalStudyMinutes || 0) + minutes; this.saveProgress(); }
+      }
+    }
+    this._learnStart = null;
+    this._activeMs = 0;
+  },
+  
+  // 记录今天新学会一个单词（跨天自动归零，保证「今日目标」是可完成的）
+  bumpTodayWord() {
+    const today = new Date().toDateString();
+    const p = this.progress;
+    if (!p) return;
+    if (p.todayDate !== today) {
+      p.todayDate = today;
+      p.todayWords = 0;
+    }
+    p.todayWords = (p.todayWords || 0) + 1;
+  },
+  
+  // 今日目标进度（0-100），并把缺失的字段补齐
+  todayGoal() {
+    const p = this.progress;
+    if (!p) return { done: 0, goal: 10, percent: 0 };
+    const today = new Date().toDateString();
+    if (p.todayDate !== today) {
+      p.todayDate = today;
+      p.todayWords = 0;
+    }
+    const goal = p.goalWords || 10;
+    const done = Math.min(p.todayWords || 0, goal);
+    return { done, goal, percent: Math.round((done / goal) * 100) };
+  },
+  
   updateStreak() {
     const today = new Date().toDateString();
     const lastActive = this.progress.lastActiveDate;
@@ -215,9 +332,18 @@ const Router = {
     
     AppState.currentRoute = route;
     
+    // 学习时长统计：离开上一次学习会话时结算，进入新的学习会话时开始计时
+    if (AppState._learnStart && route !== 'learn') {
+      AppState.endLearnSession();
+    }
+    
     if (this.routes[route]) {
       const fn = window[this.routes[route]];
       if (fn) fn.apply(null, params);
+    }
+    
+    if (route === 'learn' && !AppState._learnStart) {
+      AppState.beginLearnSession();
     }
     
     // 更新导航高亮
@@ -234,12 +360,31 @@ const Router = {
   }
 };
 
+// 记录最近一次交互时间，用于判断学习会话是否「挂机」
+function markActive() {
+  if (AppState._learnStart) AppState._activeMs = Date.now() - AppState._learnStart;
+}
+['pointerdown', 'keydown', 'touchstart'].forEach(evt =>
+  document.addEventListener(evt, markActive, { passive: true, capture: true })
+);
+
+// 关闭/切走页面时结算学习时长
+window.addEventListener('pagehide', () => AppState.endLearnSession());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') AppState.endLearnSession();
+});
+
 // ---- 主入口 ----
 document.addEventListener('DOMContentLoaded', () => {
   // 恢复登录状态
   const savedUser = localStorage.getItem('le_current_user');
   if (savedUser) {
     AppState.currentUser = savedUser;
+  }
+  
+  // 旧数据结构升级（SRS 唯一键），保证老用户进度不丢
+  if (AppState.currentUser) {
+    try { AppState.migrateProgress(); } catch (e) { console.warn('进度迁移失败，忽略：', e); }
   }
   
   Router.init();
@@ -409,14 +554,15 @@ function loginUser(username) {
   AppState.currentUser = username;
   localStorage.setItem('le_current_user', username);
   
-  // 初始化用户
-  if (!AppState.users[username]) {
-    AppState.users[username] = {
+  // 初始化用户（读一次、改、写回，避免丢其他用户）
+  const users = AppState.users;
+  if (!users[username]) {
+    users[username] = {
       name: username,
       avatar: username.charAt(0).toUpperCase(),
       createdAt: new Date().toISOString()
     };
-    AppState.users = AppState.users;
+    AppState.users = users;
   }
   
   showToast(`¡Bienvenido, ${username}!`);
@@ -517,6 +663,10 @@ function renderDashboard() {
   const currentUnit = level.units[progress.currentUnitIndex] || level.units[0];
   const totalWords = ALL_VOCAB.length;
   const learnedPct = Math.round((progress.learnedWords / totalWords) * 100);
+  // 真实已学单词数（不再是估算值）
+  AppState.annotateUnit(currentUnit);
+  const learnedInUnit = currentUnit.vocab.filter(w => progress.knownWords.includes(w.es)).length;
+  const todayGoal = AppState.todayGoal();
   
   container.innerHTML = `
     <div class="dashboard">
@@ -560,23 +710,23 @@ function renderDashboard() {
         <div class="progress-card">
           <div class="progress-header">
             <span class="progress-title">${currentUnit.title} · 单元进度</span>
-            <span class="progress-percent">${Math.round((progress.currentUnitIndex / level.units.length) * 100)}%</span>
+            <span class="progress-percent">${Math.round((learnedInUnit / Math.max(currentUnit.vocab.length, 1)) * 100)}%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill blue" style="width:${Math.round((progress.currentUnitIndex / level.units.length) * 100)}%"></div>
+            <div class="progress-fill blue" style="width:${Math.round((learnedInUnit / Math.max(currentUnit.vocab.length, 1)) * 100)}%"></div>
           </div>
-          <div class="progress-meta">${progress.currentUnitIndex + 1} / ${level.units.length} 单元 · ${level.level}</div>
+          <div class="progress-meta">${learnedInUnit} / ${currentUnit.vocab.length} 个单词 · ${level.level}</div>
         </div>
         
         <div class="progress-card">
           <div class="progress-header">
             <span class="progress-title">今日目标</span>
-            <span class="progress-percent">${Math.min(progress.learnedWords % 10 * 10, 100)}%</span>
+            <span class="progress-percent">${todayGoal.percent}%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress-fill green" style="width:${Math.min(progress.learnedWords % 10 * 10, 100)}%"></div>
+            <div class="progress-fill green" style="width:${todayGoal.percent}%"></div>
           </div>
-          <div class="progress-meta">目标：10 个新单词 · ${10 - (progress.learnedWords % 10)} 个待完成</div>
+          <div class="progress-meta">目标：${todayGoal.goal} 个新单词 · ${Math.max(todayGoal.goal - todayGoal.done, 0)} 个待完成</div>
         </div>
       </div>
       
@@ -812,6 +962,7 @@ function renderUnitDetail(levelKey, unitId) {
   const level = COURSES[levelKey];
   const unit = level.units.find(u => u.id === unitId);
   if (!unit) return;
+  AppState.annotateUnit(unit);
   
   AppState.currentLevel = levelKey;
   AppState.currentUnit = unit;
@@ -984,6 +1135,8 @@ function renderLearn(mode, unitId) {
 // ============================================
 function renderVocabCards(unit) {
   const container = showAppShell();
+  // 先标注词条归属单元，重复词才能各自独立记录复习进度
+  AppState.annotateUnit(unit);
   // SRS 排序：到期词在前 + stage 低的在前
   const rawVocab = unit.vocab || [];
   let vocab = AppState.srsSort(rawVocab);
@@ -1005,7 +1158,7 @@ function renderVocabCards(unit) {
       <div class="flashcard-container" id="flashcard-container">
         <div class="flashcard" id="flashcard">
           <div class="flashcard-face flashcard-front">
-            ${renderSrsBadge(vocab[currentIdx].es)}
+            ${renderSrsBadge(vocab[currentIdx])}
             <div class="flashcard-word">${vocab[currentIdx].es}</div>
             <div class="flashcard-hint">点击卡片查看释义</div>
           </div>
@@ -1039,8 +1192,8 @@ function renderVocabCards(unit) {
   });
   
   function nextCard(learned) {
-    // SRS 评分：已知=5，不会=1
-    AppState.srsReview(vocab[currentIdx].es, learned ? 5 : 1);
+    // SRS 评分：已知=5，不会=1（用唯一键，多义词不会互相覆盖）
+    AppState.srsReview(AppState.vocabKey(vocab[currentIdx]), learned ? 5 : 1);
     
     if (learned) {
       const progress = AppState.progress;
@@ -1048,6 +1201,7 @@ function renderVocabCards(unit) {
         progress.knownWords.push(vocab[currentIdx].es);
         progress.learnedWords++;
         progress.points += 5;
+        AppState.bumpTodayWord();
         AppState.saveProgress();
         checkAchievements();
       }
@@ -1064,7 +1218,7 @@ function renderVocabCards(unit) {
     setTimeout(() => {
       flashcard.innerHTML = `
         <div class="flashcard-face flashcard-front">
-          ${renderSrsBadge(vocab[currentIdx].es)}
+          ${renderSrsBadge(vocab[currentIdx])}
           <div class="flashcard-word">${vocab[currentIdx].es}</div>
           <div class="flashcard-hint">点击卡片查看释义</div>
         </div>
@@ -1193,6 +1347,8 @@ function renderGrammarQuiz(unit) {
         
         setTimeout(() => {
           currentIdx++;
+          // 用户可能在 1 秒反馈动画期间切走页面：此时容器已销毁，直接返回
+          if (!document.getElementById('quiz-question')) return;
           if (currentIdx >= qs.length) {
             showQuizComplete(qs, isCorrect);
           } else {
@@ -1977,11 +2133,11 @@ function renderProgress() {
         <div class="progress-card">
           <div class="progress-title" style="margin-bottom:16px;">${icon('chart')} 词汇掌握分布</div>
           ${Object.entries(COURSES).map(([key, lvl]) => {
-            const total = lvl.units.reduce((s, u) => s + u.vocab.length, 0);
-            const learned = Math.floor(total * (key === progress.currentLevel ? 
-              progress.currentUnitIndex / lvl.units.length : 
-              (key < progress.currentLevel ? 1 : 0)));
-            const pct = Math.round((learned / total) * 100);
+            const all = lvl.units.flatMap(u => u.vocab || []);
+            const total = all.length;
+            // 用真实学习记录统计，而不是按单元索引估算
+            const learned = all.filter(w => progress.knownWords.includes(w.es)).length;
+            const pct = total ? Math.round((learned / total) * 100) : 0;
             return `
               <div style="margin-bottom:16px;">
                 <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;">
@@ -2040,8 +2196,12 @@ function renderProgress() {
 // 发音功能
 // ============================================
 // SRS 阶段徽章
-function renderSrsBadge(word) {
-  const s = (AppState.progress?.srs || {})[word];
+// 传词条对象或唯一键均可；纯西语词字符串会走 srsEntry 的 v1 兼容分支
+function renderSrsBadge(vocabOrKey) {
+  const key = (vocabOrKey && typeof vocabOrKey === 'object')
+    ? AppState.vocabKey(vocabOrKey)
+    : String(vocabOrKey || '');
+  const s = AppState.srsEntry(key);
   if (!s) return `<div class="srs-badge new">${icon('spark')} 新词</div>`;
   const colors = ['#93856F', '#C0563A', '#D3982A', '#5F7043', '#2E5C8A', '#7A2438'];
   const labels = ['新', '1', '2', '3', '4', '大师'];
