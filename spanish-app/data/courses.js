@@ -8,7 +8,7 @@ const COURSES = {
   A1: {
     level: 'A1', title: '入门起步', subtitle: 'Principiante',
     description: '从零开始。8 个单元覆盖最基础的日常交流场景。',
-    color: '#E63946',
+    color: '#C0563A',
     units: [
       { id:'a1-u1', title:'问候与介绍', subtitle:'Saludos y Presentaciones', lessons:10, duration:'约 30 分钟',
         vocab:[
@@ -275,7 +275,7 @@ const COURSES = {
   A2: {
     level: 'A2', title: '初级进阶', subtitle: 'Elemental',
     description: '能在常见场景中进行简单交流，描述日常活动、经历、感受。',
-    color: '#F4A261',
+    color: '#D3982A',
     units: [
       { id:'a2-u1', title:'家庭与社交圈', subtitle:'Familia y Círculo Social', lessons:12, duration:'约 40 分钟',
         vocab:[
@@ -514,7 +514,7 @@ const COURSES = {
   B1: {
     level: 'B1', title: '中级能力', subtitle: 'Intermedio',
     description: '能应对大部分日常交流，表达观点、感受、经历。',
-    color: '#8BD4B8',
+    color: '#5F7043',
     units: [
       { id:'b1-u1', title:'工作晋升与职业发展', subtitle:'Carrera Profesional', lessons:10, duration:'约 35 分钟',
         vocab:[
@@ -689,7 +689,7 @@ const COURSES = {
   B2: {
     level: 'B2', title: '中级进阶', subtitle: 'Intermedio Alto',
     description: '能流畅交流，理解复杂文本，表达观点和立场。',
-    color: '#6B8FBB',
+    color: '#2E5C8A',
     units: [
       { id:'b2-u1', title:'文化与身份认同', subtitle:'Cultura e Identidad', lessons:12, duration:'约 45 分钟',
         vocab:[
@@ -763,7 +763,7 @@ const COURSES = {
   C1: {
     level: 'C1', title: '高级精通', subtitle: 'Avanzado',
     description: '能在专业领域、学术讨论和复杂话题上精准表达。',
-    color: '#9B7DB8',
+    color: '#7A2438',
     units: [
       { id:'c1-u1', title:'商务谈判与合同', subtitle:'Negocios y Contratos', lessons:14, duration:'约 50 分钟',
         vocab:[
@@ -838,7 +838,7 @@ const COURSES = {
   C2: {
     level: 'C2', title: '母语水平', subtitle: 'Maestro',
     description: '接近母语者水平，精准优雅地使用西班牙语。',
-    color: '#2D2D2D',
+    color: '#221A12',
     units: [
       { id:'c2-u1', title:'文学修辞与语言艺术', subtitle:'Arte del Lenguaje', lessons:16, duration:'约 60 分钟',
         vocab:[

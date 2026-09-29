@@ -2,6 +2,47 @@
    Lingua Española - 主应用逻辑
    ============================================ */
 
+// ---- SVG 图标系统（线性、1.75 描边，避免 emoji 的平台差异）----
+const ICONS = {
+  home: '<path d="M3 10.6 12 3.2l9 7.4"/><path d="M5.4 9.2V19a1.6 1.6 0 0 0 1.6 1.6h3.1v-5.5h3.8v5.5H17a1.6 1.6 0 0 0 1.6-1.6V9.2"/>',
+  book: '<path d="M4 5.4A2.4 2.4 0 0 1 6.4 3H20v14.2H6.4A2.4 2.4 0 0 0 4 19.6z"/><path d="M4 5.4V19.6"/>',
+  chart: '<path d="M4 20h16"/><path d="M7.4 20v-8.4"/><path d="M12 20V4.6"/><path d="M16.6 20v-5.6"/>',
+  chat: '<path d="M20.4 12.4c0 3.9-3.6 7-8.1 7a9.3 9.3 0 0 1-2.6-.36L5 20.8l1.2-3.4a6.7 6.7 0 0 1-2.6-5c0-3.9 3.6-7 8.1-7s8.7 3.1 8.7 7z"/>',
+  trophy: '<path d="M8 4h8v4.5a4 4 0 0 1-8 0z"/><path d="M8 5.2H5.4a.9.9 0 0 0-.9 1c.15 2.1 1.6 3.5 3.5 3.7"/><path d="M16 5.2h2.6a.9.9 0 0 1 .9 1c-.15 2.1-1.6 3.5-3.5 3.7"/><path d="M12 12.5V16"/><path d="M8.6 20h6.8l-.6-3.2H9.2z"/>',
+  cards: '<rect x="3.2" y="6.6" width="13.6" height="13.4" rx="2.2"/><path d="M7.4 3.4h11a2.2 2.2 0 0 1 2.2 2.2v11"/>',
+  pen: '<path d="M4 20l.9-4 11-11 3.1 3.1-11 11z"/><path d="M14.4 6.4l3.2 3.2"/>',
+  mic: '<rect x="9.2" y="3" width="5.6" height="10.4" rx="2.8"/><path d="M5.6 11.4a6.4 6.4 0 0 0 12.8 0"/><path d="M12 17.8V21"/><path d="M8.6 21h6.8"/>',
+  stop: '<rect x="6.4" y="6.4" width="11.2" height="11.2" rx="2.4"/>',
+  headphones: '<path d="M4.4 15v-2.8a7.6 7.6 0 0 1 15.2 0V15"/><rect x="3.2" y="13.6" width="4" height="6.4" rx="1.6"/><rect x="16.8" y="13.6" width="4" height="6.4" rx="1.6"/>',
+  target: '<circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none"/>',
+  sound: '<path d="M4 9.4h3.4L12 5.4v13.2L7.4 14.6H4z"/><path d="M15.6 9.2a4 4 0 0 1 0 5.6"/><path d="M18 6.8a7.4 7.4 0 0 1 0 10.4"/>',
+  close: '<path d="M6.4 6.4l11.2 11.2"/><path d="M17.6 6.4 6.4 17.6"/>',
+  check: '<path d="M5 12.6l4.4 4.4L19 7.4"/>',
+  arrowRight: '<path d="M4.6 12h14.4"/><path d="M13.4 6.4 19 12l-5.6 5.6"/>',
+  chevronLeft: '<path d="M14.4 5.6 8 12l6.4 6.4"/>',
+  eye: '<path d="M2.6 12S6 5.8 12 5.8 21.4 12 21.4 12 18 18.2 12 18.2 2.6 12 2.6 12z"/><circle cx="12" cy="12" r="3"/>',
+  globe: '<circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8"/><path d="M12 3.6c2.2 2.5 3.4 5.4 3.4 8.4s-1.2 5.9-3.4 8.4c-2.2-2.5-3.4-5.4-3.4-8.4S9.8 6.1 12 3.6z"/>',
+  list: '<rect x="4.4" y="4.4" width="15.2" height="15.2" rx="2.4"/><path d="M8.4 9.4h7.2"/><path d="M8.4 12.6h7.2"/><path d="M8.4 15.8h4.4"/>',
+  heart: '<path d="M12 20s-7.2-4.6-7.2-9.6A3.9 3.9 0 0 1 12 7.6a3.9 3.9 0 0 1 7.2 2.8C19.2 15.4 12 20 12 20z"/>',
+  bookmark: '<path d="M6.4 4.4h11.2v15.6L12 15.8 6.4 20z"/>',
+  flame: '<path d="M12 3.4c.6 3-1.5 4.2-2.7 5.7A6 6 0 0 0 7.6 13a4.4 4.4 0 0 0 8.8.2c0-1.4-.5-2.5-1.2-3.4"/>',
+  medal: '<circle cx="12" cy="14.6" r="5"/><path d="M8.6 9.6 6 3.4"/><path d="M15.4 9.6 18 3.4"/><path d="m12 12.4.8 1.7 1.9.3-1.4 1.3.3 1.9-1.6-.9-1.6.9.3-1.9-1.4-1.3 1.9-.3z"/>',
+  star: '<path d="m12 3.6 2.6 5.3 5.8.85-4.2 4.1 1 5.8L12 17l-5.2 2.75 1-5.8-4.2-4.1 5.8-.85z"/>',
+  clock: '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.6V12l3 1.8"/>',
+  lock: '<rect x="5.4" y="10.6" width="13.2" height="9.4" rx="2.2"/><path d="M8.4 10.6V8.4a3.6 3.6 0 0 1 7.2 0v2.2"/>',
+  brain: '<path d="M9.6 4.4A2.9 2.9 0 0 0 6.7 7.1a2.7 2.7 0 0 0-1.4 4.7A2.8 2.8 0 0 0 7 16.6a2.9 2.9 0 0 0 5 2V5.9a2.9 2.9 0 0 0-2.4-1.5z"/><path d="M14.4 4.4a2.9 2.9 0 0 1 2.9 2.7 2.7 2.7 0 0 1 1.4 4.7A2.8 2.8 0 0 1 17 16.6a2.9 2.9 0 0 1-5 2"/>',
+  sparkle: '<path d="M12 3.6l1.7 4.7 4.7 1.7-4.7 1.7L12 16.4l-1.7-4.7L5.6 10l4.7-1.7z"/>',
+  speed: '<path d="M4.6 17.6a8 8 0 1 1 14.8 0"/><path d="M12 13.8l3.4-3.4"/><circle cx="12" cy="14.2" r="1.1" fill="currentColor" stroke="none"/>',
+  compass: '<circle cx="12" cy="12" r="8.4"/><path d="m15.4 8.6-2 4.8-4.8 2 2-4.8z"/>',
+  calendar: '<rect x="3.6" y="5" width="16.8" height="15.4" rx="2.4"/><path d="M3.6 9.6h16.8"/><path d="M8 3.4v3.2"/><path d="M16 3.4v3.2"/>',
+  play: '<path d="M7.6 5.2 19 12 7.6 18.8z" fill="currentColor" stroke-linejoin="round"/>',
+  pause: '<rect x="7.4" y="5.4" width="3.2" height="13.2" rx="1" fill="currentColor" stroke="none"/><rect x="13.4" y="5.4" width="3.2" height="13.2" rx="1" fill="currentColor" stroke="none"/>',
+  spark: '<path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/>'
+};
+function icon(name, extra = '') {
+  return `<svg class="icon ${extra}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[name] || ''}</svg>`;
+}
+
 // ---- 全局状态 ----
 const AppState = {
   currentUser: null,
@@ -209,14 +250,16 @@ function initGlobalEvents() {
   // 移动端底部 Tab Bar 初始化（一次性）
   if (!document.querySelector('.mobile-tab-bar')) {
     const tabs = [
-      {icon:'🏠', label:'首页', hash:'dashboard'},
-      {icon:'📚', label:'课程', hash:'courses'},
-      {icon:'📈', label:'进度', hash:'progress'},
-      {icon:'💬', label:'社区', hash:'community'},
-      {icon:'🏆', label:'成就', hash:'achievements'}
+      {icon: icon('home'), label:'首页', hash:'dashboard'},
+      {icon: icon('book'), label:'课程', hash:'courses'},
+      {icon: icon('chart'), label:'进度', hash:'progress'},
+      {icon: icon('chat'), label:'社区', hash:'community'},
+      {icon: icon('trophy'), label:'成就', hash:'achievements'}
     ];
     const bar = document.createElement('nav');
     bar.className = 'mobile-tab-bar';
+    // 未登录时不显示底部导航（renderAuth 早于此处执行，需在此再判断一次）
+    if (!AppState.currentUser) bar.style.display = 'none';
     bar.innerHTML = tabs.map(t => 
       `<a href="#${t.hash}" class="mobile-tab-item" data-hash="${t.hash}">
         <span class="mobile-tab-icon">${t.icon}</span>
@@ -260,14 +303,17 @@ function showToast(msg) {
 // ---- 登录/注册 ----
 function renderAuth() {
   document.getElementById('app').style.display = 'none';
+  // 未登录时不显示主应用导航
+  const tabBar = document.querySelector('.mobile-tab-bar');
+  if (tabBar) tabBar.style.display = 'none';
   
   let authPage = document.getElementById('auth-page');
   if (!authPage) {
     authPage = document.createElement('div');
     authPage.id = 'auth-page';
-    authPage.className = 'auth-page';
     document.body.appendChild(authPage);
   }
+  authPage.className = 'auth-page';
   
   authPage.style.display = 'flex';
   authPage.innerHTML = `
@@ -382,6 +428,8 @@ function loginUser(username) {
 // ---- 通用应用框架 ----
 function showAppShell() {
   document.getElementById('auth-page').style.display = 'none';
+  const tabBar = document.querySelector('.mobile-tab-bar');
+  if (tabBar) tabBar.style.display = '';
   
   let app = document.getElementById('app');
   if (!app) {
@@ -404,23 +452,23 @@ function showAppShell() {
         <div class="sidebar-logo">Lingua<span class="accent">.</span></div>
         <nav class="nav-list">
           <div class="nav-item" data-route="dashboard" onclick="location.hash='dashboard'">
-            <span class="nav-icon">🏠</span>
+            <span class="nav-icon">${icon('home')}</span>
             <span class="nav-label">学习首页</span>
           </div>
           <div class="nav-item" data-route="courses" onclick="location.hash='courses'">
-            <span class="nav-icon">📖</span>
+            <span class="nav-icon">${icon('book')}</span>
             <span class="nav-label">分级课程</span>
           </div>
           <div class="nav-item" data-route="progress" onclick="location.hash='progress'">
-            <span class="nav-icon">📊</span>
+            <span class="nav-icon">${icon('chart')}</span>
             <span class="nav-label">学习进度</span>
           </div>
           <div class="nav-item" data-route="community" onclick="location.hash='community'">
-            <span class="nav-icon">💬</span>
+            <span class="nav-icon">${icon('chat')}</span>
             <span class="nav-label">社区交流</span>
           </div>
           <div class="nav-item" data-route="achievements" onclick="location.hash='achievements'">
-            <span class="nav-icon">🏆</span>
+            <span class="nav-icon">${icon('trophy')}</span>
             <span class="nav-label">成就中心</span>
           </div>
         </nav>
@@ -449,7 +497,6 @@ function showAppShell() {
   });
   
   updateMobileTabActive();
-  updateMobileTabActive();
   return app.querySelector('#page-content');
 }
 
@@ -475,7 +522,7 @@ function renderDashboard() {
     <div class="dashboard">
       <!-- Hero -->
       <div class="hero-card">
-        <h1 class="hero-greeting">¡Hola, ${AppState.currentUser}! 👋</h1>
+        <h1 class="hero-greeting">¡Hola, ${AppState.currentUser}!</h1>
         <p class="hero-sub">今日也是专注学习西班牙语的好一天</p>
         <div class="hero-stats">
           <div class="hero-stat">
@@ -543,17 +590,17 @@ function renderDashboard() {
       <!-- 快捷入口 -->
       <div class="dash-grid">
         <div class="progress-card" onclick="location.hash='courses'" style="cursor:pointer;">
-          <div style="font-size:2rem;margin-bottom:12px;">📖</div>
+          <div class="quick-icon">${icon('book')}</div>
           <div class="progress-title">继续课程</div>
           <div class="progress-meta">${currentUnit.title} · 开始今天的学习</div>
         </div>
         <div class="progress-card" onclick="startLearning('vocab', '${currentUnit.id}')" style="cursor:pointer;">
-          <div style="font-size:2rem;margin-bottom:12px;">🎴</div>
+          <div class="quick-icon">${icon('cards')}</div>
           <div class="progress-title">单词卡片</div>
           <div class="progress-meta">${currentUnit.vocab.length} 个新单词</div>
         </div>
         <div class="progress-card" onclick="startLearning('grammar', '${currentUnit.id}')" style="cursor:pointer;">
-          <div style="font-size:2rem;margin-bottom:12px;">✍️</div>
+          <div class="quick-icon">${icon('pen')}</div>
           <div class="progress-title">语法练习</div>
           <div class="progress-meta">${currentUnit.grammar.length} 个语法点</div>
         </div>
@@ -634,7 +681,7 @@ function renderRecommendations(progress, level, currentUnit) {
         const newUnit = newLevel.units[progress.currentUnitIndex];
         startLearning('vocab', newUnit.id);
       },
-      badge:'🎉 进入下一单元', accent:true
+      badge:'进入下一单元', accent:true
     });
   }
   
@@ -648,7 +695,7 @@ function renderRecommendations(progress, level, currentUnit) {
       </span>
       <div class="recommend-title">${r.title}</div>
       <div class="recommend-desc">${r.desc}</div>
-      <div class="recommend-duration">⏱ ${r.duration}</div>
+      <div class="recommend-duration">${icon('clock')} ${r.duration}</div>
     </div>
   `).join('');
   
@@ -664,8 +711,8 @@ function renderCourses() {
   const progress = AppState.progress;
   
   const levelColors = {
-    A1: '#E63946', A2: '#F4A261', B1: '#8BD4B8', 
-    B2: '#6B8FBB', C1: '#9B7DB8', C2: '#2D2D2D'
+    A1: '#C0563A', A2: '#D3982A', B1: '#5F7043', 
+    B2: '#2E5C8A', C1: '#7A2438', C2: '#221A12'
   };
   
   container.innerHTML = `
@@ -727,24 +774,28 @@ function renderUnits(levelKey, progress) {
   const level = COURSES[levelKey];
   const list = document.getElementById('units-list');
   
-  list.innerHTML = level.units.map((unit, i) => `
-    <div class="unit-card" onclick="location.hash='unit/${levelKey}/${unit.id}'">
+  list.innerHTML = level.units.map((unit, i) => {
+    const done = i < progress.currentUnitIndex;
+    const current = i === progress.currentUnitIndex;
+    return `
+    <div class="unit-card ${current ? 'current' : ''}" onclick="location.hash='unit/${levelKey}/${unit.id}'">
       <div class="unit-num">${String(i + 1).padStart(2, '0')}</div>
       <div class="unit-info">
         <div class="unit-title">${unit.title}</div>
         <div class="unit-sub">${unit.subtitle}</div>
         <div class="unit-meta">
-          <span>📚 ${unit.vocab.length} 个单词</span>
-          <span>✍️ ${unit.grammar.length} 个语法点</span>
-          <span>⏱ ${unit.duration}</span>
+          <span>${icon('cards')} ${unit.vocab.length} 个单词</span>
+          <span>${icon('pen')} ${unit.grammar.length} 个语法点</span>
+          <span>${icon('clock')} ${unit.duration}</span>
         </div>
       </div>
       <div class="unit-progress">
-        <div class="unit-progress-num">${i < progress.currentUnitIndex || (progress.currentLevel === levelKey && i < progress.currentUnitIndex) ? '100%' : i === progress.currentUnitIndex ? '进行中' : '—'}</div>
-        <div class="unit-progress-label">${i < progress.currentUnitIndex + 1 ? '已完成' : '未开始'}</div>
+        <div class="unit-progress-num">${done ? '100%' : current ? '进行中' : '—'}</div>
+        <div class="unit-progress-label">${done ? '已完成' : current ? '当前单元' : '未开始'}</div>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function adjustColor(hex, amount) {
@@ -773,10 +824,10 @@ function renderUnitDetail(levelKey, unitId) {
   
   // 学习路线图节点
   const steps = [
-    {label:'📚 记单词', done: knownInUnit >= unit.vocab.length, action:`startLearning('vocab','${unit.id}')`, detail:`${knownInUnit}/${unit.vocab.length}`},
-    {label:'✍️ 学语法', done: progress.completedGrammar.includes(unit.id) || (knownInUnit >= unit.vocab.length), action:`startLearning('grammar','${unit.id}')`, detail:`${unit.grammar.length} 个语法点`},
-    {label:'🎤 说出来', done: false, action:`startLearning('speaking','${unit.id}')`, detail:'跟读练习'},
-    {label:'🎧 听得懂', done: false, action:`startLearning('listening','${unit.id}')`, detail:'真实对话'}
+    {icon:'cards', label:'记单词', done: knownInUnit >= unit.vocab.length, action:`startLearning('vocab','${unit.id}')`, detail:`${knownInUnit}/${unit.vocab.length}`},
+    {icon:'pen', label:'学语法', done: progress.completedGrammar.includes(unit.id) || (knownInUnit >= unit.vocab.length), action:`startLearning('grammar','${unit.id}')`, detail:`${unit.grammar.length} 个语法点`},
+    {icon:'mic', label:'说出来', done: false, action:`startLearning('speaking','${unit.id}')`, detail:'跟读练习'},
+    {icon:'headphones', label:'听得懂', done: false, action:`startLearning('listening','${unit.id}')`, detail:'真实对话'}
   ];
   
   container.innerHTML = `
@@ -792,29 +843,29 @@ function renderUnitDetail(levelKey, unitId) {
       </div>
       
       <!-- 学习路线图 -->
-      <div style="background:var(--surface);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:32px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-          <div style="font-weight:600;">📌 学习路径</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);">${prevUnit ? `← ${prevUnit.title}` : ''} <span style="color:var(--text);margin:0 8px;">|</span> <strong style="color:${level.color};">当前：${unit.title}</strong> <span style="color:var(--text);margin:0 8px;">|</span> ${nextUnit ? `${nextUnit.title} →` : '到顶啦 🎉'}</div>
+      <div class="unit-path-panel">
+        <div class="unit-path-head">
+          <div class="unit-path-title">${icon('compass')} 学习路径</div>
+          <div class="unit-path-nav">${prevUnit ? `${icon('chevronLeft')} ${prevUnit.title}` : ''} <span class="sep">·</span> <strong style="color:${level.color};">当前：${unit.title}</strong> ${nextUnit ? `<span class="sep">·</span> ${nextUnit.title} ${icon('arrowRight')}` : `<span class="sep">·</span> 到顶啦`}</div>
         </div>
-        <div style="display:flex;gap:12px;align-items:stretch;">
+        <div class="unit-path">
           ${steps.map((s, i) => `
-            <div style="flex:1;background:${s.done ? 'rgba(139,212,184,0.1)' : 'var(--bg-alt)'};border-radius:var(--radius-md);padding:16px;cursor:pointer;transition:all 0.2s;" onclick="${s.action}">
-              <div style="font-size:0.7rem;color:${s.done ? 'var(--green)' : 'var(--text-muted)'};font-weight:600;margin-bottom:6px;">
-                ${s.done ? '✓ 已完成' : '步骤 ' + (i+1)}
+            <div class="unit-path-step ${s.done ? 'done' : ''}" onclick="${s.action}">
+              <div class="unit-path-step-top">
+                <span class="unit-path-icon">${icon(s.icon)}</span>
+                <span class="unit-path-status">${s.done ? icon('check') + ' 已完成' : '步骤 ' + (i+1)}</span>
               </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:4px;">${s.label}</div>
-              <div style="font-size:0.8rem;color:var(--text-muted);">${s.detail}</div>
+              <div class="unit-path-label">${s.label}</div>
+              <div class="unit-path-detail">${s.detail}</div>
             </div>
-            ${i < steps.length - 1 ? '<div style="display:flex;align-items:center;color:var(--text-muted);font-size:1.2rem;">→</div>' : ''}
           `).join('')}
         </div>
       </div>
       
       <div class="unit-tabs" id="unit-tabs">
-        <button class="unit-tab active" data-tab="vocab">📚 单词表</button>
-        <button class="unit-tab" data-tab="grammar">✍️ 语法点</button>
-        <button class="unit-tab" data-tab="practice">🎯 开始练习</button>
+        <button class="unit-tab active" data-tab="vocab">${icon('book')} 单词表</button>
+        <button class="unit-tab" data-tab="grammar">${icon('pen')} 语法点</button>
+        <button class="unit-tab" data-tab="practice">${icon('target')} 开始练习</button>
       </div>
       
       <div id="tab-content"></div>
@@ -844,13 +895,13 @@ function renderUnitTab(tab, unit) {
             <div class="word-zh">${w.zh}</div>
             <div class="word-example">"${w.example}"</div>
             <div class="word-actions">
-              <button class="card-btn play" onclick="event.stopPropagation(); speakWord('${w.es.replace(/'/g, "\\'")}')" style="padding:8px 14px;font-size:0.8rem;">🔊 发音</button>
+              <button class="card-btn play" onclick="event.stopPropagation(); speakWord('${w.es.replace(/'/g, "\\'")}')" style="padding:8px 14px;font-size:0.8rem;">${icon('sound')} 发音</button>
             </div>
           </div>
         `).join('')}
       </div>
       <div style="margin-top:24px;text-align:center;">
-        <button class="btn btn-primary" onclick="startLearning('vocab', '${unit.id}')">🎴 用卡片开始学习</button>
+        <button class="btn btn-primary" onclick="startLearning('vocab', '${unit.id}')">${icon('cards')} 用卡片开始学习</button>
       </div>
     `;
   } else if (tab === 'grammar') {
@@ -865,32 +916,32 @@ function renderUnitTab(tab, unit) {
         `).join('')}
       </div>
       <div style="margin-top:24px;text-align:center;">
-        <button class="btn btn-primary" onclick="startLearning('grammar', '${unit.id}')">✍️ 开始语法练习</button>
+        <button class="btn btn-primary" onclick="startLearning('grammar', '${unit.id}')">${icon('pen')} 开始语法练习</button>
       </div>
     `;
   } else {
     content.innerHTML = `
       <div class="grammar-list">
         <div class="grammar-item" style="text-align:center;padding:48px 28px;">
-          <div style="font-size:3rem;margin-bottom:16px;">🎴</div>
+          <div class="feature-icon">${icon('cards')}</div>
           <div class="grammar-title">单词记忆</div>
           <div class="grammar-desc" style="margin-bottom:20px;">使用科学的间隔重复法高效记忆单词</div>
           <button class="btn btn-primary" onclick="startLearning('vocab', '${unit.id}')">开始学习</button>
         </div>
         <div class="grammar-item" style="text-align:center;padding:48px 28px;">
-          <div style="font-size:3rem;margin-bottom:16px;">✍️</div>
+          <div class="feature-icon">${icon('pen')}</div>
           <div class="grammar-title">语法练习</div>
           <div class="grammar-desc" style="margin-bottom:20px;">填空、选择等多种形式巩固语法</div>
           <button class="btn btn-primary" onclick="startLearning('grammar', '${unit.id}')">开始练习</button>
         </div>
         <div class="grammar-item" style="text-align:center;padding:48px 28px;">
-          <div style="font-size:3rem;margin-bottom:16px;">🎤</div>
+          <div class="feature-icon">${icon('mic')}</div>
           <div class="grammar-title">口语跟读</div>
           <div class="grammar-desc" style="margin-bottom:20px;">真人发音示范，即时对比评分</div>
           <button class="btn btn-primary" onclick="startLearning('speaking', '${unit.id}')">开始练习</button>
         </div>
         <div class="grammar-item" style="text-align:center;padding:48px 28px;">
-          <div style="font-size:3rem;margin-bottom:16px;">🎧</div>
+          <div class="feature-icon">${icon('headphones')}</div>
           <div class="grammar-title">听力训练</div>
           <div class="grammar-desc" style="margin-bottom:20px;">原文精听，逐句跟读理解</div>
           <button class="btn btn-primary" onclick="startLearning('listening', '${unit.id}')">开始练习</button>
@@ -912,7 +963,7 @@ function renderLearn(mode, unitId) {
   let unit = Object.values(COURSES).flatMap(l => l.units).find(u => u.id === unitId);
   if (!unit) {
     console.error('renderLearn: unit not found for id', unitId);
-    showAppShell().innerHTML = '<div style="padding:40px;text-align:center;color:var(--red);">⚠️ 未找到课程单元</div>';
+    showAppShell().innerHTML = '<div style="padding:40px;text-align:center;color:var(--error);">未找到课程单元</div>';
     return;
   }
   
@@ -936,23 +987,20 @@ function renderVocabCards(unit) {
   // SRS 排序：到期词在前 + stage 低的在前
   const rawVocab = unit.vocab || [];
   let vocab = AppState.srsSort(rawVocab);
-  const dueCount = AppState.srsDueWords(unit.vocab || []);
+  const dueCount = AppState.srsDueWords(unit.vocab || []).length;
   let currentIdx = 0;
   
   container.innerHTML = `
     <div class="learning-container">
       <div class="learning-header">
-        <div>
-          <div class="unit-breadcrumb"><a href="#courses">← 返回课程</a></div>
-          <div class="learning-title">🎴 单词卡片 · ${unit.title}</div>
-          <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">
-            ${dueCount} 个到期 · ${vocab.length} 个总计
-          </div>
+        <div class="learning-header-main">
+          <div class="unit-breadcrumb"><a href="#courses">${icon('chevronLeft')} 返回课程</a></div>
+          <div class="learning-title">${icon('cards')} 单词卡片 · ${unit.title}</div>
+          <div class="learning-meta">${dueCount} 个待复习 · 共 ${vocab.length} 个</div>
         </div>
-        <div class="learning-steps">
-          ${vocab.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
-        </div>
+        <div class="learning-counter"><b id="learn-idx">${currentIdx + 1}</b><span> / ${vocab.length}</span></div>
       </div>
+      <div class="learning-progress"><div class="learning-progress-fill" id="learn-progress" style="width:${(currentIdx / vocab.length) * 100}%"></div></div>
       
       <div class="flashcard-container" id="flashcard-container">
         <div class="flashcard" id="flashcard">
@@ -971,14 +1019,12 @@ function renderVocabCards(unit) {
       </div>
       
       <div class="card-controls">
-        <button class="card-btn unknown" id="btn-unknown">❌ 还不会</button>
-        <button class="card-btn play" id="btn-play">🔊 发音</button>
-        <button class="card-btn known" id="btn-known">✅ 已掌握</button>
+        <button class="card-btn unknown" id="btn-unknown">${icon('close')} 还不会</button>
+        <button class="card-btn play" id="btn-play">${icon('sound')} 发音</button>
+        <button class="card-btn known" id="btn-known">${icon('check')} 已掌握</button>
       </div>
       
-      <div style="text-align:center; margin-top: 20px;">
-        <div style="font-size:0.9rem; color: var(--text-muted);">进度 ${currentIdx + 1} / ${vocab.length} · 🧠 间隔复习 (SM-2)</div>
-      </div>
+      <div class="learning-footnote">${icon('brain')} 间隔复习 · SM-2 算法</div>
     </div>
   `;
   
@@ -1031,13 +1077,11 @@ function renderVocabCards(unit) {
       `;
       flashcard.onclick = () => flashcard.classList.toggle('flipped');
       
-      // 更新进度条
-      const steps = document.querySelectorAll('.learning-step');
-      steps.forEach((s, i) => {
-        s.className = 'learning-step ' + (i < currentIdx ? 'done' : i === currentIdx ? 'active' : '');
-      });
-      document.querySelector('.learning-container div[style*="text-align"] div').textContent = 
-        `进度 ${currentIdx + 1} / ${vocab.length}`;
+      // 更新进度
+      const idxEl = document.getElementById('learn-idx');
+      if (idxEl) idxEl.textContent = currentIdx + 1;
+      const barEl = document.getElementById('learn-progress');
+      if (barEl) barEl.style.width = `${(currentIdx / vocab.length) * 100}%`;
     }, 200);
   }
   
@@ -1049,7 +1093,7 @@ function showVocabComplete(unit) {
   const container = document.querySelector('.learning-container');
   container.innerHTML = `
     <div style="text-align:center; padding: 60px 20px;">
-      <div style="font-size:5rem;margin-bottom:24px;">🎉</div>
+      <div class="celebrate-icon">${icon('sparkle')}</div>
       <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 8px;">¡Excelente!</div>
       <div style="color: var(--text-secondary); margin-bottom: 32px;">你完成了 ${unit.title} 的全部单词学习</div>
       <div style="display:flex;gap:16px;justify-content:center;">
@@ -1074,13 +1118,11 @@ function renderGrammarQuiz(unit) {
   container.innerHTML = `
     <div class="learning-container">
       <div class="learning-header">
-        <div>
-          <div class="unit-breadcrumb"><a href="#courses">← 返回课程</a></div>
-          <div class="learning-title">✍️ 语法练习 · ${unit.title}</div>
+        <div class="learning-header-main">
+          <div class="unit-breadcrumb"><a href="#courses">${icon('chevronLeft')} 返回课程</a></div>
+          <div class="learning-title">${icon('pen')} 语法练习 · ${unit.title}</div>
         </div>
-        <div class="learning-steps">
-          ${questions.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
-        </div>
+        <div class="learning-counter"><b>${questions.length}</b><span> 题</span></div>
       </div>
       
       <div class="quiz-container">
@@ -1100,7 +1142,7 @@ function renderGrammarQuiz(unit) {
   function renderQuestion(qs, idx) {
     const q = qs[idx];
     document.getElementById('quiz-question').innerHTML = `
-      ${q.topic ? `<div style="display:inline-block;font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(107,143,187,0.1);color:#6B8FBB;margin-bottom:10px;">📘 ${q.topic}</div>` : ''}
+      ${q.topic ? `<div class="quiz-topic">${icon('list')} ${q.topic}</div>` : ''}
       <div class="quiz-prompt">选择正确的选项填空：</div>
       <div class="quiz-sentence">${q.sentence}</div>
     `;
@@ -1141,11 +1183,11 @@ function renderGrammarQuiz(unit) {
         if (isCorrect) {
           progress.quizCorrect++;
           progress.points += 10;
-          showToast('✅ 回答正确！');
+          showToast('回答正确！');
         } else {
           // 显示正确答案
           optionsEl.querySelector(`[data-idx="${q.correct}"]`).classList.add('correct');
-          showToast('❌ 再想想哦');
+          showToast('再想想哦');
         }
         AppState.saveProgress();
         
@@ -1155,9 +1197,6 @@ function renderGrammarQuiz(unit) {
             showQuizComplete(qs, isCorrect);
           } else {
             renderQuestion(qs, currentIdx);
-            document.querySelectorAll('.learning-step').forEach((s, i) => {
-              s.className = 'learning-step ' + (i < currentIdx ? 'done' : i === currentIdx ? 'active' : '');
-            });
             document.querySelector('.quiz-bar-fill').style.width = 
               Math.round((currentIdx / qs.length) * 100) + '%';
             document.querySelector('.quiz-count').textContent = `${currentIdx + 1} / ${qs.length}`;
@@ -1206,7 +1245,7 @@ function showQuizComplete(questions, lastCorrect) {
   
   document.querySelector('.quiz-container').innerHTML = `
     <div style="text-align:center; padding: 40px 20px;">
-      <div style="font-size:5rem;margin-bottom:24px;">${accuracy >= 70 ? '🎉' : '💪'}</div>
+      <div class="celebrate-icon">${accuracy >= 70 ? icon('sparkle') : icon('target')}</div>
       <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 8px;">
         ${accuracy >= 70 ? '¡Muy bien!' : 'Sigue practicando!'}
       </div>
@@ -1249,31 +1288,29 @@ function renderSpeaking(unit) {
   container.innerHTML = `
     <div class="learning-container">
       <div class="learning-header">
-        <div>
-          <div class="unit-breadcrumb"><a href="#courses">← 返回课程</a></div>
-          <div class="learning-title">🎤 口语跟读</div>
+        <div class="learning-header-main">
+          <div class="unit-breadcrumb"><a href="#courses">${icon('chevronLeft')} 返回课程</a></div>
+          <div class="learning-title">${icon('mic')} 口语跟读</div>
         </div>
-        <div class="learning-steps">
-          ${sentences.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
-        </div>
+        <div class="learning-counter"><b id="sp-idx">${currentIdx + 1}</b><span> / ${sentences.length}</span></div>
       </div>
       
       <div class="speaking-container">
         <div style="display:flex;justify-content:center;margin-bottom:16px;">
           <span class="recommend-type speaking" style="font-size:0.8rem;">${sentences[currentIdx].level || 'A1'} · Nivel</span>
         </div>
-        <button class="mic-circle ${isRecording ? 'recording' : ''}" id="mic-btn">
-          <span class="mic-icon">🎤</span>
+        <button class="mic-circle ${isRecording ? 'recording' : ''}" id="mic-btn" aria-label="麦克风">
+          <span class="mic-icon">${icon('mic')}</span>
         </button>
         
         <div class="speaking-sentence" id="sp-sentence">${sentences[currentIdx].es}</div>
         <div class="speaking-translation">${sentences[currentIdx].zh}</div>
         ${sentences[currentIdx].slow ? `<div style="color:var(--text-muted);font-size:0.85rem;font-style:italic;margin-bottom:8px;" id="sp-slow">慢速：${sentences[currentIdx].slow}</div>` : ''}
-        ${sentences[currentIdx].vocab ? `<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;" id="sp-vocab">${sentences[currentIdx].vocab.map(v=>`<span style="background:rgba(230,57,70,0.1);color:var(--red);padding:4px 10px;border-radius:20px;font-size:0.8rem;">${v}</span>`).join('')}</div>` : ''}
+        ${sentences[currentIdx].vocab ? `<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;" id="sp-vocab">${sentences[currentIdx].vocab.map(v=>`<span class="sp-vocab-pill">${v}</span>`).join('')}</div>` : ''}
         
         <div style="display:flex;gap:12px;justify-content:center;margin-bottom:32px;">
-          <button class="speaking-play-btn" id="play-btn">🔊 听发音</button>
-          <button class="speaking-play-btn" id="next-btn" style="display:none;">➡️ 下一句</button>
+          <button class="speaking-play-btn" id="play-btn">${icon('sound')} 听发音</button>
+          <button class="speaking-play-btn" id="next-btn" style="display:none;">下一句 ${icon('arrowRight')}</button>
         </div>
         
         <div class="speaking-score" id="score-box" style="display:none;">
@@ -1296,30 +1333,30 @@ function renderSpeaking(unit) {
     if (!isRecording) {
       isRecording = true;
       micBtn.classList.add('recording');
-      micBtn.innerHTML = '<span class="mic-icon">⏹️</span>';
-      showToast('🎤 开始录音...');
+      micBtn.innerHTML = `<span class="mic-icon">${icon('stop')}</span>`;
+      showToast('开始录音…');
       
       // 模拟录音 2 秒
       setTimeout(() => {
         isRecording = false;
         micBtn.classList.remove('recording');
-        micBtn.innerHTML = '<span class="mic-icon">🎤</span>';
+        micBtn.innerHTML = `<span class="mic-icon">${icon('mic')}</span>`;
         
         // 模拟评分
         const score = Math.floor(Math.random() * 30) + 70;
         document.getElementById('score-num').textContent = score;
         scoreBox.style.display = 'block';
         document.getElementById('score-feedback').textContent = 
-          score >= 90 ? '太棒了！发音非常标准 🌟' : 
-          score >= 80 ? '很不错，继续保持 ✨' : 
-          '还可以更好，再试试吧 💪';
+          score >= 90 ? '太棒了！发音非常标准' : 
+          score >= 80 ? '很不错，继续保持' : 
+          '还可以更好，再试试吧';
         
         nextBtn.style.display = 'inline-flex';
       }, 2000);
     } else {
       isRecording = false;
       micBtn.classList.remove('recording');
-      micBtn.innerHTML = '<span class="mic-icon">🎤</span>';
+      micBtn.innerHTML = `<span class="mic-icon">${icon('mic')}</span>`;
     }
   });
   
@@ -1331,7 +1368,7 @@ function renderSpeaking(unit) {
     currentIdx++;
     if (currentIdx >= sentences.length) {
       document.querySelector('.speaking-container').innerHTML = `
-        <div style="font-size:3rem;margin-bottom:24px;">🎉</div>
+        <div class="celebrate-icon">${icon('sparkle')}</div>
         <div class="learning-title" style="font-size:1.5rem;">¡Muy bien hecho!</div>
         <p style="color:var(--text-secondary);margin:16px 0;">完成了全部 ${sentences.length} 句口语练习</p>
         <button class="btn btn-primary" onclick="location.hash='courses'">返回课程</button>
@@ -1361,17 +1398,16 @@ function renderSpeaking(unit) {
       const d = document.createElement('div');
       d.id = 'sp-vocab';
       d.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;';
-      d.innerHTML = sentences[currentIdx].vocab.map(v=>`<span style="background:rgba(230,57,70,0.1);color:var(--red);padding:4px 10px;border-radius:20px;font-size:0.8rem;">${v}</span>`).join('');
+      d.innerHTML = sentences[currentIdx].vocab.map(v=>`<span class="sp-vocab-pill">${v}</span>`).join('');
       document.getElementById('sp-slow') || insertAfter.after(d);
       if (document.getElementById('sp-slow')) document.getElementById('sp-slow').after(d);
     }
     scoreBox.style.display = 'none';
     nextBtn.style.display = 'none';
     
-    // 更新进度条
-    document.querySelectorAll('.learning-step').forEach((s, i) => {
-      s.className = 'learning-step ' + (i < currentIdx ? 'done' : i === currentIdx ? 'active' : '');
-    });
+    // 更新进度
+    const spIdx = document.getElementById('sp-idx');
+    if (spIdx) spIdx.textContent = currentIdx + 1;
   });
 }
 
@@ -1399,13 +1435,11 @@ function renderListening(unit) {
   container.innerHTML = `
     <div class="learning-container">
       <div class="learning-header">
-        <div>
-          <div class="unit-breadcrumb"><a href="#courses">← 返回课程</a></div>
-          <div class="learning-title">🎧 听力训练</div>
+        <div class="learning-header-main">
+          <div class="unit-breadcrumb"><a href="#courses">${icon('chevronLeft')} 返回课程</a></div>
+          <div class="learning-title">${icon('headphones')} 听力训练</div>
         </div>
-        <div class="learning-steps">
-          ${passages.map((_, i) => `<div class="learning-step ${i === currentIdx ? 'active' : ''}"></div>`).join('')}
-        </div>
+        <div class="learning-counter"><b id="ls-idx">${currentIdx + 1}</b><span> / ${passages.length}</span></div>
       </div>
       
       <div class="listening-container">
@@ -1414,18 +1448,18 @@ function renderListening(unit) {
             <span class="recommend-type listening" style="font-size:0.8rem;">${p.level}</span>
             <span style="color:var(--text-secondary);font-size:0.9rem;">${p.title}</span>
           </div>
-          ${p.speaker ? `<div style="color:var(--text-muted);font-size:0.8rem;margin-bottom:16px;">🗣 ${p.speaker}</div>` : ''}
+          ${p.speaker ? `<div class="audio-speaker">${icon('chat')} ${p.speaker}</div>` : ''}
           
           <!-- 播放器 -->
           <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:4px;">
-            <button class="audio-play-btn ${isPlaying ? 'playing' : ''}" id="audio-play">
-              ${isPlaying ? '⏸' : '▶'}
+            <button class="audio-play-btn ${isPlaying ? 'playing' : ''}" id="audio-play" aria-label="播放">
+              ${isPlaying ? icon('pause') : icon('play')}
             </button>
           </div>
           
           <!-- 速度切换 -->
           <div style="display:flex;justify-content:center;gap:4px;margin-bottom:12px;">
-            ${[{r:0.6,l:'🐢 慢速'},{r:0.9,l:'🚶 正常'},{r:1.3,l:'🏃 快速'}].map(opt => 
+            ${[{r:0.6,l:'慢速'},{r:0.9,l:'正常'},{r:1.3,l:'快速'}].map(opt => 
               `<button class="rate-btn ${playbackRate===opt.r?'active':''}" data-rate="${opt.r}">${opt.l}</button>`
             ).join('')}
           </div>
@@ -1446,14 +1480,14 @@ function renderListening(unit) {
           
           ${p.keyVocab && p.keyVocab.length ? `
             <div style="margin-top:20px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);text-align:left;">
-              <div style="font-weight:600;font-size:0.85rem;margin-bottom:10px;color:var(--text);">📌 重点词汇</div>
+              <div class="audio-block-title">${icon('book')} 重点词汇</div>
               ${p.keyVocab.map(v => `<div style="margin-bottom:6px;font-size:0.88rem;"><strong style="color:var(--text);">${v.es}</strong> <span style="color:var(--text-muted);">— ${v.zh}</span></div>`).join('')}
             </div>
           ` : ''}
           
           ${p.questions && p.questions.length ? `
             <div id="quiz-block" style="margin-top:20px;display:${showQuestions ? 'block' : 'none'};text-align:left;">
-              <div style="font-weight:600;margin-bottom:12px;">📝 听力理解题</div>
+              <div class="audio-block-title">${icon('list')} 听力理解题</div>
               ${p.questions.map((q, i) => `
                 <div style="margin-bottom:12px;">
                   <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
@@ -1464,10 +1498,10 @@ function renderListening(unit) {
           ` : ''}
           
           <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
-            <button class="speaking-play-btn" id="toggle-text">👁 ${showText ? '隐藏' : '显示'}原文</button>
-            <button class="speaking-play-btn" id="toggle-zh">🌐 ${showZh ? '隐藏' : '显示'}翻译</button>
-            ${p.questions && p.questions.length ? `<button class="speaking-play-btn" id="toggle-q">📝 ${showQuestions ? '隐藏' : '答题'}</button>` : ''}
-            <button class="speaking-play-btn" id="next-audio" style="display:none;">➡️ 下一段</button>
+            <button class="speaking-play-btn" id="toggle-text">${icon('eye')} ${showText ? '隐藏原文' : '显示原文'}</button>
+            <button class="speaking-play-btn" id="toggle-zh">${icon('globe')} ${showZh ? '隐藏翻译' : '显示翻译'}</button>
+            ${p.questions && p.questions.length ? `<button class="speaking-play-btn" id="toggle-q">${icon('list')} ${showQuestions ? '隐藏题目' : '答题'}</button>` : ''}
+            <button class="speaking-play-btn" id="next-audio" style="display:none;">下一段 ${icon('arrowRight')}</button>
           </div>
         </div>
       </div>
@@ -1506,26 +1540,26 @@ function renderListening(unit) {
   playBtn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     playBtn.classList.toggle('playing', isPlaying);
-    playBtn.textContent = isPlaying ? '⏸' : '▶';
+    playBtn.innerHTML = isPlaying ? icon('pause') : icon('play');
     if (isPlaying) {
       seqController = _playDialogueSequence(dialogue, {
         rate: playbackRate,
         onLineStart: (i) => {
           document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
           const curLine = document.querySelector(`.dl-line[data-idx="${i}"]`);
-          if (curLine) curLine.style.background = 'rgba(230,57,70,0.08)';
+          if (curLine) curLine.style.background = 'rgba(192,86,58,0.10)';
         },
         onEnded: () => {
           isPlaying = false;
           playBtn.classList.remove('playing');
-          playBtn.textContent = '▶';
+          playBtn.innerHTML = icon('play');
           nextBtn.style.display = 'inline-flex';
           document.querySelectorAll('.dl-line').forEach(el => el.style.background = 'transparent');
         },
         onStop: () => {
           isPlaying = false;
           playBtn.classList.remove('playing');
-          playBtn.textContent = '▶';
+          playBtn.innerHTML = icon('play');
         }
       });
     } else if (seqController) {
@@ -1537,20 +1571,20 @@ function renderListening(unit) {
   toggleText.addEventListener("click", () => {
     showText = !showText;
     transcript.classList.toggle('hidden', !showText);
-    toggleText.innerHTML = `👁 ${showText ? '隐藏' : '显示'}原文`;
+    toggleText.innerHTML = `${icon('eye')} ${showText ? '隐藏原文' : '显示原文'}`;
   });
   
   toggleZh.addEventListener('click', () => {
     showZh = !showZh;
     document.getElementById('audio-zh').style.display = showZh ? 'block' : 'none';
-    toggleZh.innerHTML = `🌐 ${showZh ? '隐藏' : '显示'}翻译`;
+    toggleZh.innerHTML = `${icon('globe')} ${showZh ? '隐藏翻译' : '显示翻译'}`;
   });
   
   const toggleQ = document.getElementById('toggle-q');
   if (toggleQ) toggleQ.addEventListener('click', () => {
     showQuestions = !showQuestions;
     document.getElementById('quiz-block').style.display = showQuestions ? 'block' : 'none';
-    toggleQ.innerHTML = `📝 ${showQuestions ? '隐藏' : '答题'}`;
+    toggleQ.innerHTML = `${icon('list')} ${showQuestions ? '隐藏题目' : '答题'}`;
   });
   
   nextBtn.addEventListener('click', () => {
@@ -1558,7 +1592,7 @@ function renderListening(unit) {
     if (currentIdx >= passages.length) {
       document.querySelector('.listening-container').innerHTML = `
         <div style="text-align:center;padding:60px 20px;">
-          <div style="font-size:4rem;margin-bottom:16px;">🎧</div>
+          <div class="celebrate-icon">${icon('headphones')}</div>
           <div class="learning-title" style="font-size:1.5rem;">听力训练完成！</div>
           <p style="color:var(--text-secondary);margin:16px 0;">你已经完成了 ${passages.length} 段真实对话听力练习</p>
           <button class="btn btn-primary" onclick="location.hash='courses'">返回课程</button>
@@ -1580,20 +1614,20 @@ function renderListeningNext(passages, idx) {
         <span class="recommend-type listening" style="font-size:0.8rem;">${p.level}</span>
         <span style="color:var(--text-secondary);font-size:0.9rem;">${p.title}</span>
       </div>
-      ${p.speaker ? `<div style="color:var(--text-muted);font-size:0.8rem;margin-bottom:16px;">🗣 ${p.speaker}</div>` : ''}
-      <button class="audio-play-btn" id="audio-play">▶</button>
+      ${p.speaker ? `<div class="audio-speaker">${icon('chat')} ${p.speaker}</div>` : ''}
+      <button class="audio-play-btn" id="audio-play" aria-label="播放">${icon('play')}</button>
       <div class="audio-info">时长 ${p.duration} · 第 ${idx + 1} 段</div>
       <div class="audio-transcript hidden" id="transcript" style="text-align:left;font-size:0.95rem;line-height:1.8;white-space:pre-line;">${p.es}</div>
       <div id="audio-zh" style="color:var(--text-secondary);display:none;margin-top:12px;font-size:0.9rem;line-height:1.8;white-space:pre-line;">${p.zh}</div>
       ${p.keyVocab && p.keyVocab.length ? `
         <div style="margin-top:20px;padding:16px;background:var(--bg-alt);border-radius:var(--radius-md);text-align:left;">
-          <div style="font-weight:600;font-size:0.85rem;margin-bottom:10px;color:var(--text);">📌 重点词汇</div>
+          <div class="audio-block-title">${icon('book')} 重点词汇</div>
           ${p.keyVocab.map(v => `<div style="margin-bottom:6px;font-size:0.88rem;"><strong style="color:var(--text);">${v.es}</strong> <span style="color:var(--text-muted);">— ${v.zh}</span></div>`).join('')}
         </div>
       ` : ''}
       ${p.questions && p.questions.length ? `
         <div id="quiz-block" style="margin-top:20px;display:none;text-align:left;">
-          <div style="font-weight:600;margin-bottom:12px;">📝 听力理解题</div>
+          <div class="audio-block-title">${icon('list')} 听力理解题</div>
           ${p.questions.map((q, i) => `
             <div style="margin-bottom:12px;">
               <div style="font-size:0.9rem;margin-bottom:6px;"><strong>${i+1}.</strong> ${q.q}</div>
@@ -1603,10 +1637,10 @@ function renderListeningNext(passages, idx) {
         </div>
       ` : ''}
       <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
-        <button class="speaking-play-btn" onclick="document.getElementById('transcript').classList.toggle('hidden'); this.innerHTML='👁 ' + (document.getElementById('transcript').classList.contains('hidden') ? '显示' : '隐藏') + '原文';">👁 显示原文</button>
-        <button class="speaking-play-btn" onclick="const z=document.getElementById('audio-zh'); z.style.display=z.style.display==='block'?'none':'block'; this.innerHTML='🌐 ' + (z.style.display==='block'?'隐藏':'显示') + '翻译';">🌐 显示翻译</button>
-        ${p.questions && p.questions.length ? `<button class="speaking-play-btn" onclick="const q=document.getElementById('quiz-block'); q.style.display=q.style.display==='block'?'none':'block';">📝 答题</button>` : ''}
-        <button class="speaking-play-btn" onclick="location.reload(); setTimeout(()=>renderListeningNext(${JSON.stringify(passages).replace(/"/g,'&quot;')}, ${idx+1}), 100);">➡️ 下一段</button>
+        <button class="speaking-play-btn" onclick="const t=document.getElementById('transcript'); t.classList.toggle('hidden'); this.innerHTML=(t.classList.contains('hidden')?'${icon('eye')} 显示原文':'${icon('eye')} 隐藏原文');">${icon('eye')} 显示原文</button>
+        <button class="speaking-play-btn" onclick="const z=document.getElementById('audio-zh'); const on=z.style.display!=='block'; z.style.display=on?'block':'none'; this.innerHTML=(on?'${icon('globe')} 隐藏翻译':'${icon('globe')} 显示翻译');">${icon('globe')} 显示翻译</button>
+        ${p.questions && p.questions.length ? `<button class="speaking-play-btn" onclick="const q=document.getElementById('quiz-block'); q.style.display=q.style.display==='block'?'none':'block';">${icon('list')} 答题</button>` : ''}
+        <button class="speaking-play-btn" onclick="renderListeningNext(${JSON.stringify(passages).replace(/"/g,'&quot;')}, ${idx+1});">下一段 ${icon('arrowRight')}</button>
       </div>
     </div>
   `;
@@ -1619,12 +1653,12 @@ function renderListeningNext(passages, idx) {
   let playing = false;
   playBtn.addEventListener('click', () => {
     playing = !playing;
-    playBtn.textContent = playing ? '⏸' : '▶';
+    playBtn.innerHTML = playing ? icon('pause') : icon('play');
     if (playing) {
       seq = _playDialogueSequence(dialogue, {
         rate: 0.9,
-        onEnded: () => { playing = false; playBtn.textContent = '▶'; },
-        onStop: () => { playing = false; playBtn.textContent = '▶'; }
+        onEnded: () => { playing = false; playBtn.innerHTML = icon('play'); },
+        onStop: () => { playing = false; playBtn.innerHTML = icon('play'); }
       });
     } else if (seq) {
       seq.stop();
@@ -1663,7 +1697,7 @@ function renderCommunity() {
       <!-- 侧边栏 -->
       <div class="community-side">
         <div class="side-card">
-          <div class="side-title">🔥 热门讨论</div>
+          <div class="side-title">${icon('flame')} 热门讨论</div>
           <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.8;">
             <div style="margin-bottom:10px;">• 推荐几个练听力的播客？</div>
             <div style="margin-bottom:10px;">• Ser 和 Estar 到底怎么分？</div>
@@ -1673,11 +1707,11 @@ function renderCommunity() {
         </div>
         
         <div class="side-card">
-          <div class="side-title">🌟 活跃用户</div>
+          <div class="side-title">${icon('sparkle')} 活跃用户</div>
           <div class="hot-users">
             ${['María García', 'Carlos Rodríguez', 'Ana López', 'Pedro Martínez'].map((name, i) => `
               <div class="hot-user">
-                <div class="avatar avatar-sm" style="background:${['#E63946','#F4A261','#8BD4B8','#6B8FBB'][i]};">${name.charAt(0)}</div>
+                <div class="avatar avatar-sm" style="background:${['#C0563A','#D3982A','#5F7043','#2E5C8A'][i]};">${name.charAt(0)}</div>
                 <div>
                   <div class="hot-user-name">${name}</div>
                   <div class="hot-user-level">${['B2','C1','A2','B1'][i]} · ${['284天','512天','42天','156天'][i]}</div>
@@ -1712,9 +1746,9 @@ function renderPosts() {
       <div class="post-content">${p.content}</div>
       <div class="post-tags">${p.tags.map(t => `<span class="post-tag">${t}</span>`).join('')}</div>
       <div class="post-actions">
-        <button class="post-action" onclick="likePost('${p.id}', this)">❤️ ${p.likes}</button>
-        <button class="post-action">💬 ${p.comments}</button>
-        <button class="post-action">🔖 收藏</button>
+        <button class="post-action" onclick="likePost('${p.id}', this)">${icon('heart')} ${p.likes}</button>
+        <button class="post-action">${icon('chat')} ${p.comments}</button>
+        <button class="post-action">${icon('bookmark')} 收藏</button>
       </div>
     </div>
   `).join('');
@@ -1750,7 +1784,7 @@ function submitPost() {
     progress.achievements.push('community');
     progress.points += 30;
     AppState.saveProgress();
-    showToast('🏆 成就解锁：社交达人！');
+    showToast('成就解锁：社交达人');
   }
 }
 
@@ -1770,6 +1804,16 @@ function getAvatarColor(name) {
 // ============================================
 // 成就中心
 // ============================================
+// 成就徽章图标映射（用线性 SVG 替代数据里的 emoji）
+const ACH_ICON = {
+  'first-word': 'sparkle', 'ten-words': 'book', 'fifty-words': 'target', 'hundred-words': 'medal',
+  'first-lesson': 'star', 'level-a1': 'trophy', 'level-a2': 'medal', 'level-b1': 'medal',
+  'level-b2': 'medal', 'level-c1': 'trophy', 'streak-3': 'flame', 'streak-7': 'flame',
+  'streak-30': 'flame', 'streak-100': 'flame', 'grammar-master': 'pen', 'grammar-expert': 'brain',
+  'listening-master': 'headphones', 'speaking-master': 'mic', 'community': 'chat', 'community-10': 'pen'
+};
+function achIcon(id) { return icon(ACH_ICON[id] || 'trophy'); }
+
 function renderAchievements() {
   const container = showAppShell();
   const progress = AppState.progress;
@@ -1787,6 +1831,7 @@ function renderAchievements() {
               <circle class="stats-ring-bg" cx="60" cy="60" r="52"/>
               <circle class="stats-ring-fill" cx="60" cy="60" r="52" 
                       stroke-dasharray="326" 
+                      style="stroke-linecap:${progress.achievements.length ? 'round' : 'butt'};"
                       stroke-dashoffset="${326 * (1 - progress.achievements.length / ACHIEVEMENTS.length)}"/>
             </svg>
             <div class="stats-ring-text">${Math.round(progress.achievements.length / ACHIEVEMENTS.length * 100)}%</div>
@@ -1796,7 +1841,7 @@ function renderAchievements() {
         </div>
         
         <div class="progress-card">
-          <div class="progress-title" style="margin-bottom:16px;">📈 学习统计</div>
+          <div class="progress-title" style="margin-bottom:16px;">${icon('chart')} 学习统计</div>
           <div style="display:flex;flex-direction:column;gap:12px;">
             <div style="display:flex;justify-content:space-between;">
               <span style="color:var(--text-secondary);">累计学习</span>
@@ -1808,7 +1853,7 @@ function renderAchievements() {
             </div>
             <div style="display:flex;justify-content:space-between;">
               <span style="color:var(--text-secondary);">连续天数</span>
-              <span style="font-weight:600;color:var(--red);">🔥 ${progress.streakDays} 天</span>
+              <span style="font-weight:600;color:var(--terracotta);">${icon('flame')} ${progress.streakDays} 天</span>
             </div>
             <div style="display:flex;justify-content:space-between;">
               <span style="color:var(--text-secondary);">当前等级</span>
@@ -1818,8 +1863,8 @@ function renderAchievements() {
         </div>
         
         <div class="progress-card">
-          <div class="progress-title" style="margin-bottom:16px;">🏅 获得积分</div>
-          <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--red);">${progress.points}</div>
+          <div class="progress-title" style="margin-bottom:16px;">${icon('medal')} 获得积分</div>
+          <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--terracotta);">${progress.points}</div>
           <div class="progress-meta">可用于解锁高级内容</div>
         </div>
       </div>
@@ -1830,12 +1875,12 @@ function renderAchievements() {
           const unlocked = progress.achievements.includes(a.id);
           return `
             <div class="achievement-card ${unlocked ? '' : 'locked'}">
-              <div class="achievement-icon">${a.icon}</div>
+              <div class="achievement-icon">${achIcon(a.id)}</div>
               <div class="achievement-title">${a.title}</div>
               <div class="achievement-desc">${a.desc}</div>
               <div class="achievement-points">+${a.points} 分</div>
-              <div style="margin-top:8px;font-size:0.75rem;color:${unlocked ? 'var(--green)' : 'var(--text-muted)'};">
-                ${unlocked ? '✓ 已解锁' : '🔒 未解锁'}
+              <div class="achievement-state ${unlocked ? 'unlocked' : ''}">
+                ${unlocked ? icon('check') + ' 已解锁' : icon('lock') + ' 未解锁'}
               </div>
             </div>
           `;
@@ -1868,7 +1913,7 @@ function checkAchievements() {
     if (unlocked) {
       progress.achievements.push(a.id);
       progress.points += a.points;
-      showToast(`🏆 成就解锁：${a.title}！+${a.points}分`);
+      showToast(`成就解锁：${a.title} · +${a.points} 分`);
     }
   });
   
@@ -1882,12 +1927,16 @@ function renderProgress() {
   const container = showAppShell();
   const progress = AppState.progress;
   
-  // 模拟 30 天学习记录
+  // 近 30 天学习记录（依据连续天数与累计时长确定性推导，避免每次刷新跳动）
   const days = [];
+  const studiedDays = Math.min(progress.streakDays, 30);
+  const hasData = progress.totalStudyMinutes > 0;
+  const avgMin = hasData ? progress.totalStudyMinutes / Math.max(studiedDays, 1) : 0;
   for (let i = 29; i >= 0; i--) {
     const d = new Date(Date.now() - i * 86400000);
-    const hasStudy = Math.random() > 0.3 || i < progress.streakDays;
-    days.push({ date: d, studied: hasStudy, minutes: hasStudy ? Math.floor(Math.random() * 60) + 10 : 0 });
+    const studied = hasData && i < studiedDays;
+    const minutes = studied ? Math.max(10, Math.round(avgMin * (0.7 + ((i * 7) % 10) / 10))) : 0;
+    days.push({ date: d, studied, minutes });
   }
   
   const maxMinutes = Math.max(...days.map(d => d.minutes), 60);
@@ -1906,19 +1955,19 @@ function renderProgress() {
           </div>
           <div style="display:flex;gap:4px;align-items:center;font-size:0.8rem;color:var(--text-muted);">
             <span>少</span>
-            <div style="width:12px;height:12px;background:#EDEDED;border-radius:2px;"></div>
-            <div style="width:12px;height:12px;background:rgba(230,57,70,0.3);border-radius:2px;"></div>
-            <div style="width:12px;height:12px;background:rgba(230,57,70,0.6);border-radius:2px;"></div>
-            <div style="width:12px;height:12px;background:var(--red);border-radius:2px;"></div>
+            <div class="heat-cell" style="background:var(--bg-alt);"></div>
+            <div class="heat-cell" style="background:rgba(192,86,58,0.28);"></div>
+            <div class="heat-cell" style="background:rgba(192,86,58,0.58);"></div>
+            <div class="heat-cell" style="background:var(--terracotta);"></div>
             <span>多</span>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(15,1fr);gap:8px;">
+        <div class="heat-grid">
           ${days.map(d => {
             const intensity = d.minutes === 0 ? 0 : Math.min(3, Math.floor(d.minutes / (maxMinutes / 3)) + 1);
-            const colors = ['#EDEDED', 'rgba(230,57,70,0.3)', 'rgba(230,57,70,0.6)', 'var(--red)'];
+            const colors = ['var(--bg-alt)', 'rgba(192,86,58,0.28)', 'rgba(192,86,58,0.58)', 'var(--terracotta)'];
             const tip = `${d.date.toLocaleDateString('zh-CN', {month:'short', day:'numeric'})}: ${d.minutes} 分钟`;
-            return `<div title="${tip}" style="aspect-ratio:1;background:${colors[intensity]};border-radius:4px;transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></div>`;
+            return `<div class="heat-cell" title="${tip}" style="background:${colors[intensity]};" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'"></div>`;
           }).join('')}
         </div>
       </div>
@@ -1926,7 +1975,7 @@ function renderProgress() {
       <!-- 统计卡片 -->
       <div class="dash-grid">
         <div class="progress-card">
-          <div class="progress-title" style="margin-bottom:16px;">📊 词汇掌握分布</div>
+          <div class="progress-title" style="margin-bottom:16px;">${icon('chart')} 词汇掌握分布</div>
           ${Object.entries(COURSES).map(([key, lvl]) => {
             const total = lvl.units.reduce((s, u) => s + u.vocab.length, 0);
             const learned = Math.floor(total * (key === progress.currentLevel ? 
@@ -1948,10 +1997,10 @@ function renderProgress() {
         </div>
         
         <div class="progress-card">
-          <div class="progress-title" style="margin-bottom:20px;">📈 学习趋势</div>
+          <div class="progress-title" style="margin-bottom:20px;">${icon('chart')} 学习趋势</div>
           <div style="height:200px;display:flex;align-items:flex-end;gap:8px;">
             ${days.slice(-14).map(d => `
-              <div style="flex:1;background:${d.studied ? 'var(--red)' : '#EDEDED'};height:${Math.max(d.minutes / maxMinutes * 180, 4)}px;border-radius:4px 4px 0 0;transition:transform 0.2s;" 
+              <div style="flex:1;background:${d.studied ? 'var(--terracotta)' : 'var(--bg-alt)'};height:${Math.max(d.minutes / maxMinutes * 180, 4)}px;border-radius:4px 4px 0 0;transition:transform 0.2s;" 
                    title="${d.minutes} 分钟"
                    onmouseover="this.style.transform='scaleY(1.05)'" onmouseout="this.style.transform='scaleY(1)'">
               </div>
@@ -1964,10 +2013,10 @@ function renderProgress() {
         </div>
         
         <div class="progress-card">
-          <div class="progress-title" style="margin-bottom:16px;">⏱ 累计学习</div>
+          <div class="progress-title" style="margin-bottom:16px;">${icon('clock')} 累计学习</div>
           <div style="font-family:var(--font-display);font-size:3rem;font-weight:600;color:var(--text);">${progress.totalStudyMinutes}</div>
           <div class="progress-meta">分钟</div>
-          <div style="margin-top:20px;padding-top:20px;border-top:1px solid #F0F0F0;">
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line);">
             <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
               <span style="color:var(--text-secondary);">已学单词</span>
               <span style="font-weight:600;">${progress.learnedWords}</span>
@@ -1993,12 +2042,12 @@ function renderProgress() {
 // SRS 阶段徽章
 function renderSrsBadge(word) {
   const s = (AppState.progress?.srs || {})[word];
-  if (!s) return '<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;color:var(--text-muted);opacity:0.6;">🆕 新词</div>';
-  const colors = ['#ccc', '#E63946', '#F4A261', '#8BD4B8', '#6B8FBB', '#9B7DB8'];
+  if (!s) return `<div class="srs-badge new">${icon('spark')} 新词</div>`;
+  const colors = ['#93856F', '#C0563A', '#D3982A', '#5F7043', '#2E5C8A', '#7A2438'];
   const labels = ['新', '1', '2', '3', '4', '大师'];
   const days = [0, 1, 3, 7, 14, 30, 60][Math.min(s.stage, 5)];
   const color = colors[Math.min(s.stage, 5)];
-  return `<div style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:700;color:${color};border:2px solid ${color};border-radius:20px;padding:3px 10px;letter-spacing:0.5px;" title="stage ${s.stage}, 下次复习 ${days} 天后">🧠 ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
+  return `<div class="srs-badge" style="color:${color};border-color:${color};" title="stage ${s.stage}, 下次复习 ${days} 天后">${icon('brain')} ${labels[Math.min(s.stage, 5)]}${s.lapses > 0 ? ` · 错${s.lapses}` : ''}</div>`;
 }
 
 // ========== 真实 TTS 音频（Google Translate）+ 缓存 + fallback ==========
@@ -2065,7 +2114,7 @@ function speakWord(text, opts = {}) {
       } else {
         _activeAudio = audio;
         _ttsFailCount = 0;
-        if (toast) showToast('🎧 真实音频播放中...');
+        if (toast) showToast('正在播放真实音频…');
       }
       return;
     } catch (e) {
@@ -2109,7 +2158,7 @@ function fallbackSpeak(text, { lang, rate, pitch, toast }) {
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
-  if (toast) showToast('🔊 Web Speech 朗读中...');
+  if (toast) showToast('正在朗读…');
 }
 
 // 预加载整个听力段落的所有行（静默缓存）
@@ -2223,15 +2272,7 @@ function parseDialogue(text) {
 
 // 听力理解题答案显示
 function showAnswerBtn(btn, answer) {
-    btn.textContent = '✅ ' + answer;
-    btn.disabled = true;
-    btn.style.opacity = '0.6';
-    btn.style.cursor = 'default';
-}
-
-// 听力理解题答案显示
-function showAnswerBtn(btn, answer) {
-  btn.textContent = "✅ " + answer;
+  btn.textContent = "✓ " + answer;
   btn.disabled = true;
   btn.style.opacity = "0.6";
   btn.style.cursor = "default";
