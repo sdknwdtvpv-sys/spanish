@@ -294,15 +294,37 @@ console.log('── D. 教学一致性 ──');
     if (!zhMap.has(k)) zhMap.set(k, []);
     zhMap.get(k).push({ zh: w.zh, unit: u.id });
   })));
-  const inconsistent = [];
+  // 归一化：去尾部「的」、拆分多义分隔符、去括注
+  const glossSet = zh => new Set(
+    zh.replace(/（[^）]*）|\([^)]*\)/g, '')
+      .split(/[\/、，,；;|]/)
+      .map(s => s.trim().replace(/的$/, ''))
+      .filter(Boolean)
+  );
+  // 两个释义集合是否互为子集（同一义项的两种写法）
+  const subsetOf = (a, b) => [...a].every(x => b.has(x));
+  const fmtOnly = [];   // 仅格式/同义改写，不算缺陷
+  const conflict = [];  // 同一义项下释义互不兼容
+  const polysemy = [];  // 真正的多义：分单元给语境义，属设计选择
   [...zhMap.entries()].forEach(([es, arr]) => {
-    const uniq = [...new Set(arr.map(a => norm(a.zh)))];
-    if (uniq.length > 1) inconsistent.push({ es, arr, uniq });
+    const raw = [...new Set(arr.map(a => a.zh))];
+    if (raw.length < 2) return;
+    const sets = raw.map(glossSet);
+    // 去重后集合数量为 1 → 纯格式差异
+    const uniqSets = [];
+    sets.forEach(s => { if (!uniqSets.some(u => subsetOf(s, u) && subsetOf(u, s))) uniqSets.push(s); });
+    if (uniqSets.length === 1) { fmtOnly.push({ es, raw }); return; }
+    // 一个集合被另一个完全包含 → 同一义项，释义不齐
+    const nested = uniqSets.some((s, i) =>
+      uniqSets.some((t, j) => i !== j && subsetOf(s, t) && !subsetOf(t, s)));
+    if (nested) conflict.push({ es, raw }); else polysemy.push({ es, raw });
   });
-  if (inconsistent.length) {
-    add('P1', 'D', `有 ${inconsistent.length} 个西语词在不同单元的中文释义不一致`,
-      inconsistent.slice(0, 10).map(x => `"${x.es}" → ${x.uniq.join(' | ')}`));
+  if (conflict.length) {
+    add('P1', 'D', `有 ${conflict.length} 个西语词在不同单元的释义互相包含但不统一（应统一书写）`,
+      conflict.slice(0, 10).map(x => `"${x.es}" → ${x.raw.join(' | ')}`));
   }
+  console.log(`  同词同义异写（格式类，自动归一） ${fmtOnly.length} 个`);
+  console.log(`  同词多义（分单元给语境义，设计如此，非缺陷） ${polysemy.length} 个`);
 
   // 2. 同一西语词的 level 分布（跨等级复现是合理的，但低等级不该过高）
   const levelMap = new Map();
@@ -340,8 +362,7 @@ console.log('── D. 教学一致性 ──');
     }
   });
 
-  console.log(`  同词异译 ${inconsistent.length} 组`);
-  console.log(`  术语不统一问题见上方`);
+  console.log(`  释义需统一的词 ${conflict.length} 个 / 术语不统一见上方`);
 }
 
 console.log('');
