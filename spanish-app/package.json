@@ -14,7 +14,9 @@
     "build:android": "npm run sync && cd android && ./gradlew assembleDebug",
     "serve": "node scripts/serve.mjs",
     "audit:content": "node scripts/audit-content.mjs data/courses.js",
-    "check:data": "node scripts/check-data.mjs data/courses.js"
+    "check:data": "node scripts/check-data.mjs data/courses.js",
+    "test:core": "node scripts/regress-core.mjs",
+    "test:rapid": "node scripts/regress-rapid-click.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
