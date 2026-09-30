@@ -1489,17 +1489,27 @@ function renderVocabCards(unit) {
   });
   
   document.getElementById('btn-play').addEventListener('click', () => {
-    speakWord(vocab[currentIdx].es);
+    const cur = vocab[currentIdx];
+    if (cur) speakWord(cur.es);
   });
   
+  // 防抖：评分按钮在 200ms 延迟渲染期间若被再次点击，
+  // currentIdx 会连续自增并越过数组末尾，导致定时器读取 undefined 而崩溃。
+  let rating = false;
+  
   function nextCard(learned) {
+    if (rating) return;                 // 上一张尚未渲染完成，忽略重复点击
+    const card = vocab[currentIdx];
+    if (!card) return;                  // 越界保护
+    rating = true;
+    
     // SRS 评分：已知=5，不会=1（用唯一键，多义词不会互相覆盖）
-    AppState.srsReview(AppState.vocabKey(vocab[currentIdx]), learned ? 5 : 1);
+    AppState.srsReview(AppState.vocabKey(card), learned ? 5 : 1);
     
     if (learned) {
       const progress = AppState.progress;
-      if (!progress.knownWords.includes(vocab[currentIdx].es)) {
-        progress.knownWords.push(vocab[currentIdx].es);
+      if (!progress.knownWords.includes(card.es)) {
+        progress.knownWords.push(card.es);
         progress.learnedWords++;
         progress.points += 5;
         AppState.bumpTodayWord();
@@ -1517,16 +1527,22 @@ function renderVocabCards(unit) {
     }
     
     setTimeout(() => {
+      // 定时器触发时用户可能已切走页面或单元已结束，必须重新校验
+      const next = vocab[currentIdx];
+      if (!next || !document.getElementById('flashcard')) {
+        rating = false;
+        return;
+      }
       flashcard.innerHTML = `
         <div class="flashcard-face flashcard-front">
-          ${renderSrsBadge(vocab[currentIdx])}
-          <div class="flashcard-word">${vocab[currentIdx].es}</div>
+          ${renderSrsBadge(next)}
+          <div class="flashcard-word">${next.es}</div>
           <div class="flashcard-hint">点击卡片查看释义</div>
         </div>
         <div class="flashcard-face flashcard-back">
-          <div class="flashcard-translation">${vocab[currentIdx].zh}</div>
-          <div class="flashcard-word" style="font-size:2rem;">${vocab[currentIdx].es}</div>
-          <div class="flashcard-example">"${vocab[currentIdx].example}"</div>
+          <div class="flashcard-translation">${next.zh}</div>
+          <div class="flashcard-word" style="font-size:2rem;">${next.es}</div>
+          <div class="flashcard-example">"${next.example}"</div>
           <div class="flashcard-hint">${currentIdx + 1} / ${vocab.length}</div>
         </div>
       `;
@@ -1537,6 +1553,8 @@ function renderVocabCards(unit) {
       if (idxEl) idxEl.textContent = currentIdx + 1;
       const barEl = document.getElementById('learn-progress');
       if (barEl) barEl.style.width = `${(currentIdx / vocab.length) * 100}%`;
+      
+      rating = false;   // 新卡片渲染完成，允许下一次评分
     }, 200);
   }
   
