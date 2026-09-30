@@ -365,6 +365,7 @@ console.log('── D. 教学一致性 ──');
     ['la productividad', '生产率（经济）/ 能产性（语言学）'],
     ['la arbitrariedad', '任意性（符号学）/ 专断（法律）'],
     ['la carta', '菜单（餐厅语境 a1-u7、a2-u17）/ 信（通信语境）'],
+    ['la obra', '施工（b2-u15 城市建设语境）/ 作品（艺术语境）'],
   ]);
   [...zhMap.entries()].forEach(([es, arr]) => {
     const raw = [...new Set(arr.map(a => a.zh))];
