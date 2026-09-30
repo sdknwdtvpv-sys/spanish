@@ -7088,6 +7088,90 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Yo ___ mi sueldo el día uno.', options:['cobro', 'pago', 'debo', 'presto'], correct:0, explain:'cobrar ＝ 收钱（钱进来）。方向与 pagar 完全相反，这是最常混淆的一对。'},
     {sentence:'Te ___ diez euros del café de ayer.', options:['debo', 'pago', 'cobro', 'presto'], correct:0, explain:'deber ＝ 欠（钱）。te debo ＝ 我欠你。注意 prestar 是「借出」，pedir prestado 是「借入」。'},
     {sentence:'¿Me ___ diez euros hasta mañana?', options:['prestas', 'debes', 'pagas', 'cobras'], correct:0, explain:'prestar ＝ 借出（借给别人）。¿Me prestas...? ＝ 你能借我……吗？方向是「你给我」。'}
+  ]},
+  {topic:'建议表达 debes / deberías', questions:[
+    {sentence:'___ descansar más, tienes mala cara.', options:['Deberías', 'Debes que', 'Deber', 'Deberías que'], correct:0, explain:'deberías 是条件式，表委婉建议（你最好……），比 debes 客气。deber 后直接接不定式，不加 que。'},
+    {sentence:'___ fumar aquí, está prohibido.', options:['No debes', 'No deberías que', 'No debes que', 'No deber'], correct:0, explain:'禁止用 no debes + 不定式。表「不应该」时 deberías 也可用，语气更委婉；但都不能加 que。'},
+    {sentence:'Te ___ que lo pienses dos veces.', options:['aconsejo', 'aconsejas', 'aconseja', 'aconsejo que'], correct:0, explain:'aconsejar que + 虚拟式：Te aconsejo que lo pienses。主语不同时必须用从句，且从句用虚拟式。'},
+    {sentence:'¿___ que le escriba?', options:['Crees', 'Crees que', 'Crees a', 'Creer'], correct:0, explain:'¿Crees que...? + 虚拟式（le escriba）表征询意见。creer 肯定式后接陈述式，疑问式常接虚拟式。'},
+    {sentence:'Sería mejor que ___ ahora.', options:['saliera', 'sale', 'saldrá', 'salía'], correct:0, explain:'sería mejor que + 虚拟式过去时，表委婉建议。条件式主句 + 虚拟式从句是礼貌建议的典型结构。'}
+  ]},
+  {topic:'条件句三型', questions:[
+    {sentence:'Si ___ tiempo, te acompaño.', options:['tengo', 'tuviera', 'tendré', 'tuviese'], correct:0, explain:'第一类真实条件句：si + 陈述式现在时，主句用现在时/将来时/命令式。si 从句中不能用将来时。'},
+    {sentence:'Si ___ dinero, viajaría por el mundo.', options:['tuviera', 'tengo', 'tendré', 'tenía'], correct:0, explain:'第二类非现实条件句：si + 虚拟式过去时，主句用条件式。表示与现在事实相反。'},
+    {sentence:'Si ___ rico, no trabajaría.', options:['fuera', 'soy', 'seré', 'era'], correct:0, explain:'第二类条件句：si + 虚拟式过去时，主句用条件式。表示与现在事实相反（我并不富有）。'},
+    {sentence:'Si ___ más temprano, habríamos llegado a tiempo.', options:['hubiéramos salido', 'salimos', 'saldríamos', 'salíamos'], correct:0, explain:'第三类条件句的从句用虚拟式过去完成时 hubiéramos salido，主句照旧用条件式完成时。'},
+    {sentence:'Si ___ frío, ponte el abrigo.', options:['hace', 'hiciera', 'hará', 'hiciese'], correct:0, explain:'真实条件句用陈述式：si hace frío（如果冷）。此处是给对方的实际行动建议，不是假设。'}
+  ]},
+  {topic:'义务与禁令的表达', questions:[
+    {sentence:'Es necesario que todos ___ las normas.', options:['respeten', 'respetan', 'respetarán', 'respetaban'], correct:0, explain:'es necesario que + 虚拟式。与 hay que 的区别：hay que 是无人的泛泛必要，es necesario que 需指出具体对象。'},
+    {sentence:'Se ___ la entrada a menores.', options:['prohíbe', 'prohíben', 'prohíbe que', 'prohibir'], correct:0, explain:'prohibir 的无人称被动/无人称句：se prohíbe la entrada。主语是 la entrada（单数），所以用单数动词。'},
+    {sentence:'Queda ___ fumar en todo el recinto.', options:['prohibido', 'prohibida', 'prohibir', 'prohibiendo'], correct:0, explain:'quedar prohibido 是正式文书的禁令句式，prohibido 作形容词与 quedar 构成状态，性数不随 recinto 变化。'},
+    {sentence:'Es obligatorio ___ el casco.', options:['llevar', 'lleva', 'llevando', 'que llevar'], correct:0, explain:'es obligatorio + 不定式（无人称）。若指定对象则用 es obligatorio que + 虚拟式：Es obligatorio que lleves casco。'},
+    {sentence:'No ___ dejar el coche aquí.', options:['se puede', 'se pueden', 'se puede que', 'poder'], correct:0, explain:'no se puede + 不定式表禁止。se 无人称，动词固定第三人称单数。'}
+  ]},
+  {topic:'情感动词 + 虚拟式', questions:[
+    {sentence:'Es lógico que ___ enfadado.', options:['esté', 'está', 'estará', 'estaba'], correct:0, explain:'es lógico que + 虚拟式。这类评价性无人称结构（es lógico / es normal / es natural）后接从句用虚拟式。'},
+    {sentence:'Me sorprende que no ___ venido.', options:['haya', 'ha', 'había', 'habría'], correct:0, explain:'sorprender que + 虚拟式完成时（haya venido），因为从句动作先于主句。'},
+    {sentence:'Siento que no ___ podido venir.', options:['hayas', 'has', 'habías', 'habrás'], correct:0, explain:'sentir que 表遗憾，用虚拟式。第二人称单数完成时为 hayas podido。'},
+    {sentence:'Le molesta que ___ tan tarde.', options:['llegues', 'llegas', 'llegarás', 'llegabas'], correct:0, explain:'molestar que + 虚拟式。这类「使某人产生情绪」的动词结构，从句均用虚拟式。'},
+    {sentence:'Es una pena que no ___ más tiempo.', options:['tengamos', 'tenemos', 'tendremos', 'teníamos'], correct:0, explain:'ser una pena que + 虚拟式。es una lástima / es una pena 都是同一类评价性结构。'}
+  ]},
+  {topic:'转述与引述', questions:[
+    {sentence:'Dijo que ___ cansado.', options:['estaba', 'está', 'estará', 'esté'], correct:0, explain:'主句为过去时（dijo），从句时态要后退：está → estaba。这是间接引语的时态后移规则。'},
+    {sentence:'Me preguntó si ___ ir.', options:['podía', 'puedo', 'podría', 'pueda'], correct:0, explain:'间接疑问用 si。主句过去时，从句相应后移：puedo → podía。'},
+    {sentence:'Me aconsejó que no ___ tan impulsivo.', options:['fuera', 'soy', 'seré', 'era'], correct:0, explain:'aconsejar que + 虚拟式；主句过去时，从句用虚拟式过去时 fuera。转述建议类动词都遵循这个规则。'},
+    {sentence:'Según el informe, las ventas ___ un diez por ciento.', options:['crecieron', 'crecieran', 'crezcan', 'crecerían'], correct:0, explain:'según + 信息来源后接陈述式，因为转述的是被认定的实际发生的事。'},
+    {sentence:'Se dice que la empresa ___ cerrar.', options:['va a', 'vaya a', 'fuera a', 'iría a'], correct:0, explain:'se dice que 是无人称转述结构，后接陈述式。表示「据说」而不为内容背书。'}
+  ]},
+  {topic:'将来时与预测', questions:[
+    {sentence:'Mañana ___ llover en el norte.', options:['va a', 'vaya a', 'fuera a', 'iría a'], correct:0, explain:'ir a + 不定式表近期将来。表示天气预测常用这个结构，比简单将来时更口语。'},
+    {sentence:'En 2050 la población ___ un 20 %.', options:['aumentará', 'aumente', 'aumentara', 'aumentaría'], correct:0, explain:'简单将来时表远期预测。与 ir a 的区别：ir a 偏近期、有把握；简单将来时偏远期、推测。'},
+    {sentence:'___ ser las tres cuando llamó.', options:['Deberían', 'Deben', 'Deberán', 'Debieran'], correct:0, explain:'条件式表推测（大概是……）。deberían ser las tres ＝ 当时应该是三点。'},
+    {sentence:'Ya ___ haber llegado, salió hace horas.', options:['debería', 'debe que', 'debiera que', 'debiendo'], correct:0, explain:'debería haber + 分词表对过去的推测或委婉责备（本该已经……了）。'},
+    {sentence:'Si todo va bien, el proyecto ___ listo en junio.', options:['estará', 'esté', 'estuviera', 'estaría'], correct:0, explain:'真实条件句下主句用将来时表预期结果。若 si 从句为虚拟式过去时，主句才用条件式。'}
+  ]},
+  {topic:'历史叙述的时态', questions:[
+    {sentence:'En 1492 Colón ___ a América.', options:['llegó', 'llegaba', 'llega', 'llegaría'], correct:0, explain:'历史事件作为一次性完成的动作，用简单过去时 llegó。'},
+    {sentence:'Cuando ___ joven, vivía en Sevilla.', options:['era', 'fue', 'es', 'sería'], correct:0, explain:'描述过去的持续状态或背景用未完成过去时。'},
+    {sentence:'La guerra ___ en 1936 y ___ en 1939.', options:['empezó / terminó', 'empezaba / terminaba', 'empieza / termina', 'empezaría / terminaría'], correct:0, explain:'有明确起止时间的历史事件用简单过去时。未完成过去时会把它写成背景而非事件。'},
+    {sentence:'En aquella época la gente ___ más cartas.', options:['escribía', 'escribió', 'escribe', 'escribiría'], correct:0, explain:'表过去时期的习惯性行为用未完成过去时。「那时候人们常……」'},
+    {sentence:'Cuando llegamos, la fiesta ya ___.', options:['había empezado', 'empezó', 'empezaba', 'ha empezado'], correct:0, explain:'「过去的过去」用过去完成时（había empezado）。这是历史叙述中交代先后的标准手段。'}
+  ]},
+  {topic:'数量与趋势表达', questions:[
+    {sentence:'Las ventas ___ un 15 % el año pasado.', options:['crecieron', 'crecían', 'crecen', 'crecieran'], correct:0, explain:'表具体变化幅度用简单过去时。西语百分比前不加介词：crecieron un 15 %。'},
+    {sentence:'El paro ___ en dos puntos.', options:['descendió', 'descendía', 'descienda', 'descendería'], correct:0, explain:'descender en + 幅度，表下降了多少。动词与幅度搭配的介词是 en。'},
+    {sentence:'La cifra se ___ respecto al año anterior.', options:['duplicó', 'duplicaba', 'duplique', 'duplicaría'], correct:0, explain:'duplicarse ＝ 翻倍。se duplicó respecto a 是与前一年相比的标准表达。'},
+    {sentence:'El consumo ___ al alza desde marzo.', options:['va', 'vaya', 'fuera', 'iría'], correct:0, explain:'ir al alza / ir a la baja 是描述趋势的固定说法，用陈述式现在时表持续状态。'},
+    {sentence:'Una de cada tres personas ___ afectada.', options:['resultó', 'resultara', 'resulte', 'resultaría'], correct:0, explain:'una de cada tres ＝ 每三人中有一人。表统计结果用简单过去时。'}
+  ]},
+  {topic:'抽象论述的名词化', questions:[
+    {sentence:'___ de la desigualdad exige medidas estructurales.', options:['La reducción', 'Reducir', 'Reduciendo', 'Al reducir'], correct:0, explain:'名词化「la reducción de」是学术写作的主语形式。用不定式 Reducir 语法可行，但在正式论述中名词化更常见。'},
+    {sentence:'El ___ de los datos revela una tendencia clara.', options:['análisis', 'analizar', 'analizando', 'al analizar'], correct:0, explain:'名词化 el análisis de 作主语。注意 análisis 单复数同形，冠词用 el。'},
+    {sentence:'La ___ del sistema requiere consenso político.', options:['transformación', 'transformar', 'transformando', 'al transformar'], correct:0, explain:'名词化 la transformación del sistema。以 -ción 结尾的阴性名词是最常见的名词化形式。'},
+    {sentence:'Su ___ de la realidad resulta sospechosa.', options:['interpretación', 'interpretar', 'interpretando', 'al interpretar'], correct:0, explain:'带所有格的名词化：su interpretación de la realidad。这比动词句更凝练，也更易带上评价色彩。'},
+    {sentence:'La ___ de recursos no resuelve el problema de fondo.', options:['escasez', 'escaso', 'escasear', 'escasamente'], correct:0, explain:'la escasez 是由形容词派生出的抽象名词。抽象论述常靠这类名词承载论断。'}
+  ]},
+  {topic:'强调句式', questions:[
+    {sentence:'Fue en 2019 ___ empezó todo.', options:['cuando', 'que cuando', 'donde', 'cual'], correct:0, explain:'fue + 时间 + cuando 是强调时间状语的固定结构。cuando 不能被 que 替代。'},
+    {sentence:'Lo que me molesta ___ la falta de respeto.', options:['es', 'son', 'está', 'hay'], correct:0, explain:'lo que... es... 是强调句式。主语 lo que me molesta 视为单数，所以用 es。'},
+    {sentence:'A él ___ quien deberías preguntar.', options:['es a', 'es', 'fue', 'hay a'], correct:0, explain:'强调人时用 a él es a quien...。注意前置词 a 在强调结构中出现两次。'},
+    {sentence:'Lo ___ me sorprendió fue su reacción.', options:['que', 'cual', 'quien', 'donde'], correct:0, explain:'lo que... fue... 是强调结构，lo que 作主语从句。强调句是书面语中避免平铺直叙的常用手段。'},
+    {sentence:'Lo ___ importante es no rendirse.', options:['más', 'mucho', 'muy', 'tanto'], correct:0, explain:'lo más importante ＝ 最重要的（东西）。lo + 比较级 + 形容词构成抽象名词性短语。'}
+  ]},
+  {topic:'缓和语与谨慎表达', questions:[
+    {sentence:'___ sea un poco exagerado, pero es lo que pienso.', options:['Quizá', 'Seguramente', 'Sin duda', 'Es evidente que'], correct:0, explain:'quizá 后接虚拟式表不确定。seguramеnte / sin duda 表较高确信，后接陈述式。'},
+    {sentence:'Hasta cierto ___, tienes razón.', options:['punto', 'modo', 'caso', 'lugar'], correct:0, explain:'hasta cierto punto ＝ 在某种程度上。这是给论断加限定的常用短语。'},
+    {sentence:'Me ___ que la cifra no es del todo fiable.', options:['parece', 'parezco', 'parecen', 'parecer'], correct:0, explain:'me parece que + 陈述式表委婉判断。parecer 的结构与 gustar 类似，人用与格代词。'},
+    {sentence:'Diría que la propuesta ___ viable, aunque con reservas.', options:['es', 'sea', 'fuera', 'sería'], correct:0, explain:'diría que（我会说）是缓和表达，后接陈述式，因为陈述的是说话人的判断内容。'},
+    {sentence:'En principio ___ de acuerdo, pero hay matices.', options:['estoy', 'esté', 'estuviera', 'estaría'], correct:0, explain:'en principio（原则上）是缓和语，后接陈述式。这类短语常与 pero 连用给出保留。'}
+  ]},
+  {topic:'评价性表达与判断', questions:[
+    {sentence:'___ llamativo que nadie protestara.', options:['Resulta', 'Resultan', 'Resulta que', 'Resultar'], correct:0, explain:'resultar + 形容词 + que 是引出评价的无人称结构。resulta 固定第三人称单数。'},
+    {sentence:'Cabe ___ que la medida tendrá efectos secundarios.', options:['señalar', 'señala', 'señalando', 'señalado'], correct:0, explain:'cabe + 不定式 ＝ 值得/可以……。cabe señalar / cabe destacar / cabe preguntarse 是学术写作的常用句式。'},
+    {sentence:'Es ___ que se hayan tomado esas medidas.', options:['discutible', 'discutir', 'discutiendo', 'discusión'], correct:0, explain:'es discutible que + 虚拟式。评价性形容词（discutible / lamentable / sorprendente）后接从句用虚拟式。'},
+    {sentence:'No es que ___ caro, es que no lo necesito.', options:['sea', 'es', 'será', 'era'], correct:0, explain:'no es que + 虚拟式表否定理由（并不是说……）。后半句 es que 用陈述式给出真正原因。'},
+    {sentence:'Llama la ___ que no se haya informado antes.', options:['atención', 'atenta', 'atender', 'atento'], correct:0, explain:'llamar la atención que 是无人称评价句式。从句用虚拟式，因为表达的是说话人的主观反应。'}
   ]}
 ];
 
