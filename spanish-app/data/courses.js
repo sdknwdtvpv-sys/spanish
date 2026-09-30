@@ -8552,6 +8552,373 @@ FILÓSOFA: De acuerdo, con un matiz: la trama debe poder fallar. Si cualquier he
       {q:'¿Qué riesgo tiene la narrativa?', a:'Que la trama sustituya a la prueba.'},
       {q:'¿Cuál es el matiz final de la filósofa?', a:'Que la trama debe poder fallar; si todo encaja, no explica nada.'}
     ]
+  },
+  {level:'A1', title:'在服装店', speaker:'Dependienta / Cliente', duration:'约 35 秒',
+    es:`DEPENDIENTA: Buenos días, ¿le puedo ayudar?
+CLIENTE: Sí, busco una camisa azul.
+DEPENDIENTA: ¿Qué talla usa?
+CLIENTE: La cuarenta.
+DEPENDIENTA: Aquí tiene. ¿Quiere probársela?
+CLIENTE: Sí, ¿dónde está el probador?
+DEPENDIENTA: Al fondo, a la derecha.`,
+    zh:`店员：早上好，需要帮忙吗？
+顾客：是的，我在找一件蓝色衬衫。
+店员：您穿什么尺码？
+顾客：40 码。
+店员：给您。要试穿吗？
+顾客：好，试衣间在哪里？
+店员：在最后面，右手边。`,
+    keyVocab:[
+      {es:'Una camisa azul', zh:'一件蓝色衬衫'},
+      {es:'¿Qué talla usa?', zh:'您穿什么尺码？'},
+      {es:'La cuarenta', zh:'40 码'},
+      {es:'probársela', zh:'试穿它（自复动词 + 代词）'},
+      {es:'el probador', zh:'试衣间'},
+      {es:'Al fondo', zh:'在最后面、在里头'}
+    ],
+    questions:[
+      {q:'¿Qué busca el cliente?', a:'Una camisa azul.'},
+      {q:'¿Qué talla usa?', a:'La cuarenta.'},
+      {q:'¿Dónde está el probador?', a:'Al fondo, a la derecha.'}
+    ]
+  },
+  {level:'A1', title:'介绍家人', speaker:'Ana / Luis', duration:'约 30 秒',
+    es:`ANA: ¡Hola, Luis! ¿Quién es esa chica de la foto?
+LUIS: Es mi hermana Marta. Tiene veinte años.
+ANA: ¿Y estudia o trabaja?
+LUIS: Estudia Medicina. Y el niño es mi sobrino.
+ANA: ¡Qué guapo! ¿Cuántos años tiene?
+LUIS: Cinco. Es hijo de mi hermano mayor.`,
+    zh:`安娜：嗨，路易斯！照片里那个女孩是谁？
+路易斯：是我妹妹玛尔塔。她二十岁。
+安娜：那她是上学还是工作？
+路易斯：学医。那个小男孩是我侄子。
+安娜：真可爱！他几岁了？
+路易斯：五岁。是我哥哥的儿子。`,
+    keyVocab:[
+      {es:'mi hermana', zh:'我的妹妹'},
+      {es:'Tiene veinte años', zh:'她二十岁'},
+      {es:'mi sobrino', zh:'我的侄子'},
+      {es:'¿Cuántos años tiene?', zh:'他几岁了？'},
+      {es:'mi hermano mayor', zh:'我的哥哥'}
+    ],
+    questions:[
+      {q:'¿Quién es Marta?', a:'Es la hermana de Luis.'},
+      {q:'¿Qué estudia Marta?', a:'Estudia Medicina.'},
+      {q:'¿Cuántos años tiene el sobrino?', a:'Cinco años.'}
+    ]
+  },
+  {level:'A1', title:'问时间与约见', speaker:'Turista / Policía', duration:'约 30 秒',
+    es:`TURISTA: Perdón, ¿tiene hora?
+POLICÍA: Sí, son las diez y cuarto.
+TURISTA: Gracias. ¿A qué hora abre el museo?
+POLICÍA: A las diez y media.
+TURISTA: ¿Y cierra los lunes?
+POLICÍA: Sí, los lunes está cerrado.
+TURISTA: Muy amable, gracias.`,
+    zh:`游客：打扰一下，请问几点了？
+警察：十点一刻。
+游客：谢谢。博物馆几点开门？
+警察：十点半。
+游客：那周一关门吗？
+警察：是的，周一闭馆。
+游客：您太客气了，谢谢。`,
+    keyVocab:[
+      {es:'¿Tiene hora?', zh:'请问几点了？（客气的问法）'},
+      {es:'las diez y cuarto', zh:'十点一刻'},
+      {es:'¿A qué hora abre?', zh:'几点开门？'},
+      {es:'las diez y media', zh:'十点半'},
+      {es:'está cerrado', zh:'关门、闭馆'},
+      {es:'Muy amable', zh:'您太客气了（道谢用语）'}
+    ],
+    questions:[
+      {q:'¿Qué hora es?', a:'Son las diez y cuarto.'},
+      {q:'¿A qué hora abre el museo?', a:'A las diez y media.'},
+      {q:'¿Qué día está cerrado?', a:'Los lunes.'}
+    ]
+  },
+  {level:'A1', title:'在餐厅点菜', speaker:'Camarero / Cliente', duration:'约 40 秒',
+    es:`CAMARERO: Buenas noches. ¿Ya saben qué van a tomar?
+CLIENTE: De primero, sopa de verduras. De segundo, pollo asado.
+CAMARERO: ¿Y para beber?
+CLIENTE: Agua sin gas, por favor.
+CAMARERO: ¿Quieren postre?
+CLIENTE: Sí, dos flanes. Y la cuenta, cuando pueda.
+CAMARERO: Enseguida.`,
+    zh:`服务员：晚上好。想好点什么了吗？
+顾客：头盘要蔬菜汤，主菜要烤鸡。
+服务员：喝的呢？
+顾客：请给不带气的水。
+服务员：要甜点吗？
+顾客：要两份焦糖布丁。方便的话，把账单也拿来。
+服务员：马上就来。`,
+    keyVocab:[
+      {es:'De primero', zh:'头盘（第一道菜）'},
+      {es:'De segundo', zh:'主菜（第二道菜）'},
+      {es:'Agua sin gas', zh:'不带气的水'},
+      {es:'el postre', zh:'甜点'},
+      {es:'la cuenta', zh:'账单'},
+      {es:'Enseguida', zh:'马上、立刻'}
+    ],
+    questions:[
+      {q:'¿Qué pide de primero el cliente?', a:'Sopa de verduras.'},
+      {q:'¿Qué bebe?', a:'Agua sin gas.'},
+      {q:'¿Qué postre pide?', a:'Dos flanes.'}
+    ]
+  },
+  {level:'A2', title:'预约看医生', speaker:'Recepcionista / Paciente', duration:'约 45 秒',
+    es:`RECEPCIONISTA: Consulta del doctor Ruiz, buenos días.
+PACIENTE: Hola, quería pedir cita para esta semana.
+RECEPCIONISTA: ¿Le viene bien el jueves a las cinco?
+PACIENTE: Mejor el viernes por la mañana, si es posible.
+RECEPCIONISTA: El viernes a las once y media, entonces.
+PACIENTE: Perfecto. ¿Tengo que traer algo?
+RECEPCIONISTA: Su tarjeta sanitaria y el informe anterior.`,
+    zh:`接待员：鲁伊斯医生诊室，早上好。
+病人：你好，我想约这周的时间。
+接待员：周四五点方便吗？
+病人：如果可以的话，周五上午更好。
+接待员：那就周五十一点半。
+病人：好的。我需要带什么吗？
+接待员：您的医疗卡和之前的检查报告。`,
+    keyVocab:[
+      {es:'pedir cita', zh:'预约'},
+      {es:'¿Le viene bien?', zh:'您方便吗？'},
+      {es:'si es posible', zh:'如果可能的话'},
+      {es:'la tarjeta sanitaria', zh:'医疗卡'},
+      {es:'el informe', zh:'报告、诊断书'}
+    ],
+    questions:[
+      {q:'¿Para cuándo quiere la cita el paciente?', a:'Para esta semana, preferiblemente el viernes por la mañana.'},
+      {q:'¿A qué hora es la cita?', a:'A las once y media.'},
+      {q:'¿Qué tiene que traer?', a:'Su tarjeta sanitaria y el informe anterior.'}
+    ]
+  },
+  {level:'A2', title:'在银行办卡', speaker:'Empleado / Cliente', duration:'约 50 秒',
+    es:`EMPLEADO: Buenos días, ¿en qué puedo ayudarle?
+CLIENTE: Quería abrir una cuenta corriente.
+EMPLEADO: ¿Es para nómina o para ahorrar?
+CLIENTE: Para que me ingresen el sueldo.
+EMPLEADO: Entonces le recomiendo la cuenta joven, sin comisiones.
+CLIENTE: ¿Necesito algún documento?
+EMPLEADO: Su DNI y un justificante de domicilio.
+CLIENTE: Lo traigo mañana mismo.`,
+    zh:`职员：早上好，有什么可以帮您？
+客户：我想开一个活期账户。
+职员：是用来发工资还是储蓄？
+客户：让公司把工资打进来。
+职员：那我推荐青年账户，免手续费。
+客户：需要什么证件吗？
+职员：身份证和一份住址证明。
+客户：我明天就带来。`,
+    keyVocab:[
+      {es:'abrir una cuenta corriente', zh:'开活期账户'},
+      {es:'la nómina', zh:'工资（月薪）'},
+      {es:'ingresar el sueldo', zh:'存入工资'},
+      {es:'sin comisiones', zh:'免手续费'},
+      {es:'el justificante de domicilio', zh:'住址证明'},
+      {es:'mañana mismo', zh:'明天就（强调）'}
+    ],
+    questions:[
+      {q:'¿Qué quiere hacer el cliente?', a:'Abrir una cuenta corriente.'},
+      {q:'¿Para qué es la cuenta?', a:'Para que le ingresen el sueldo.'},
+      {q:'¿Qué documentos necesita?', a:'Su DNI y un justificante de domicilio.'}
+    ]
+  },
+  {level:'A2', title:'买火车票', speaker:'Empleado / Viajera', duration:'约 45 秒',
+    es:`EMPLEADO: Buenos días, ¿qué desea?
+VIAJERA: Un billete de ida y vuelta a Valencia, por favor.
+EMPLEADO: ¿Para qué día?
+VIAJERA: Para el sábado, ida por la mañana y vuelta el domingo.
+EMPLEADO: Solo quedan plazas en segunda clase.
+VIAJERA: No importa. ¿Cuánto cuesta?
+EMPLEADO: Cuarenta y ocho euros con el descuento de ida y vuelta.
+VIAJERA: Perfecto, pago con tarjeta.`,
+    zh:`售票员：早上好，您要什么？
+旅客：一张到瓦伦西亚的往返票，谢谢。
+售票员：哪天的？
+旅客：周六，上午去，周日回。
+售票员：只剩二等座的票了。
+旅客：没关系。多少钱？
+售票员：含往返折扣一共四十八欧。
+旅客：好的，我刷卡。`,
+    keyVocab:[
+      {es:'un billete de ida y vuelta', zh:'一张往返票'},
+      {es:'la ida', zh:'去程'},
+      {es:'la vuelta', zh:'回程'},
+      {es:'segunda clase', zh:'二等座'},
+      {es:'No importa', zh:'没关系'},
+      {es:'el descuento', zh:'折扣'}
+    ],
+    questions:[
+      {q:'¿Adónde va la viajera?', a:'A Valencia.'},
+      {q:'¿Cuándo vuelve?', a:'El domingo.'},
+      {q:'¿Cuánto cuesta el billete?', a:'Cuarenta y ocho euros.'}
+    ]
+  },
+  {level:'A2', title:'谈论周末计划', speaker:'Marta / Diego', duration:'约 40 秒',
+    es:`MARTA: ¿Qué vas a hacer este fin de semana?
+DIEGO: Voy a ir a la montaña con unos amigos. ¿Y tú?
+MARTA: Yo tengo que estudiar para el examen del lunes.
+DIEGO: ¡Qué rollo! ¿Te apetece salir el viernes por la noche?
+MARTA: Vale, pero no muy tarde.
+DIEGO: Tranquila, cenamos y volvemos pronto.
+MARTA: Perfecto, quedamos a las nueve.`,
+    zh:`玛尔塔：这周末你打算做什么？
+迭戈：我要跟几个朋友去山里。你呢？
+玛尔塔：我得准备周一的考试。
+迭戈：真没劲！周五晚上想出去吗？
+玛尔塔：行，但别太晚。
+迭戈：放心，吃个饭就早点回来。
+玛尔塔：好，九点见。`,
+    keyVocab:[
+      {es:'¿Qué vas a hacer?', zh:'你打算做什么？'},
+      {es:'Voy a ir', zh:'我打算去'},
+      {es:'tengo que estudiar', zh:'我得学习'},
+      {es:'¡Qué rollo!', zh:'真没劲！真扫兴！'},
+      {es:'¿Te apetece?', zh:'你想吗？有兴趣吗？'},
+      {es:'quedamos a las nueve', zh:'我们约九点见'}
+    ],
+    questions:[
+      {q:'¿Qué va a hacer Diego el fin de semana?', a:'Va a ir a la montaña con unos amigos.'},
+      {q:'¿Por qué no puede salir Marta mucho tiempo?', a:'Porque tiene que estudiar para el examen del lunes.'},
+      {q:'¿A qué hora quedan?', a:'A las nueve.'}
+    ]
+  },
+  {level:'B1', title:'办图书证', speaker:'Bibliotecaria / Usuario', duration:'约 55 秒',
+    es:`BIBLIOTECARIA: Buenas tardes, ¿es la primera vez que viene?
+USUARIO: Sí, quería hacerme el carné de la biblioteca.
+BIBLIOTECARIA: Necesito su documento de identidad y una foto.
+USUARIO: Aquí tiene. ¿Cuántos libros puedo sacar?
+BIBLIOTECARIA: Hasta cuatro, durante veintiún días.
+USUARIO: ¿Y si me retraso en devolverlos?
+BIBLIOTECARIA: Se bloquea el carné unos días, pero no hay multa.
+USUARIO: Menos mal. ¿Hay sala de estudio?
+BIBLIOTECARIA: Sí, en la segunda planta, hasta las diez.`,
+    zh:`图书管理员：下午好，您是第一次来吗？
+用户：是的，我想办张借书证。
+图书管理员：需要您的身份证件和一张照片。
+用户：给您。我可以借几本书？
+图书管理员：最多四本，为期二十一天。
+用户：如果我还晚了会怎样？
+图书管理员：借书证会被停用几天，不过没有罚款。
+用户：那就好。有自习室吗？
+图书管理员：有，在二楼，开到十点。`,
+    keyVocab:[
+      {es:'el carné de la biblioteca', zh:'借书证'},
+      {es:'el documento de identidad', zh:'身份证件'},
+      {es:'sacar libros', zh:'借书'},
+      {es:'retrasarse en devolverlos', zh:'还晚了'},
+      {es:'Se bloquea el carné', zh:'借书证被停用'},
+      {es:'la multa', zh:'罚款'},
+      {es:'Menos mal', zh:'那就好、还好'}
+    ],
+    questions:[
+      {q:'¿Qué necesita el usuario para hacerse el carné?', a:'Su documento de identidad y una foto.'},
+      {q:'¿Cuántos libros puede sacar y por cuánto tiempo?', a:'Hasta cuatro libros durante veintiún días.'},
+      {q:'¿Qué pasa si devuelve los libros tarde?', a:'Se le bloquea el carné unos días, pero no hay multa.'}
+    ]
+  },
+  {level:'B1', title:'处理银行卡问题', speaker:'Operadora / Cliente', duration:'约 60 秒',
+    es:`OPERADORA: Atención al cliente, ¿en qué puedo ayudarle?
+CLIENTE: Me han cobrado dos veces la misma compra.
+OPERADORA: ¿Tiene a mano el número de la operación?
+CLIENTE: Sí, aquí lo tengo.
+OPERADORA: Veo el duplicado. Le devolvemos el importe en tres días hábiles.
+CLIENTE: ¿Y si no llega?
+OPERADORA: Vuelva a llamar con ese número y se abre una reclamación formal.
+CLIENTE: Entendido. ¿Me lo puede enviar por escrito?
+OPERADORA: Por supuesto, le mando un correo ahora mismo.`,
+    zh:`客服：客服中心，有什么可以帮您？
+客户：同一笔消费被扣了两次。
+客服：您手边有交易单号吗？
+客户：有，我这儿有。
+客服：我看到这笔重复扣款了。款项会在三个工作日内退回。
+客户：如果没到账呢？
+客服：带着这个单号再打来，就会正式立案投诉。
+客户：明白了。能书面发给我吗？
+客服：当然，我现在就给您发邮件。`,
+    keyVocab:[
+      {es:'Me han cobrado dos veces', zh:'被扣了两次钱'},
+      {es:'el número de la operación', zh:'交易单号'},
+      {es:'el duplicado', zh:'重复的那笔'},
+      {es:'el importe', zh:'金额'},
+      {es:'tres días hábiles', zh:'三个工作日'},
+      {es:'una reclamación formal', zh:'正式投诉'},
+      {es:'por escrito', zh:'以书面形式'}
+    ],
+    questions:[
+      {q:'¿Cuál es el problema del cliente?', a:'Le han cobrado dos veces la misma compra.'},
+      {q:'¿Cuándo le devolverán el dinero?', a:'En tres días hábiles.'},
+      {q:'¿Qué puede hacer si no llega la devolución?', a:'Volver a llamar con el número de la operación para abrir una reclamación formal.'}
+    ]
+  },
+  {level:'B1', title:'租房看房', speaker:'Agente / Inquilina', duration:'约 60 秒',
+    es:`AGENTE: Este es el piso. Son sesenta metros y tiene dos habitaciones.
+INQUILINA: ¿Está incluida la comunidad en el alquiler?
+AGENTE: Sí, la comunidad y el agua. La luz va aparte.
+INQUILINA: ¿Desde cuándo se puede entrar?
+AGENTE: Desde el uno del mes que viene.
+INQUILINA: ¿Y cuánto piden de fianza?
+AGENTE: Un mes de fianza y otro de garantía.
+INQUILINA: ¿Se admiten mascotas?
+AGENTE: El propietario prefiere que no, pero se puede negociar.`,
+    zh:`中介：这就是那套房子。六十平米，两个房间。
+租客：租金里包含物业费吗？
+中介：包含物业费和水费。电费另算。
+租客：什么时候可以入住？
+中介：下个月一号起。
+租客：押金要多少？
+中介：一个月押金加一个月保证金。
+租客：可以养宠物吗？
+中介：房东倾向于不养，不过可以商量。`,
+    keyVocab:[
+      {es:'la comunidad', zh:'物业费'},
+      {es:'va aparte', zh:'另算、单算'},
+      {es:'la fianza', zh:'押金'},
+      {es:'la garantía', zh:'保证金'},
+      {es:'Se admiten mascotas', zh:'可以养宠物'},
+      {es:'el propietario', zh:'房东、业主'},
+      {es:'se puede negociar', zh:'可以商量'}
+    ],
+    questions:[
+      {q:'¿Qué incluye el alquiler?', a:'La comunidad y el agua; la luz va aparte.'},
+      {q:'¿Cuánto piden de fianza?', a:'Un mes de fianza y otro de garantía.'},
+      {q:'¿Qué opina el propietario sobre las mascotas?', a:'Prefiere que no haya, pero se puede negociar.'}
+    ]
+  },
+  {level:'B1', title:'讨论环保习惯', speaker:'Sara / Tomás', duration:'约 55 秒',
+    es:`SARA: ¿Tú reciclas en casa?
+TOMÁS: Sí, separamos el vidrio, el papel y el plástico.
+SARA: Nosotros además hacemos compost con los restos de comida.
+TOMÁS: ¿Y eso no huele mal?
+SARA: Si lo tapas bien, no. Y reduce mucho la basura.
+TOMÁS: Lo que me cuesta es no usar bolsas de plástico.
+SARA: Yo llevo siempre una bolsa de tela en el bolso.
+TOMÁS: Buena idea. Además el agua del grifo aquí es potable.
+SARA: Sí, así no compramos botellas. Ahorras dinero y plástico.`,
+    zh:`萨拉：你在家回收吗？
+托马斯：回收，我们把玻璃、纸和塑料分开。
+萨拉：我们还用厨余做堆肥。
+托马斯：那不会有味道吗？
+萨拉：盖严实就不会。而且能减少很多垃圾。
+托马斯：我觉得难的是不用塑料袋。
+萨拉：我包里总是带一个布袋。
+托马斯：好主意。而且这里的自来水是可以喝的。
+萨拉：对，这样就不用买瓶装水。既省钱又省塑料。`,
+    keyVocab:[
+      {es:'reciclar', zh:'回收'},
+      {es:'separar el vidrio', zh:'把玻璃分开'},
+      {es:'el compost', zh:'堆肥'},
+      {es:'los restos de comida', zh:'厨余、剩饭'},
+      {es:'la bolsa de tela', zh:'布袋'},
+      {es:'el agua del grifo es potable', zh:'自来水可饮用'}
+    ],
+    questions:[
+      {q:'¿Qué separa Tomás en casa?', a:'El vidrio, el papel y el plástico.'},
+      {q:'¿Qué hace Sara con los restos de comida?', a:'Hace compost.'},
+      {q:'¿Por qué no compran botellas de agua?', a:'Porque el agua del grifo es potable, así ahorran dinero y plástico.'}
+    ]
   }
 ];
 
