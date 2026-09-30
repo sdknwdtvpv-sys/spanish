@@ -231,6 +231,30 @@ console.log('── B. 交叉引用一致性 ──');
   report('听力重点词汇', listenMissing);
   report('口语关键词', speakMissing);
 
+  // 2. 精读生词的词条是否进入总词库
+  const inAllVocab = new Set(d.ALL_VOCAB.map(w => norm(w.es)));
+  const glossTrulyMissing = [];
+  d.READING_PASSAGES.forEach(p => (p.glossary || []).forEach(g => {
+    if (!inAllVocab.has(norm(g.es))) glossTrulyMissing.push(`[${p.title}] "${g.es}"`);
+  }));
+  if (glossTrulyMissing.length) {
+    add('P1', 'B', `精读生词有 ${glossTrulyMissing.length} 条未进入总词库`, glossTrulyMissing.slice(0, 8));
+  }
+
+  // 3. 精读 glossary 的词是否真的出现在正文里
+  //    走 exampleCoversTerm（含不规则变位表），否则 enfrascarse→enfrascados
+  //    这类正常变位会被当成「生词没出现在正文」的假问题
+  const glossNotInText = [];
+  d.READING_PASSAGES.forEach(p => {
+    const text = (p.paragraphs || []).map(x => x.es).join(' ');
+    (p.glossary || []).forEach(g => {
+      if (!exampleCoversTerm(g.es, text)) glossNotInText.push(`[${p.title}] "${g.es}"`);
+    });
+  });
+  if (glossNotInText.length) {
+    add('P2', 'B', `精读生词表中有 ${glossNotInText.length} 条未在正文中出现（含不规则变位可能误报）`, glossNotInText.slice(0, 15));
+  }
+
   // 4. 语法点 vs 语法题库主题覆盖
   const grammarPointTitles = [];
   Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.grammar || []).forEach(g => grammarPointTitles.push(g.title))));

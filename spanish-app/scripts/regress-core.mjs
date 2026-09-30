@@ -110,11 +110,15 @@ console.log('\n=== 4. 单词卡与 SRS ===');
   await key('1', 'Digit1', 49); await sleep(700);
   const s2 = await ev(`(()=>({srs:Object.keys(AppState.progress.srs).length,lapses:Object.values(AppState.progress.srs).filter(x=>x.lapses>0).length}))()`);
   check('按 1 记还不会并累计 lapses', s2.srs === 2 && s2.lapses === 1, JSON.stringify(s2));
-  // 走完整单元
+  // 走完整单元。
+  // 间隔必须明显大于 App 的 200ms 防抖窗口：原先用 240ms，
+  // 只留 40ms 余量，机器一忙（渲染变慢）点击就会被防抖吸收，
+  // 于是 srs 少于单元词数，测试间歇性失败。350ms 留出足够余量。
+  // 注意这与「防抖是否有效」无关——防抖本身由 regress-rapid-click.mjs 专门验证。
   let n = 0;
   for (let i = 0; i < 80; i++) {
     const ok = await ev(`(()=>{const b=document.getElementById('btn-known');if(!b)return false;b.click();return true;})()`);
-    if (!ok) break; n++; await sleep(240);
+    if (!ok) break; n++; await sleep(350);
   }
   const done = await ev(`(()=>({head:document.getElementById('app').innerText.replace(/\s+/g,' ').slice(0,50),srs:Object.keys(AppState.progress.srs).length}))()`);
   check('可走完整单元', /Excelente/.test(done.head) && n > 0, `${n} 词`);

@@ -1952,7 +1952,9 @@ const COURSES = {
           {es:'La réplica', zh:'回应、应答', example:'Su réplica llegó tarde y sin datos.'},
           {es:'La certeza', zh:'确信、确定性', example:'No tengo la certeza de que sea cierto.'},
           {es:'Constitutivo', zh:'构成性的、本质的', example:'Es un rasgo constitutivo del sistema.'},
-          {es:'El escrutinio', zh:'严格审查', example:'La propuesta superó el escrutinio público.'}
+          {es:'El escrutinio', zh:'严格审查', example:'La propuesta superó el escrutinio público.'},
+          {es:'El reposo', zh:'休息、静养', example:'El médico le recomendó reposo absoluto.'},
+          {es:'La jerarquía', zh:'等级、层级', example:'Respeta la jerarquía de la empresa.'}
         ],
         grammar:[
           {title:'经济与社会语域的名词化', desc:'estancamiento、repunte、declive、merma、pujanza —— 这些名词由动词派生（estancarse→estancamiento），在新闻报道中比动词形式更常见。掌握名词化是从 B1 迈向 B2 的关键一步。'},
@@ -6571,6 +6573,126 @@ const READING_PASSAGES = [
       {q:'¿Cómo explica el texto el fracaso simultáneo del sistema penal en ambos frentes?', a:'Porque al invocar a la vez dos criterios incompatibles, el sistema mide con dos varas: no logra ser justo, ya que la desproporción que tolera contradice el merecimiento, ni logra ser útil, porque esa misma desproporción erosiona la legitimidad de la que depende la obediencia voluntaria. Sin convicción, la prevención acaba sosteniéndose sólo por la fuerza.'},
       {q:'¿Qué actitud adopta el autor ante la pretensión de conciliar ambos principios, y qué propone en su lugar?', a:'La considera insostenible, pues equivale a quedarse con las ventajas de los dos principios sin cargar con ninguno de sus costes, y es precisamente lo que hoy sostiene buena parte del edificio punitivo. En lugar de conciliarlos, propone elegir el criterio que orienta el castigo y asumir explícitamente su precio.'},
     ]
+  },
+  {level:'C1', title:'「平衡报道」如何沦为判断力的让渡', topic:'新闻伦理与证据权重', minutes:8,
+    paragraphs:[
+      {es:`Pocas expresiones gozan hoy de mejor reputación que la de un periodismo equilibrado. Se nos ha enseñado que contrastar versiones constituye la quintaesencia del oficio, y que quien presenta una sola cara de un asunto traiciona su deber. Conviene, sin embargo, desconfiar de los lugares comunes, porque el equilibrio formal, ese que reparte tiempos y titulares con exactitud aritmética, puede convertirse en el instrumento más eficaz para difuminar una verdad incómoda. Cuando un medio presenta como equivalentes una afirmación respaldada por evidencia robusta y otra sostenida únicamente por la convicción de quien la profesa, no está siendo neutral: está decidiendo que no importa cuál de las dos tiene mejor respaldo.`,
+       zh:`如今很少有说法比「平衡的新闻业」享有更好的名声。我们被教导说，对照不同说法是这一行的精髓，只呈现事情一面的人就是对职责的背叛。然而，恰恰应当对这种老生常谈保持警惕：那种以算术式的精确分配时长与标题的「形式平衡」，可能变成淡化某个令人不安的真相的最有效工具。当一家媒体把有扎实证据支撑的断言和仅靠信奉者坚定信念维持的断言并列等同，它并不中立：它是在判定两者之中谁的依据更充分根本无关紧要。`},
+      {es:`Quien defiende esta práctica alega que el público merece conocer todas las posiciones y que corresponde al lector juzgar. El argumento suena democrático, incluso generoso; no obstante, descansa sobre un supuesto insostenible: que el lector dispone del tiempo, de la formación y de los datos necesarios para calibrar por su cuenta el peso de cada prueba. Si así fuera, la tarea del periodista se reduciría a un inventario de opiniones. Ocurre lo contrario. Al yuxtaponer sin jerarquía una tesis documentada y una conjetura, el medio no ofrece al público un mapa del debate, sino una niebla donde todo parece igualmente dudoso. La duda indiscriminada, lejos de ser una postura escéptica, constituye una forma de complicidad.`,
+       zh:`为这种做法辩护的人声称，公众有权知道所有立场，判断应由读者来做。这个论点听上去很民主，甚至很慷慨；然而它建立在一个站不住脚的前提上：读者拥有必要的时间、素养与资料，能自行权衡每项证据的分量。若真是如此，记者的工作就只剩清点各种意见了。事实恰恰相反。把一份有据可查的论断和一个猜测不加区分地并列，媒体交给公众的不是辩论的地图，而是一团让一切都显得同样可疑的迷雾。不加分辨的怀疑远非一种怀疑主义立场，而是某种形式的同谋。`},
+      {es:`Se dirá que el periodista no es un árbitro de la verdad y que atribuirse esa competencia sería arrogante. Es una objeción seria, y conviene responderla sin aspavientos. Nadie reclama que el medio dicte sentencia sobre cuestiones metafísicas ni que clausure debates legítimos entre especialistas. Lo que se le pide es mucho más modesto y, a la vez, más exigente: que distinga grados de evidencia. Que diga que tal estudio fue replicado y que tal otro no, que tal dato procede de una fuente interesada y que tal otro de un registro independiente. Esa tarea no requiere infalibilidad; requiere honestidad intelectual y algo que escasea en las redacciones: valor para decepcionar a una parte de la audiencia.`,
+       zh:`有人会说，记者不是真理的裁判，自称拥有这种权能本身就是傲慢。这是个严肃的反对意见，应当不事张扬地回应。没有人要求媒体对形而上学问题下判决，或去终结专家之间正当的争论。人们对它的要求要谦逊得多，同时也更严格：区分证据的不同等级。说明这项研究被重复验证过而那项没有，说明这个数据来自有利益关联的渠道而那个来自独立记录。这项工作不需要永不犯错，它需要的是智识上的诚实，以及编辑部里稀缺的某种东西：让一部分受众失望的勇气。`},
+      {es:`Las razones por las que la profesión abraza la simetría son, por lo demás, comprensibles, y no siempre nobles. Pesan la presión comercial, el temor a las represalias de los poderosos, la obsesión por la apariencia de imparcialidad ante un público que desconfía de todo. Nadie quiere ser acusado de tomar partido. Ahora bien, esa coartada tiene un costo: el ciudadano queda desarmado frente a quienes explotan la duda como estrategia deliberada. Habría bastado con un titular distinto para orientar a miles de lectores; en su lugar se les ofreció un empate ficticio, presentado con la solemnidad de quien cree haber cumplido con su deber.`,
+       zh:`何况，这一行业之所以拥抱对称，原因可以理解，也并不总是高尚。起作用的有商业压力、对权势者报复的恐惧，以及在一个对一切都存疑的公众面前维持「不偏不倚」形象的执念。没有人愿意被指责选边站。可是这个借口有其代价：面对那些把「存疑」当作蓄意策略加以利用的人，市民被解除了武装。本来只消换一个标题就能为上千万读者指个方向；结果却是塞给他们一场虚构的平局，还带着一种自认已尽职责的庄严感。`},
+      {es:`Nada de esto significa que el periodismo deba abrazar una causa ni que deba silenciar al disidente. Significa que la equidad no se mide contando intervenciones, sino calibrando pruebas; que el equilibrio auténtico es una consecuencia de la evidencia bien pesada y no un punto de partida acordado de antemano. Quien reparte el mismo espacio a dos posiciones de peso probatorio muy desigual no está siendo ecuánime, sino abdicando de la función más valiosa del oficio. Y conviene recordar, frente a quienes confunden la prudencia con la abstención, que la realidad no se vuelve incierta por mucho que un medio se empeñe en presentarla como una controversia abierta y sin árbitro posible.`,
+       zh:`这一切并不意味着新闻业应当选边，或应当让异见者闭嘴。它的意思是：公平不是靠清点发言次数来衡量的，而是靠权衡证据来衡量的；真正的平衡是证据被妥善称量之后的结果，而不是事先商定好的出发点。把同样的版面分给两个证据分量悬殊的立场，不是不偏不倚，而是背弃了这一行最宝贵的职能。而且应当记住：无论一家媒体怎样执意把现实呈现为一场尚无定论的争议，现实并不会因此变得不确定。`},
+    ],
+    glossary:[
+      {es:'contrastar versiones', zh:'对照核验不同说法（本语境指记者的基本核实手段，非泛指比较）'},
+      {es:'la quintaesencia del oficio', zh:'这一行的精髓、职业的本质'},
+      {es:'los lugares comunes', zh:'人云亦云的老生常谈、陈词滥调'},
+      {es:'difuminar', zh:'使模糊、淡化（此处指把真相的轮廓抹掉）'},
+      {es:'respaldada por evidencia', zh:'有证据支撑的、为证据所背书的（respaldar：支撑、背书）'},
+      {es:'peso probatorio', zh:'证据分量、证明力'},
+      {es:'yuxtaponer', zh:'并置、并列摆在一起（不作区分地对照）'},
+      {es:'una conjetura', zh:'猜测、臆测（与有据论断相对）'},
+      {es:'indiscriminada', zh:'不加分辨的、一视同仁的（此处含贬义）'},
+      {es:'una forma de complicidad', zh:'同谋、共谋（本语境指无意中帮了操控者）'},
+      {es:'sin aspavientos', zh:'夸张的作态、大呼小叫（sin aspavientos：不事张扬）'},
+      {es:'infalibilidad', zh:'永不犯错、无误性'},
+      {es:'esa coartada', zh:'借口、脱身之辞（此处指以「中立」自辩的托词）'},
+      {es:'abdicando de', zh:'放弃、让渡（职责或权利）'},
+    ],
+    structures:[
+      {es:'porque el equilibrio formal, ese que reparte tiempos y titulares con exactitud aritmética, puede convertirse en el instrumento más eficaz para difuminar una verdad incómoda', note:'因果从句内嵌同位语结构：ese que… 复指 equilibrio formal 并加以界定，使抽象概念具体化；puede convertirse en 表示「有可能沦为」，语气克制而断言明确，避免绝对化，符合学术散文的分寸。'},
+      {es:'el medio no ofrece al público un mapa del debate, sino una niebla donde todo parece igualmente dudoso', note:'no… sino… 对比句式，用「地图」与「迷雾」两个隐喻形成对举：前者预设可辨识的方向，后者取消一切方位。donde 引导关系从句修饰 niebla，parece 后接形容词表主观印象，比 es 更显审慎。'},
+      {es:'la realidad no se vuelve incierta por mucho que un medio se empeñe en presentarla como una controversia abierta', note:'por mucho que 引导让步从句，后接虚拟式 se empeñe，表示「无论怎样执意」；主句用陈述式陈述事实，让步与断言构成张力。动词 empeñarse en 含「一意孤行」的贬义色彩，暗藏反讽。'},
+    ],
+    questions:[
+      {q:'¿Qué reprocha el autor a la práctica de repartir tiempos y titulares con exactitud aritmética entre posiciones de peso probatorio desigual?', a:'Le reprocha que, al presentarlas como equivalentes, el medio no actúa como observador neutral, sino que decide que carece de importancia cuál de las dos dispone de mejor respaldo; de ese modo sustituye la calibración de pruebas por una niebla en la que todo parece igualmente dudoso.'},
+      {q:'¿Por qué sostiene el autor que la duda indiscriminada, lejos de ser una postura escéptica, constituye una forma de complicidad?', a:'Porque beneficia deliberadamente a quien explota la incertidumbre como estrategia: al negarse a distinguir grados de evidencia, el medio deja al ciudadano desarmado frente a esas maniobras y acaba avalando, sin proponérselo, a la parte cuya posición resiste peor la verificación.'},
+      {q:'¿Cómo responde el autor a la objeción de que el periodista no es un árbitro de la verdad?', a:'Acepta que atribuirse la infalibilidad sería arrogante, pero responde que no se le pide dictar sentencia sobre debates legítimos entre especialistas, sino algo más modesto y a la vez más exigente: distinguir grados de evidencia, señalar qué estudio fue replicado y qué fuente es interesada, lo cual exige honestidad intelectual y no infalibilidad.'},
+    ]
+  },
+  {level:'C1', title:'标准化的代价：被度量之物反噬自身', topic:'标准化与量化指标的悖论', minutes:8,
+    paragraphs:[
+      {es:`Pocas invenciones humanas han hecho tanto por la cooperación como la norma. Compartir un ancho de vía, una unidad de medida, un formato de archivo o una sintaxis contable permite que desconocidos coordinen esfuerzos sin conocerse ni apreciarse. Conviene, no obstante, resistir la tentación de celebrar la estandarización como un bien sin sombras, pues toda norma que se adopta resuelve un problema de coordinación y, al mismo tiempo, impone una manera de mirar. Lo que queda fuera del patrón no es simplemente distinto ni deficiente: se vuelve, en la práctica, invisible para quien gobierna, decide o financia con arreglo a ese patrón.`,
+       zh:`几乎没有什么人类发明像标准这样为协作做出过如此贡献。共用同一轨距、同一计量单位、同一种文件格式或同一套会计语法，让素不相识的人无需彼此了解或欣赏也能协调行动。然而，应当抵制把标准化当作毫无阴影的善事来颂扬的诱惑，因为每一条被采用的标准在解决一个协调问题的同时，也强加了一种观看方式。落在模式之外的东西并不只是不同或有缺陷：在依据这一模式进行治理、决策或拨款的人眼中，它实际上变得不可见了。`},
+      {es:`La norma es, ante todo, un dispositivo de traducción: convierte lo heterogéneo en comparable. Que un hospital pueda cotejarse con otro situado a mil kilómetros constituye un logro administrativo indiscutible. Sin embargo, para alcanzar esa comparabilidad hay que reducir, recortar y simplificar, y en esa operación se pierde precisamente aquello que resistía la traducción: el cuidado que no se mide en minutos, la enseñanza que no se refleja en una prueba estandarizada, la atención que no deja rastro documental. No se trata de que la norma mienta, sino de que decide de antemano qué merece ser contado. Y lo que no se cuenta acaba, tarde o temprano, por no financiarse.`,
+       zh:`标准首先是一种翻译装置：它把异质的东西变得可比。一家医院能与千里之外的另一家相互比对，这无疑是行政上的成就。然而，要达到这种可比性，就必须削减、裁切、简化，而正是在这道工序中，恰恰丢失了那些抗拒被翻译的东西：不以分钟计量的照护，不体现在标准化考试里的教学，不留任何书面痕迹的关注。问题不在于标准说谎，而在于它预先决定了什么才值得被计入。而不被计入的东西，迟早也得不到经费。`},
+      {es:`Ocurre entonces algo que la teoría de la medición rara vez anticipa con suficiente crudeza: al ser medidos, los medidos cambian. No porque sean cínicos, sino porque son razonables. El docente que advierte que su evaluación depende del resultado de sus alumnos enseñará lo que la prueba premia; el facultativo cuya unidad se juzga por listas de espera aprenderá a gestionar la espera, no la enfermedad; el empleado cuya productividad se calcula en tareas cerradas dedicará su ingenio a cerrar tareas. El indicador no mide una realidad que le preexiste: la reorganiza hasta volverla commensurable consigo mismo, tal como una luz no revela los objetos, sino que los obliga a proyectar la sombra que ella misma dibuja.`,
+       zh:`于是出现了测量理论很少足够赤裸地预见到的情况：被测量者一旦被测量，就会改变。不是因为他们玩世不恭，而是因为他们通情达理。发现自己的考评取决于学生成绩的教师，会去教考试所奖励的东西；所在科室以候诊名单被评判的医生，会学着管理候诊而不是管理疾病；以完成多少件封闭任务来计算生产力的员工，会把聪明才智用在关掉任务上。指标并不测量先于它存在的现实：它把现实重新组织，直到现实与它自身可以通约。`},
+      {es:`Suele interpretarse este fenómeno como una degradación moral, acaso como una epidemia de simulación. Semejante diagnóstico resulta reconfortante y, por eso mismo, sospechoso: permite culpar a individuos concretos en lugar de examinar el diseño del sistema. Lo cierto es que cualquier métrica que se convierta en objetivo genera presión para optimizarla, y que esa presión actúa con independencia de la virtud de quienes la soportan. Nadie necesita ser corrupto para responder a un incentivo. Por eso conviene desconfiar de las explicaciones que invocan la decadencia de las costumbres: casi siempre ahorran el análisis incómodo de los mecanismos que hemos construido.`,
+       zh:`人们常把这一现象解释为道德堕落，甚至说成一场弄虚作假的流行病。这样的诊断令人安心，也正因如此可疑：它让人去指责具体的个人，而不去审视制度的设计。事实是，任何一旦成为目标的指标都会产生优化它的压力，而这种压力的作用与承受者的品德无关。没有人需要腐化堕落才会对激励做出反应。因此应当警惕那些诉诸「风气败坏」的解释：它们几乎总能免去对我们亲手建造的机制的令人不适的分析。`},
+      {es:`Que la medición deforme aquello que toca no implica que debamos renunciar a medir. Significa que hemos de elegir con lucidez qué contamos, admitir que hay bienes refractarios a la cuantificación y asumir el costo de protegerlos con criterios explícitos. La alternativa no es un mundo sin indicadores, sino un mundo donde el indicador se confunda con la cosa misma; y esa confusión, por cómoda que resulte, empobrece precisamente lo que pretendía mejorar. Conviene, en fin, recordar que ninguna cifra, por precisa que sea, contiene en sí misma el juicio sobre lo que vale la pena conservar ni sobre aquello que, sin figurar en ningún cuadro de mando, sostiene en silencio la vida de una institución.`,
+       zh:`测量会扭曲它所触及之物，这并不意味着我们应当放弃测量。它的意思是：我们必须清醒地选择计入什么，承认有些善好抗拒量化，并承担用明确判据去保护它们的代价。替代方案并不是一个没有指标的世界，而是一个指标与被衡量之物本身被混为一谈的世界；而这种混淆无论多么省事，恰恰会败坏它本欲改善的东西。应当记住：任何数字，无论多么精确，其自身都不包含关于什么值得保存的判断。`},
+    ],
+    glossary:[
+      {es:'un ancho de vía', zh:'轨距（铁路两轨之间的宽度）'},
+      {es:'la estandarización', zh:'标准化（estandarizar：使标准化、统一规格）'},
+      {es:'con arreglo a', zh:'依照、根据（正式书面介词短语）'},
+      {es:'cotejar', zh:'比对、核对（将两者并列检视以找异同）'},
+      {es:'un logro', zh:'一项成就、成果'},
+      {es:'aquello que resistía la traducción', zh:'抗拒被转译（此处指无法被换算成统一指标）'},
+      {es:'no deja rastro documental', zh:'书面痕迹、可查证的记录'},
+      {es:'crudeza', zh:'赤裸、直白而不留情面（con crudeza：不留情面地）'},
+      {es:'el facultativo', zh:'医师、主治医生（正式用语）'},
+      {es:'listas de espera', zh:'候诊名单、排队等候名册'},
+      {es:'commensurable', zh:'可通约的、可用同一尺度衡量的'},
+      {es:'una degradación moral', zh:'道德堕落、品质败坏'},
+      {es:'un incentivo', zh:'激励、诱因（此处指制度性诱导）'},
+      {es:'refractarios a', zh:'对……抗拒的、不受其作用的（refractario a la cuantificación：难以量化的）'},
+    ],
+    structures:[
+      {es:'por cómoda que resulte, empobrece precisamente lo que pretendía mejorar', note:'por + 形容词 + que + 虚拟式（resulte）构成让步从句，意为「无论多么省事」；precisamente 强调反差，pretendía 用未完成过去时表示原本的意图，与现在的败坏形成时态上的对照，收束全段论点。'},
+      {es:'No se trata de que la norma mienta, sino de que decide de antemano qué merece ser contado', note:'tratarse de que 后接虚拟式 mienta 表示被否定的假设，sino de que 引出真正主张并以陈述式 decides 作断言；mienta/decide 的语气对比正是全文要害：标准的过错不在说谎，而在预设尺度。'},
+      {es:'Nadie necesita ser corrupto para responder a un incentivo', note:'无人称化的否定主语句，Nadie 作主语却指涉普遍情形；necesita ser corrupto 用系词加形容词强调「成为腐化者」这一状态，而非一次行为，从而把道德指责转化为对激励结构的冷静陈述。'},
+    ],
+    questions:[
+      {q:'¿Por qué sostiene el autor que los medidos cambian al ser medidos, y en qué se diferencia esa explicación de la tesis de la degradación moral?', a:'Porque el indicador no registra una realidad preexistente, sino que la reorganiza hasta hacerla commensurable consigo mismo, de modo que quien se sabe evaluado se vuelve hacia lo que la prueba premia; la diferencia estriba en que semejante conducta es una respuesta razonable a un incentivo y no el efecto de una corrupción personal.'},
+      {q:'¿Qué función cumple en la argumentación la idea de que la norma es un dispositivo de traducción?', a:'Le permite reconocer el mérito indiscutible de la estandarización, que hace comparables realidades heterogéneas, y a la vez mostrar su costo: toda traducción obliga a reducir y simplificar, de suerte que lo que resiste la traducción queda fuera del recuento y, a la postre, también fuera de la financiación.'},
+      {q:'¿Cuál es la posición final del autor respecto de la medición, y qué error señala en la alternativa que rechaza?', a:'Sostiene que no debemos renunciar a medir, sino elegir con lucidez qué contamos, admitir que hay bienes refractarios a la cuantificación y asumir el costo de protegerlos con criterios explícitos; el error de la alternativa consiste en confundir el indicador con la cosa misma, confusión que empobrece justamente aquello que se pretendía mejorar.'},
+    ]
+  },
+  {level:'C1', title:'城市中的陌生人：疏离何以是礼貌', topic:'城市生活与陌生人共处', minutes:8,
+    paragraphs:[
+      {es:`La experiencia urbana se define por una circunstancia que el discurso comunitario prefiere ignorar: la inmensa mayoría de las personas con quienes compartimos acera, vagón o ascensor permanecerá para siempre en el anonimato. En la aldea, el desconocido era una excepción que exigía explicación; en la metrópoli, es la condición normal de la existencia. Lejos de constituir una carencia, ese anonimato es el material con el que se construye la vida urbana. De ahí que resulte tan revelador que quienes deploran la frialdad de las grandes ciudades propongan casi siempre, como remedio, una comunidad de rostros conocidos que la ciudad, por su propia escala, no puede ofrecer a todos.`,
+       zh:`城市经验由一种「共同体话语」宁愿无视的情形所界定：与我们一起分享人行道、车厢或电梯的人，绝大多数将永远停留在匿名之中。在村庄里，陌生人是需要给出解释的例外；在大都市里，它是存在的常态。这种匿名远不是一种欠缺，它恰恰是城市生活得以建成的材料。因此格外能说明问题的是：那些哀叹大城市冷漠的人，几乎总是把「熟人共同体」当作药方，而以其自身规模而言，城市无法为所有人提供这种东西。`},
+      {es:`Quien observa con atención la etiqueta de la calle descubre que la convivencia se sostiene sobre un arte difícil: reconocer al otro sin convertirlo en interlocutor, ceder el paso sin entablar conversación, mirar lo justo para no tropezar y apartar la vista antes de que la mirada se vuelva exigencia. No es desdén, sino una forma depurada de respeto. Lo que se suspende no es la consideración, sino la pretensión de intimidad. Ese pacto tácito permite atravesar cada día multitudes de desconocidos sin exigirles nada ni temerles nada, y constituye un bien frágil que rara vez se aprecia hasta que se pierde.`,
+       zh:`谁若细心观察街头礼节，就会发现共处依靠的是一门艰难的技艺：承认他人的存在却不把他变成交谈对象，让路却不搭话，看该看的那一眼以免撞上，并在目光变成一种索取之前移开视线。这不是轻蔑，而是一种被提纯过的尊重。被搁置起来的不是关照，而是对亲密的索求。这一默契让人每天穿过成群的陌生人，既不向他们索取什么，也不畏惧什么；它是一件脆弱的善好，往往要等到失去才被看重。`},
+      {es:`Cabe formular una objeción razonable antes de seguir adelante: la ciudad alberga peligros reales y no todo desconocido es inofensivo. Nadie sensato lo niega. Pero la ciudad segura no es la que convierte cada encuentro en una verificación de identidad, sino la que distribuye la vigilancia sin difundir la sospecha. Conviene distinguir con rigor entre el riesgo comprobable y la desconfianza generalizada, porque el precio de esta última no lo pagan quienes inspiran temor, sino los sospechosos por defecto: el que viste distinto, el que habla con acento, el que ocupa la calle sin consumir nada y el joven cuya sola presencia, a ciertas horas, basta para que alguien cambie de acera.`,
+       zh:`在继续之前，应当先提出一个合理的反对意见：城市里确实潜伏着真实的危险，并非每个陌生人都是无害的。明智的人不会否认这一点。但安全的城市不是把每一次相遇都变成身份查验的城市，而是分配警戒却不扩散猜疑的城市。应当严格区分可核实的风险与泛化的不信任，因为后者的代价并不是由那些令人恐惧的人来付，而是由「默认嫌疑人」来付：穿得不一样的人，说话带口音的人，不消费任何东西却占着街面的人。`},
+      {es:`Cuando el extraño se interpreta sistemáticamente como amenaza, la ciudad se repliega en una maquinaria defensiva y pierde lo que la hacía fértil. Las aceras se vacían, los barrios se amurallan, la mirada se vuelve escrutadora; y con cada reja que se levanta se fortalece la ilusión de que todo desconocido es un peligro latente. El costo es doble: se renuncia a la espontaneidad de la calle y se destruye aquello que solo la densidad produce, el encuentro imprevisto, la mezcla que fragua ideas, la cooperación entre gentes que no comparten origen. Una ciudad que exige garantías antes de permitir cualquier roce deja de ser una ciudad y se convierte en una suma de vecindarios hostiles entre sí.`,
+       zh:`当陌生人被系统性地解读为威胁，城市便会退缩进一套防御机器，并失去让它富有生机的东西。人行道空了下来，街区筑起围墙，目光变得审视；而每竖起一道铁栅，就把「一切陌生人都是潜在危险」的幻觉加固一分。代价是双重的：既放弃了街头的自发性，也毁掉了只有密度才能产生的东西——不期而遇的碰面，催生出想法的混杂，以及彼此并无共同出身的人之间的协作。一座在允许任何接触之前都要求担保的城市，不再是城市，而成了彼此敌对的邻里之和。`},
+      {es:`Sopesar estas razones no conduce a negar la inseguridad ni a predicar una confianza irresponsable. Conduce a reconocer que la cortesía impersonal no es un lujo de sociedades opulentas, sino la infraestructura moral que hace habitable la densidad; que una ciudad se juzga por el trato que dispensa a quien no conoce; y que confundir prudencia con hostilidad empobrece la vida común sin volverla más segura. Quien no soporta la presencia del extraño quizá no eche de menos la ciudad, pero habrá perdido, sin advertirlo, aquello que desde sus orígenes la justificó: la posibilidad de cruzarse con quien no nos debe nada.`,
+       zh:`权衡这些理由，并不会导向否认治安问题，也不会导向鼓吹一种不负责任的信任。它导向的是承认：非人格化的礼貌不是富裕社会的奢侈品，而是让高密度变得可居住的道德基础设施；一座城市是以它如何对待素不相识者来评判的；而把审慎与敌意相混淆，只会让共同生活变穷，并不会让它更安全。无法忍受陌生人存在的人，或许并不会想念城市，但他确实已经失去了从城市起源之初就为它辩护的那样东西。`},
+    ],
+    glossary:[
+      {es:'el anonimato', zh:'匿名状态、不具名（此处指互不相识的常态）'},
+      {es:'deploran', zh:'哀叹、痛惜（对某事表示不满与惋惜）'},
+      {es:'la etiqueta de la calle', zh:'街头礼节、公共场合的行为规矩'},
+      {es:'la mirada', zh:'目光、注视（此处指会变成索求的那种凝视）'},
+      {es:'desdén', zh:'这不是轻蔑（desdén：不屑、轻慢）'},
+      {es:'pacto tácito', zh:'默契、不成文的约定'},
+      {es:'la sospecha', zh:'猜疑、怀疑（此处指对陌生人的默认戒心）'},
+      {es:'la vigilancia', zh:'警戒、监视（此处指安全资源的分配）'},
+      {es:'se repliega', zh:'退缩、向内收缩（replegarse en：缩进……之中）'},
+      {es:'se amurallan', zh:'筑墙自守、自我封闭'},
+      {es:'escrutadora', zh:'审视的、审视般的（目光）'},
+      {es:'latente', zh:'潜在的、潜伏未发的'},
+      {es:'fragua ideas', zh:'孕育出想法（fraguar：锻造、促成成形）'},
+      {es:'prudencia con hostilidad', zh:'敌意、敌对状态'},
+    ],
+    structures:[
+      {es:'porque el precio de esta última no lo pagan quienes inspiran temor, sino los sospechosos por defecto', note:'宾语前置并复指：no lo pagan… 中 lo 复指前置的 el precio，语序倒装以突出代价归属；no… sino… 构成对比，sospechosos por defecto「默认嫌疑人」是全文最锋利的反讽命名，随后用三个关系从句举例落实。'},
+      {es:'y con cada reja que se levanta se fortalece la ilusión de que todo desconocido es un peligro latente', note:'con cada + 名词 + que + 陈述式（se levanta）表示随每一次动作而累积的效应；后半用无人称反身被动 se fortalece，主语 la ilusión 后置；de que 引导同位从句，陈述式 es 把这一错觉当作客观内容陈述。'},
+      {es:'la cortesía impersonal no es un lujo de sociedades opulentas, sino la infraestructura moral que hace habitable la densidad', note:'no… sino… 的重新定义句式，把「非人格化的礼貌」从消费层面的奢侈转为结构性条件；infraestructura moral 是全文的核心隐喻，hace habitable 为致使结构，宾语 la densidad 后置以避免头重脚轻。'},
+    ],
+    questions:[
+      {q:'¿Por qué considera el autor que el anonimato no es una carencia de la vida urbana, y cómo refuta a quienes deploran la frialdad de las grandes ciudades?', a:'Sostiene que el anonimato es la condición normal y el material mismo de la vida urbana, pues permite atravesar cada día multitudes sin exigir ni temer nada; a quienes deploran la frialdad les objeta que proponen como remedio una comunidad de rostros conocidos que la ciudad, por su propia escala, no puede ofrecer a todos.'},
+      {q:'¿En qué sentido la cortesía impersonal es un respeto y no una forma de desdén?', a:'En que no suspende la consideración hacia el otro, sino la pretensión de intimidad: reconocer al otro sin convertirlo en interlocutor constituye un pacto tácito gracias al cual la densidad resulta habitable, y se trata de un bien frágil que rara vez se aprecia hasta que se pierde.'},
+      {q:'¿Cómo distingue el autor entre prudencia y hostilidad, y qué consecuencias atribuye a confundirlas?', a:'Distingue el riesgo comprobable de la desconfianza generalizada y afirma que la ciudad segura no es la que convierte cada encuentro en una verificación de identidad, sino la que distribuye la vigilancia sin difundir la sospecha; confundir prudencia con hostilidad empobrece la vida común sin volverla más segura y destruye el encuentro imprevisto que solo la densidad produce.'},
+    ]
   }
 ];
 
@@ -7172,6 +7294,97 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Es ___ que se hayan tomado esas medidas.', options:['discutible', 'discutir', 'discutiendo', 'discusión'], correct:0, explain:'es discutible que + 虚拟式。评价性形容词（discutible / lamentable / sorprendente）后接从句用虚拟式。'},
     {sentence:'No es que ___ caro, es que no lo necesito.', options:['sea', 'es', 'será', 'era'], correct:0, explain:'no es que + 虚拟式表否定理由（并不是说……）。后半句 es que 用陈述式给出真正原因。'},
     {sentence:'Llama la ___ que no se haya informado antes.', options:['atención', 'atenta', 'atender', 'atento'], correct:0, explain:'llamar la atención que 是无人称评价句式。从句用虚拟式，因为表达的是说话人的主观反应。'}
+  ]},
+  {topic:'doler 与身体部位', questions:[
+    {sentence:'___ duele la garganta desde ayer.', options:['Me', 'Yo', 'Mi', 'Mí'], correct:0, explain:'doler 的主语是身体部位，人用与格代词：me duele la garganta。部位是单数用 duele。'},
+    {sentence:'Me ___ las piernas después de correr.', options:['duelen', 'duele', 'doler', 'dolía'], correct:0, explain:'部位是复数 las piernas，所以动词用 duelen。doler 的 o→ue 变化在单复数都要体现。'},
+    {sentence:'¿Te ___ algo? ¿Quieres que llamemos al médico?', options:['duele', 'duelen', 'doler', 'dolía'], correct:0, explain:'主语是 algo（单数），所以用 duele。这是询问对方身体状况的常用句型。'},
+    {sentence:'Tengo ___ y fiebre, creo que es gripe.', options:['tos', 'toser', 'toso', 'la tos'], correct:0, explain:'tener + 病痛名词：tener tos（咳嗽）、tener fiebre（发烧）。tos 前不加冠词。'},
+    {sentence:'Se ___ un brazo esquiando.', options:['rompió', 'rompía', 'rompe', 'romperá'], correct:0, explain:'自复结构 romperse + 身体部位 ＝ 摔断/弄伤某个部位。一次性事件用简单过去时。'}
+  ]},
+  {topic:'礼貌请求与指令', questions:[
+    {sentence:'¿___ ayudarme un momento, por favor?', options:['Podría', 'Puedo', 'Puede', 'Podré'], correct:0, explain:'¿Podría...? 是条件式，表委婉请求，比 ¿Puede...? 更客气。这是问对方能否帮忙。'},
+    {sentence:'¿Le ___ si abro la ventana?', options:['importaría', 'importa', 'importe', 'importará'], correct:0, explain:'¿Le importaría si...? 是极礼貌的请求句式，importaría 用条件式。'},
+    {sentence:'___ usted pasar por aquí, por favor.', options:['Pase', 'Pasa', 'Pasar', 'Pasando'], correct:0, explain:'正式（usted）肯定命令式用第三人称虚拟式形式：pase。tú 形式才是 pasa。'},
+    {sentence:'No ___ usted el móvil durante la reunión.', options:['use', 'usa', 'usar', 'usando'], correct:0, explain:'正式否定命令式同样用虚拟式：no use。命令式的否定形式一律用虚拟式。'},
+    {sentence:'___ tan amable de firmar aquí.', options:['Sería', 'Es', 'Sea', 'Será'], correct:0, explain:'¿Sería tan amable de...? 是公式化的客套请求，用条件式。'}
+  ]},
+  {topic:'表达距离与位置', questions:[
+    {sentence:'La farmacia está ___ de aquí, a dos minutos.', options:['cerca', 'cercano', 'cerca a', 'cercas'], correct:0, explain:'cerca de ＝ 在……附近。注意是 cerca de，不是 cerca a（常见错误）。'},
+    {sentence:'El hotel está ___ de la estación, justo enfrente.', options:['al lado', 'en lado', 'a lado', 'de lado'], correct:0, explain:'al lado de ＝ 在……旁边。介词搭配固定为 a + el = al。'},
+    {sentence:'¿___ una biblioteca por aquí?', options:['Hay', 'Está', 'Es', 'Tiene'], correct:0, explain:'问「这附近有没有」用 hay（表存在）。若已知存在而问位置才用 está：¿Dónde está la biblioteca?'},
+    {sentence:'El museo está ___ del parque, cruzando la calle.', options:['enfrente', 'enfrente a', 'en frente', 'frente'], correct:0, explain:'enfrente de ＝ 在……对面。也可以说 justo enfrente（就在对面）。'},
+    {sentence:'Mi casa está ___ a la tuya, en el mismo edificio.', options:['junto', 'juntos', 'junto de', 'junta'], correct:0, explain:'junto a ＝ 紧邻着。junto 不随主语变化，是副词性用法。'}
+  ]},
+  {topic:'天气表达', questions:[
+    {sentence:'Hoy ___ un frío terrible, ponte el abrigo.', options:['hace', 'es', 'está', 'hay'], correct:0, explain:'天气用 hacer + 名词：hace frío / hace calor / hace viento。es 用于描述天气的性质而非状态。'},
+    {sentence:'En el norte ___ mucho en invierno.', options:['llueve', 'llueven', 'llover', 'lloviendo'], correct:0, explain:'llover 只有第三人称单数形式 llueve，没有主语。nevar → nieva 同理。'},
+    {sentence:'El cielo ___ nublado desde esta mañana.', options:['está', 'es', 'hace', 'hay'], correct:0, explain:'天气的暂时状态用 estar：el cielo está nublado。对比 el clima es húmedo（气候特征用 ser）。'},
+    {sentence:'¿Qué tiempo ___ mañana?', options:['hará', 'será', 'estará', 'habrá'], correct:0, explain:'hacer 表天气，问「明天天气如何」用 ¿Qué tiempo hará?。将来时用 hará。'},
+    {sentence:'___ niebla en la carretera, conduce con cuidado.', options:['Hay', 'Está', 'Hace', 'Es'], correct:0, explain:'表「有雾」用 hay niebla（存在）。这与 hace frío（状态）不同，niebla 是可见的实体。'}
+  ]},
+  {topic:'让步句 aunque / por más que / a pesar de', questions:[
+    {sentence:'___ llueva, saldremos a caminar.', options:['Aunque', 'Porque', 'Cuando', 'Si'], correct:0, explain:'aunque + 虚拟式表假设性让步（即使下雨）。若用陈述式 llueve 则表示已知事实。'},
+    {sentence:'___ estaba enfermo, fue a trabajar.', options:['Aunque', 'Por más que', 'A pesar', 'Si bien que'], correct:0, explain:'aunque + 陈述式表已知事实的让步（虽然病了，还是去上班了）。'},
+    {sentence:'Por más que ___, no cambiará de opinión.', options:['insistas', 'insistes', 'insistirás', 'insistías'], correct:0, explain:'por más que 后必须接虚拟式，表「无论怎么……」。这是固定搭配，与 aunque 的两种可能不同。'},
+    {sentence:'___ del mal tiempo, la excursión fue un éxito.', options:['A pesar', 'Aunque', 'Por más que', 'Si bien'], correct:0, explain:'a pesar de + 名词（或不定式）。aunque 后面必须接完整从句，不能直接接名词。'},
+    {sentence:'___ es joven, tiene mucha experiencia.', options:['Si bien', 'Por más que', 'A pesar', 'Aunque que'], correct:0, explain:'si bien 表书面让步（虽然），后接陈述式。语域比 aunque 更正式。'}
+  ]},
+  {topic:'因果与后果的正式结构', questions:[
+    {sentence:'La reunión se aplazó ___ a la falta de quórum.', options:['debido', 'por', 'a causa', 'como'], correct:0, explain:'debido a ＝ 由于，是正式书面表达。por 后直接接名词时也可表原因，但不构成 debido a 这一固定短语。'},
+    {sentence:'El proyecto fracasó ___ culpa de una mala planificación.', options:['por', 'de', 'a', 'en'], correct:0, explain:'por culpa de 表「由于（某人的过失）」，带负面评价。中性原因用 debido a 或 a causa de。'},
+    {sentence:'No hay consenso; ___, la decisión se pospone.', options:['por consiguiente', 'por consiguiente que', 'consiguiente', 'a consiguiente'], correct:0, explain:'por consiguiente ＝ 因此（书面）。同义结构还有 en consecuencia / por lo tanto。'},
+    {sentence:'Llovió toda la semana, ___ que se cancelara el partido.', options:['de ahí', 'de ahí de', 'ahí', 'por ahí'], correct:0, explain:'de ahí que + 虚拟式 ＝ 因此（导致某结果）。de ahí que 后必须用虚拟式，这是常考点。'},
+    {sentence:'El plan se tradujo ___ una mejora notable del servicio.', options:['en', 'a', 'de', 'por'], correct:0, explain:'traducirse en ＝ 转化为、体现为。这是描述结果的标准搭配。'}
+  ]},
+  {topic:'论证动词与语式（陈述式/虚拟式）', questions:[
+    {sentence:'El abogado sostuvo que la prueba ___ falsificada.', options:['estuviera', 'esté', 'estuviese', 'estaba'], correct:3, explain:'sostener 引出事实断言，从句用陈述式 estaba；estuviera、esté、estuviese 是虚拟式，只在表意志或否定的动词后出现。'},
+    {sentence:'El sindicato adujo que las condiciones laborales ___ empeorado en el último año.', options:['hubieran', 'habían', 'hubiesen', 'hayan'], correct:1, explain:'aducir 是援引理由支持主张，从句陈述事实用陈述式 habían；hubieran、hubiesen、hayan 属虚拟式，此处无否定也无意志触发语。'},
+    {sentence:'El ministro negó que su equipo ___ filtrado el documento.', options:['hubiera', 'había', 'ha', 'habrá'], correct:0, explain:'negar 表否定，削弱了从句的事实性，须用虚拟式 hubiera filtrado；había、ha、habrá 是陈述式，不能跟在 negar que 后。'},
+    {sentence:'La jueza admitió que el acusado ___ en la escena del crimen.', options:['hubiera estado', 'estuviera', 'había estado', 'hubiese estado'], correct:2, explain:'admitir 表承认既成事实，从句用陈述式 había estado；hubiera estado、estuviera 等虚拟式不合承认事实的语境。'},
+    {sentence:'Nadie cree que el proyecto ___ viable sin más fondos.', options:['es', 'sea', 'era', 'será'], correct:1, explain:'主句被否定时 creer 后改用虚拟式，故为 sea；es、era、será 是陈述式，只出现在肯定主句，如 creo que es viable。'}
+  ]},
+  {topic:'表达同意与不同意', questions:[
+    {sentence:'No es que no me ___ tu propuesta, es que no tengo presupuesto.', options:['gusta', 'guste', 'gustaría', 'gustó'], correct:1, explain:'no es que 用来否认对方假定的前提，从句须用虚拟式 guste；gusta、gustó 是陈述式，gustaría 是条件式，都不能用在此结构后。'},
+    {sentence:'No es que el plan ___ malo, es que resulta inviable a corto plazo.', options:['es', 'fue', 'era', 'sea'], correct:3, explain:'no es que 否认「计划不好」这一前提，从句用虚拟式 sea；es、fue、era 是陈述式，用于肯定事实，与该否认结构不兼容。'},
+    {sentence:'No es que no quiera firmar; ___ que necesito revisar el contrato.', options:['sea', 'es', 'fuera', 'era'], correct:1, explain:'es que 引出真实理由，用陈述式 es 说明实情；sea、fuera 是虚拟式，era 是过去时，都不能与表真实原因的 es que 搭配。'},
+    {sentence:'—Todos compartimos esa idea. —Pues yo ___: creo que falta un matiz importante.', options:['discrepe', 'discrepar', 'discrepo', 'discrepando'], correct:2, explain:'独立句谓语用陈述式 discrepo，表「我有不同意见」；discrepe 是虚拟式，discrepar 是原形，discrepando 是副动词。'},
+    {sentence:'No comparto del todo esa afirmación, pero tampoco la ___.', options:['rechace', 'rechazo', 'rechazar', 'rechazando'], correct:1, explain:'pero 引出的并列主句用陈述式 rechazo，与 no comparto 一起表有限的不同意；rechace 是虚拟式，原形与副动词不能作谓语。'}
+  ]},
+  {topic:'表达推测与保留', questions:[
+    {sentence:'No contesta al teléfono; ___ de estar en el extranjero.', options:['deba', 'debe', 'debiera', 'debamos'], correct:1, explain:'表推测要用 deber de 加不定式，第三人称现在时陈述式为 debe；deba、debiera、debamos 是虚拟式，不能构成推测结构。'},
+    {sentence:'A lo mejor ___ mañana temprano y podemos desayunar juntos.', options:['llega', 'llegue', 'llegara', 'llegase'], correct:0, explain:'a lo mejor 固定要求陈述式，故用 llega；llegue、llegara、llegase 是虚拟式，只有 quizá、tal vez 才可接虚拟式。'},
+    {sentence:'En la medida ___ que aumentan los datos, crece también la incertidumbre.', options:['de', 'a', 'en', 'con'], correct:2, explain:'固定连接语是 en la medida en que，表「随着……」；de、a、con 都不能与 que 构成该结构。'},
+    {sentence:'Hasta cierto ___, tienes razón, pero tu conclusión me parece exagerada.', options:['punto', 'grado', 'parte', 'medida'], correct:0, explain:'固定表达 hasta cierto punto 表「在某种程度上」的保留；parte 和 medida 须说 en cierta medida。'},
+    {sentence:'En principio, el problema ___ solución, aunque habrá que negociar.', options:['tenga', 'tuviera', 'tiene', 'tuviese'], correct:2, explain:'en principio 只表初步保留，不改变事实陈述的语气，故用陈述式 tiene；tenga、tuviera、tuviese 是虚拟式，此处无触发语。'}
+  ]},
+  {topic:'程度与进展的动词搭配', questions:[
+    {sentence:'El número de contagios va ___ aumento desde la semana pasada.', options:['de', 'en', 'a', 'por'], correct:1, explain:'固定搭配 ir en aumento 表「持续上升」；de 和 por 不能构成该短语，ir a 后要接不定式，不能直接接名词 aumento。'},
+    {sentence:'La tensión en la frontera tiende a ___ en los meses de invierno.', options:['agudiza', 'agudizado', 'agudizarse', 'agudizando'], correct:2, explain:'tender a 后必须接不定式，故用带代词的 agudizarse；agudiza 是变位动词，agudizado 是分词，agudizando 是副动词。'},
+    {sentence:'El precio de la vivienda se ha ___ en los últimos dos años.', options:['dispara', 'disparar', 'disparando', 'disparado'], correct:3, explain:'haber 加分词构成完成时，故用 disparado，表「暴涨」；dispara 是变位动词，disparar 是原形，disparando 是副动词。'},
+    {sentence:'Las quejas de los vecinos son cada vez ___.', options:['más numerosas', 'más numerosos', 'mucho numerosas', 'muy numerosas'], correct:0, explain:'cada vez 要求比较级 más，主语 quejas 是阴性复数，故用 numerosas；numerosos 性数不符，mucho、muy 不能这样连用。'},
+    {sentence:'El consumo de tabaco va en ___ entre los adolescentes.', options:['descender', 'descendiendo', 'descenso', 'bajo'], correct:2, explain:'ir en descenso 是固定搭配，表「持续下降」，介词后需名词 descenso；descender 是原形，descendiendo 是副动词。'}
+  ]},
+  {topic:'拉丁语遗留结构与公文语域', questions:[
+    {sentence:'El que ___ daño a la comunidad responderá con su patrimonio.', options:['causara', 'cause', 'causare', 'causa'], correct:2, explain:'法律条文用将来虚拟式 causare，指「将来造成损害者」；causara 是过去虚拟式，cause 是现在虚拟式，causa 是陈述式，语域不合。'},
+    {sentence:'Si ___ necesario, se convocará una reunión extraordinaria.', options:['sea', 'sería', 'fuere', 'será'], correct:2, explain:'条件从句用将来虚拟式 fuere，属法律文书的古体表达；si 后不能用将来时 será，也不能用虚拟式 sea 或条件式 sería。'},
+    {sentence:'___ el director ausente, la reunión se aplazó sin más trámites.', options:['Estar', 'Estaba', 'Estuviera', 'Estando'], correct:3, explain:'副动词绝对结构由 Estando 加自己的主语构成，这里表原因；Estar 是原形，Estaba 是陈述式，Estuviera 是虚拟式。'},
+    {sentence:'En virtud ___ artículo quinto, se declara inadmisible el recurso.', options:['de el', 'del', 'al', 'por el'], correct:1, explain:'固定短语 en virtud de 与阳性单数冠词缩合为 del；de el 不能分写，al 是 a 与 el 的缩合。'},
+    {sentence:'La ley fue aprobada y, ___ consiguiente, entrará en vigor mañana.', options:['por', 'en', 'de', 'a'], correct:0, explain:'固定连接语 por consiguiente 表「因此」，属书面语域；en、de、a 都不能与 consiguiente 构成该连接语。'}
+  ]},
+  {topic:'预设的识别与利用', questions:[
+    {sentence:'La pregunta «¿Por qué dejaste de fumar?» presupone que el destinatario ___ antes.', options:['fuma', 'fumará', 'fumaba', 'fumaría'], correct:2, explain:'dejar de 预设此前存在该行为，故用未完成过去时 fumaba 表过去的习惯；fuma 是现在时，fumará、fumaría 与该预设不符。'},
+    {sentence:'—¿Por qué dejaste de venir a clase? —No es que ___ dejado de venir: nunca me matriculé.', options:['he', 'había', 'haya', 'hube'], correct:2, explain:'要否认对方的前提，须用 no es que 加虚拟式 haya dejado；he、había、hube 都是陈述式，该结构后必须用虚拟式。'},
+    {sentence:'Incluso los más escépticos ___ que la medida había funcionado.', options:['admitieran', 'admitan', 'admitiesen', 'admitieron'], correct:3, explain:'incluso 预设「连最怀疑的人也在此列」，从句叙述事实用陈述式 admitieron；admitieran、admitan、admitiesen 是虚拟式。'},
+    {sentence:'La pregunta «¿Cuándo dejó de fumar Ana?» ___ que Ana fumaba.', options:['presuponga', 'presuponer', 'presupone', 'presuponiendo'], correct:2, explain:'主语是单数名词短语，谓语用陈述式 presupone；presuponga 是虚拟式，presuponer 是原形，presuponiendo 是副动词。'},
+    {sentence:'El adverbio «también» en «Ana también aprobó» presupone que ___ personas aprobaron.', options:['otra', 'otras', 'otro', 'algunos'], correct:1, explain:'también 预设除 Ana 外还有同类个体，personas 是阴性复数，故用 otras；otra、otro 是单数，algunos 是阳性复数。'}
+  ]},
+  {topic:'修辞格的辨识', questions:[
+    {sentence:'«Un silencio atronador» es un ___ , pues une dos términos de sentido contrario.', options:['litote', 'hipérbole', 'eufemismo', 'oxímoron'], correct:3, explain:'oxímoron 把语义相悖的词并置，如 silencio 与 atronador；litote 是弱化，hipérbole 是夸大。'},
+    {sentence:'Decir «no está mal» de un concierto excelente es una ___ , porque atenúa lo positivo.', options:['hipérbole', 'preterición', 'litote', 'ironía'], correct:2, explain:'litote 用否定形式弱化表达，实则肯定「很好」；hipérbole 是夸大，preterición 是说不提却提，ironía 是说反话。'},
+    {sentence:'«No voy a mencionar los errores de mi rival», y enseguida los enumera, es una ___.', options:['eufemismo', 'hipérbole', 'preterición', 'oxímoron'], correct:2, explain:'preterición 声称略过某话题却实际详述；eufemismo 是委婉替代，hipérbole 是夸大，oxímoron 是矛盾并置，均不符。'},
+    {sentence:'Llamar «tercer grado» a la tortura es un ___ , que sustituye un término duro por otro suave.', options:['eufemismo', 'hipérbole', 'litote', 'preterición'], correct:0, explain:'eufemismo 用温和说法替代刺耳词语，故以 tercer grado 指代 tortura；hipérbole 是夸大，litote 是弱化。'},
+    {sentence:'«¡Qué puntualidad la tuya!» a quien llega dos horas tarde es una ___ de tono mordaz.', options:['litote', 'eufemismo', 'hipérbole', 'ironía'], correct:3, explain:'ironía 说反话，字面赞扬实为批评，语气比 sarcasmo 含蓄；litote 是弱化，eufemismo 是婉称，hipérbole 是夸大。'}
   ]}
 ];
 
