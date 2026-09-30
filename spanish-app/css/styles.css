@@ -1333,6 +1333,17 @@ ul, ol { list-style: none; }
   font-weight: 500;
   transition: all 0.22s ease;
   font-size: 0.9rem;
+  /* 真机发现：窄屏（约 411px CSS 宽度）下三个按钮并排时中文被挤成两行，
+     「已掌握」显示成「已掌 / 握」。中文没有词间空格，浏览器会在任意字之间断行，
+     所以必须显式禁止换行，并允许按钮在窄屏下压缩内边距。 */
+  white-space: nowrap;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+@media (max-width: 480px) {
+  .card-controls { gap: 10px; }
+  .card-btn { padding: 12px 16px; font-size: 0.86rem; }
 }
 .card-btn .icon { font-size: 1.05em; }
 

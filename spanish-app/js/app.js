@@ -566,6 +566,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   Router.init();
   initGlobalEvents();
+
+  // 探测原生 TTS（Android 系统引擎，离线）。不阻塞界面：后台轮询即可，
+  // 探测完成后 speakWord 会自动优先走它。
+  initNativeTts().then((ok) => {
+    if (ok) console.log('[TTS] 已启用原生离线语音引擎');
+    else console.log('[TTS] 原生引擎不可用，将使用 Web Speech / Google 兜底');
+  });
   
   // 到期复习提醒（每个会话最多一次，依赖用户已授权）
   setTimeout(() => { try { AppState.maybeNotifyDue(); } catch (e) {} }, 2500);
@@ -2862,6 +2869,47 @@ const _ttsCache = new Map(); // text -> HTMLAudioElement
 let _ttsFailCount = 0;       // 连续失败计数，超过阈值停用 Google TTS
 let _useGoogleTts = true;    // Google 兜底开关
 
+// ---- 原生 TTS（Android 系统引擎，离线可用）----
+// 起因：真机校验发现发音功能在真机上**完全不可用**。Android WebView 里
+// 根本没有 speechSynthesis 这个 API，而唯一的兜底 Google translate_tts 端点
+// 在 WebView 里被拦（<audio> 连 HTTP 头都读不到：error=4 / networkState=3
+// NO_SOURCE），同一 URL 用设备自身 curl 却返回 HTTP 200。也就是只剩一条
+// 依赖 Google 的路，而那条路在这台设备上不通。
+// 系统 TTS 引擎是离线的，不走网络，因此不受影响 —— 这是发音功能的正解。
+let _nativeTtsReady = false;   // 原生引擎可用
+const _NATIVE_TTS = { current: null };
+
+// 探测原生插件：Capacitor 注入 window.Capacitor.Plugins 是异步的，且
+// TextToSpeech 的初始化本身也异步（onInit 回调），所以这里轮询等待。
+async function initNativeTts() {
+  for (let i = 0; i < 30; i++) {   // 最多等 12 秒（系统 TTS 引擎初始化可能很慢）
+    try {
+      const C = window.Capacitor;
+      const plug = C && C.Plugins && C.Plugins.NativeTts;
+      if (plug) {
+        _NATIVE_TTS.current = plug;
+        const r = await plug.isAvailable();
+        if (r && r.available) { _nativeTtsReady = true; return true; }
+        // available=false 但 initializing=true 时继续等引擎初始化完成
+        if (!(r && r.initializing)) return false;
+      }
+    } catch (e) { /* 继续等待 */ }
+    await new Promise((res) => setTimeout(res, 400));
+  }
+  return _nativeTtsReady;
+}
+
+// 用原生引擎朗读；返回是否已发起
+function speakNativeTts(text, rate) {
+  try {
+    if (!_nativeTtsReady || !_NATIVE_TTS.current) return false;
+    _NATIVE_TTS.current.speak({ text, rate: rate || 0.9 });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function googleTtsUrl(text, lang = 'es') {
   // Google Translate 免费 TTS：不需要 key，短文本稳定
   // client=tw-ob 是 Twitter old-browser trick，返回真实 mp3
@@ -2924,7 +2972,10 @@ function speakWord(text, opts = {}) {
   const toast = opts.toast !== false;
   const interrupt = opts.interrupt !== false;
 
-  // ---- 优先：系统原生语音 ----
+  // ---- 最优先：原生系统 TTS（离线，真机上唯一可靠的一条路）----
+  if (speakNativeTts(text, rate)) return;
+
+  // ---- 其次：Web Speech API（浏览器 / iOS 上可用，Android WebView 没有）----
   if (hasNativeVoice('es')) {
     try {
       if (interrupt && _activeAudio) {
@@ -2972,7 +3023,22 @@ function speakWord(text, opts = {}) {
     }
   }
 
-  if (toast) showToast('当前环境不支持语音朗读');
+  // 真机实测：Android 上走到这里通常不是 App 的问题，而是系统里没有可用的
+  // 语音引擎（小米设备自带引擎的 TtsService 存在但 enabled=0，TextToSpeech
+  // 初始化直接返回 ERROR）。所以提示要说清「去哪儿修」，而不是只说「不支持」。
+  if (toast) {
+    if (isAndroidApp()) showToast('发音需要系统语音引擎：设置 → 更多设置 → 无障碍/语音 → 文字转语音，安装「西语」语音包');
+    else showToast('当前环境不支持语音朗读');
+  }
+}
+
+// 是否运行在 Android 壳里（用于给出平台相关的提示）
+function isAndroidApp() {
+  try {
+    return !!(window.Capacitor && typeof window.Capacitor.getPlatform === 'function' && window.Capacitor.getPlatform() === 'android');
+  } catch (e) {
+    return /Android/i.test(navigator.userAgent);
+  }
 }
 
 // 使用系统原生语音朗读；返回是否成功启动（供调用方决定是否回落到 Google TTS）
@@ -3001,6 +3067,8 @@ function fallbackSpeak(text, { lang, rate, pitch, toast }) {
 // 预加载整个听力段落的所有行（静默缓存）
 function preloadPassageAudio(dialogue) {
   if (!_useGoogleTts) return;
+  // 有原生离线引擎时不必预取网络音频；有系统语音时同理
+  if (_nativeTtsReady) return;
   // 有系统西语语音时用原生朗读，不预取 Google 音频，避免无谓的网络请求
   if (hasNativeVoice('es')) return;
   dialogue.forEach(d => {
