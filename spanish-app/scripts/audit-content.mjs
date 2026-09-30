@@ -186,6 +186,36 @@ console.log('── B. 交叉引用一致性 ──');
   // 所以这里单独处理冠词 —— 否则词库的 "El semáforo" 匹配不上材料里的 "Semáforo"。
   const stripArticle = (x) => norm(x).replace(/^(el|la|los|las|un|una|unos|unas)\s+/, '');
   const key = (x) => stripAcc(stripArticle(x));
+  // 已人工逐条核实、**不应按词条收录**的听说关键词。
+  // 每轮扩充后审计都会重新报出这些串；逐条核实过它们全是屈折形式、专名或虚词，
+  // 列成白名单并写明理由，避免审计长期挂着无法消除的告警（同 POLYSEMY_OK 的做法）。
+  // 新增条目必须写明「为什么不该入库」。
+  const NON_LEXEME_OK = new Map([
+    // —— 动词变位形（词库收原形，变位由语法规则生成）——
+    ['compré', 'comprar 的简单过去时第一人称'],
+    ['decidimos', 'decidir 的简单过去时第一人称复数'],
+    ['escribieras', 'escribir 的虚拟式过去时第二人称'],
+    ['insistiera', 'insistir 的虚拟式过去时第三人称'],
+    ['insistas', 'insistir 的虚拟式现在时第二人称'],
+    ['saldremos', 'salir 的简单将来时第一人称复数'],
+    ['convendría', 'convenir 的条件式'],
+    ['participen', 'participar 的虚拟式现在时第三人称复数'],
+    ['innovadores', 'innovador 的阳性复数形式'],
+    ['inflamada', 'inflamado 的阴性单数形式'],
+    ['proporcionado', 'proporcionar 的过去分词'],
+    // —— 原形 + 附着代词（不是独立词条）——
+    ['conocerte', 'conocer + 代词 te'],
+    ['avísame', 'avisar 的命令式 + 代词 me'],
+    ['probársela', 'probar + 代词 se + la'],
+    ['Síganme', 'seguir 的命令式 + 代词 me（整句形式）'],
+    // —— 专有名词与虚词 ——
+    ['Almodóvar', '专有名词（导演姓氏）'],
+    ['Aunque', '功能词，已在语法点「让步与转折连接词」中讲解'],
+    ['agravar', 'agravar 的变位形（材料中作 lo agrava），原形已在词库'],
+    ['desayuno', 'desayunar/desayuno 的变位或名词形式，均在词库'],
+    ['Conviene', 'convenir 的第三人称变位，词库已收 la conveniencia'],
+  ]);
+
   const vocabSet = new Set();
   Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.vocab || []).forEach(w => vocabSet.add(key(w.es)))));
 
@@ -221,11 +251,14 @@ console.log('── B. 交叉引用一致性 ──');
     const uniq = uniqueRaw(list);
     const phrases = uniq.filter((x) => norm(x.raw).split(/\s+/).length > 1);
     const words = uniq.filter((x) => !phrases.includes(x));
+    const known = words.filter((x) => NON_LEXEME_OK.has(x.raw.trim()));
+    const pending = words.filter((x) => !NON_LEXEME_OK.has(x.raw.trim()));
     console.log(`  ${name}未入库：去重 ${uniq.length} 条 = 短语 ${phrases.length}（表达，不入词库）`
-      + ` + 非短语 ${words.length}`);
-    if (words.length) {
-      add('P2', 'B', `${name}中有 ${words.length} 个非短语串不在词库中（需人工判定：应收录的词条 / 动词变位形 / 专名）`,
-        words.map((x) => `"${x.raw.trim()}"`));
+      + ` + 已核实不入库 ${known.length}（屈折形/专名/虚词）`
+      + ` + 待判定 ${pending.length}`);
+    if (pending.length) {
+      add('P2', 'B', `${name}中有 ${pending.length} 个非短语串不在词库中（需人工判定：应收录的词条 / 动词变位形 / 专名）`,
+        pending.map((x) => `"${x.raw.trim()}"`));
     }
   };
   report('听力重点词汇', listenMissing);

@@ -12,7 +12,7 @@
  * 用法: node scripts/audit-gaps.mjs data/courses.js
  */
 import fs from 'node:fs';
-import { grammarPointCovered } from './grammar-coverage.mjs';
+import { grammarPointCovered, isExemptFromQuiz } from './grammar-coverage.mjs';
 
 const file = process.argv[2] || 'data/courses.js';
 const src = fs.readFileSync(file, 'utf8');
@@ -51,8 +51,11 @@ console.log('=== G. 语法点 ↔ 语法题库 覆盖关系 ===');
     const inner = (/[（(]([^）)]*)[）)]/.exec(t) || [])[1] || '';
     const keys = [topicKey(t)];
     if (inner) keys.push(topicKey(inner));
-    // 西语主题名也归一化后加入
-    keys.push(topicKey(t.replace(/[^\x00-\x7F]/g, ' ')));
+    // 西语主题名也归一化后加入。
+    // 但剥掉中文后剩下的串可能只剩两三个字母（如「表「学习/研究」的动词搭配」
+    // 剥完只剩「x7F 」，会与不相干的主题撞键），故要求至少 6 个字符才作为键。
+    const asciiOnly = topicKey(t.replace(/[^\x00-\x7F]/g, ' '));
+    if (asciiOnly.length >= 6) keys.push(asciiOnly);
     keys.forEach((k) => {
       if (!k) return;
       if (!groups.has(k)) groups.set(k, new Set());
@@ -80,8 +83,11 @@ console.log('=== G. 语法点 ↔ 语法题库 覆盖关系 ===');
   //     （「动词 ser · 现在时」），题库主题是分类名（「Ser 的变位与用法」），
   //     字面几乎不会相同，直接比字符串会得出无法行动的错误结论。
   const allPoints = [...byTitle.keys()];
-  const uncovered = allPoints.filter((t) => !grammarPointCovered(t, topics));
-  console.log(`  语法点被题库覆盖 ${allPoints.length - uncovered.length} / ${allPoints.length}`);
+  // 分三类：已覆盖 / 已判定不出题（附理由）/ 真正待补
+  const exempt = allPoints.filter((t) => !grammarPointCovered(t, topics) && isExemptFromQuiz(t));
+  const uncovered = allPoints.filter((t) => !grammarPointCovered(t, topics) && !isExemptFromQuiz(t));
+  console.log(`  语法点被题库覆盖 ${allPoints.length - uncovered.length - exempt.length} / ${allPoints.length}`
+    + `（另 ${exempt.length} 个已判定不出选择题，见 grammar-coverage.mjs 的 POINTS_WITHOUT_QUIZ）`);
   if (uncovered.length) {
     const byLv = {};
     Object.values(d.COURSES).forEach((l) => l.units.forEach((u) =>

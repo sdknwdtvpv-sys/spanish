@@ -1615,6 +1615,13 @@ const COURSES = {
           {es:'Colaborar con', zh:'与……协作', example:'Colabora con la asociación.'},
           {es:'Participar en', zh:'参与', example:'Participo en las reuniones.'},
           {es:'Respetar', zh:'尊重', example:'Hay que respetar el descanso.'},
+          {es:'Ahora', zh:'现在', example:'Ahora mismo no puedo hablar.'},
+          {es:'La verdad', zh:'真话、事实上', example:'La verdad es que no lo sabía.'},
+          {es:'Perdonar', zh:'原谅', example:'Sabe perdonar y seguir adelante.'},
+          {es:'Perdona', zh:'抱歉（插话用）', example:'Perdona, ¿puedo preguntarte algo?'},
+          {es:'Distinto', zh:'不同的', example:'Cada caso es distinto.'},
+          {es:'Los matices', zh:'细微差别（复数）', example:'Los matices cambian el sentido.'},
+          {es:'Sin embargo', zh:'然而', example:'Es caro; sin embargo, vale la pena.'},
           {es:'Avisar a', zh:'通知', example:'Avisa a los vecinos del corte de agua.'}
         ],
         grammar:[
@@ -9652,6 +9659,30 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Me he ___ a un torneo de pádel.', options:['apuntado', 'apuntando', 'apuntar', 'apunta'], correct:0, explain:'apuntarse a ＝ 报名参加。完成时用过去分词 apuntado。'},
     {sentence:'Se ___ a los videojuegos muy pronto.', options:['enganchó', 'engancha a', 'enganchando', 'enganche'], correct:0, explain:'engancharse a ＝ 上瘾、迷上。这类自复动词都表「使自己投入某事」。'},
     {sentence:'___ mucho a la lectura desde niño.', options:['Se aficionó', 'Aficionó', 'Se aficionando', 'Aficionarse'], correct:0, explain:'自复动词必须带代词：se aficionó。缺了 se 句子不成立。'}
+  ]},
+  {topic:'近义动词辨析：escuchar 与 oír', questions:[
+    {sentence:'___ música mientras trabajo.', options:['Escucho', 'Oigo', 'Me escucho', 'Escucho a'], correct:0, explain:'escuchar ＝ 主动去听（有意识）。oír ＝ 听到（被动接收声音）。听音乐是主动行为，用 escuchar，直接接宾语不加 a。'},
+    {sentence:'No te ___ bien, habla más alto.', options:['oigo', 'escucho', 'me oigo', 'oigo a'], correct:0, explain:'「我听不清你」是声音接收问题，用 oír。escuchar 表主动聆听，与此处语义不符。'},
+    {sentence:'Le ___ con atención durante toda la reunión.', options:['escuché', 'oí', 'me escuché', 'oí a'], correct:0, explain:'escuchar con atención ＝ 认真倾听（主动）。oír 是被动感知，不能与「注意力」搭配。'},
+    {sentence:'De repente ___ un ruido extraño.', options:['oí', 'escuché', 'me oí', 'escuché a'], correct:0, explain:'突发的声音是被动接收到的，用 oír。「突然听到」是 oír 的典型语境。'}
+  ]},
+  {topic:'表「学习/研究」的动词搭配', questions:[
+    {sentence:'___ inglés desde hace tres años.', options:['Estudio', 'Estudio a', 'Aprendo a', 'Aprendo de'], correct:0, explain:'estudiar 直接接学科，不加介词。aprender 后面接名词时也不加 a（aprendo inglés），a 只用于 aprender a + 不定式。'},
+    {sentence:'Estoy ___ a nadar este verano.', options:['aprendiendo', 'estudiando', 'aprendiendo de', 'estudiando a'], correct:0, explain:'aprender a + 不定式 ＝ 学会做某事。estudiar 后不接不定式表技能习得。'},
+    {sentence:'Los investigadores ___ sobre el cambio climático.', options:['investigan', 'investigan a', 'estudian a', 'aprenden de'], correct:0, explain:'investigar sobre ＝ 研究某主题。investigar 直接接宾语时指「调查（案件）」，接主题要用 sobre。'},
+    {sentence:'Se ha ___ en profundidad ese fenómeno.', options:['profundizado', 'profundizando', 'profundizar', 'profundiza'], correct:0, explain:'profundizar en ＝ 深入研究。haber + 分词构成完成时，所以用 profundizado。'}
+  ]},
+  {topic:'量化与程度表达', questions:[
+    {sentence:'Conviene ___ el consumo de sal.', options:['reducir', 'reducir a', 'reducirse', 'reducir de'], correct:0, explain:'reducir + 名词 ＝ 减少某物的量。reducirse a 表「缩减为」，语义不同。'},
+    {sentence:'Hay que ___ la ingesta de verduras.', options:['aumentar', 'aumentar a', 'aumentarse', 'aumentar de'], correct:0, explain:'aumentar + 名词（增加某物）。注意与 aumentarse 的区别：后者更强调自身增长。'},
+    {sentence:'Sustituye el azúcar ___ fruta.', options:['por', 'a', 'de', 'en'], correct:0, explain:'sustituir A por B ＝ 用 B 替代 A。介词固定为 por，这是常考的搭配。'},
+    {sentence:'El consumo se ha ___ un diez por ciento.', options:['reducido en', 'reducido a', 'reducido de', 'reducido por'], correct:0, explain:'reducirse en + 幅度 ＝ 减少了多少。注意与 reducido a（减少到某个值）的区别：en 表幅度，a 表终点。'}
+  ]},
+  {topic:'数据与趋势的表述', questions:[
+    {sentence:'La vivienda ___ la subida de precios.', options:['encabeza', 'encabeza a', 'encabeza en', 'encabezando'], correct:0, explain:'encabezar + 名词 ＝ 位居……之首。encabezar 直接接宾语，不加介词。'},
+    {sentence:'El precio se ha ___ en una década.', options:['duplicado', 'duplicando', 'duplicar', 'duplica'], correct:0, explain:'duplicarse ＝ 翻倍。完成时用过去分词 duplicado。'},
+    {sentence:'La tasa se sitúa ___ encima de la media.', options:['por', 'en', 'a', 'de'], correct:0, explain:'situarse por encima de ＝ 位于……之上。por encima de / por debajo de 是固定的方位短语。'},
+    {sentence:'El sector ___ un descenso del tres por ciento.', options:['registró', 'registró a', 'registró en', 'registrando'], correct:0, explain:'registrar + 名词 ＝ 录得、记录到（数据）。这是经济报道中描述数据的标准动词。'}
   ]}
 ];
 
