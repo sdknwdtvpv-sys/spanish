@@ -348,6 +348,23 @@ console.log('── D. 教学一致性 ──');
   const fmtOnly = [];   // 仅格式/同义改写，不算缺陷
   const conflict = [];  // 同一义项下释义互不兼容
   const polysemy = [];  // 真正的多义：分单元给语境义，属设计选择
+
+  // 已人工逐条核实过的真多义词：不同单元给的是**不同义项**，
+  // 释义互相包含只因其中一个写法把义项合并了（如「纪念品、回忆」）。
+  // 这类不是缺陷，列入白名单，避免审计长期挂着一个无法消除的告警。
+  // 新增白名单条目必须说明各义项分别是什么。
+  const POLYSEMY_OK = new Map([
+    ['el recuerdo', '回忆（a2-u3 情感语境） / 纪念品与回忆（b1-u15 旅行语境）'],
+    ['la salida', '离开（a2-u8）/ 出口、发车（a2-u10 交通语境）/ 出发（b1-u15 旅行语境）'],
+    ['la ruptura', '分手、决裂（b2-u8 关系）/ 断裂（b2-u10 物理或抽象）/ 中断（c1-u17 延续性）'],
+    ['la dirección', '地址（a1-u4）/ 方向（a2-u10）'],
+    ['la talla', '尺码（服装）/ 雕刻（艺术）'],
+    ['la ley', '法律（法学）/ 定律（科学）'],
+    ['el discurso', '演讲（口语）/ 话语（学术）'],
+    ['la sentencia', '警句（文学）/ 判决（法律）'],
+    ['la productividad', '生产率（经济）/ 能产性（语言学）'],
+    ['la arbitrariedad', '任意性（符号学）/ 专断（法律）'],
+  ]);
   [...zhMap.entries()].forEach(([es, arr]) => {
     const raw = [...new Set(arr.map(a => a.zh))];
     if (raw.length < 2) return;
@@ -359,7 +376,10 @@ console.log('── D. 教学一致性 ──');
     // 一个集合被另一个完全包含 → 同一义项，释义不齐
     const nested = uniqSets.some((s, i) =>
       uniqSets.some((t, j) => i !== j && subsetOf(s, t) && !subsetOf(t, s)));
-    if (nested) conflict.push({ es, raw }); else polysemy.push({ es, raw });
+    if (nested) {
+      if (POLYSEMY_OK.has(es)) polysemy.push({ es, raw });
+      else conflict.push({ es, raw });
+    } else polysemy.push({ es, raw });
   });
   if (conflict.length) {
     add('P1', 'D', `有 ${conflict.length} 个西语词在不同单元的释义互相包含但不统一（应统一书写）`,
