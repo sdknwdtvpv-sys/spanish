@@ -23,7 +23,9 @@ const MIME = {
   '.jpg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
-  '.woff2': 'font/woff2'
+  '.woff2': 'font/woff2',
+  '.m4a': 'audio/mp4',
+  '.aac': 'audio/aac'
 };
 
 const server = createServer(async (req, res) => {

@@ -125,14 +125,33 @@ LinguaTTS: engineCount=0
 
 **这需要你在系统里配置，App 侧无法自行解决。**
 
-### 你需要做的（一次即可）
+### 处置：改为「预生成音频」，不再依赖设备引擎
 
-任一方式：
+既然设备侧三条路都不可靠，正确做法是**把语音变成随 App 打包的固定资源**。
+已实现：
 
-1. **装 Google 文字转语音**（Google TTS）—— 自带西语，最省事
-2. 或在「设置 → 更多设置 → 无障碍 → 文字转语音」里，给现有引擎**下载西语语音包**
-3. 装好之后**不用改任何代码**：插件的 `isAvailable` 会返回 `true`，
-   `initNativeTts()` 自动启用原生朗读，前端优先级链会自动走它
+- `tools/generate-audio.mjs`：用 macOS 的 `say` + `afconvert` 离线合成全部语音
+  （音色 Eddy / es_ES，AAC 24kbps 单声道，实测 6.8KB/条）
+- `tools/embed-audio.mjs`：把音频路径写回 `data/courses.js`
+  （词条加 `audio` 字段，听力段落加 `audioLines` 数组）
+- `js/app.js`：`playLocalAudio()` 成为 `speakWord()` 的**最高优先级**，
+  听力逐行播放也优先走本地音频
+- 原生 TTS 插件保留作**次优先**：用户装了引擎就用，没装也不影响
+
+真机实测结果（决定性证据）：
+
+```
+events: ["loadstart", "meta dur=0.98", "canplay", "playing", "play()已解决"]
+```
+
+本地音频在真机上**正常解码播放**，`play()` 不被自动播放策略拦截，全程无异常——
+与 Google 兜底的 `error=4 / networkState=3 (NO_SOURCE)` 形成对比。
+
+这样发音/听力/口语**都不再依赖设备引擎或网络**。原生 TTS 作为补充路径仍接在链上，
+所以用户若装了 Google TTS，音色会更好；没装也照样能听。
+
+> 说明：`minSdk 23` 的设备另有系统级 TTS 可选项，但既然打包音频已能完全覆盖，
+> 就不再要求用户做任何配置。
 
 ---
 

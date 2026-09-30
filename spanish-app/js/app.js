@@ -2964,6 +2964,66 @@ function ensureAudio(text, lang) {
 // 全局当前播放 audio
 let _activeAudio = null;
 
+// ---- 预生成音频（离线，优先级最高）----
+// 真机校验发现发音/听力/口语在真机上全部不可用：Android WebView 没有 Web Speech API，
+// Google 兜底被拦，系统 TTS 引擎又可能没装。所以把 6235 条语音**预先生成成音频文件**
+// 打包进 App —— 不依赖引擎、不依赖网络，装到任何机器上都能响。
+// 路径由 tools/embed-audio.mjs 写进数据（词条上的 audio、听力上的 audioLines）。
+let _localAudioMap = null;
+
+/** 建立「文本 -> 本地音频路径」索引（数据里没写 audio 时也能兜底查找） */
+function localAudioFor(text) {
+  if (!text) return null;
+  if (_localAudioMap === null) {
+    _localAudioMap = Object.create(null);
+    const put = (t, a) => { if (t && a && !_localAudioMap[t]) _localAudioMap[t] = a; };
+    try {
+      const walk = (units) => (units || []).forEach((u) => (u.vocab || []).forEach((w) => put(w.es, w.audio)));
+      Object.values(COURSES).forEach((l) => walk(l.units));
+      (SPEAKING_SENTENCES || []).forEach((s) => put(s.es, s.audio));
+      (LISTENING_PASSAGES || []).forEach((p) => {
+        if (!p.audioLines || !p.es) return;
+        const lines = String(p.es).split('\n').map((x) => x.trim()).filter(Boolean);
+        lines.forEach((line, i) => {
+          const spoken = line.replace(/^([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\s.]{1,20}):\s*/, '');
+          put(spoken, p.audioLines[i]);
+        });
+      });
+    } catch (e) { /* 索引失败则退回其它路径 */ }
+  }
+  return _localAudioMap[String(text).trim()] || null;
+}
+
+/** 播放本地预生成音频；返回是否已发起播放 */
+function playLocalAudio(text, rate, interrupt, onEnded) {
+  const src = localAudioFor(text);
+  if (!src) return false;
+  try {
+    if (interrupt && _activeAudio) {
+      _activeAudio.pause();
+      _activeAudio.currentTime = 0;
+    }
+    // 复用缓存，避免同一句反复创建 Audio 对象
+    let audio = _ttsCache.get('local:' + src);
+    if (!audio) {
+      audio = new Audio(src);
+      audio.preload = 'auto';
+      if (onEnded) audio.addEventListener('ended', onEnded, { once: true });
+      _ttsCache.set('local:' + src, audio);
+    }
+    _activeAudio = audio;
+    audio.playbackRate = rate || 0.9;
+    try { audio.currentTime = 0; } catch (e) { /* 尚未加载完时忽略 */ }
+    const p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => { if (onEnded) onEnded(); });
+    }
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function speakWord(text, opts = {}) {
   if (!text || !text.trim()) return;
   const lang = opts.lang || 'es';
@@ -2972,7 +3032,10 @@ function speakWord(text, opts = {}) {
   const toast = opts.toast !== false;
   const interrupt = opts.interrupt !== false;
 
-  // ---- 最优先：原生系统 TTS（离线，真机上唯一可靠的一条路）----
+  // ---- 最优先：预生成音频（离线、不依赖任何引擎，真机上最可靠）----
+  if (playLocalAudio(text, rate, interrupt)) return;
+
+  // ---- 其次：原生系统 TTS（离线，装了语音引擎才可用）----
   if (speakNativeTts(text, rate)) return;
 
   // ---- 其次：Web Speech API（浏览器 / iOS 上可用，Android WebView 没有）----
@@ -3132,7 +3195,45 @@ function _playDialogueSequence(dialogue, opts = {}) {
     const line = dialogue[idx];
     idx++;
 
-    // ---- 优先：系统原生语音（离线可用，不依赖第三方接口） ----
+    // ---- 最优先：预生成音频（离线，不依赖引擎与网络）----
+    // 真机上 Web Speech API 不存在、Google 兜底被拦、系统 TTS 可能没装引擎，
+    // 所以听力播放优先走打包进来的音频文件。
+    const localSrc = localAudioFor(line.text);
+    if (localSrc) {
+      try {
+        if (_activeAudio) { _activeAudio.pause(); _activeAudio.currentTime = 0; }
+        const audio = new Audio(localSrc);
+        _activeAudio = audio;
+        audio.playbackRate = rate;
+        let advanced = false;
+        let timer = null;
+        const onEndedOk = () => {
+          if (advanced || stopped) return;
+          advanced = true;
+          if (timer) clearTimeout(timer);
+          playNext();
+        };
+        // metadata 拿到后按真实时长收紧兜底（含 playbackRate 影响）
+        const tighten = () => {
+          if (advanced) return;
+          if (isFinite(audio.duration) && audio.duration > 0) {
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(onEndedOk, (audio.duration * 1000) / Math.max(0.5, rate) + 800);
+          }
+        };
+        audio.addEventListener('ended', onEndedOk);
+        audio.addEventListener('loadedmetadata', tighten);
+        audio.addEventListener('error', onEndedOk);
+        timer = setTimeout(onEndedOk, estimatedMs(line.text) + 3000);
+        const p = audio.play();
+        if (p && typeof p.catch === 'function') p.catch(onEndedOk);
+        return;
+      } catch (e) {
+        // 本地音频失败则继续走下面的路径
+      }
+    }
+
+    // ---- 其次：系统原生语音（离线可用，不依赖第三方接口） ----
     if (speakNative(line, playNext)) return;
 
     // ---- 兜底：Google 真实音频 ----

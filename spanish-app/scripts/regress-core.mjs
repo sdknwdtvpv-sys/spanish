@@ -309,6 +309,27 @@ console.log('\n=== 11. 数据完整性 ===');
   console.log(`     规模：词汇 ${d.vocab} / 单元 ${d.units} / 语法题 ${d.grammar} / 听力 ${d.listen} / 口语 ${d.speak} / 精读 ${d.read} / 搭配 ${d.colloc}`);
 }
 
+console.log('\n=== 11.5 本地预生成音频链路 ===');
+// 真机校验发现发音/听力/口语在真机上全部不可用（WebView 无 Web Speech API、
+// Google TTS 兜底被拦、系统 TTS 引擎可能没装）。所以语音改走预生成音频文件。
+// 这里检查链路是否健在：索引函数、查找函数，以及数据里是否真的写了 audio 路径。
+check('playLocalAudio 已定义', (await ev('typeof playLocalAudio')) === 'function');
+check('localAudioFor 已定义', (await ev('typeof localAudioFor')) === 'function');
+const audioStat = await ev(`(()=>{
+  let withAudio = 0, total = 0, sample = null;
+  for (const lv of Object.values(COURSES)) for (const u of lv.units) for (const w of (u.vocab||[])) {
+    total++; if (w.audio) { withAudio++; if (!sample) sample = w.audio; }
+  }
+  return JSON.stringify({withAudio, total, sample});
+})()`);
+const as = JSON.parse(audioStat);
+check('词条已写入 audio 路径', as.withAudio > 0, `${as.withAudio}/${as.total} 条，示例 ${as.sample || '无'}`);
+if (as.sample) {
+  const real = await ev(`(async()=>{try{const r=await fetch(${JSON.stringify(as.sample)});const b=await r.blob();return JSON.stringify({status:r.status,size:b.size});}catch(e){return JSON.stringify({err:e.message});}})()`);
+  const rj = JSON.parse(real);
+  check('音频文件真实可取', rj.status === 200 && rj.size > 200, `HTTP ${rj.status || '-'} ${rj.size || 0}B`);
+}
+
 console.log('\n=== 12. 无未捕获异常 ===');
 check('全程 0 未捕获异常', exc.length === 0, `exceptions=${exc.length}`);
 exc.slice(0, 5).forEach(e => console.log('     ! ' + e));

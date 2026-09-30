@@ -14,6 +14,7 @@ const ENTRIES = [
   'css',
   'data',
   'js',
+  'audio',
   'icons',
   'manifest.webmanifest',
   'sw.js'
