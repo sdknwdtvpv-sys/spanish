@@ -384,6 +384,19 @@ PORT=4173 node scripts/serve.mjs
 
 `node` 位于 `/Users/elliot.li/.workbuddy/binaries/node/versions/22.22.2-3/bin`（未在 PATH 中）。
 
+### 回归测试的三层覆盖
+
+| 测试 | 覆盖内容 | 规模 |
+|---|---|---|
+| `scripts/regress-core.mjs` | 主路径断言（冷启动/登录/路由/SRS/四种学习模式/精读/搭配/备份/streak） | 46 断言 |
+| `scripts/regress-content.mjs` | **逐条打开所有内容**（每个单元、每篇精读、每个语法主题） | 91 + 63 + 103 |
+| `scripts/regress-rapid-click.mjs` | 防抖与重复计分（同步突发点击） | 9 断言 |
+
+`regress-content.mjs` 是后补的：内容增长到 91 单元后，抽样测试不足以覆盖
+单条内容的渲染错误。实测全部通过、0 未捕获异常。
+
+一键运行：`npm test`（需先 `bash tools/test-env.sh` 起无头 Chrome 与静态服务器）。
+
 ### 发版提醒
 
 修改了 `index.html` / `css` / `js` / `data` 之后，**必须把 `sw.js` 顶部的 `CACHE = 'lingua-vN'` 版本号 +1**。现在已是 v2。（本轮已把缓存策略改为网络优先，正常情况下新代码会立即生效，但改版本号仍是稳妥做法。）
