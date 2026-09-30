@@ -479,6 +479,9 @@ ul, ol { list-style: none; }
 .app-layout {
   min-height: 100vh;
   display: flex;
+  /* 防止子项（固定 sidebar 的 margin 占位）把整行撑得超过视口 */
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* 侧边栏 */
@@ -639,6 +642,13 @@ ul, ol { list-style: none; }
   flex: 1;
   margin-left: 264px;
   min-height: 100vh;
+  /* 关键修复：flex 项的 min-width 默认是 auto，意味着**无法收缩到内容最小宽度以下**。
+     本项目在窄屏上出现过横向溢出（视口 394px 而 main-content 实际 864px），
+     根因就是这个：Chrome 算出的最小内容宽度 = 基础 margin-left(264) + 内容 600。
+     加 min-width:0 才允许它收缩到容器宽度。同时用 overflow-x:hidden 兜底，
+     防止内部某个宽元素（长英文词、宽表格）再次把整页撑开。 */
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .top-bar {
@@ -1075,6 +1085,7 @@ ul, ol { list-style: none; }
 
 .unit-meta {
   display: flex;
+  flex-wrap: wrap;            /* 放不下就换行，不要把中文压成竖排 */
   gap: 16px;
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -1084,6 +1095,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;               /* flex 项默认 min-width:auto 会拒绝收缩 */
 }
 .unit-meta .icon { font-size: 14px; }
 
@@ -1344,6 +1356,32 @@ ul, ol { list-style: none; }
 @media (max-width: 480px) {
   .card-controls { gap: 10px; }
   .card-btn { padding: 12px 16px; font-size: 0.86rem; }
+}
+
+/* 窄屏下的单元卡片：改为纵向堆叠。
+   真机实测（视口 394px）：横向排布时 unit-num(62) + unit-info(137) +
+   unit-progress(84) + 间距 48 = 331px 已逼近容器 294px 的内容宽度，
+   unit-info 只剩 137px，里面的三段元信息（各 35px）被迫逐字竖排，
+   「28 个单词」显示成一列单字。纵向堆叠后 info 拿到整行宽度。 */
+@media (max-width: 600px) {
+  .unit-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 20px;
+  }
+  .unit-card:hover { transform: none; }   /* 纵向布局下横向位移会溢出 */
+  .unit-num {
+    min-width: 0;
+    text-align: left;
+    font-size: 1.9rem;
+  }
+  .unit-progress {
+    min-width: 0;
+    text-align: left;
+  }
+  .unit-meta { gap: 14px 18px; }
+  .unit-meta span { font-size: 0.8rem; }
 }
 .card-btn .icon { font-size: 1.05em; }
 
