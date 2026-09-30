@@ -1,6 +1,6 @@
 # Lingua 内容审计报告
 
-**审计对象**：`sdknwdtvpv-sys/spanish` · `spanish-app/data/courses.js`（4103 词条 / 77 单元 / 611 语法题 / 232 语法点 / 52 听力 / 120 口语 / 63 精读 / 807 搭配 / 22 成就 / 8 社区帖）
+**审计对象**：`sdknwdtvpv-sys/spanish` · `spanish-app/data/courses.js`（4103 词条 / 77 单元 / 611 语法题 / 232 语法点 / 52 听力 / 120 口语 / 63 精读 / 920 搭配 / 22 成就 / 8 社区帖）
 **审计日期**：2026-09-30（含四轮内容扩充后的复审）
 **审计工具**：`scripts/audit-content.mjs`（词汇层）+ `scripts/audit-gaps.mjs`（语法题库/成就/社区帖/搭配层）+ `scripts/check-data.mjs` + `scripts/spanish-morphology.mjs` + `scripts/grammar-coverage.mjs`
 
