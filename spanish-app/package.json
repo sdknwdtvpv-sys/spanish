@@ -21,7 +21,8 @@
     "audit": "node scripts/audit-content.mjs data/courses.js && node scripts/audit-gaps.mjs data/courses.js && node scripts/check-data.mjs data/courses.js",
     "test:content": "node scripts/regress-content.mjs",
     "test": "npm run check:fresh --silent && node scripts/regress-core.mjs && node scripts/regress-content.mjs && node scripts/regress-rapid-click.mjs",
-    "check:fresh": "node scripts/assert-fresh.mjs"
+    "check:fresh": "node scripts/assert-fresh.mjs",
+    "audit:review": "node scripts/audit-review-coverage.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",

@@ -1,0 +1,4 @@
+{
+  "_readme": "复核台账。键为条目 id（内容哈希，见 scripts/audit-review-coverage.mjs）；内容改动后 id 变化，原记录自动失效。verdict: ok|issue|fixed。issue 必填 note 与依据出处。",
+  "_reviewers": {}
+}
