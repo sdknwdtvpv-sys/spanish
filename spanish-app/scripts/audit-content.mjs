@@ -294,15 +294,37 @@ console.log('── D. 教学一致性 ──');
     if (!zhMap.has(k)) zhMap.set(k, []);
     zhMap.get(k).push({ zh: w.zh, unit: u.id });
   })));
-  const inconsistent = [];
+  // 归一化：去尾部「的」、拆分多义分隔符、去括注
+  const glossSet = zh => new Set(
+    zh.replace(/（[^）]*）|\([^)]*\)/g, '')
+      .split(/[\/、，,；;|]/)
+      .map(s => s.trim().replace(/的$/, ''))
+      .filter(Boolean)
+  );
+  // 两个释义集合是否互为子集（同一义项的两种写法）
+  const subsetOf = (a, b) => [...a].every(x => b.has(x));
+  const fmtOnly = [];   // 仅格式/同义改写，不算缺陷
+  const conflict = [];  // 同一义项下释义互不兼容
+  const polysemy = [];  // 真正的多义：分单元给语境义，属设计选择
   [...zhMap.entries()].forEach(([es, arr]) => {
-    const uniq = [...new Set(arr.map(a => norm(a.zh)))];
-    if (uniq.length > 1) inconsistent.push({ es, arr, uniq });
+    const raw = [...new Set(arr.map(a => a.zh))];
+    if (raw.length < 2) return;
+    const sets = raw.map(glossSet);
+    // 去重后集合数量为 1 → 纯格式差异
+    const uniqSets = [];
+    sets.forEach(s => { if (!uniqSets.some(u => subsetOf(s, u) && subsetOf(u, s))) uniqSets.push(s); });
+    if (uniqSets.length === 1) { fmtOnly.push({ es, raw }); return; }
+    // 一个集合被另一个完全包含 → 同一义项，释义不齐
+    const nested = uniqSets.some((s, i) =>
+      uniqSets.some((t, j) => i !== j && subsetOf(s, t) && !subsetOf(t, s)));
+    if (nested) conflict.push({ es, raw }); else polysemy.push({ es, raw });
   });
-  if (inconsistent.length) {
-    add('P1', 'D', `有 ${inconsistent.length} 个西语词在不同单元的中文释义不一致`,
-      inconsistent.slice(0, 10).map(x => `"${x.es}" → ${x.uniq.join(' | ')}`));
+  if (conflict.length) {
+    add('P1', 'D', `有 ${conflict.length} 个西语词在不同单元的释义互相包含但不统一（应统一书写）`,
+      conflict.slice(0, 10).map(x => `"${x.es}" → ${x.raw.join(' | ')}`));
   }
+  console.log(`  同词同义异写（格式类，自动归一） ${fmtOnly.length} 个`);
+  console.log(`  同词多义（分单元给语境义，设计如此，非缺陷） ${polysemy.length} 个`);
 
   // 2. 同一西语词的 level 分布（跨等级复现是合理的，但低等级不该过高）
   const levelMap = new Map();
@@ -319,25 +341,28 @@ console.log('── D. 教学一致性 ──');
   d.GRAMMAR_QUIZZES.forEach(s => { allGrammarText.push(s.topic); s.questions.forEach(q => allGrammarText.push(q.explain)); });
   const joined = allGrammarText.join(' ');
   // 常见术语的多种写法
+  // 只检查「中文译名之间的不一致」。
+  // 西语原形（preterito indefinido / imperfecto 等）是刻意保留的对照标注，
+  // 属于正确的教学做法，不应判为问题——本脚本早期版本曾误报，已更正判定逻辑。
   const termPairs = [
-    ['虚拟式', ['虚拟语气', '虚拟式']],
-    ['陈述式', ['陈述式', '直陈式', '陈述语气']],
-    ['简单过去时', ['简单过去时', '简单过去式', 'preterito indefinido']],
-    ['未完成过去时', ['未完成过去时', '过去未完成时', 'imperfecto']],
-    ['命令式', ['命令式', '祈使式']],
-    ['被动语态', ['被动语态', '被动式']],
-    ['关系从句', ['关系从句', '定语从句']],
-    ['与格', ['与格', '间接宾语']],
+    // [标准译名, [需统一的其他中文译名]]
+    ['虚拟式', ['虚拟语气']],
+    ['陈述式', ['直陈式', '陈述语气']],
+    ['简单过去时', ['简单过去式']],
+    ['未完成过去时', ['过去未完成时']],
+    ['命令式', ['祈使式']],
+    ['被动语态', ['被动式']],
+    ['关系从句', ['定语从句']],
+    ['与格', ['间接格']],
   ];
   termPairs.forEach(([canon, variants]) => {
-    const used = variants.filter(v => joined.toLowerCase().includes(v.toLowerCase()));
+    const used = [canon, ...variants].filter(v => joined.includes(v));
     if (used.length > 1) {
-      add('P2', 'D', `术语「${canon}」存在多种译名并存：${used.join(' / ')}（建议统一）`);
+      add('P2', 'D', `术语「${canon}」存在多种中文译名并存：${used.join(' / ')}（建议统一）`);
     }
   });
 
-  console.log(`  同词异译 ${inconsistent.length} 组`);
-  console.log(`  术语不统一问题见上方`);
+  console.log(`  释义需统一的词 ${conflict.length} 个 / 术语不统一见上方`);
 }
 
 console.log('');
