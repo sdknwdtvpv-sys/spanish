@@ -399,6 +399,7 @@ console.log('── D. 教学一致性 ──');
     ['la arbitrariedad', '任意性（符号学）/ 专断（法律）'],
     ['la carta', '菜单（餐厅语境 a1-u7、a2-u17）/ 信（通信语境）'],
     ['la obra', '施工（b2-u15 城市建设语境）/ 作品（艺术语境）'],
+    ['el campo', '乡下、田野（a1-u14/a1-u20 自然语境）/ 球场（a2-u18 运动语境）'],
   ]);
   [...zhMap.entries()].forEach(([es, arr]) => {
     const raw = [...new Set(arr.map(a => a.zh))];
