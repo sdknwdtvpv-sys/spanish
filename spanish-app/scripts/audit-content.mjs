@@ -181,7 +181,11 @@ console.log('── B. 交叉引用一致性 ──');
   //    比对时去掉重音：learning 材料的标注未必带重音，带不带重音是同一个词，
   //    不去重音会把 "profesion" 与 "profesión" 判成两个词，虚增缺口。
   const stripAcc = (x) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const key = (x) => stripAcc(norm(x));
+  // 比对词条时要做三件事：去冠词、去重音、统一小写。
+  // 本文件的 norm() 只做 trim+lowercase（其他检查依赖它保持原样），
+  // 所以这里单独处理冠词 —— 否则词库的 "El semáforo" 匹配不上材料里的 "Semáforo"。
+  const stripArticle = (x) => norm(x).replace(/^(el|la|los|las|un|una|unos|unas)\s+/, '');
+  const key = (x) => stripAcc(stripArticle(x));
   const vocabSet = new Set();
   Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.vocab || []).forEach(w => vocabSet.add(key(w.es)))));
 
@@ -198,49 +202,34 @@ console.log('── B. 交叉引用一致性 ──');
   d.LISTENING_PASSAGES.forEach(p => (p.keyVocab || []).forEach(kv => {
     if (!vocabSet.has(key(kv.es))) listenMissing.push({ raw: kv.es, label: `[${p.level}] ${p.title} → "${kv.es}"` });
   }));
-  {
-    const { words, phrases } = splitMissing(listenMissing);
-    console.log(`  听力重点词汇未入库：单词 ${words.length} / 短语 ${phrases.length}（短语为表达，不计缺口）`);
-    if (words.length) {
-      add('P2', 'B', `听力「重点词汇」中有 ${words.length} 个单词不在词库中（学习者无法复习到）`,
-        words.slice(0, 10).map((x) => x.label));
-    }
-  }
 
   let speakMissing = [];
   d.SPEAKING_SENTENCES.forEach(s => (s.vocab || []).forEach(v => {
     if (!vocabSet.has(key(v))) speakMissing.push({ raw: v, label: `[${s.level}] "${v}"` });
   }));
-  {
-    const { words, phrases } = splitMissing(speakMissing);
-    console.log(`  口语关键词未入库：单词 ${words.length} / 短语 ${phrases.length}（短语为表达，不计缺口）`);
+
+  // 只做能**可靠**判断的统计，不再自动判定「哪些串该按词条收录」。
+  //
+  // 试过三种启发式（词尾、派生后缀、词干比对），每一种都会误判：
+  //   - 按词尾：sincera / innovadoras 这类正常形容词被判成变位形
+  //   - 按词干：decidir 不在词库时，decidimos 被判成内容词（其实是变位形）
+  // 同一份数据三套规则给出三个不同数字，说明这类判断不适合自动化。
+  // 因此这里只统计「去重后的非短语串」并**如实列出**，供人工逐条判定——
+  // 这比给出一个看起来精确、实际是错的「内容词 0」更诚实。
+  const uniqueRaw = (list) => [...new Map(list.map((x) => [x.raw.trim(), x])).values()];
+  const report = (name, list) => {
+    const uniq = uniqueRaw(list);
+    const phrases = uniq.filter((x) => norm(x.raw).split(/\s+/).length > 1);
+    const words = uniq.filter((x) => !phrases.includes(x));
+    console.log(`  ${name}未入库：去重 ${uniq.length} 条 = 短语 ${phrases.length}（表达，不入词库）`
+      + ` + 非短语 ${words.length}`);
     if (words.length) {
-      add('P2', 'B', `口语关键词中有 ${words.length} 个单词不在词库中`, words.slice(0, 10).map((x) => x.label));
+      add('P2', 'B', `${name}中有 ${words.length} 个非短语串不在词库中（需人工判定：应收录的词条 / 动词变位形 / 专名）`,
+        words.map((x) => `"${x.raw.trim()}"`));
     }
-  }
-
-  // 2. 精读 glossary 与词库的关系
-  const glossSet = new Set();
-  d.READING_PASSAGES.forEach(p => (p.glossary || []).forEach(g => glossSet.add(norm(g.es))));
-  const glossNotInVocab = [...glossSet].filter(g => !vocabSet.has(g));
-  // 注：精读生词会被并入 ALL_VOCAB，但不在 COURSES 的单元里
-  const inAllVocab = new Set(d.ALL_VOCAB.map(w => norm(w.es)));
-  const glossTrulyMissing = glossNotInVocab.filter(g => !inAllVocab.has(g));
-  if (glossTrulyMissing.length) add('P1', 'B', `精读生词有 ${glossTrulyMissing.length} 条未进入总词库`, glossTrulyMissing.slice(0, 8));
-
-  // 3. 精读 glossary 的词是否真的出现在正文里
-  //    走 exampleCoversTerm（含不规则变位表），否则 enfrascarse→enfrascados
-  //    这类正常变位会被当成「生词没出现在正文」的假问题
-  let glossNotInText = [];
-  d.READING_PASSAGES.forEach(p => {
-    const text = (p.paragraphs || []).map(x => x.es).join(' ');
-    (p.glossary || []).forEach(g => {
-      if (!exampleCoversTerm(g.es, text)) glossNotInText.push(`[${p.title}] "${g.es}"`);
-    });
-  });
-  if (glossNotInText.length) {
-    add('P2', 'B', `精读生词表中有 ${glossNotInText.length} 条未在正文中出现（含不规则变位可能误报）`, glossNotInText.slice(0, 15));
-  }
+  };
+  report('听力重点词汇', listenMissing);
+  report('口语关键词', speakMissing);
 
   // 4. 语法点 vs 语法题库主题覆盖
   const grammarPointTitles = [];
