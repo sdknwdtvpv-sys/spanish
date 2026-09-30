@@ -1048,35 +1048,18 @@ const COURSES = {
         ]
       },
 
-      { id:'a2-u5', title:'天气与季节', subtitle:'Tiempo y Estaciones', lessons:8, duration:'约 25 分钟',
+      { id:'a2-u5', title:'天气状态与进行时', subtitle:'El Tiempo y la Acción en Curso', lessons:8, duration:'约 25 分钟',
         vocab:[
-          {es:'Hace sol', zh:'晴天', example:'Hace sol, vayamos a la playa.'},
-          {es:'Hace frío', zh:'冷', example:'Hace frío esta mañana.'},
-          {es:'Hace calor', zh:'热', example:'Hace mucho calor en verano.'},
-          {es:'Hace viento', zh:'刮风', example:'Hace mucho viento hoy.'},
-          {es:'Llueve', zh:'下雨', example:'Ahora llueve.'},
-          {es:'Nieva', zh:'下雪', example:'¡Nieva! Qué bonito.'},
           {es:'Está nublado', zh:'阴天', example:'Hoy está nublado.'},
           {es:'Está lloviendo', zh:'正在下雨', example:'Mira, está lloviendo.'},
-          {es:'La temperatura', zh:'温度', example:'La temperatura es de 25 grados.'},
           {es:'Grados', zh:'度', example:'30 grados centígrados.'},
           {es:'Verano', zh:'夏天', example:'El verano me gusta mucho.'},
           {es:'Invierno', zh:'冬天', example:'En invierno nieva.'},
           {es:'Otoño', zh:'秋天', example:'El otoño es mi estación favorita.'},
           {es:'Primavera', zh:'春天', example:'En primavera hay flores.'},
-          {es:'Vacaciones de verano', zh:'暑假', example:'Mis vacaciones de verano son en julio.'},
-          {es:'Fin de semana', zh:'周末', example:'Fin de semana voy a la playa.'},
         
-          {es:'La nube', zh:'云', example:'El cielo está lleno de nubes.'},
-          {es:'La tormenta', zh:'暴风雨', example:'Viene una tormenta fuerte.'},
           {es:'El rayo', zh:'闪电', example:'Un rayo iluminó el cielo.'},
-          {es:'La niebla', zh:'雾', example:'Hay mucha niebla esta mañana.'},
           {es:'El grado', zh:'度', example:'Estamos a treinta grados.'},
-          {es:'Húmedo', zh:'潮湿的', example:'El clima aquí es muy húmedo.'},
-          {es:'Seco', zh:'干燥的', example:'El verano fue muy seco.'},
-          {es:'La primavera', zh:'春天', example:'En primavera todo florece.'},
-          {es:'El otoño', zh:'秋天', example:'El otoño es mi estación favorita.'},
-          {es:'El invierno', zh:'冬天', example:'En invierno nieva mucho.'},
         ],
         grammar:[
           {title:'Hace + 天气名词', desc:'固定搭配：hace calor / hace frío / hace sol / hace viento / hace buen tiempo。'},
@@ -1825,7 +1808,7 @@ const COURSES = {
         ]
       },
 
-      { id:'b1-u2', title:'环境与可持续发展', subtitle:'Medio Ambiente y Sostenibilidad', lessons:8, duration:'约 30 分钟',
+      { id:'b1-u2', title:'环境问题与解决措施', subtitle:'Medio Ambiente y Sostenibilidad', lessons:8, duration:'约 30 分钟',
         vocab:[
           {es:'Contaminación', zh:'污染', example:'La contaminación del aire es grave.'},
           {es:'Contaminación del agua', zh:'水污染', example:'El río sufre contaminación del agua.'},
@@ -2374,7 +2357,7 @@ const COURSES = {
           {title:'动作的结果状态：estar + 分词', desc:'La aplicación está actualizada（已更新状态）；El archivo está guardado；La batería está agotada。注意与被动语态的区别：fue actualizada 强调动作，está actualizada 强调结果状态。'}
         ]
       },
-      { id:'b1-u12', title:'环境与可持续', subtitle:'Medio Ambiente y Sostenibilidad', lessons:12, duration:'约 45 分钟',
+      { id:'b1-u12', title:'自然与环境词汇', subtitle:'Naturaleza y Vocabulario Ambiental', lessons:12, duration:'约 45 分钟',
         vocab:[
           {es:'El medio ambiente', zh:'环境', example:'Hay que proteger el medio ambiente.'},
           {es:'El entorno', zh:'周边环境', example:'El entorno natural es privilegiado.'},

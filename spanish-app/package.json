@@ -18,9 +18,10 @@
     "test:core": "node scripts/regress-core.mjs",
     "test:rapid": "node scripts/regress-rapid-click.mjs",
     "audit:gaps": "node scripts/audit-gaps.mjs data/courses.js",
-    "audit": "npm run audit:content && npm run audit:gaps && npm run check:data",
+    "audit": "node scripts/audit-content.mjs data/courses.js && node scripts/audit-gaps.mjs data/courses.js && node scripts/check-data.mjs data/courses.js",
     "test:content": "node scripts/regress-content.mjs",
-    "test": "node scripts/regress-core.mjs && node scripts/regress-content.mjs && node scripts/regress-rapid-click.mjs"
+    "test": "npm run check:fresh --silent && node scripts/regress-core.mjs && node scripts/regress-content.mjs && node scripts/regress-rapid-click.mjs",
+    "check:fresh": "node scripts/assert-fresh.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",

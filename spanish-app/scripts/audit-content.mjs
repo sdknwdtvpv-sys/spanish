@@ -139,6 +139,20 @@ console.log('── A. 结构完整性 ──');
     add('P1', 'A', `有 ${dupTitles.length} 组听力材料标题重复`, dupTitles.map(([t, n]) => `"${t}" ×${n}`));
   }
   console.log(`  听力 ${d.LISTENING_PASSAGES.length}：缺字段 ${bad} / 无题 ${noQ} / 中西文行数不符 ${zhLineMismatch} / 标题重复 ${dupTitles.length}`);
+
+  // 单元标题 / 副标题不得重复：同一 App 里两个单元同名，学习者分不清，
+  // 而且实测曾出现「同名单元内容高度重叠」（a2-u5 与 a1-u14 重叠 74%）。
+  const unitList = [];
+  Object.values(d.COURSES).forEach((l) => l.units.forEach((u) => unitList.push({ ...u, lv: l.level })));
+  const titleMap = new Map();
+  unitList.forEach((u) => titleMap.set(u.title, (titleMap.get(u.title) || 0) + 1));
+  const subMap = new Map();
+  unitList.forEach((u) => subMap.set(u.subtitle, (subMap.get(u.subtitle) || 0) + 1));
+  const dupUT = [...titleMap].filter(([, n]) => n > 1);
+  const dupUS = [...subMap].filter(([, n]) => n > 1);
+  if (dupUT.length) add('P1', 'A', `有 ${dupUT.length} 个单元标题重复（学生无法区分）`, dupUT.map(([t, n]) => `"${t}" ×${n}`));
+  if (dupUS.length) add('P2', 'A', `有 ${dupUS.length} 个单元副标题重复`, dupUS.map(([t, n]) => `"${t}" ×${n}`));
+  console.log(`  单元 ${unitList.length}：标题重复 ${dupUT.length} / 副标题重复 ${dupUS.length}`);
   d.LISTENING_PASSAGES.forEach((p, i) => {
     const esLines = (p.es || '').split('\n').filter(l => l.trim()).length;
     const zhLines = (p.zh || '').split('\n').filter(l => l.trim()).length;

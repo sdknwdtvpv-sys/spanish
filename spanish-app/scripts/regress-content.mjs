@@ -8,6 +8,9 @@
  * 用法: CDP_PORT=9333 node scripts/regress-content.mjs
  */
 import fs from 'node:fs';
+import { assertFresh } from './assert-fresh.mjs';
+
+assertFresh();
 
 const CDP_PORT = Number(process.env.CDP_PORT || 9333);
 const URL_ = process.env.APP_URL || 'http://localhost:4173/';

@@ -6,6 +6,11 @@
  *       精读 / 搭配 / 等级过滤 / 备份导出导入 / 键盘快捷键 /
  *       数据完整性 / 内容审计
  */
+import { assertFresh } from './assert-fresh.mjs';
+
+// 先确认 www/ 不是旧副本，否则后面测的是旧内容（历史踩坑两次）
+assertFresh();
+
 const CDP_PORT = Number(process.env.CDP_PORT || 9333);
 const URL_ = process.argv[2] || 'http://localhost:4173/';
 
