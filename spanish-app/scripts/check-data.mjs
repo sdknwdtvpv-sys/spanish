@@ -23,8 +23,12 @@ for (const [lv, l] of Object.entries(d.COURSES)) {
 }
 ok('所有等级都有单元', emptyUnits === 0);
 ok('units 数组无空位 / 无残缺单元', holes === 0, `空位=${holes}`);
-ok('无孤立逗号（源码级）', (src.match(/\n\s*,\n/g) || []).length === 0,
-   `命中=${(src.match(/\n\s*,\n/g) || []).length}`);
+// 孤立逗号：数组里多出来的逗号会让该位置变成空洞（vocab[i] === undefined）。
+// 原检查只匹配「逗号单独占一行」，漏掉了「逗号留在上一行行尾」这种形态
+// （删除数组首条时会留下它）。两种都查。
+const orphanA = (src.match(/\n\s*,\n/g) || []).length;
+const orphanB = (src.match(/,[ \t]*\n\s*,/g) || []).length;
+ok('无孤立逗号（源码级）', orphanA + orphanB === 0, `行内=${orphanA} 行尾=${orphanB}`);
 
 // 单元 id 唯一
 const ids = [];

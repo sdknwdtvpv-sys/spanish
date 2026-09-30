@@ -153,6 +153,47 @@ console.log('── A. 结构完整性 ──');
   if (dupUT.length) add('P1', 'A', `有 ${dupUT.length} 个单元标题重复（学生无法区分）`, dupUT.map(([t, n]) => `"${t}" ×${n}`));
   if (dupUS.length) add('P2', 'A', `有 ${dupUS.length} 个单元副标题重复`, dupUS.map(([t, n]) => `"${t}" ×${n}`));
   console.log(`  单元 ${unitList.length}：标题重复 ${dupUT.length} / 副标题重复 ${dupUS.length}`);
+
+  // ---- 单元内「同一词条重复录入」与「不同词条释义完全相同」----
+  // 这两类此前都查不到：原来的重复检测只做 es 字段的精确字符串比对，
+  // 而语料里大量重复的差别只是大小写或有没有冠词（`Semana` / `La semana`），
+  // 释义冲突（`Reservar 预订` / `La reserva 预订`）更是从来没查过。
+  // 为什么会漏掉、为什么算缺陷，见 scripts/audit-dup-entries.mjs 的注释头。
+  const ARTX = /^(el|la|los|las|un|una|unos|unas)\s+/i;
+  const lexNorm = (x) => x.trim().toLowerCase().replace(ARTX, '').replace(/\s+/g, ' ');
+  let dupEntryGroups = 0, dupEntryExtra = 0, glossCollide = 0;
+  const dupEntryDetail = [], glossDetail = [], holeDetail = [];
+  for (const [lv, l] of Object.entries(d.COURSES)) {
+    for (const u of l.units) {
+      const vocab = u.vocab || [];
+      vocab.forEach((w, i) => { if (!w || typeof w.es !== 'string') holeDetail.push(`${u.id}[${i}]`); });
+      const byLex = new Map();
+      const byZh = new Map();
+      for (const w of vocab) {
+        if (!w || typeof w.es !== 'string') continue;
+        const kl = lexNorm(w.es);
+        if (!byLex.has(kl)) byLex.set(kl, []);
+        byLex.get(kl).push(w.es);
+        const kz = w.zh.trim();
+        if (!byZh.has(kz)) byZh.set(kz, []);
+        byZh.get(kz).push(w.es);
+      }
+      for (const [k, arr] of byLex) if (arr.length > 1) {
+        dupEntryGroups++; dupEntryExtra += arr.length - 1;
+        dupEntryDetail.push(`${lv}/${u.id} ${k} → ${arr.join(' / ')}`);
+      }
+      for (const [zh, arr] of byZh) {
+        if (arr.length < 2) continue;
+        if (new Set(arr.map(lexNorm)).size < 2) continue; // 同一词条已在上面报过
+        glossCollide++;
+        glossDetail.push(`${lv}/${u.id} 《${zh}》 ${arr.join(' / ')}`);
+      }
+    }
+  }
+  if (holeDetail.length) add('P0', 'A', `词表存在空洞（源码多余逗号导致）${holeDetail.length} 处`, holeDetail.slice(0, 10));
+  if (dupEntryGroups) add('P1', 'A', `单元内同一词条重复录入 ${dupEntryGroups} 组（SRS 会生成两张复习卡）`, dupEntryDetail.slice(0, 10));
+  if (glossCollide) add('P2', 'A', `单元内不同词条释义完全相同 ${glossCollide} 组（学生无法区分）`, glossDetail.slice(0, 10));
+  console.log(`  词条去重：同词条重复 ${dupEntryGroups} 组 / 同义冲突 ${glossCollide} 组 / 词表空洞 ${holeDetail.length}`);
   d.LISTENING_PASSAGES.forEach((p, i) => {
     const esLines = (p.es || '').split('\n').filter(l => l.trim()).length;
     const zhLines = (p.zh || '').split('\n').filter(l => l.trim()).length;
