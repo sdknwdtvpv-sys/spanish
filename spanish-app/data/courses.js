@@ -398,7 +398,7 @@ const COURSES = {
           {es:'El amigo', zh:'朋友（男）', example:'Mi amigo vive en Sevilla.'},
           {es:'La amiga', zh:'朋友（女）', example:'Mi amiga estudia inglés.'},
           {es:'El compañero', zh:'同事 / 同学', example:'Mi compañero de piso es italiano.'},
-          {es:'El jefe', zh:'上司、老板', example:'Mi jefe es muy exigente.'},
+          {es:'El jefe', zh:'上司、老板', example:'Hablé con el jefe de personal.'},
           {es:'El vecino', zh:'邻居', example:'El vecino del tercero es simpático.'},
           {es:'La gente', zh:'人们', example:'Aquí hay mucha gente.'},
           {es:'Alto', zh:'高的', example:'Mi hermano es muy alto.'},
@@ -412,7 +412,7 @@ const COURSES = {
           {es:'La cara', zh:'脸', example:'Tiene una cara simpática.'},
           {es:'La mano', zh:'手', example:'Levanta la mano, por favor.'},
           {es:'El pie', zh:'脚', example:'Me duelen los pies.'},
-          {es:'La cabeza', zh:'头', example:'Me duele la cabeza.'},
+          {es:'La cabeza', zh:'头', example:'Giró la cabeza para mirarme.'},
           {es:'La boca', zh:'嘴', example:'Abre la boca, por favor.'},
           {es:'La nariz', zh:'鼻子', example:'Tiene la nariz pequeña.'},
           {es:'La oreja', zh:'耳朵', example:'Me duelen las orejas.'},
@@ -507,7 +507,7 @@ const COURSES = {
           {es:'El invierno', zh:'冬天', example:'El invierno aquí es suave.'},
           {es:'La estación', zh:'季节', example:'Mi estación favorita es el otoño.'},
           {es:'La temperatura', zh:'温度', example:'La temperatura baja por la noche.'},
-          {es:'Los grados', zh:'度', example:'Estamos a treinta grados.'},
+          {es:'Los grados', zh:'度', example:'Bajaremos a cinco grados bajo cero.'},
           {es:'El paraguas', zh:'雨伞', example:'Coge el paraguas, va a llover.'},
           {es:'El abrigo', zh:'大衣', example:'Ponte el abrigo, hace frío.'},
           {es:'La bufanda', zh:'围巾', example:'Llevo bufanda en invierno.'},
@@ -526,7 +526,7 @@ const COURSES = {
           {es:'El clima', zh:'气候', example:'El clima de aquí es húmedo.'},
           {es:'Húmedo', zh:'潮湿的', example:'El aire está muy húmedo.'},
           {es:'Seco', zh:'干燥的', example:'El verano es seco en el sur.'},
-          {es:'Nublado', zh:'多云的', example:'Hoy está nublado.'},
+          {es:'Nublado', zh:'多云的', example:'El cielo está nublado desde el mediodía.'},
           {es:'Despejado', zh:'晴朗的', example:'El cielo está despejado.'},
           {es:'Fresco', zh:'凉爽的', example:'Por la mañana hace fresco.'},
           {es:'La brisa', zh:'微风', example:'Una brisa suave entra por la ventana.'},
@@ -664,7 +664,7 @@ const COURSES = {
           {es:'Morocho', zh:'黑头发', example:'Es morocho y guapo.'},
           {es:'Calvo', zh:'秃', example:'Es calvo pero muy simpático.'},
           {es:'Ojos azules', zh:'蓝眼睛', example:'Tiene ojos azules muy bonitos.'},
-          {es:'Ojos marrones', zh:'棕色眼睛', example:'Sus ojos son marrones.'},
+          {es:'Ojos marrones', zh:'棕色眼睛', example:'Tiene los ojos marrones como su madre.'},
           {es:'Gafas', zh:'眼镜', example:'Lleva gafas de sol.'},
           {es:'Joven', zh:'年轻', example:'Es muy joven para su cargo.'},
           {es:'Mayor', zh:'年长', example:'Mi hermano mayor tiene treinta.'},
@@ -1011,7 +1011,7 @@ const COURSES = {
           {es:'Transbordar', zh:'换乘', example:'Hay que transbordar en Sol.'},
           {es:'Ir a pie', zh:'步行', example:'Vamos a pie, está cerca.'},
           {es:'Cerca / Lejos', zh:'近 / 远', example:'Está lejos de aquí.'},
-          {es:'A la derecha / izquierda', zh:'向右 / 向左', example:'Gire a la derecha.'}
+          {es:'A la derecha / izquierda', zh:'向右 / 向左', example:'El museo está a la izquierda.'}
         ],
         grammar:[
           {title:'命令式指路（usted 与 tú）', desc:'tú：Gira, Sigue, Toma（不规则：ve, ven, di, haz, pon, sal, sé, ten）。usted：Gire, Siga, Tome（用虚拟式第三人称形式）。公共场所标识多用 usted 形式。'},
@@ -1032,7 +1032,7 @@ const COURSES = {
           {es:'El horario', zh:'课程表', example:'Mira el horario de clases.'},
           {es:'El semestre', zh:'学期', example:'El semestre termina en junio.'},
           {es:'La carrera', zh:'专业、学业', example:'Estudio la carrera de Derecho.'},
-          {es:'La nota', zh:'分数', example:'Saqué una buena nota.'},
+          {es:'La nota', zh:'分数', example:'La nota media del grupo subió.'},
           {es:'Aprobar', zh:'及格', example:'Aprobé el examen por poco.'},
           {es:'Suspender', zh:'不及格', example:'Suspendí las matemáticas.'},
           {es:'El examen', zh:'考试', example:'El examen es el martes.'},
@@ -1051,7 +1051,7 @@ const COURSES = {
           {es:'Matricularse', zh:'注册', example:'Me matriculé en septiembre.'},
           {es:'La matrícula', zh:'注册费', example:'La matrícula cuesta mil euros.'},
           {es:'El aula de estudio', zh:'自习室', example:'La biblioteca tiene aulas de estudio.'},
-          {es:'La biblioteca', zh:'图书馆', example:'Estudio en la biblioteca.'},
+          {es:'La biblioteca', zh:'图书馆', example:'La biblioteca cierra a las nueve.'},
           {es:'El préstamo', zh:'借阅', example:'El préstamo dura quince días.'},
           {es:'La investigación', zh:'研究', example:'Su investigación es sobre el clima.'},
           {es:'El título', zh:'学位 / 头衔', example:'Obtuvo el título en junio.'},
@@ -1082,7 +1082,7 @@ const COURSES = {
       { id:'a2-u15', title:'工作与职业', subtitle:'Trabajo y Profesiones', lessons:12, duration:'约 45 分钟',
         vocab:[
           {es:'El oficio', zh:'手艺、职业', example:'Aprendió el oficio de su padre.'},
-          {es:'La profesión', zh:'职业', example:'¿Cuál es tu profesión?'},
+          {es:'La profesión', zh:'职业', example:'Su profesión es exigente pero vocacional.'},
           {es:'El puesto', zh:'职位', example:'Consiguió un puesto en una empresa.'},
           {es:'La empresa', zh:'公司', example:'Trabajo en una empresa pequeña.'},
           {es:'El jefe', zh:'上司、老板', example:'Mi jefe es exigente pero justo.'},
@@ -1400,7 +1400,7 @@ const COURSES = {
           {es:'Fútbol', zh:'足球', example:'El fútbol es el deporte más popular.'},
           {es:'Baloncesto', zh:'篮球', example:'Juego al baloncesto con amigos.'},
           {es:'Natación', zh:'游泳', example:'La natación es muy completa.'},
-          {es:'Tenis', zh:'网球', example:'Juego al tenis los sábados.'},
+          {es:'Tenis', zh:'网球', example:'El tenis requiere mucha coordinación.'},
           {es:'Yoga', zh:'瑜伽', example:'Hago yoga para relajarme.'},
           {es:'Ciclismo', zh:'骑行', example:'El ciclismo es muy saludable.'},
           {es:'Gimnasio', zh:'健身房', example:'Voy al gimnasio tres veces a semana.'},
@@ -1768,7 +1768,7 @@ const COURSES = {
           {es:'La contraseña', zh:'密码', example:'Cambié la contraseña ayer.'},
           {es:'La cuenta', zh:'账号', example:'No recuerdo la cuenta.'},
           {es:'El usuario', zh:'用户', example:'El usuario debe aceptar las condiciones.'},
-          {es:'La aplicación', zh:'应用程序', example:'Descargué una aplicación nueva.'},
+          {es:'La aplicación', zh:'应用程序', example:'Esta aplicación consume mucha batería.'},
           {es:'La actualización', zh:'更新', example:'La actualización tarda mucho.'},
           {es:'El programa', zh:'程序', example:'Este programa ya no se usa.'},
           {es:'La pantalla táctil', zh:'触摸屏', example:'La pantalla táctil no responde.'},
@@ -1785,7 +1785,7 @@ const COURSES = {
           {es:'El ancho de banda', zh:'带宽', example:'Necesitamos más ancho de banda.'},
           {es:'La privacidad', zh:'隐私', example:'La privacidad importa cada vez más.'},
           {es:'La huella digital', zh:'数字足迹', example:'Tu huella digital es difícil de borrar.'},
-          {es:'El rastro', zh:'痕迹', example:'Todo deja un rastro digital.'},
+          {es:'El rastro', zh:'痕迹', example:'El perro siguió el rastro del jabalí.'},
           {es:'El riesgo', zh:'风险', example:'El riesgo de fraude ha crecido.'},
           {es:'La estafa', zh:'诈骗', example:'Me intentaron hacer una estafa.'},
           {es:'El fraude', zh:'欺诈', example:'El fraude se denunció a la policía.'},
@@ -2848,7 +2848,7 @@ const COURSES = {
           {es:'La evaluación de impacto', zh:'影响评估', example:'Exigen evaluación de impacto ambiental.'},
           {es:'El informe preceptivo', zh:'强制性报告', example:'El informe preceptivo es vinculante.'},
           {es:'La memoria económica', zh:'经济说明', example:'La memoria económica calcula el coste.'},
-          {es:'La dotación', zh:'拨款', example:'La dotación presupuestaria es insuficiente.'},
+          {es:'La dotación', zh:'拨款', example:'La dotación de personal se redujo.'},
           {es:'El reparto competencial', zh:'权限划分', example:'El reparto competencial genera conflictos.'},
           {es:'La competencia exclusiva', zh:'专属权限', example:'Es competencia exclusiva de la comunidad.'},
           {es:'La descentralización', zh:'权力下放', example:'La descentralización mejoró la gestión.'},
@@ -2994,7 +2994,7 @@ const COURSES = {
           {es:'La carga de la prueba', zh:'举证责任', example:'La carga de la prueba recae en quien afirma.'},
           {es:'La falacia ad hominem', zh:'人身攻击谬误', example:'Respondió con un ad hominem.'},
           {es:'La generalización', zh:'以偏概全', example:'Esa generalización es apresurada.'},
-          {es:'La correlación', zh:'相关性（统计）', example:'Correlación no implica causalidad.'},
+          {es:'La correlación', zh:'相关性（统计）', example:'La correlación entre ambas variables es débil.'},
           {es:'La causalidad', zh:'因果性', example:'Confunde correlación con causalidad.'},
           {es:'El sesgo de confirmación', zh:'确认偏差', example:'El sesgo de confirmación lo explica.'},
           {es:'La retórica', zh:'修辞术', example:'La retórica no sustituye al argumento.'},
@@ -3109,7 +3109,7 @@ const COURSES = {
           {es:'La reproducibilidad', zh:'可复现性', example:'La reproducibilidad es la base del método.'},
           {es:'El sesgo metodológico', zh:'方法学偏误', example:'El sesgo metodológico invalida el estudio.'},
           {es:'La validez', zh:'效度', example:'La validez del instrumento es discutible.'},
-          {es:'La muestra', zh:'样本', example:'La muestra no es representativa.'},
+          {es:'La muestra', zh:'样本', example:'Recogimos una muestra de agua.'},
           {es:'El grupo de control', zh:'对照组', example:'El grupo de control recibió placebo.'},
           {es:'El ensayo clínico', zh:'临床试验', example:'El ensayo clínico se suspendió.'},
           {es:'El efecto secundario', zh:'副作用', example:'Los efectos secundarios son leves.'},
@@ -6174,13 +6174,13 @@ const READING_PASSAGES = [
 const GRAMMAR_QUIZZES = [
   // Ser vs Estar
   {topic:'Ser vs Estar', questions:[
-    {sentence:'Yo ___ estudiante de medicina.', options:['soy','estoy','tengo','hay'], correct:0, explain:'身份用 ser。'},
-    {sentence:'Hoy ___ muy cansado.', options:['soy','estoy','tengo','hay'], correct:1, explain:'状态用 estar。'},
-    {sentence:'Madrid ___ la capital de España.', options:['es','está','tiene','hay'], correct:0, explain:'事实用 ser。'},
+    {sentence:'Yo ___ estudiante de medicina.', options:['soy','estoy','tengo','hay'], correct:0, explain:'ser 表身份与职业这一类本质属性：Soy estudiante。estar 只表暂时状态，说「我（现在）是学生」不用 estar。'},
+    {sentence:'Hoy ___ muy cansado.', options:['soy','estoy','tengo','hay'], correct:1, explain:'estar 表暂时的状态：Hoy estoy cansado（今天累）。说人的性格、本质才用 ser：Soy una persona cansada 是「我是个容易累的人」。'},
+    {sentence:'Madrid ___ la capital de España.', options:['es','está','tiene','hay'], correct:0, explain:'ser 表客观事实与定义：Madrid es la capital。这类命题不会随时间改变，所以不用 estar。'},
     {sentence:'La conferencia ___ en el salón principal.', options:['es','está','tiene','hay'], correct:1, explain:'地点/正在进行的活动用 estar。'},
-    {sentence:'El chocolate ___ muy dulce.', options:['es','está','tiene','hay'], correct:0, explain:'本质特征用 ser。'},
+    {sentence:'El chocolate ___ muy dulce.', options:['es','está','tiene','hay'], correct:0, explain:'ser 表事物的固有特征：El chocolate es dulce（巧克力本身就是甜的）。若说 está dulce，意思是「这一份（今天）偏甜」。'},
     {sentence:'Este café ___ frío ya.', options:['es','está','tiene','hay'], correct:1, explain:'临时状态（原本热的现在凉了）用 estar。'},
-    {sentence:'Sergio ___ de Barcelona.', options:['es','está','tiene','hay'], correct:0, explain:'来自某地用 ser。'},
+    {sentence:'Sergio ___ de Barcelona.', options:['es','está','tiene','hay'], correct:0, explain:'ser de + 地点表籍贯、来源：Soy de China。注意 estar en 表「人在某地」，两者常被混淆。'},
     {sentence:'___ las tres de la tarde.', options:['Son','Están','Tienen','Hay'], correct:0, explain:'时间用 ser（soy/eres/es/somos/sois/son）。'}
   ]},
   
@@ -6207,14 +6207,6 @@ const GRAMMAR_QUIZZES = [
   ]},
   
   // 虚拟式现在时
-  {topic:'Subjuntivo Presente', questions:[
-    {sentence:'Espero que tú ___ (venir) mañana.', options:['vengas','vienes','vendrás','venías'], correct:0, explain:'esperar que 触发虚拟式。venir 虚拟式：venga, vengas, venga, vengamos, vengáis, vengan。'},
-    {sentence:'Ojalá ___ (hacer) buen tiempo.', options:['haga','hace','hará','hizo'], correct:0, explain:'ojalá 后接虚拟式。hacer 虚拟式：haga, hagas, haga, hagamos...'},
-    {sentence:'Dudo que él ___ (estar) en casa.', options:['esté','está','estará','estuvo'], correct:0, explain:'dudar que 后接虚拟式。estar 虚拟式不规则：esté, estés, esté...'},
-    {sentence:'Me alegro de que ___ (tener) éxito.', options:['tengas','tienes','tendrás','tuviste'], correct:0, explain:'alegrarse de que 后接虚拟式。tener 虚拟式：tenga, tengas, tenga...'},
-    {sentence:'Quiero que me ___ (decir) la verdad.', options:['digas','dices','dirás','dijiste'], correct:0, explain:'querer que 后接虚拟式。decir 虚拟式：diga, digas, diga, digamos, digáis, digan。'},
-    {sentence:'No creo que ___ (ser) verdad.', options:['sea','es','será','fue'], correct:0, explain:'no creer que 后接虚拟式。ser 虚拟式：sea, seas, sea, seamos, seáis, sean。'}
-  ]},
   
   // 命令式
   {topic:'Modo Imperativo', questions:[
@@ -6268,7 +6260,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Me alegró que ___ venido.', options:['hubieras','has','habrás','habías'], correct:0, explain:'主句过去时，从句先于主句 → 虚拟式过去完成时。'},
     {sentence:'Si lo ___ sabido, habría venido.', options:['hubiera','he','habré','había'], correct:0, explain:'与过去事实相反：si + 虚拟式过去完成时。'},
     {sentence:'Le sugerí que ___ otra vez.', options:['intentara','intenta','intentará','intentaba'], correct:0, explain:'sugerir que 用虚拟式过去时。'},
-    {sentence:'Aunque ___ tarde, iríamos.', options:['fuera','es','será','era'], correct:0, explain:'让步虚拟式表非现实。'},
+    {sentence:'Aunque ___ tarde, iríamos.', options:['fuera','es','será','era'], correct:0, explain:'aunque + 虚拟式过去时表与现实相反的让步：Aunque fuera tarde, iríamos（哪怕晚，我们也会去）。若用陈述式 fuera→era，则表示已知事实。'},
     {sentence:'No había nadie que lo ___.', options:['conociera','conoce','conocerá','conocía'], correct:0, explain:'先行词不存在 → 虚拟式过去时。'},
     {sentence:'Si ___ más joven, estudiaría otra carrera.', options:['fuera','soy','seré','era'], correct:0, explain:'非现实假设用虚拟式过去时。'},
     {sentence:'Te dije que no ___ así.', options:['hablaras','hablas','hablarás','hablabas'], correct:0, explain:'decir que 命令/请求含义时用虚拟式过去时。'},
@@ -6300,22 +6292,22 @@ const GRAMMAR_QUIZZES = [
   {topic:'por vs para', questions:[
     {sentence:'Este regalo es ___ ti.', options:['para','por','a','de'], correct:0, explain:'para 表对象、接受者。'},
     {sentence:'Gracias ___ tu ayuda.', options:['por','para','de','con'], correct:0, explain:'gracias por 固定搭配，表原因。'},
-    {sentence:'Salgo ___ Madrid mañana.', options:['para','por','a','en'], correct:0, explain:'para 表目的地。'},
+    {sentence:'Salgo ___ Madrid mañana.', options:['para','por','a','en'], correct:0, explain:'para 表目的地：Salgo para Madrid（动身前往马德里）。por 表「经过、穿过」，用 por Madrid 意思变成「从马德里穿过去」。'},
     {sentence:'Caminé ___ el parque.', options:['por','para','a','en'], correct:0, explain:'por 表经过、穿越的场所。'},
-    {sentence:'Estudio español ___ trabajar en España.', options:['para','por','de','a'], correct:0, explain:'para 表目的。'},
-    {sentence:'Pagué veinte euros ___ el libro.', options:['por','para','de','en'], correct:0, explain:'por 表交换、价格。'},
-    {sentence:'Tengo que terminar esto ___ el viernes.', options:['para','por','en','a'], correct:0, explain:'para 表截止期限。'},
-    {sentence:'Lo hice ___ amor.', options:['por','para','de','con'], correct:0, explain:'por 表动机、原因。'},
+    {sentence:'Estudio español ___ trabajar en España.', options:['para','por','de','a'], correct:0, explain:'para + 不定式表目的：学西语是为了在西班牙工作。por 表原因，且 por + 不定式通常需要搭配（如 por trabajar 表「因为工作」）。'},
+    {sentence:'Pagué veinte euros ___ el libro.', options:['por','para','de','en'], correct:0, explain:'por 表交换与价格：pagar por algo（为某物付钱）。para 表接收对象或目的，用 para 会把「为书付钱」说成「给书付钱」。'},
+    {sentence:'Tengo que terminar esto ___ el viernes.', options:['para','por','en','a'], correct:0, explain:'para + 时间表截止期限：para el viernes（周五之前）。por 表时间段内的持续，用 por el viernes 意思会变成「整个周五期间」。'},
+    {sentence:'Lo hice ___ amor.', options:['por','para','de','con'], correct:0, explain:'por 表动机与原因：lo hice por amor（出于爱）。para 表目的，用 para amor 会把「出于爱」说成「为了爱（这个目标）」。'},
     {sentence:'___ ser tan joven, habla muy bien.', options:['Para','Por','De','Con'], correct:0, explain:'para 表「考虑到、相对于」。'},
-    {sentence:'El tren pasa ___ aquí.', options:['por','para','a','en'], correct:0, explain:'por 表经过的地点。'},
+    {sentence:'El tren pasa ___ aquí.', options:['por','para','a','en'], correct:0, explain:'por 表经过、经由：El tren pasa por aquí。para 表目的地，与「经过」这一动作不相容。'},
     {sentence:'Compré flores ___ mi madre.', options:['para','por','a','de'], correct:0, explain:'para 表给予的对象。'},
     {sentence:'Estoy preocupado ___ el examen.', options:['por','para','de','en'], correct:0, explain:'preocuparse por 表因某事担心。'},
     {sentence:'___ mí, no hay problema.', options:['Para','Por','De','En'], correct:0, explain:'para mí 表「就我而言」。'},
     {sentence:'Trabajo ___ una empresa española.', options:['para','por','en','a'], correct:0, explain:'trabajar para 表雇主。'},
-    {sentence:'Se disculpó ___ llegar tarde.', options:['por','para','de','en'], correct:0, explain:'por 表原因。'},
+    {sentence:'Se disculpó ___ llegar tarde.', options:['por','para','de','en'], correct:0, explain:'por + 不定式表原因：为迟到而道歉。para 表目的，与「道歉」这一动作搭配不出「原因」的意思。'},
     {sentence:'La carta fue escrita ___ Cervantes.', options:['por','para','de','con'], correct:0, explain:'被动语态的施动者用 por。'},
-    {sentence:'Voy ___ la autopista.', options:['por','para','a','en'], correct:0, explain:'por 表路线。'},
-    {sentence:'Es un libro ___ niños.', options:['para','por','de','a'], correct:0, explain:'para 表适用对象。'},
+    {sentence:'Voy ___ la autopista.', options:['por','para','a','en'], correct:0, explain:'por 表路线与途经：voy por la autopista（走高速）。para la autopista 会被理解为「前往高速（作为目的地）」。'},
+    {sentence:'Es un libro ___ niños.', options:['para','por','de','a'], correct:0, explain:'para 表对象与适用人群：un libro para niños（面向儿童的书）。por 表原因或交换，与「适用对象」无关。'},
     {sentence:'___ lo general, llega puntual.', options:['Por','Para','De','En'], correct:0, explain:'por lo general 固定短语。'},
     {sentence:'Luchar ___ la libertad.', options:['por','para','de','a'], correct:0, explain:'luchar por 表为目标奋斗。'}
   ]},
@@ -6324,15 +6316,15 @@ const GRAMMAR_QUIZZES = [
     {sentence:'¿Las cartas? ___ envié ayer.', options:['Las','Los','Les','La'], correct:0, explain:'直接宾语阴性复数用 las。'},
     {sentence:'___ di el regalo a María.', options:['Le','La','Lo','Les'], correct:0, explain:'间接宾语（给她）用 le。'},
     {sentence:'___ di el libro a ellos.', options:['Les','Los','Le','Las'], correct:0, explain:'间接宾语复数用 les。'},
-    {sentence:'___ veo todos los días.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'直接宾语代词 te。'},
-    {sentence:'___ lo dije ayer.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'间接宾语代词 te。'},
+    {sentence:'___ veo todos los días.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'te 在这里作直接宾语（看见你），不是间接宾语。判断方法：把句子改成「看见你」而不是「对你做某事」，即为直接宾语。'},
+    {sentence:'___ lo dije ayer.', options:['Te','Tú','Ti','Tu'], correct:0, explain:'te 在这里作间接宾语（对你说），后面还有直接宾语 lo。te + lo → te lo，两个代词并存时顺序是「间接在前、直接在后」。'},
     {sentence:'___ compré un coche a mi hijo.', options:['Le','Lo','La','Les'], correct:0, explain:'给他买车 → 间接宾语 le。'},
     {sentence:'¿Me prestas el bolígrafo? Sí, ___ presto.', options:['te lo','lo te','te le','le te'], correct:0, explain:'间接 + 直接：te lo。'},
     {sentence:'___ expliqué la lección a los alumnos.', options:['Les','Los','Le','Las'], correct:0, explain:'向学生讲解 → 间接宾语 les。'},
-    {sentence:'Ese libro, ___ he leído ya.', options:['lo','le','la','los'], correct:0, explain:'复指直接宾语用 lo。'},
+    {sentence:'Ese libro, ___ he leído ya.', options:['lo','le','la','los'], correct:0, explain:'lo 复指前置的直接宾语 ese libro（阳性单数）。西语习惯把宾语提到句首后再用代词复指，这是最常见的口语结构之一。'},
     {sentence:'A María ___ gustan las flores.', options:['le','la','lo','les'], correct:0, explain:'gustar 类动词的主语是物，人是间接宾语 → le。'},
     {sentence:'___ invité a cenar.', options:['Los','Les','Le','Las'], correct:0, explain:'invitar a alguien 的直接宾语用 los。'},
-    {sentence:'Dámelo: «lo» 在句中充当 ___。', options:['直接宾语','间接宾语','主语','所有格'], correct:0, explain:'lo 是直接宾语代词。'},
+    {sentence:'Dámelo: «lo» 在句中充当 ___。', options:['直接宾语','间接宾语','主语','所有格'], correct:0, explain:'lo 是直接宾语（指被给出的物），me 才是间接宾语（给谁）。西语代词顺序固定为「间接 + 直接 + 动词」：dá + me + lo。'},
     {sentence:'¿Has visto a Ana? Sí, ___ vi en el mercado.', options:['la','le','lo','las'], correct:0, explain:'直接宾语阴性单数用 la。'},
     {sentence:'___ duele la cabeza.', options:['Me','Yo','Mi','Mí'], correct:0, explain:'doler 结构：me duele。'},
     {sentence:'Se ___ olvidó las llaves.', options:['le','la','lo','les'], correct:0, explain:'se le olvidó 结构表无意忘记。'},
@@ -6343,23 +6335,23 @@ const GRAMMAR_QUIZZES = [
   ]},
   {topic:'关系从句与连接词', questions:[
     {sentence:'El hombre ___ vive allí es mi tío.', options:['que','quien','cual','cuyo'], correct:0, explain:'限定性关系从句用 que。'},
-    {sentence:'La casa ___ compramos es grande.', options:['que','quien','cual','donde'], correct:0, explain:'que 作直接宾语。'},
-    {sentence:'El libro ___ autor es famoso.', options:['cuyo','que','quien','cual'], correct:0, explain:'cuyo 表所属。'},
-    {sentence:'La ciudad ___ nací es pequeña.', options:['donde','que','quien','cual'], correct:0, explain:'donde 表地点。'},
+    {sentence:'La casa ___ compramos es grande.', options:['que','quien','cual','donde'], correct:0, explain:'关系代词 que 在从句中作 compramos 的直接宾语（我们买的那座房子）。que 是关系从句中最通用的关系代词，指物指人均可。'},
+    {sentence:'El libro ___ autor es famoso.', options:['cuyo','que','quien','cual'], correct:0, explain:'cuyo 表所属关系，且要与其后名词保持性数一致：cuyo autor（阳性单数）、cuya obra、cuyos libros。cuyo 前面不加冠词。'},
+    {sentence:'La ciudad ___ nací es pequeña.', options:['donde','que','quien','cual'], correct:0, explain:'先行词是地点（la ciudad）时用关系副词 donde，等于 en la que。用 que 会缺介词，句子不成立。'},
     {sentence:'No es eso ___ quiero.', options:['lo que','que','quien','cual'], correct:0, explain:'lo que 表「……的东西」。'},
-    {sentence:'___ llegues, avísame.', options:['Cuando','Si','Aunque','Porque'], correct:0, explain:'cuando 表时间。'},
-    {sentence:'No fui ___ estaba enfermo.', options:['porque','para','aunque','cuando'], correct:0, explain:'porque 表原因。'},
-    {sentence:'___ llueva, iremos.', options:['Aunque','Porque','Cuando','Si'], correct:0, explain:'aunque 表让步。'},
-    {sentence:'Estudia ___ aprobar.', options:['para','por','porque','aunque'], correct:0, explain:'para 表目的。'},
+    {sentence:'___ llegues, avísame.', options:['Cuando','Si','Aunque','Porque'], correct:0, explain:'cuando 表时间。此处指将来的动作，所以从句用虚拟式 llegues；若指已发生的事实则用陈述式。'},
+    {sentence:'No fui ___ estaba enfermo.', options:['porque','para','aunque','cuando'], correct:0, explain:'porque 表原因（因为病了所以没去）。aunque 表让步、cuando 表时间，都解释不了句子的因果关系。'},
+    {sentence:'___ llueva, iremos.', options:['Aunque','Porque','Cuando','Si'], correct:0, explain:'aunque + 虚拟式表让步（即使下雨我们也会去）。用 si 表条件，语义会变成「如果下雨就去」，与 iremos 的坚定语气相冲。'},
+    {sentence:'Estudia ___ aprobar.', options:['para','por','porque','aunque'], correct:0, explain:'para + 不定式表目的（学习是为了通过）。porque 后面必须接完整句子（porque quiere aprobar），不能直接接不定式。'},
     {sentence:'Es tan alto ___ su padre.', options:['como','que','cual','cuanto'], correct:0, explain:'tan... como 表同等比较。'},
     {sentence:'Es más listo ___ yo.', options:['que','como','cual','de'], correct:0, explain:'más... que 表比较。'},
-    {sentence:'___ trabajes, tendrás éxito.', options:['Si','Aunque','Cuando','Porque'], correct:0, explain:'si 表条件。'},
+    {sentence:'___ trabajes, tendrás éxito.', options:['Si','Aunque','Cuando','Porque'], correct:0, explain:'si 表条件（如果你努力就会成功）。此处用虚拟式是因为 si 从句的内容属于假设，注意 si 从句在标准西语中不用未来时。'},
     {sentence:'No sé ___ vendrá.', options:['si','que','cual','quien'], correct:0, explain:'间接疑问用 si 表「是否」。'},
     {sentence:'El chico ___ me presentaron es simpático.', options:['que','quien','cual','cuyo'], correct:0, explain:'关系代词 que 作宾语。'},
     {sentence:'Tanto tú ___ yo estamos de acuerdo.', options:['como','que','y','o'], correct:0, explain:'tanto... como 表「既……又」。'},
     {sentence:'___ estudies, no aprobarás.', options:['A menos que','Aunque','Porque','Cuando'], correct:0, explain:'a menos que 表「除非」。'},
-    {sentence:'Lo hice ___ tú me dijiste.', options:['como','que','cual','cuanto'], correct:0, explain:'como 表方式。'},
-    {sentence:'Ese es el motivo ___ me fui.', options:['por el que','que','quien','cual'], correct:0, explain:'介词 + 关系代词。'},
+    {sentence:'Lo hice ___ tú me dijiste.', options:['como','que','cual','cuanto'], correct:0, explain:'como 表方式（照你说的那样做）。que 引导名词性从句时不表方式，用 que 句子结构不成立。'},
+    {sentence:'Ese es el motivo ___ me fui.', options:['por el que','que','quien','cual'], correct:0, explain:'先行词是 motivo（原因）时必须带介词 por：por el que（= por el cual）。缺介词是这一结构的典型错误。'},
     {sentence:'___ más lo pienso, menos lo entiendo.', options:['Cuanto','Tanto','Como','Que'], correct:0, explain:'cuanto más... menos 表比例关系。'},
     {sentence:'Dime ___ quieres.', options:['lo que','que','cual','quien'], correct:0, explain:'lo que 作宾语，表「你想要的东西」。'}
   ]},
@@ -6388,7 +6380,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'___ necesitan camareros con experiencia.', options:['Se', 'Son', 'Están', 'Hay'], correct:0, explain:'se 被动，主语 camareros 为复数，故用 necesitan。'},
     {sentence:'___ dice que va a llover.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se dice que ＝「据说」，典型的无人称结构。'},
     {sentence:'___ alquila habitación para estudiantes.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se 被动，主语为单数 habitación，故动词单数。'},
-    {sentence:'No ___ permite la entrada a menores.', options:['se', 'es', 'está', 'hay'], correct:0, explain:'se 无人称否定式。'},
+    {sentence:'No ___ permite la entrada a menores.', options:['se', 'es', 'está', 'hay'], correct:0, explain:'se + 第三人称单数构成无人称句，否定式为 no se permite（不允许）。被动 se 与无人称 se 形式相同，此处没有明确施动者，属无人称用法。'},
     {sentence:'___ construyeron tres puentes el año pasado.', options:['Se', 'Fueron', 'Estuvieron', 'Hubo'], correct:0, explain:'se 被动表「（人们）建造了」，与 fueron construidos 语义相近但更口语。'},
     {sentence:'___ ruega puntualidad a los asistentes.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se ruega ＝「敬请」，正式场合的无人称表达。'},
     {sentence:'___ trata de un asunto delicado.', options:['Se', 'Es', 'Está', 'Hay'], correct:0, explain:'se trata de ＝「这是关于」，固定无人称表达。'},
@@ -6461,8 +6453,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Siempre que ___ , iremos a la playa.', options:['haga', 'hace', 'hará', 'hacía'], correct:0, explain:'siempre que 表条件，用虚拟式。'},
     {sentence:'Con tal de que ___ , te lo diré.', options:['calles', 'callas', 'callarás', 'callabas'], correct:0, explain:'con tal de que 表条件，用虚拟式。'},
     {sentence:'Salvo que ___ lo contrario, iremos.', options:['digan', 'dicen', 'dirán', 'decían'], correct:0, explain:'salvo que 表例外条件，用虚拟式。'},
-    {sentence:'Por si ___ , llévate el paraguas.', options:['llueve', 'llueva', 'llovería', 'lloviera'], correct:0, explain:'por si 后可用陈述式（不确定但可能）或虚拟式过去时（更假设）；此处表可能，用 llueve 亦可，但考试常考 llueva 的备选错误。注意：por si + 陈述式 为标准。'},
-    {sentence:'A menos que ___ , no iremos.', options:['llueva', 'llueve', 'lloverá', 'llovía'], correct:0, explain:'a menos que 后接虚拟式。'},
+    {sentence:'Llévate el paraguas ___ llueva.', options:['en caso de que', 'por si', 'por si acaso que', 'en caso que'], correct:0, explain:'表条件、且从句用虚拟式（llueva）时用 en caso de que + 虚拟式。por si 后面必须接陈述式：por si llueve，所以 por si 不能接 llueva。这是两者的核心区别。'},
     {sentence:'De modo que todos ___ , se aplazó la reunión.', options:['pudieran', 'pueden', 'podrán', 'podían'], correct:0, explain:'de modo que 表目的时用虚拟式；表结果用陈述式。此处表目的。'}
   ]},
   {topic:'语式选择综合 (Indicativo o subjuntivo)', questions:[
@@ -6477,7 +6468,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Busco a alguien que ___ ruso.', options:['hable', 'habla', 'hablará', 'hablaba'], correct:0, explain:'寻找不确定对象 → 虚拟式。'},
     {sentence:'Conozco a alguien que ___ ruso.', options:['habla', 'hable', 'hablara', 'hablaría'], correct:0, explain:'确指存在的人 → 陈述式。'},
     {sentence:'No hay nadie que ___ eso.', options:['haga', 'hace', 'hará', 'hacía'], correct:0, explain:'否定存在（no hay nadie）→ 虚拟式。'},
-    {sentence:'Hay alguien que ___ eso.', options:['hace', 'haga', 'hiciera', 'haría'], correct:0, explain:'肯定存在 → 陈述式。'},
+    {sentence:'Hay alguien que ___ eso.', options:['hace', 'haga', 'hiciera', 'haría'], correct:0, explain:'hay alguien 表确实存在这样的人，所以关系从句用陈述式 hace。若改成 no hay nadie，存在被否定，就要改用虚拟式 haga。'},
     {sentence:'El hecho de que ___ tarde no cambia nada.', options:['llegue', 'llega', 'llegará', 'llegaba'], correct:0, explain:'el hecho de que → 虚拟式（尽管所指为事实）。'},
     {sentence:'Es verdad que ___ tarde.', options:['llegó', 'llegara', 'llegue', 'llegaría'], correct:0, explain:'es verdad que 表确信 → 陈述式。'},
     {sentence:'El que ___ tarde será penalizado.', options:['llegue', 'llega', 'llegará', 'llegaba'], correct:0, explain:'el que + 虚拟式 表泛指的任何一个人。'},
@@ -6514,7 +6505,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Dudó ___ la respuesta.', options:['de', 'en', 'a', 'con'], correct:0, explain:'dudar de 为固定搭配。'},
     {sentence:'Se sorprendió ___ la noticia.', options:['con', 'de', 'por', 'en'], correct:0, explain:'sorprenderse con/de 均可，con 更常见。'},
     {sentence:'Colabora ___ varias ONG.', options:['con', 'en', 'a', 'de'], correct:0, explain:'colaborar con 表与人合作；colaborar en 表在某事上出力。'},
-    {sentence:'Se adaptó ___ nuevo entorno.', options:['al', 'del', 'en el', 'con el'], correct:0, explain:'adaptarse a + el = al。'},
+    {sentence:'Se adaptó ___ nuevo entorno.', options:['al', 'del', 'en el', 'con el'], correct:0, explain:'adaptarse a 为固定搭配，a + el 缩合为 al。'},
     {sentence:'Prescindió ___ sus servicios.', options:['de', 'en', 'a', 'con'], correct:0, explain:'prescindir de 为固定搭配。'},
     {sentence:'Se abstuvo ___ votar.', options:['de', 'en', 'a', 'por'], correct:0, explain:'abstenerse de 为固定搭配。'},
     {sentence:'Optó ___ la segunda opción.', options:['por', 'a', 'de', 'en'], correct:0, explain:'optar por 为固定搭配。'}
@@ -6532,6 +6523,163 @@ const GRAMMAR_QUIZZES = [
     {sentence:'___ que llegues, avísame.', options:['En cuanto', 'En cuando', 'Al cuanto', 'Por cuanto'], correct:0, explain:'en cuanto ＝ 一……就（+ 虚拟式指将来）。'},
     {sentence:'___ , no lo sabía.', options:['Que yo sepa', 'Que yo sé', 'Como yo sepa', 'Según yo sepa'], correct:0, explain:'que yo sepa ＝ 据我所知（后接陈述式否定）。'},
     {sentence:'___ , no hay problema.', options:['Por mí', 'Para mí', 'Según mí', 'En mí'], correct:0, explain:'por mí ＝ 我这边（表示无异议）；para mí 表「依我看」。'}
+  ]},
+
+  // ---- A1 基础语法专项（补齐 A1 语法点无对应练习的缺口）----
+  {topic:'Ser 的变位与用法', questions:[
+    {sentence:'Yo ___ de China.', options:['soy', 'estoy', 'es', 'somos'], correct:0, explain:'ser 表籍贯与来源：soy de China。estar 表位置或暂时状态，说来源只能用 ser。'},
+    {sentence:'María ___ profesora.', options:['es', 'está', 'son', 'soy'], correct:0, explain:'ser 表职业：María es profesora。主语是第三人称单数，所以用 es 而不是 son。'},
+    {sentence:'Nosotros ___ estudiantes.', options:['somos', 'estamos', 'son', 'sois'], correct:0, explain:'nosotros 对应 ser 的 nosotros somos。注意 somos 与 son（他们/你们敬称）不要混。'},
+    {sentence:'¿Tú ___ español?', options:['eres', 'es', 'soy', 'estás'], correct:0, explain:'tú 对应 eres。ser 的现在时变位：soy, eres, es, somos, sois, son。'}
+  ]},
+  {topic:'Llamarse 与自我介绍', questions:[
+    {sentence:'Yo me ___ Ana.', options:['llamo', 'llamas', 'llama', 'llamamos'], correct:0, explain:'llamarse 是自复动词，必须带反身代词：yo me llamo, tú te llamas, él se llama。'},
+    {sentence:'¿Cómo te ___ tú?', options:['llamas', 'llamo', 'llama', 'llamáis'], correct:0, explain:'问对方名字用 tú 形式 te llamas。自复代词 te 与动词 llamas 必须成对出现。'},
+    {sentence:'Él se ___ Carlos.', options:['llama', 'llamo', 'llamas', 'llaman'], correct:0, explain:'第三人称单数用 se llama。反身代词随人称变化，动词也随人称变化。'}
+  ]},
+  {topic:'疑问词 ¿Cómo? / ¿De dónde? / ¿Qué?', questions:[
+    {sentence:'¿De ___ eres?', options:['dónde', 'quién', 'cuándo', 'cómo'], correct:0, explain:'问来源用 ¿De dónde eres?（你从哪里来）。dónde 表地点，前面加 de 才表「来自」。'},
+    {sentence:'¿___ te llamas?', options:['Cómo', 'Qué', 'Quién', 'Dónde'], correct:0, explain:'问名字用 ¿Cómo te llamas?（字面「你怎么称呼自己」）。qué 问的是事物，不能用于问名字。'},
+    {sentence:'¿___ es esto?', options:['Qué', 'Cómo', 'Quién', 'Dónde'], correct:0, explain:'问「这是什么」用 ¿Qué es esto?。quién 问人，cómo 问方式。'},
+    {sentence:'¿___ es tu profesor?', options:['Quién', 'Qué', 'Cómo', 'Cuándo'], correct:0, explain:'问「谁」用 quién。注意疑问词都带重音符号，与关系词 que/ quien 区分。'}
+  ]},
+  {topic:'数字 0-100', questions:[
+    {sentence:'Tengo ___ años.', options:['veinte', 'veinte y', 'dos diez', 'viente'], correct:0, explain:'20 = veinte。西语 21-29 连写（veintiuno, veintidós），不是 veinte y uno；30 以上才用 y（treinta y uno）。'},
+    {sentence:'Hay ___ libros en la mesa.', options:['tres', 'treses', 'tercero', 'trece'], correct:0, explain:'基数词 tres 不随名词变化。tercero 是序数词「第三」，trece 是 13。'},
+    {sentence:'Mi número es el ___.', options:['cincuenta', 'cincuenta y', 'quince cero', 'cinco diez'], correct:0, explain:'50 = cincuenta。基数词表示数量或编号时保持单数形式。'}
+  ]},
+  {topic:'表达时间', questions:[
+    {sentence:'¿Qué hora ___?', options:['es', 'son', 'está', 'hay'], correct:0, explain:'问「几点了」固定说 ¿Qué hora es?（单数）。回答一点用 es la una，其余用 son las dos。'},
+    {sentence:'Es ___ una de la mañana.', options:['la', 'las', 'el', 'los'], correct:0, explain:'只有「一点」用单数 es la una，其余钟点用复数 son las + 数字。这是时间表达的唯一例外。'},
+    {sentence:'La clase empieza ___ las nueve.', options:['a', 'en', 'de', 'por'], correct:0, explain:'「在几点」用 a + las + 数字：a las nueve。en 用于月份（en enero），不用于钟点。'}
+  ]},
+  {topic:'星期的表达', questions:[
+    {sentence:'___ lunes voy al gimnasio.', options:['El', 'En', 'De', 'A'], correct:0, explain:'「在周一」用 el lunes（定冠词 + 星期）。星期名首字母不大写。'},
+    {sentence:'No trabajo ___ martes.', options:['los', 'las', 'en', 'de'], correct:0, explain:'表每周重复用复数：los martes（每周二）。单次用 el martes。'},
+    {sentence:'Hoy es ___.', options:['miércoles', 'el miércoles', 'de miércoles', 'los miércoles'], correct:0, explain:'说「今天是星期几」用 Hoy es + 星期名，不加冠词：Hoy es miércoles。加冠词 el miércoles 表示「在周三」，是另一个意思。'},
+  ]},
+  {topic:'名词的性与数', questions:[
+    {sentence:'___ libro es interesante.', options:['El', 'La', 'Lo', 'Los'], correct:0, explain:'libro 是阳性单数名词，用定冠词 el。多数以 -o 结尾的名词为阳性。'},
+    {sentence:'___ casa es grande.', options:['La', 'El', 'Lo', 'Las'], correct:0, explain:'casa 是阴性单数，用 la。多数以 -a 结尾的名词为阴性，但有例外（el día, el mapa）。'},
+    {sentence:'Las ___ son caras.', options:['flores', 'flor', 'floreses', 'la flor'], correct:0, explain:'名词变复数：元音结尾加 -s（flor → flores 属辅音结尾加 -es）。冠词 las 已表明是复数阴性。'},
+    {sentence:'___ problema es difícil.', options:['El', 'La', 'Los', 'Las'], correct:0, explain:'problema 虽以 -a 结尾，但它是阳性（源自希腊语 -ma 结尾的词多为阳性）。这类例外需要单独记。'}
+  ]},
+  {topic:'定冠词与不定冠词', questions:[
+    {sentence:'Quiero ___ café, por favor.', options:['un', 'una', 'el', 'unos'], correct:0, explain:'café 是阳性单数，不定冠词用 un。首次提到、不确定的对象用不定冠词。'},
+    {sentence:'Necesito ___ agua.', options:['un', 'una', 'el', 'uno'], correct:0, explain:'agua 是阴性名词，但重读 a 开头时用 un（不是 una），这是为避免两个 a 音连读。'},
+    {sentence:'___ niños juegan en el parque.', options:['Los', 'Las', 'Un', 'El'], correct:0, explain:'特指「那些孩子」用定冠词复数 los。niños 是阳性复数。'},
+    {sentence:'Es ___ estudiante muy aplicada.', options:['una', 'un', 'la', 'el'], correct:0, explain:'estudiante 是通性名词，性别由冠词体现；aplicada 是阴性形式，说明指的是女性，所以用 una。'}
+  ]},
+  {topic:'形容词的性数一致', questions:[
+    {sentence:'una casa ___', options:['blanca', 'blanco', 'blancas', 'blancos'], correct:0, explain:'形容词必须与名词的性和数一致：casa 是阴性单数，所以用 blanca。'},
+    {sentence:'unos libros ___', options:['nuevos', 'nuevo', 'nueva', 'nuevas'], correct:0, explain:'libros 是阳性复数，形容词用 nuevos。形容词的复数与名词同步。'},
+    {sentence:'El chico es ___.', options:['alto', 'alta', 'altos', 'altas'], correct:0, explain:'chico 是阳性单数，形容词用 alto。以 -o 结尾的形容词有四种形式（o/a/os/as）。'},
+    {sentence:'Ana y Luis son ___.', options:['simpáticos', 'simpático', 'simpática', 'simpáticas'], correct:0, explain:'主语一男一女混合时，形容词用阳性复数：simpáticos。这是西语的「阳性优先」规则。'}
+  ]},
+  {topic:'现在时规则动词变位', questions:[
+    {sentence:'Yo ___ español todos los días.', options:['hablo', 'hablas', 'habla', 'hablamos'], correct:0, explain:'-ar 动词现在时：yo hablo。词尾依次是 -o, -as, -a, -amos, -áis, -an。'},
+    {sentence:'Tú ___ pan por la mañana.', options:['comes', 'como', 'come', 'comemos'], correct:0, explain:'-er 动词：tú comes。注意 -er 与 -ir 动词的 nosotros 形式不同（comemos / vivimos）。'},
+    {sentence:'Ella ___ en Madrid.', options:['vive', 'vivo', 'vives', 'viven'], correct:0, explain:'-ir 动词第三人称单数：ella vive。变位规则与 -er 动词基本相同。'},
+    {sentence:'Nosotros ___ la tarea juntos.', options:['hacemos', 'hacéis', 'hacen', 'hago'], correct:0, explain:'nosotros 对应 -emos 词尾：hacemos。hacer 第一人称单数是 hago（不规则），但 nosotros 形式规则。'}
+  ]},
+  {topic:'所有格形容词', questions:[
+    {sentence:'___ hermana se llama Lucía.', options:['Mi', 'Mí', 'Yo', 'Me'], correct:0, explain:'mi 是「我的」短尾形式，直接放在名词前，且不随名词性别变化：mi hermano / mi hermana。'},
+    {sentence:'¿Dónde está ___ coche?', options:['tu', 'tú', 'ti', 'te'], correct:0, explain:'tu 是形容词「你的」（无重音），tú 是代词「你」（带重音）。这是最常考的区分。'},
+    {sentence:'___ padres viven en Sevilla.', options:['Mis', 'Mi', 'Míos', 'Mías'], correct:0, explain:'修饰复数名词时所有格也用复数：mis padres。míos 是后置的长尾形式（los padres míos）。'},
+    {sentence:'___ casa es muy grande.', options:['Nuestra', 'Nuestro', 'Nuestros', 'Nuestras'], correct:0, explain:'nuestro 随名词变化：casa 是阴性单数，所以用 nuestra。'}
+  ]},
+  {topic:'否定句与疑问句', questions:[
+    {sentence:'___ hablo inglés.', options:['No', 'Nunca no', 'Sin', 'Ni'], correct:0, explain:'否定句在动词前加 no：No hablo inglés。西语不用助动词 do 之类的结构。'},
+    {sentence:'¿___ tú estudiar español?', options:['Quieres', 'Querer', 'Quiere', 'Quiero'], correct:0, explain:'一般疑问句只需把疑问词或语序调整，动词按主语变位：¿Quieres tú...? 也可省略 tú。'},
+    {sentence:'No ___ nada.', options:['sé', 'sabo', 'sé que', 'saber'], correct:0, explain:'双重否定在西语中是必须的：No sé nada（我什么都不知道）。saber 第一人称是 sé（不规则）。'}
+  ]},
+  {topic:'Tener 的用法与固定搭配', questions:[
+    {sentence:'___ veinte años.', options:['Tengo', 'Soy', 'Estoy', 'Hay'], correct:0, explain:'说年龄用 tener：tengo veinte años。西语不说「我是二十年」，ser/estar 都表达不出年龄。'},
+    {sentence:'___ hambre, ¿podemos comer?', options:['Tengo', 'Soy', 'Estoy', 'Hago'], correct:0, explain:'表生理需求用 tener + 名词：tener hambre（饿）、tener sed（渴）、tener frío（冷）。不用 ser 或 estar。'},
+    {sentence:'Mi hermano ___ sed.', options:['tiene', 'es', 'está', 'hace'], correct:0, explain:'tener 的第二、三人称有词干变化 e→ie：tengo, tienes, tiene, tenemos, tenéis, tienen。'},
+    {sentence:'¿___ tú frío? Cierra la ventana.', options:['Tienes', 'Eres', 'Estás', 'Haces'], correct:0, explain:'问对方「你冷吗」用 ¿Tienes frío?。注意 tener frío 是「感到冷」，hacer frío 是「天气冷」。'}
+  ]},
+  {topic:'Poder + 动词原形', questions:[
+    {sentence:'¿___ ayudarme, por favor?', options:['Puedes', 'Poder', 'Puede que', 'Puedo'], correct:0, explain:'poder + 不定式表能力或许可：¿Puedes ayudarme?。poder 词干变化 o→ue，但 nosotros/podemos 不变。'},
+    {sentence:'No ___ ir a la fiesta, tengo trabajo.', options:['puedo', 'puedes', 'puede', 'podemos'], correct:0, explain:'第一人称用 puedo。poder 的变位：puedo, puedes, puede, podemos, podéis, pueden。'},
+    {sentence:'___ entrar? (礼貌询问)', options:['¿Se puede', '¿Se puedes', '¿Se poder', '¿Se puede que'], correct:0, explain:'礼貌询问可否做某事用无人称 ¿Se puede...?，动词固定第三人称单数，不随问话人变化。'}
+  ]},
+  {topic:'Querer + 动词原形', questions:[
+    {sentence:'___ aprender español.', options:['Quiero', 'Querer', 'Quiero que', 'Quiere'], correct:0, explain:'querer + 不定式表意愿：quiero aprender。主语相同用不定式；主语不同才用 que + 虚拟式。'},
+    {sentence:'¿___ tú un café?', options:['Quieres', 'Quiero', 'Quiere', 'Queréis'], correct:0, explain:'tú 对应 quieres（e→ie 词干变化）。注意 querer un café 是「要一杯咖啡」的常用说法。'},
+    {sentence:'Ella ___ venir con nosotros.', options:['quiere', 'quiero', 'quieres', 'quieren'], correct:0, explain:'第三人称单数 quiere。主语是 ella，所以用第三人称形式。'},
+    {sentence:'No ___ que vengas, es tarde.', options:['quiero', 'quiere', 'quieres', 'querer'], correct:0, explain:'主语不同（我 vs 你）时必须用 que + 虚拟式：no quiero que vengas。这是不定式与从句的分界点。'}
+  ]},
+  {topic:'频率副词与频率表达', questions:[
+    {sentence:'___ voy al gimnasio los lunes.', options:['Siempre', 'Nunca', 'A veces', 'Casi'], correct:0, explain:'siempre（总是）放在动词前。频率副词位置固定：在动词前、否定词后。'},
+    {sentence:'No voy ___ al cine, casi no tengo tiempo.', options:['nunca', 'siempre', 'a veces', 'todos'], correct:0, explain:'nunca（从不）在否定句中可放在动词后：No voy nunca。也可说 Nunca voy（此时不再加 no）。'},
+    {sentence:'Voy al cine ___ vez al mes.', options:['una', 'un', 'uno', 'primera'], correct:0, explain:'「每月一次」用 una vez al mes。vez 是阴性名词，所以用 una；频率用 al + 时间段。'},
+    {sentence:'___ los días desayuno a las siete.', options:['Todos', 'Todas', 'Cada', 'Siempre'], correct:0, explain:'todos los días ＝ 每天。días 是阳性复数，所以用 todos；cada 后面直接接单数名词（cada día）。'}
+  ]},
+  {topic:'Gustar 类动词的真正用法', questions:[
+    {sentence:'___ gustan los libros de historia.', options:['Me', 'Yo', 'Mi', 'Mí'], correct:0, explain:'gustar 的主语是被喜欢的事物（los libros），人用与格代词：me gustan。所以动词用复数 gustan。'},
+    {sentence:'Me ___ el café con leche.', options:['gusta', 'gustan', 'gusto', 'gustas'], correct:0, explain:'主语是单数 el café，所以动词用 gusta。判断单复数看的是「被喜欢的东西」，不是人。'},
+    {sentence:'A ella ___ encantan los gatos.', options:['le', 'la', 'lo', 'les'], correct:0, explain:'encantar 与 gustar 用法相同，人用与格代词：a ella le encantan。这里的 a ella 是强调形式。'},
+    {sentence:'A mí me ___ esta música.', options:['gusta', 'gustan', 'gusto', 'gustas'], correct:0, explain:'主语是 la música（单数），所以用 gusta。开头 A mí 是强调形式，但与格代词 me 不能省。'},
+  ]},
+  {topic:'Jugar a + 运动与游戏', questions:[
+    {sentence:'___ al fútbol los sábados.', options:['Juego', 'Jugar', 'Juego a', 'Juega'], correct:0, explain:'jugar 后接运动必须加 a：jugar al fútbol。jugar 词干变化 u→ue：juego, juegas, juega...'},
+    {sentence:'¿___ tú al tenis?', options:['Juegas', 'Juegas a', 'Jugar', 'Jugáis'], correct:0, explain:'tú 对应 juegas。注意 al 已经包含 a + el，所以不再重复写 a。'},
+    {sentence:'Jugamos ___ cartas después de cenar.', options:['a las', 'al', 'a los', 'a la'], correct:0, explain:'cartas 是阴性复数，所以用 a las cartas。jugar a + 定冠词要与所玩事物的性数一致。'}
+  ]},
+  {topic:'天气的表达', questions:[
+    {sentence:'Hoy ___ frío, ponte el abrigo.', options:['hace', 'es', 'está', 'hay'], correct:0, explain:'天气用 hacer + 名词：hace frío（冷）、hace calor（热）、hace sol（晴）、hace viento（刮风）。'},
+    {sentence:'En el norte ___ mucho.', options:['llueve', 'llover', 'lluevo', 'llueven'], correct:0, explain:'llover（下雨）只有第三人称单数形式 llueve，没有主语。类似的有 nevar → nieva（下雪）。'},
+    {sentence:'El cielo ___ nublado hoy.', options:['está', 'es', 'hace', 'hay'], correct:0, explain:'天气的暂时状态用 estar：el cielo está nublado。对比 el clima es húmedo（气候特征用 ser）。'},
+    {sentence:'¿Qué tiempo ___ hoy?', options:['hace', 'es', 'está', 'hay'], correct:0, explain:'问天气的固定说法是 ¿Qué tiempo hace?。这是 hacer 表天气的典型用法。'}
+  ]},
+  {topic:'现在进行时 estar + gerundio', questions:[
+    {sentence:'Ahora ___ estudiando, no me llames.', options:['estoy', 'soy', 'tengo', 'hago'], correct:0, explain:'现在进行时用 estar + 副动词：estoy estudiando（我正在学）。estar 按主语变位。'},
+    {sentence:'¿Qué ___ haciendo?', options:['estás', 'eres', 'tienes', 'haces'], correct:0, explain:'问「你正在做什么」用 ¿Qué estás haciendo?。副动词 hacer → haciendo。'},
+    {sentence:'Los niños ___ jugando en el parque.', options:['están', 'son', 'tienen', 'hacen'], correct:0, explain:'第三人称复数用 están。副动词不变位，只随 estar 变化。'},
+    {sentence:'___ leyendo un libro muy interesante.', options:['Estoy', 'Soy', 'Tengo', 'Hay'], correct:0, explain:'第一人称 estoy + leyendo。注意 ir 的副动词是 yendo（不规则），oír → oyendo，leer → leyendo。'}
+  ]},
+  {topic:'病痛与身体部位', questions:[
+    {sentence:'___ duele la garganta.', options:['Me', 'Yo', 'Mi', 'Mí'], correct:0, explain:'doler 的结构是「身体部位作主语 + 与格代词」：me duele la garganta。部位是单数用 duele。'},
+    {sentence:'Me duelen ___ pies.', options:['los', 'las', 'mis los', 'el'], correct:0, explain:'部位是复数，所以动词用 duelen。说身体部位时用定冠词而不是所有格：me duelen los pies。'},
+    {sentence:'Tengo ___ , creo que estoy resfriado.', options:['tos', 'toser', 'toso', 'la tos'], correct:0, explain:'tener + 病痛名词：tener tos（咳嗽）、tener fiebre（发烧）。注意 tos 前不加冠词。'},
+    {sentence:'¿Te ___ algo? ¿Quieres una aspirina?', options:['duele', 'duelen', 'doler', 'dolía'], correct:0, explain:'问对方「哪里疼」用 ¿Te duele algo?。主语是 algo（单数），所以用 duele。'}
+  ]},
+  {topic:'义务与必要性的表达', questions:[
+    {sentence:'___ que estudiar más.', options:['Tengo', 'Soy', 'Estoy', 'Hay'], correct:0, explain:'tener que + 不定式表个人必须：tengo que estudiar。tener 按主语变位。'},
+    {sentence:'___ que respetar las normas.', options:['Hay', 'Tiene', 'Tengo', 'Es'], correct:0, explain:'hay que + 不定式表泛泛的必要（无人称，无主语）：hay que respetar。与 tener que 的区别在于是否有具体承担者。'},
+    {sentence:'No ___ fumar aquí.', options:['se debe', 'se deben', 'se debe que', 'se deber'], correct:0, explain:'禁止用 no se debe + 不定式，或 no se puede。动词固定第三人称单数，因为是无施动者的规定。'},
+    {sentence:'___ llegar puntual a la entrevista.', options:['Deberías', 'Deber', 'Debes que', 'Debiendo'], correct:0, explain:'条件式 deberías 表委婉建议（你应该……），比 debes 更客气。这是职场与礼貌场合的常用说法。'}
+  ]},
+  {topic:'Llevar + 衣物与穿戴', questions:[
+    {sentence:'Hoy ___ un abrigo nuevo.', options:['llevo', 'llevas', 'lleva', 'llevamos'], correct:0, explain:'llevar + 衣物表「穿着、戴着」：llevo un abrigo。这是描述穿着的常用动词。'},
+    {sentence:'¿___ tú gafas?', options:['Llevas', 'Llevo', 'Lleva', 'Lleváis'], correct:0, explain:'tú 对应 llevas。llevar 是规则 -ar 动词，变位无词干变化。'},
+    {sentence:'Ella ___ una falda azul.', options:['lleva', 'llevo', 'llevas', 'llevan'], correct:0, explain:'第三人称单数 lleva。注意区分 llevar（穿着/携带）与 ponerse（穿上，表动作）。'},
+    {sentence:'___ puesto el cinturón, por favor.', options:['Lleva', 'Llevas', 'Llevar', 'Llevo'], correct:0, explain:'llevar puesto 表「（保持）戴着/系着」的状态：lleva puesto el cinturón。这里是对第三人称的嘱咐。'}
+  ]},
+  {topic:'表达位置与距离', questions:[
+    {sentence:'El banco está ___ del mercado.', options:['al lado', 'en lado', 'a lado', 'de lado'], correct:0, explain:'al lado de ＝ 在……旁边。这是表位置的固定短语，介词搭配不能改。'},
+    {sentence:'Mi casa está ___ de aquí.', options:['cerca', 'cercano', 'cerca a', 'cercas'], correct:0, explain:'cerca de ＝ 在……附近。注意是 cerca de，不是 cerca a（这是常见错误）。'},
+    {sentence:'La estación está ___ lejos.', options:['muy', 'mucho', 'mucha', 'más mucho'], correct:0, explain:'far 的程度用 muy 修饰：muy lejos。mucho 修饰动词（trabajo mucho），muy 修饰形容词/副词。'},
+    {sentence:'¿___ está la parada de autobús?', options:['Dónde', 'Cuándo', 'Cómo', 'Quién'], correct:0, explain:'问位置用 dónde。estar 表位置：¿Dónde está...?。注意与 hay 的区别：hay 表存在，está 表具体位置。'}
+  ]},
+  {topic:'钱与支付的表达', questions:[
+    {sentence:'¿___ pagar con tarjeta?', options:['Puedo', 'Puede que', 'Puedo que', 'Poder'], correct:0, explain:'询问可否用 poder 第一人称：¿Puedo pagar con tarjeta?。poder + 不定式表请求许可。'},
+    {sentence:'El libro ___ diez euros.', options:['cuesta', 'costa', 'cuestan', 'cuesta que'], correct:0, explain:'说价格用 costar + 金额：cuesta diez euros。costar 词干变化 o→ue，主语是物品。'},
+    {sentence:'Me ___ veinte euros.', options:['debes', 'debes que', 'deber', 'debes a'], correct:0, explain:'deber + 金额表「欠（钱）」：me debes veinte euros。注意 cobrar 是「收钱」，方向相反。'},
+    {sentence:'Voy a pagar ___ plazos.', options:['a', 'en', 'por', 'de'], correct:0, explain:'a plazos ＝ 分期付款。这是固定说法，介词固定用 a。'}
+  ]},
+  {topic:'Antes de / después de / al + 不定式', questions:[
+    {sentence:'___ de salir, apaga las luces.', options:['Antes', 'Después', 'Al', 'Luego'], correct:0, explain:'antes de + 不定式表「在……之前」：antes de salir。注意 de 不能省略。'},
+    {sentence:'___ de cenar, vimos una película.', options:['Después', 'Antes', 'Al', 'Durante'], correct:0, explain:'después de + 不定式表「在……之后」：después de cenar。两个短语结构对称，只是时间方向相反。'},
+    {sentence:'___ llegar a casa, me llamó.', options:['Al', 'Antes', 'Después', 'En'], correct:0, explain:'al + 不定式表「当……的时候（一……就）」：al llegar ＝ 到达时。这是西语非常高频的结构。'},
+    {sentence:'___ de comer, tomamos café.', options:['Después', 'Antes', 'Al', 'Para'], correct:0, explain:'después de comer 表饭后。注意与 al comer（吃饭时）的语义差别。'}
+  ]},
+  {topic:'Pagar / cobrar / deber 的区分', questions:[
+    {sentence:'Yo ___ el alquiler cada mes.', options:['pago', 'cobro', 'debo', 'presto'], correct:0, explain:'pagar ＝ 付钱（钱出去）。主语是付款人：yo pago el alquiler。'},
+    {sentence:'Yo ___ mi sueldo el día uno.', options:['cobro', 'pago', 'debo', 'presto'], correct:0, explain:'cobrar ＝ 收钱（钱进来）。方向与 pagar 完全相反，这是最常混淆的一对。'},
+    {sentence:'Te ___ diez euros del café de ayer.', options:['debo', 'pago', 'cobro', 'presto'], correct:0, explain:'deber ＝ 欠（钱）。te debo ＝ 我欠你。注意 prestar 是「借出」，pedir prestado 是「借入」。'},
+    {sentence:'¿Me ___ diez euros hasta mañana?', options:['prestas', 'debes', 'pagas', 'cobras'], correct:0, explain:'prestar ＝ 借出（借给别人）。¿Me prestas...? ＝ 你能借我……吗？方向是「你给我」。'}
   ]}
 ];
 
@@ -7731,7 +7879,7 @@ const ACHIEVEMENTS = [
 // 社区模拟内容（扩充版）
 const COMMUNITY_POSTS = [
   {id:'p1', author:'María García', avatar:'M', level:'B2', time:'2 小时前',
-   content:'¡Hola a todos! 今天学到一个特别形象的表达 "estar en las nubes"，字面意思是"在云朵上"，实际表示走神、心不在焉、发愣。西班牙语里这类比喻特别多，你们还知道哪些有趣的 idiomas？',
+   content:'¡Hola a todos! 今天学到一个特别形象的表达 "estar en las nubes"，字面意思是"在云朵上"，实际表示走神、心不在焉、发愣。西班牙语里这类比喻特别多，你们还知道哪些有趣的 modismos？',
    likes:42, comments:8, tags:['日常表达', '地道俚语']},
   {id:'p2', author:'Carlos Rodríguez', avatar:'C', level:'C1', time:'5 小时前',
    content:'分享一个我自己坚持了两年的学习方法：每天睡前听 15-20 分钟西语播客，不用完全听懂，先让耳朵熟悉语音节奏和语调。配合 shadowing（影子跟读法），效果翻倍！推荐几个我常听的：\n\n🎙️ Radio Ambulante (讲故事)\n🎙️ Radio Nacional de España (新闻)\n🎙️ Notes in Spanish (教学类)\n\n坚持三个月以上，听力和口语语感会有质的飞跃 ✨',

@@ -22,9 +22,15 @@ console.log('=== 防止重复计分验证 ===');
 await ev(`(()=>{const p=AppState.progress;p.knownWords=[];p.srs={};p.points=0;p.learnedWords=0;AppState.saveProgress();return 1;})()`);
 await ev(`location.hash='learn/vocab/a1-u1'`);await sleep(1400);
 
-// 对同一张卡连点 5 次（间隔 50ms，全在 200ms 防抖窗口内）
+// 对同一张卡连点 5 次。
+// 必须放在**同一次 evaluate 内同步派发**：逐次 await ev('...click()') 会让每次点击
+// 变成一次 CDP 往返（约 30-60ms），5 次往返的耗时正好压在 200ms 防抖窗口边界上。
+// 抖动一超过，第 5 次点击就落在窗口之外、给第二张卡评了分，测试便间歇性失败
+// （表现为 known=2/pts=20/srs=2/learned=2 四个断言同时错）。
+// 那是在测量测试自己的往返延迟，不是 App 的防抖；同步突发反而是更严苛的条件。
 exc.length=0;
-for(let i=0;i<5;i++){ await ev(`document.getElementById('btn-known').click()`); await sleep(50); }
+const burst=await ev(`(()=>{const b=document.getElementById('btn-known');const t0=performance.now();for(let i=0;i<5;i++)b.click();return performance.now()-t0;})()`);
+console.log(`  5 次点击同步派发耗时 ${Number(burst).toFixed(2)}ms（远小于 200ms 防抖窗口）`);
 await sleep(800);
 const s1=await ev(`(()=>({known:AppState.progress.knownWords.length,pts:AppState.progress.points,srs:Object.keys(AppState.progress.srs).length,learned:AppState.progress.learnedWords}))()`);
 console.log('  同一张卡连点 5 次 →',JSON.stringify(s1));

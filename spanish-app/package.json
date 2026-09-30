@@ -16,7 +16,9 @@
     "audit:content": "node scripts/audit-content.mjs data/courses.js",
     "check:data": "node scripts/check-data.mjs data/courses.js",
     "test:core": "node scripts/regress-core.mjs",
-    "test:rapid": "node scripts/regress-rapid-click.mjs"
+    "test:rapid": "node scripts/regress-rapid-click.mjs",
+    "audit:gaps": "node scripts/audit-gaps.mjs data/courses.js",
+    "audit": "npm run audit:content && npm run audit:gaps && npm run check:data"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",

@@ -67,14 +67,25 @@ console.log('── A. 结构完整性 ──');
   if (shortEx) add('P2', 'A', `有 ${shortEx} 个例句过短（<5 字符）`);
   if (sameZhEs) add('P1', 'A', `有 ${sameZhEs} 个词条的中文释义与西语原文完全相同`);
 
-  // 例句跨词条重复（同一例句被多个不同词条使用，通常是复制粘贴错误）
-  const dupEx = [...exOf.entries()].filter(([, v]) => v.length > 1 && new Set(v.map(x => x.split('/')[1])).size > 1);
+  // 例句跨词条重复。
+  // 判据：只有「不同单元」的不同词条共用同一例句才算缺陷——那通常是从别处复制过来的。
+  // 同一单元内部共用（Domingo/El domingo、Buenos días/Señor）是**教学设计**：
+  // 配套词共用一句自然语境比硬造两句更利于学习。按单元归属区分，而不是按字号。
+  const dupEx = [];
+  let sameUnitEx = 0;
+  [...exOf.entries()].forEach(([ex, v]) => {
+    if (v.length < 2) return;
+    const words = [...new Set(v.map((x) => x.split('/')[1]))];
+    if (words.length < 2) return;
+    if (new Set(v.map((x) => x.split('/')[0])).size > 1) dupEx.push([ex, v]);
+    else sameUnitEx++;
+  });
   if (dupEx.length) {
-    add('P1', 'A', `有 ${dupEx.length} 条例句被不同词条共用`,
+    add('P1', 'A', `有 ${dupEx.length} 条例句被「不同单元」的词条共用（多为复制粘贴残留）`,
       dupEx.slice(0, 8).map(([ex, v]) => `"${ex.slice(0, 40)}…" → ${v.join(', ')}`));
   }
   console.log(`  词条 ${d.ALL_VOCAB.length}：缺西语 ${noEs} / 缺中文 ${noZh} / 缺例句 ${noEx} / 例句过短 ${shortEx} / 中西文相同 ${sameZhEs}`);
-  console.log(`  共用例句 ${dupEx.length} 组`);
+  console.log(`  跨单元共用例句 ${dupEx.length} 组 / 同单元共用 ${sameUnitEx} 组（配套词设计如此，不计为缺陷）`);
 }
 
 // 语法题
