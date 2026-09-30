@@ -1,0 +1,196 @@
+{
+  "_readme": [
+    "语法来源库 —— 为语法讲解提供可对照核验的权威出处。",
+    "",
+    "为什么需要它：此前 376 条语法讲解**没有任何引用来源**。没有来源时，复核人只能",
+    "『凭记忆判断』讲得对不对；有来源才能『对照查证』。这是从『我说它对』升级到",
+    "『有据可查』的关键一步。",
+    "",
+    "使用方式：",
+    "  1. 复核某条语法讲解时，先查 grammarPoints 里该点的 sources，打开对应来源核对",
+    "  2. 发现讲解与来源冲突 → 在 data/review-ledger.json 记 issue，并附来源出处",
+    "  3. 新增语法点时必须同时指定 sources（哪些来源能支撑这个点）",
+    "",
+    "重要限制（务必阅读）：",
+    "  - 本文件**不是**逐条精确引用。我没有逐页读完这些来源，因此**不声称**",
+    "    『第 X 页写了规则 Y』这种具体出处。它给出的是『这个语法点应该对照哪些来源』。",
+    "  - preciseCitations 里是**我实际核实过的精确引用**，只有少数几条。",
+    "  - 每条来源都标了 reachable 字段，说明我在 2026-09-30 的实测可达性。",
+    "    标 false 的不代表站点不存在（多为反爬 403），而是『我无法程序化验证内容』。",
+    "  - 繁体/简体中文语法书需自行采购，本文件只登记书目。"
+  ],
+
+  "verifiedOn": "2026-09-30",
+  "verificationMethod": "curl -L -A 'Mozilla/5.0' --max-time 15，记录 HTTP 状态码与响应体积",
+
+  "sources": [
+    {
+      "id": "cervantes-plan-curricular",
+      "name": "Plan curricular del Instituto Cervantes（塞万提斯学院课程大纲）",
+      "type": "cefrReference",
+      "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_introduccion.htm",
+      "hubUrl": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/",
+      "reachable": true,
+      "httpStatus": 200,
+      "checkedContent": "已实际读取：该页为「Gramática」分册的引言与索引，按 CEFR 六级（A1–C2）组织语法教学内容",
+      "whyAuthoritative": "西班牙官方机构 Instituto Cervantes 出品，是西班牙语作为外语教学的课程标准，与 CEFR 对齐",
+      "bestFor": [
+        "判断某个语法点是否属于该 CEFR 等级（我们的等级标注是否合理）",
+        "语法点的分级顺序是否符合官方建议",
+        "语法术语的官方中文/西语对应"
+      ],
+      "note": "本文件中最适合作为『等级合理性』依据的来源，因为它是唯一按 CEFR 分级组织语法的官方文件"
+    },
+    {
+      "id": "rae-gramatica",
+      "name": "RAE · Nueva gramática de la lengua española（新西班牙语语法）",
+      "type": "authoritativeGrammar",
+      "url": "https://www.rae.es/gramática/",
+      "reachable": false,
+      "httpStatus": 403,
+      "whyAuthoritative": "西班牙皇家语言学院（RAE）与各国语言学院联合编纂的西班牙语语法权威著作。纸质版为三卷本，另有《Manual》简编本",
+      "bestFor": [
+        "判断某条语法规则是否成立、有无例外",
+        "争议性用法（如 aunque 的语式选择、por si 的语式）",
+        "区域变体（西班牙 vs 拉美）的官方说明"
+      ],
+      "note": "403 是站点的反爬策略，站点本身正常。需人工浏览器访问或查阅纸质版",
+      "manualEdition": "Nueva gramática de la lengua española. Manual（简编本，更适合查询）"
+    },
+    {
+      "id": "rae-dpd",
+      "name": "RAE · Diccionario panhispánico de dudas（泛西班牙语疑难词典）",
+      "type": "usageDictionary",
+      "url": "https://www.rae.es/dpd/",
+      "reachable": false,
+      "httpStatus": 403,
+      "whyAuthoritative": "RAE 针对疑难用法、常见错误、区域差异的官方解答",
+      "bestFor": [
+        "中文母语者易错的点（如 ser/estar、por/para、过去时选择）",
+        "某个用法是否被官方接受",
+        "『不能用 X』这类主张的核实——查这里最直接"
+      ],
+      "note": "本文件里核查『绝对化断言』最对口的来源，因为它的体例就是『某人问能不能用 X，官方回答』"
+    },
+    {
+      "id": "dle",
+      "name": "DLE · Diccionario de la lengua española（西班牙语词典）",
+      "type": "dictionary",
+      "url": "https://dle.rae.es/",
+      "reachable": false,
+      "httpStatus": 403,
+      "whyAuthoritative": "RAE 官方词典，词条的性、数、及物性、搭配介词以它为准",
+      "bestFor": [
+        "名词的性（阳性/阴性）——判断冠词用得对不对",
+        "动词的及物性与必需介词（如 adolecer de、incurrir en）",
+        "词条是否属于某个语域（书面/口语/地区）"
+      ],
+      "note": "核查词汇层（5992 个词条的冠词与搭配）时的首选来源"
+    },
+    {
+      "id": "educarm-gramatica",
+      "name": "Educarm（西班牙穆尔西亚自治区教育平台）· 语法附录",
+      "type": "teachingMaterial",
+      "url": "https://servicios.educarm.es/templates/portal/ficheros/websDinamicas/92/currna.pdf",
+      "reachable": false,
+      "httpStatus": 403,
+      "whyAuthoritative": "西班牙官方教育平台发布的教学材料，体例清晰、适合教学对照",
+      "bestFor": [
+        "虚拟式触发的具体条件（por si、aunque、de ahí que 等）"
+      ],
+      "note": "403 同样是反爬。本项目实际使用过它的 §21.7 核查 por si 的语式（见 preciseCitations）"
+    },
+    {
+      "id": "gramatica-uso",
+      "name": "《Gramática de uso del español》(Luis Aragonés & Ramón Palencia, SM)",
+      "type": "textbook",
+      "url": null,
+      "reachable": null,
+      "whyAuthoritative": "西班牙语教学界广泛使用的语法教材，按等级编排、配练习，体例最贴近本项目的讲解风格",
+      "bestFor": [
+        "讲解的中文表述是否会误导学习者",
+        "某个语法点在教学中通常怎么引入（先讲什么、后讲什么）"
+      ],
+      "note": "纸质书，需采购。理论分册 + 练习分册，分 A1-B2 与 B2-C1 两套"
+    },
+    {
+      "id": "plan-curricular-gramatica-niveles",
+      "name": "同上 Cervantes 大纲 · 各等级语法清单",
+      "type": "cefrReference",
+      "url": "https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/indice.htm",
+      "reachable": null,
+      "httpStatus": 0,
+      "whyAuthoritative": "各等级（A1–C2）语法内容的逐项清单",
+      "bestFor": [
+        "核对某个语法点是否被官方归入我们标注的等级"
+      ],
+      "note": "本次 curl 未取到（HTTP 000，疑似超时）。可从 hubUrl 逐级点击进入，浏览器访问正常"
+    }
+  ],
+
+  "preciseCitations": [
+    {
+      "id": "por-si-indicativo",
+      "claim": "por si 后接陈述式，不接虚拟式",
+      "sourceId": "educarm-gramatica",
+      "locator": "§21.7",
+      "quote": "por si (acaso) + indicativo",
+      "usedWhere": "本项目两道语法题原先声称 por si 可接虚拟式并给出错误解析，已修正",
+      "note": "这是本文件中少数几条**实际核实过**的精确引用。核查日期早于本文档，来源见 URL。若要用作对外依据，建议重新打开原文确认页码稳定"
+    }
+  ],
+
+  "grammarPoints": {
+    "_format": "键为 grammarDomains 里的域 id，值为该域建议对照的来源 id。**不是逐条语法点的引用**，而是『这个主题应该查哪些来源』。",
+    "subjunctive": ["rae-gramatica", "rae-dpd", "educarm-gramatica", "gramatica-uso"],
+    "ser-estar": ["rae-dpd", "rae-gramatica", "gramatica-uso"],
+    "past-tenses": ["rae-gramatica", "rae-dpd", "gramatica-uso"],
+    "preterite-imperfect": ["rae-gramatica", "gramatica-uso"],
+    "pronouns": ["rae-gramatica", "rae-dpd", "gramatica-uso"],
+    "prepositions": ["dle", "rae-dpd", "gramatica-uso"],
+    "passive-impersonal-se": ["rae-gramatica", "rae-dpd"],
+    "conditional-si-clauses": ["rae-gramatica", "gramatica-uso"],
+    "relative-clauses": ["rae-gramatica", "gramatica-uso"],
+    "conjunctions": ["rae-gramatica", "rae-dpd"],
+    "adjective-agreement": ["rae-gramatica", "gramatica-uso"],
+    "verb-morphology": ["rae-gramatica", "dle"],
+    "noun-gender": ["dle", "rae-dpd"],
+    "gerund": ["rae-gramatica", "gramatica-uso"],
+    "imperative": ["rae-gramatica", "gramatica-uso"],
+    "future-conditional": ["rae-gramatica", "gramatica-uso"],
+    "lexical-collocation": ["dle", "rae-dpd"],
+    "register-formality": ["cervantes-plan-curricular", "gramatica-uso"],
+    "cefr-level-placement": ["cervantes-plan-curricular"]
+  },
+
+  "grammarDomains": {
+    "_readme": "把 376 条语法点归入这些域，便于批量指定来源。域 id 与 grammarPoints 的键对应。",
+    "subjunctive": "虚拟式（现在时/过去时/完成时、触发条件、语式选择）",
+    "ser-estar": "ser 与 estar 的分工与表意差异",
+    "past-tenses": "过去时体系（简单过去时、未完成过去时、过去完成时）",
+    "preterite-imperfect": "简单过去时 vs 未完成过去时的对比",
+    "pronouns": "代词（宾格/与格、自复、关系代词）",
+    "prepositions": "介词与介词搭配（por/para、a/en/de 等）",
+    "passive-impersonal-se": "被动语态、被动 se 与无人称 se",
+    "conditional-si-clauses": "条件句与 si 从句的语式",
+    "relative-clauses": "关系从句与连接词",
+    "conjunctions": "连接词与从句引导词",
+    "adjective-agreement": "形容词的性数一致与位置",
+    "verb-morphology": "动词变位（含不规则形式、正字法变化）",
+    "noun-gender": "名词的性与数（含例外与重读 a 用 el）",
+    "gerund": "进行时与副动词",
+    "imperative": "命令式",
+    "future-conditional": "将来时与条件式",
+    "lexical-collocation": "词汇搭配与固定表达",
+    "register-formality": "语域与正式程度（书面/口语、usted/tú）",
+    "cefr-level-placement": "CEFR 等级归属是否合理"
+  },
+
+  "knownLimitations": [
+    "**不是逐条引用**：只有 preciseCitations 里少数几条是精确出处，其余是『应查哪些来源』",
+    "**未逐页通读**：我没有完整读过 RAE 新语法或 DPD，因此不能替代专业复核",
+    "**中文资料缺失**：本文件未收录中文的西语语法书（如《现代西班牙语》教材），如有需要请补充",
+    "**版本问题**：RAE《新语法》有 2009 全本与 2010 简编本，引用时需注明版本",
+    "**DPD 已被新语法部分取代**：DPD（2005）有些条目已被后来的《新语法》修正，冲突时以《新语法》为准"
+  ]
+}
