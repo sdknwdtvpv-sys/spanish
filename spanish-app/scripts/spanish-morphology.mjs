@@ -270,6 +270,12 @@ const IRREGULAR_STEMS = {
   frio: ['fria', 'frios', 'frias'],
   dolor: ['duele', 'duelen', 'dolio', 'dolido', 'dolores'],
   orientacion: ['orientado', 'orienta', 'oriento', 'orientan'],
+  asentar: ['asiento', 'asienta', 'asientan', 'asentado'],
+  asentarse: ['me asiento', 'se asienta', 'se asientan', 'asentado'],
+  advertir: ['advierte', 'advierto', 'advierten', 'advirtio', 'advertido'],
+  esforzarse: ['me esfuerzo', 'se esfuerza', 'se esfuerzan', 'esforzado', 'esforzarse'],
+  esforzar: ['esfuerzo', 'esfuerza', 'esfuerzan', 'esforzado'],
+  carecer: ['carezco', 'carece', 'carecen', 'carezca', 'carezcan', 'carecido'],
   amortizacion: ['amortizo', 'amortiza', 'amortizado', 'amortizan'],
 };
 
@@ -310,9 +316,18 @@ export function exampleCoversTerm(term, example) {
   // 1. 词干直接命中（长度 >=4 足够安全）
   if (stems.some(st => st.length >= 4 && ex.includes(st))) return true;
 
-  // 1b. 短词干 + 屈折尾（含重音变化）：frío→fría
-  const SHORT_TAIL = '(o|a|os|as|es|s|ito|ita|azo|aza|ico|ica|oso|osa|ar|er|ir)\\b';
-  if (stems.some(st => st.length <= 4 && new RegExp('\\b' + st + SHORT_TAIL).test(ex))) return true;
+  // 1b. 交集式前缀比对：vago↔vagas / frío↔fría / matiz↔matices / asentarse↔asientan
+  //     要求共有前缀 >=4 字符；短词必须被完全吃掉，避免 talla(尺码) 被 talento 误接
+  const exWords = ex.replace(/[¿?¡!.,;:()"'«»]/g, ' ').split(/\s+/).filter(w => w.length >= 3);
+  for (const st of stems) {
+    if (st.length < 4) continue;
+    for (const w of exWords) {
+      let n = 0;
+      while (n < st.length && n < w.length && st[n] === w[n]) n++;
+      const shorter = Math.min(st.length, w.length);
+      if (n >= 4 || (n >= 3 && n === shorter)) return true;
+    }
+  }
   // 1c. 长词干取前缀匹配派生词：prescripción↔prescrito, amortización↔amortizó
   if (stems.some(st => st.length >= 7 && new RegExp('\\b' + st.slice(0, 5) + '[a-z]{0,8}\\b').test(ex))) return true;
 
@@ -328,7 +343,7 @@ export function exampleCoversTerm(term, example) {
   // 2. 动词真词干按词边界匹配：comer→comemos / aducir→adujo / subir→subí
   const root = verbRoot(term);
   if (root && root.length >= 3) {
-    const re = new RegExp('\\b' + root.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]{0,7}\\b');
+    const re = new RegExp('\\b' + root.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]{0,7}\\b', 'i');
     if (re.test(ex)) return true;
   }
 

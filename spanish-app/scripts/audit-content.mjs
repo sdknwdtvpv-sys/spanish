@@ -197,14 +197,14 @@ console.log('── B. 交叉引用一致性 ──');
   const glossTrulyMissing = glossNotInVocab.filter(g => !inAllVocab.has(g));
   if (glossTrulyMissing.length) add('P1', 'B', `精读生词有 ${glossTrulyMissing.length} 条未进入总词库`, glossTrulyMissing.slice(0, 8));
 
-  // 3. 精读 glossary 的词是否真的出现在正文里（使用词干匹配，避免把正常变位判为缺失）
+  // 3. 精读 glossary 的词是否真的出现在正文里
+  //    走 exampleCoversTerm（含不规则变位表），否则 enfrascarse→enfrascados
+  //    这类正常变位会被当成「生词没出现在正文」的假问题
   let glossNotInText = [];
   d.READING_PASSAGES.forEach(p => {
-    const text = stripAcc(norm((p.paragraphs || []).map(x => x.es).join(' ')));
+    const text = (p.paragraphs || []).map(x => x.es).join(' ');
     (p.glossary || []).forEach(g => {
-      const stems = stemsOf(g.es);
-      if (!stems.length) return;
-      if (!stems.some(st => text.includes(st))) glossNotInText.push(`[${p.title}] "${g.es}"`);
+      if (!exampleCoversTerm(g.es, text)) glossNotInText.push(`[${p.title}] "${g.es}"`);
     });
   });
   if (glossNotInText.length) {

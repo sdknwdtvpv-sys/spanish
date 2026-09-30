@@ -1,0 +1,344 @@
+[
+  {
+    "level": "C2",
+    "title": "记忆成为默认，遗忘沦为可购特权",
+    "topic": "技术与记忆",
+    "minutes": 8,
+    "paragraphs": [
+      {
+        "es": "Durante siglos, el olvido fue el estado natural de las cosas y la memoria, una conquista costosa. Lo que no se grababa en piedra, se copiaba a mano o se confiaba a la repetición ritual se desvanecía sin dejar rastro; de ahí que las civilizaciones hayan erigido monumentos, archivos y calendarios como diques contra la corriente. Recordar exigía trabajo, dinero e instituciones. Hoy la relación se ha invertido: el registro es automático, gratuito y ubicuo, mientras que borrar se ha vuelto una operación técnica compleja, a veces imposible. No se trata de una simple diferencia de grado. Cuando el soporte de la memoria deja de depender de la voluntad humana, la sociedad deja también de decidir qué merece ser conservado, y esa decisión, antes política, antes objeto de disputa, se disuelve en el diseño mismo de la infraestructura.",
+        "zh": "在数百年间，遗忘曾是事物的自然状态，而记忆则是一项代价高昂的收获。凡未被刻入石头、未被手抄、未被托付给仪式性重复的东西，都会无声无息地消散；正因如此，各种文明才竖起纪念碑、档案馆与历法，如同抵御水流的堤坝。记忆需要劳作、金钱与制度。而今天，这一关系被颠倒了：记录是自动的、免费的、无处不在的，抹除反倒成了一项复杂的技术操作，有时根本做不到。这并非程度上的简单差别。当记忆的载体不再取决于人的意愿时，社会也就不再决定什么值得保存，而这一决定——从前是政治的，从前是争论的对象——便在基础设施的设计本身中消解了。"
+      },
+      {
+        "es": "Conviene preguntarse qué se pierde cuando nada se pierde. La vida moral de las personas se apoya en una ficción necesaria: que el pasado puede clausurarse. Quien ha delinquido, quien ha sido cruel, quien ha sostenido una opinión que hoy aborrece, necesita que sus actos dejen de estar disponibles para que su identidad pueda cambiar. El perdón no consiste en absolver un hecho, sino en renunciar a invocarlo; la reinserción social presupone que la comunidad acepte no saber, o no recordar. Una memoria perfecta abole esa salida: cada uno queda fijado en el peor instante de su biografía, ampliable, indexado y consultable por cualquiera. No es casualidad que las sociedades que más insisten en la transparencia total sean también las que producen condenas sin término.",
+        "zh": "值得追问：当什么都不再失去时，我们究竟失去了什么。人的道德生活建立在一个必需的虚构之上：过去是可以被封存的。曾经犯罪的人、曾经残忍的人、曾经坚持某种如今天自己都憎恶之见的人，需要其行为不再随时可供调取，其身份才有可能改变。宽恕并不在于赦免某一事实，而在于放弃援引它；社会再融入的前提，是共同体接受不去知道、或不去记得。完美的记忆取消了这一出口：每个人都凝固在其生平中最坏的那一刻，可检索、可索引、任人查阅。那些最执着于全面透明的社会，恰恰也生产着无期限的判决——这并非偶然。"
+      },
+      {
+        "es": "Frente a ese panorama ha surgido, con fuerza desigual, el llamado derecho al olvido. Su formulación jurídica es reveladora: se lo enuncia como excepción al derecho de acceso a la información, es decir, como una restricción que debe justificarse. Quien pretende que un dato desaparezca carga con la prueba; quien pretende conservarlo, no. El desequilibrio no es accidental, sino que reproduce una jerarquía previa: la transparencia se presenta como valor público y el olvido, como interés privado y sospechoso. Sin embargo, ambos son condiciones de la vida colectiva. Si se admite que una sociedad necesita archivos para rendir cuentas, habría que admitir simétricamente que necesita silencios para recomponerse. La dificultad estriba en que el derecho, pensado para sujetos individuales, no dispone de conceptos para regular lo que debería olvidar un colectivo entero.",
+        "zh": "面对这样一幅图景，所谓「被遗忘权」以并不均衡的力度浮现出来。它的法律表述颇具揭示性：它被界定为信息获取权的例外，也就是说，是一项必须自我辩护的限制。要求某条数据消失的人承担举证责任，要求保留它的人则不必。这种失衡并非偶然，而是复制了先前就存在的等级秩序：透明被呈现为公共价值，遗忘则被呈现为可疑的私人利益。然而，两者都是集体生活的条件。倘若承认一个社会需要档案才能问责，就应当对称地承认，它也需要沉默才能复原。困难在于：法律是为个体主体而设想的，它并没有现成的概念去规范一个整体集体应当遗忘什么。"
+      },
+      {
+        "es": "Aun así, la objeción más grave no es conceptual, sino distributiva. El olvido, que fue durante milenios una condición involuntaria de todos, se está transformando en un servicio. Quien puede costearlo contrata gestores de reputación que sepultan resultados incómodos, litiga para que se desindexen noticias antiguas o espera, con paciencia, a que el algoritmo pierda interés. Quien no puede, queda expuesto de por vida a un expediente que nadie actualiza. Se dirá que siempre hubo reputaciones defendibles mediante dinero o influencia; es cierto, pero la novedad estriba en que ahora la asimetría se ha vuelto técnica y silenciosa, sin árbitro visible ni plazo de prescripción. La desigualdad ya no consiste en acceder a la información, sino en poder sustraerse a ella.",
+        "zh": "即便如此，最严重的反驳不是概念性的，而是分配性的。遗忘在数千年里曾是所有人身上不由自主的处境，如今却正在变成一项服务。付得起钱的人聘请声誉管家，把令人尴尬的检索结果埋下去，为删除旧闻而打官司，或者耐心等待算法失去兴趣。付不起钱的人，则终生暴露在一份无人更新的卷宗之下。有人会说，能靠金钱或影响力捍卫的名声向来就有；这没错，但新意在于：如今这种不对称已变得技术化而无声，既看不到仲裁者，也没有追诉时效。不平等不再在于能否获取信息，而在于能否从信息中脱身。"
+      },
+      {
+        "es": "Cabe concluir, entonces, que el problema no radica en la técnica, sino en la distribución de sus efectos. No se trata de defender la amnesia ni de idealizar un pasado analógico que nunca fue tan olvidadizo como se supone. Se trata de reconocer que una comunidad necesita tanto la huella como el borrado, y que el segundo ha sido privatizado mientras la primera se ha vuelto universal y gratuita. Reconstruir ese equilibrio exigiría decisiones colectivas, no la simple invocación de la privacidad individual: plazos de prescripción, límites a la indexación, derechos de rectificación efectivos. Mientras el olvido siga siendo un bien de mercado, la memoria será, para la mayoría, una condena heredada y no una elección.",
+        "zh": "于是可以得出结论：问题不在于技术本身，而在于技术后果的分配。这里并不是要为遗忘症辩护，也不是要美化一个从未像人们设想的那般健忘的模拟时代。而是要承认，一个共同体既需要痕迹，也需要抹除；而后者已被私有化，前者却变得普遍而免费。重建这一平衡需要的是集体决策——追诉时效、索引的界限、真正有效的更正权——而不是简单援引个人隐私。只要遗忘仍是一种市场商品，对多数人而言，记忆就只会是一份继承来的判决，而非一种选择。"
+      }
+    ],
+    "glossary": [
+      {
+        "es": "erigir",
+        "zh": "建立、竖立（文中作 hayan erigido，竖起了纪念碑与档案馆）"
+      },
+      {
+        "es": "dique",
+        "zh": "堤坝；此处喻指抵御遗忘之流的屏障"
+      },
+      {
+        "es": "desvanecerse",
+        "zh": "消散、渐渐消失（文中作 se desvanecía，指未加记录之物不留痕迹地湮灭）"
+      },
+      {
+        "es": "ubicuo",
+        "zh": "无处不在的、遍在的（指记录行为已渗透一切场景）"
+      },
+      {
+        "es": "clausurar",
+        "zh": "封存、了结（此处指将过去的一段彻底关闭）"
+      },
+      {
+        "es": "presuponer",
+        "zh": "以……为前提、预设（文中作 presupone，指逻辑上的必要条件）"
+      },
+      {
+        "es": "reinserción",
+        "zh": "（重新）融入社会、复归"
+      },
+      {
+        "es": "estribar en",
+        "zh": "在于、取决于（文中作 estriba en，指出困难或理由之所在）"
+      },
+      {
+        "es": "desindexar",
+        "zh": "将（网页、信息）从检索索引中移除（文中作 se desindexen）"
+      },
+      {
+        "es": "plazo de prescripción",
+        "zh": "追诉时效、法定期限（超过此期限责任即消灭）"
+      },
+      {
+        "es": "amnesia",
+        "zh": "遗忘症；此处指集体性的遗忘状态"
+      },
+      {
+        "es": "sustraerse a",
+        "zh": "摆脱、逃脱、使自己不受……约束"
+      },
+      {
+        "es": "expediente",
+        "zh": "卷宗、档案（此处指关于个人的永久电子记录）"
+      },
+      {
+        "es": "asimetría",
+        "zh": "不对称（指有能力者与无力者之间被拉大的处境差距）"
+      }
+    ],
+    "structures": [
+      {
+        "es": "de ahí que las civilizaciones hayan erigido monumentos, archivos y calendarios como diques contra la corriente.",
+        "note": "「de ahí que」引出推论性结果从句，必须接虚拟式，此处用现在完成虚拟式 hayan erigido，因为主句是对已然事实的推断；引言小写承接前一分句，使因果链条一气呵成。「como diques contra la corriente」以同位比喻把抽象制度具象为防洪工程，比直说「为了保护记忆」更有画面与力度。"
+      },
+      {
+        "es": "El perdón no consiste en absolver un hecho, sino en renunciar a invocarlo;",
+        "note": "「no... sino...」是西语最典型的更正性对举结构，先否定再确立真义。两个并列成分都用不定式 absolver / renunciar 作名词化主语补语，保持语法对称；renunciar 后接 a + 不定式 invocarlo，其中 lo 回指 hecho，避免重复名词。整句用简短的并列把「宽恕」重新定义为一种放弃而非一种赦免。"
+      },
+      {
+        "es": "Se dirá que siempre hubo reputaciones defendibles mediante dinero o influencia; es cierto, pero la novedad estriba en que ahora la asimetría se ha vuelto técnica y silenciosa, sin árbitro visible ni plazo de prescripción.",
+        "note": "「Se dirá」是无人称将来时，用来预演并让出对方论点，语气克制而非对抗；「es cierto, pero...」是让步—转折的经典衔接，先承认再限定。estriba en que 后接陈述式，因为补语是事实性内容；句末「sin + 名词 + ni + 名词」构成绝对否定短语，把缺失的仲裁者与时效并置，收束冷峻有力。"
+      }
+    ],
+    "questions": [
+      {
+        "q": "¿Por qué sostiene el autor que la inversión entre memoria y olvido no es una simple diferencia de grado?",
+        "a": "Porque cuando el registro deja de depender de la voluntad humana, la sociedad pierde la capacidad de decidir qué conservar, y esa decisión, antes política, se traslada al diseño mismo de la infraestructura."
+      },
+      {
+        "q": "¿Qué función cumple el olvido en la vida moral y social, según el segundo párrafo?",
+        "a": "El olvido hace posible clausurar el pasado: sin él no hay perdón, entendido como renuncia a invocar un hecho, ni reinserción social, pues la memoria perfecta fija a cada persona en el peor instante de su biografía y abole toda salida."
+      },
+      {
+        "q": "¿Dónde sitúa el autor el núcleo del problema: en la técnica o en la distribución de sus efectos? Justifíquese con el texto.",
+        "a": "En la distribución, porque el olvido, antes condición involuntaria de todos, se ha convertido en un servicio que solo puede costear quien tiene medios, de modo que la desigualdad ya no consiste en acceder a la información, sino en poder sustraerse a ella."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "专家的确定口吻如何瓦解民主",
+    "topic": "知识与民主",
+    "minutes": 8,
+    "paragraphs": [
+      {
+        "es": "El desencuentro entre el saber experto y la legitimidad democrática no procede de un defecto moral de ninguna de las dos partes, sino de una diferencia de origen. La ciencia produce enunciados sometiéndolos a un régimen de prueba que aspira a reducir la incertidumbre; la democracia produce decisiones contando voluntades, sin exigir a cada una de ellas que demuestre nada. Una autoridad se funda en el método; la otra, en el número. Cuando ambas pretenden regir la misma materia, sea una epidemia, una sequía o el diseño de una ciudad, la fricción es estructural y no se disuelve apelando a la buena voluntad. Suponer que el conflicto desaparecerá porque los ciudadanos se ilustren es confundir el diagnóstico con el deseo.",
+        "zh": "专家知识与民主正当性之间的不合，并非源于任何一方的道德缺陷，而是源于来源上的差异。科学以一套旨在降低不确定性的检验机制来生产陈述；民主则通过清点意愿来生产决定，并不要求其中任何一项意愿去证明什么。一种权威建立在方法之上，另一种建立在数目之上。当二者都试图支配同一件事务——无论是一场流行病、一场干旱，还是一座城市的设计——摩擦便是结构性的，靠呼吁善意无法消解。以为只要公民变得有学识冲突就会消失，是把诊断与愿望混为一谈。"
+      },
+      {
+        "es": "Conviene, por lo tanto, desmontar la explicación más cómoda, que atribuye el desencuentro a la ignorancia del público. Se trata de una hipótesis halagadora para quien la formula, pues convierte cada derrota argumental en una prueba de estupidez ajena. La evidencia disponible sugiere otra cosa: los legos razonan con notable competencia cuando el asunto los afecta directamente y disponen de información comprensible. Lo que falla no es la capacidad de juicio, sino las condiciones en que ese juicio se ejerce. Y aquí aparece el verdadero problema: no que la gente no sepa, sino que se le presenta como resuelto aquello que sigue siendo objeto de disputa entre los propios especialistas.",
+        "zh": "因此，有必要拆掉那套最省事的解释——它把这种不合归咎于公众的无知。对一个提出该解释的人来说，这是个讨人喜欢的假设，因为它把每一次论辩上的失利都变成了他人愚蠢的证据。现有证据却指向另一回事：当事务直接影响到自身、且能获得可理解的信息时，外行人的推理表现出相当的能力。出问题的不是判断能力，而是判断得以施展的条件。真正的难题正在此处：不是民众不知道，而是那些在专家内部仍有争议的问题，被当作已经了结之事呈递给他们。"
+      },
+      {
+        "es": "En efecto, el especialista rara vez habla como habla la ciencia. Esta se expresa en intervalos de confianza, en grados de evidencia, en hipótesis descartadas; aquel, en cambio, comparece ante el público obligado a emitir recomendaciones tajantes. Los incentivos institucionales empujan en esa dirección: los medios premian la sentencia breve, los gobiernos necesitan certezas para justificar medidas impopulares y la financiación recompensa los resultados concluyentes. De ahí que la incertidumbre, que es el rasgo más honesto del conocimiento científico, se recorte en la traducción. El experto no miente necesariamente; simplemente acepta un formato que no admite matices. Y al hacerlo, transfiere al público una imagen de la ciencia que la propia ciencia no reconocería.",
+        "zh": "事实上，专家很少像科学那样说话。科学用置信区间、证据等级、被排除的假设来表达；而专家出现在公众面前时，却被迫给出斩钉截铁的建议。制度性的激励在往这个方向推：媒体奖赏简短判决，政府需要确定性来为不得人心的措施辩护，经费则奖励结论性的成果。于是，不确定性——科学知识最诚实的特征——在翻译过程中被剪掉了。专家未必在撒谎，他只是接受了一种不容细微差别的格式。而这样一来，他传递给公众的科学形象，是科学本身都不会认领的。"
+      },
+      {
+        "es": "Las consecuencias de ese recorte son políticas antes que epistemológicas. Si un asunto se presenta como zanjado, quien lo discute queda automáticamente situado fuera de la razón; la discrepancia deja de ser argumento y pasa a ser síntoma. Así, la deliberación se desplaza desde la pregunta «qué debemos hacer» hacia la pregunta «a quién creemos», mucho más pobre y mucho más volátil. Se dirá que no siempre es posible deliberar sobre cuestiones técnicas; es cierto, pero de ello no se sigue que deba renunciarse a deliberar sobre los fines, los riesgos aceptables o los costes que unos y otros habrán de soportar. Todo eso es materia política, y ninguna evidencia empírica la resuelve por sí sola.",
+        "zh": "这一剪裁的后果首先是政治的，其次才是认识论的。若一件事务被呈现为已经了结，讨论它的人便自动被置于理性之外；异议不再是论据，而成了症状。于是审议从「我们该做什么」滑向「我们该信谁」——一个远为贫乏、也远为易变的问题。有人会说，技术性问题并非总能付诸审议；这没错，但不能由此推出应当放弃对目的、可接受的风险，以及各方将要承担之代价的审议。所有这些都是政治内容，没有任何经验证据能独自把它们解决掉。"
+      },
+      {
+        "es": "La salida no consiste, pues, en degradar el saber experto ni en someterlo a plebiscito, sino en reponer sus condiciones de escrutinio. Una opinión especializada debería llegar al debate público acompañada de sus supuestos, de sus márgenes de error y de las voces discrepantes que la discuten; es decir, debería presentarse como insumo verificable y no como veredicto final. Ello exige separar la producción de conocimiento de la decisión política, que nunca es puramente técnica, y aceptar que la legitimidad de una medida no se hereda de sus asesores. Solo así el desacuerdo deja de ser una amenaza para la autoridad y recupera su función originaria: obligar a que las razones se expongan.",
+        "zh": "出路因而既不在于贬低专家知识，也不在于把它交付公投，而在于重建其受检视的条件。一条专业意见在进入公共辩论时，本应附带它的前提假定、误差范围，以及与之争论的不同声音；也就是说，它应当作为可核验的输入呈现，而不是作为最终裁决。这就要求把知识的生产与政治决定分开——后者从来不是纯技术性的——并承认一项措施的正当性不能从其顾问那里继承而来。唯有如此，分歧才不再是权威的威胁，而恢复其原初功能：迫使理由被摆到台面上。"
+      }
+    ],
+    "glossary": [
+      {
+        "es": "desencuentro",
+        "zh": "不合、错位、彼此未能相遇（此处指两种权威之间的结构性摩擦）"
+      },
+      {
+        "es": "enunciado",
+        "zh": "陈述、命题（科学所生产的可检验语句）"
+      },
+      {
+        "es": "incertidumbre",
+        "zh": "不确定性（此处指科学结论固有的不确定范围）"
+      },
+      {
+        "es": "desmontar",
+        "zh": "拆卸；（引申）逐层驳倒某一论证"
+      },
+      {
+        "es": "halagador",
+        "zh": "讨人喜欢的、令人受用的（带贬义，指自我安慰式的假设）"
+      },
+      {
+        "es": "lego",
+        "zh": "外行人、非专业人士（与 experto 相对）"
+      },
+      {
+        "es": "tajante",
+        "zh": "斩钉截铁的、不容置辩的"
+      },
+      {
+        "es": "zanjado",
+        "zh": "已了结的、已定论的（由动词 zanjar 变来的分词）"
+      },
+      {
+        "es": "escrutinio",
+        "zh": "严格检视、审查（此处指对专家意见的公开检验）"
+      },
+      {
+        "es": "veredicto",
+        "zh": "裁决、定论（此处指被视为终审的专业意见）"
+      },
+      {
+        "es": "plebiscito",
+        "zh": "全民公投；此处喻指以票数裁决科学问题"
+      },
+      {
+        "es": "discrepancia",
+        "zh": "分歧、异议"
+      },
+      {
+        "es": "epistemológico",
+        "zh": "认识论的（文中作阴性复数 epistemológicas）"
+      },
+      {
+        "es": "insumo",
+        "zh": "投入物、输入资料（此处指供辩论使用的可核验材料）"
+      }
+    ],
+    "structures": [
+      {
+        "es": "La ciencia produce enunciados sometiéndolos a un régimen de prueba que aspira a reducir la incertidumbre;",
+        "note": "「sometiéndolos」是方式状语副动词，同时用代词 los 回指 enunciados，既保持主语一致，又避免重复名词，是学术西语高度凝练的写法。其后关系从句 que aspira a... 修饰 régimen de prueba，把「检验机制」的自我要求一并交代。分号与下句「la democracia produce...」构成严格对仗，凸显两种权威的平行与差异。"
+      },
+      {
+        "es": "Se trata de una hipótesis halagadora para quien la formula, pues convierte cada derrota argumental en una prueba de estupidez ajena.",
+        "note": "「Se trata de」是无人称固定句式，用于客观地界定所论对象，把评判权交给读者。「para quien la formula」是自由关系从句作受益状语，等于「对提出它的人来说」，比「para el que la formula」更书面。连词 pues 引出原因，说明该假设为何讨人喜欢，「estupidez ajena」把矛头由自己转向他人，讽刺意味尽在其中。"
+      },
+      {
+        "es": "Si un asunto se presenta como zanjado, quien lo discute queda automáticamente situado fuera de la razón; la discrepancia deja de ser argumento y pasa a ser síntoma.",
+        "note": "条件句用被动反身式 se presenta，回避施动者，暗示这是一种普遍的呈现方式而非某个人的过错；主句 quien lo discute 为自由关系从句作主语，queda situado 是结果状态被动，强调被安置的结果而非动作。后一分句以「deja de ser... y pasa a ser...」的并列替换，精炼地勾勒出异议如何被病理化。"
+      }
+    ],
+    "questions": [
+      {
+        "q": "¿Por qué afirma el autor que el conflicto entre el saber experto y la democracia es estructural y no moral?",
+        "a": "Porque ambas instancias fundan su autoridad en fuentes distintas, el método y el número, de modo que la fricción surge de su origen y no de la mala voluntad de ninguna de las partes."
+      },
+      {
+        "q": "¿Cómo se desplaza la deliberación cuando un asunto se presenta como zanjado, y por qué ese desplazamiento empobrece el debate?",
+        "a": "La deliberación se desplaza desde la pregunta sobre qué debemos hacer hacia la pregunta sobre a quién creemos, de modo que el desacuerdo deja de ser argumento y pasa a ser síntoma, y la discusión pública pierde los fines, los riesgos y los costes como materia discutible."
+      },
+      {
+        "q": "¿Qué entiende el autor por reponer las condiciones de escrutinio, y en qué se diferencia de someter la ciencia a plebiscito?",
+        "a": "Entiende que la opinión especializada debe llegar al debate acompañada de sus supuestos, sus márgenes de error y las voces discrepantes, presentándose como insumo verificable y no como veredicto final; no se trata de votar las conclusiones científicas, sino de separar la producción de conocimiento de la decisión política."
+      }
+    ]
+  },
+  {
+    "level": "C2",
+    "title": "当代废墟因何失去被崇高的资格",
+    "topic": "废墟与时间",
+    "minutes": 8,
+    "paragraphs": [
+      {
+        "es": "La ruina es el lugar donde dos tiempos se superponen. Sobre la piedra labrada por manos humanas trabaja una temporalidad que no obedece a ningún propósito: la lluvia, la raíz, el óxido, el desplome lento de lo que fue calculado para durar. En ese cruce reside su poder de inquietar. No conmueve porque esté destruida, sino porque exhibe en un mismo objeto la obra de la intención y la obra del abandono; porque muestra cuánto de lo humano es, a fin de cuentas, materia disponible para el desgaste. De ahí que las ruinas se hayan prestado tan bien a la meditación sobre la vanidad: son el argumento más eficaz contra la pretensión de permanencia, y lo son sin necesidad de palabras.",
+        "zh": "废墟是两种时间相互叠合之处。在人工凿刻过的石头上，运作着一种不服从任何目的的时间性：雨水、根系、锈蚀，以及本被计算为经久之物缓慢的坍塌。令人不安的力量正存在于这一交叠之中。它动人，并非因为它被毁坏，而是因为它在同一件物体上同时展示出意图之作与弃置之作；因为它表明，人属之物说到底有多少不过是可供磨损消磨的质料。正因如此，废墟才如此适于供人沉思尘世虚空：它们是反对永存之妄念最有效的论据，而且无需言辞。"
+      },
+      {
+        "es": "A esta fascinación se le ha añadido, sin embargo, un componente que conviene examinar con desconfianza: la melancolía. El placer de contemplar lo arruinado presupone una pérdida previa, y esa pérdida solo se experimenta como tal si alguna vez se poseyó algo. Quien nunca tuvo casa no ve en los muros caídos una elegía, sino un problema de alojamiento; quien no heredó tierras difícilmente encontrará pintoresco el paisaje de una explotación abandonada. La sensibilidad romántica ante las ruinas es, en este sentido, el lujo de una clase que pudo permitirse perder. Confundir ese sentimiento con una percepción universal del tiempo equivale a tomar por naturaleza lo que es una posición.",
+        "zh": "然而，在这种迷恋之上又被附加了一个成分，值得我们带着不信任去审视：伤感。观赏残破之物的快感，以先前的丧失为前提；而只有曾经拥有过什么的人，才会把那种丧失体验为丧失。从未拥有过房屋的人，在倾颓的墙垣中看到的不是挽歌，而是住房问题；未曾继承土地的人，也很难觉得一片废弃种植园风景如画。就此而言，面对废墟的浪漫主义敏感，是一个承受得起丧失的阶级的奢侈。把这种情绪当成一种普遍的时间感知，等于把立场误认作天性。"
+      },
+      {
+        "es": "El problema se agudiza cuando el objeto de la contemplación ya no es antiguo. Los edificios a medio construir, las fábricas cerradas, los polígonos que nunca llegaron a poblarse no son obra del tiempo, sino del cálculo. No los interrumpió el azar ni la erosión, sino una decisión: un crédito retirado, una normativa cambiada, una operación inmobiliaria que dejó de ser rentable. Su ruina está fechada, tiene responsables identificables y responde a una lógica que puede reconstruirse documento a documento. En ellos el desgaste natural apenas ha comenzado; lo que los arruina es anterior a cualquier deterioro, y ese origen administrativo modifica por completo su estatuto simbólico.",
+        "zh": "当被观赏的对象不再是古老之物时，问题就变得尖锐了。建到一半的楼房、关闭的厂房、始终未能住人的园区，都不是时间的作品，而是算计的作品。打断它们的不是偶然，也不是侵蚀，而是一个决定：一笔撤回的贷款、一条被改动的法规、一次不再有利可图的房地产操作。它们的废墟是有日期的，有可辨识的责任人，并且遵循一套可以逐份文件复原的逻辑。在它们身上，自然的磨损才刚刚开始；使它们成为废墟的东西先于任何损坏，而这种行政性的来源彻底改变了它们的象征地位。"
+      },
+      {
+        "es": "De ahí que no admitan la sublimación con la que solemos compensar lo irreparable. La ruina clásica se ofrece a la mirada como algo que ya no pertenece a nadie y, por eso mismo, puede ser embellecida sin coste moral; la contemporánea, en cambio, señala a alguien. Mientras la primera invita a la meditación, la segunda exige una rendición de cuentas: ¿quién decidió construir allí?, ¿quién se llevó el beneficio?, ¿quién pagará la demolición? Ninguna de esas preguntas se responde con una elegía. Pretender contemplarlas estéticamente es convertir en paisaje lo que sigue siendo un litigio abierto, y esa operación, repetida con insistencia, termina por naturalizar el despojo.",
+        "zh": "正因如此，它们不容许我们惯常用于补偿不可挽回之物的那种升华。古典废墟向目光呈现为已不属于任何人的东西，也正因如此，它可以不付出道德代价地被美化；而当代废墟则指向某个具体的人。前者邀人沉思，后者要求交代责任：是谁决定在那里开工？是谁拿走了利润？将由谁来支付拆除费用？这些问题没有一个能靠一首挽歌回答。试图以审美方式观赏它们，就是把一场仍未了结的诉讼变成风景；而这一操作一旦反复进行，最终会把剥夺自然化。"
+      },
+      {
+        "es": "No se sigue de ello que las ruinas modernas carezcan de valor, sino que su valor ya no es contemplativo. Servirán para documentar un modo de producir ciudad, para recordar que la especulación tiene geografía, para enseñar a leer el territorio como un archivo de decisiones. Pero no podrán ser sublimes mientras podamos nombrar a quien las dejó así. Y quizá en eso consista su utilidad mayor: en que nos obligan a renunciar a una comodidad intelectual muy antigua, la de atribuir al tiempo lo que en realidad hicieron los hombres. Una sociedad que solo sabe contemplar sus pérdidas no aprende nada de ellas; una que empieza a preguntar quién las produjo ha comenzado, al menos, a discutirlas.",
+        "zh": "由此并不能推出当代废墟没有价值，而是说它们的价值不再是观赏性的。它们将用来为一种城市生产方式留下证词，提醒人们投机是有地理坐标的，教人把这片土地当作一份决定构成的档案来阅读。但只要我们还能指出是谁把它们弄成这副样子，它们就无法成为崇高之物。也许它们最大的用处正在于此：它们迫使我们放弃一种极为古老的理智上的舒适，即把实际上是人所做之事归给时间。一个只会凝望自身损失的社会从中什么也学不到；而一个开始追问是谁制造了这些损失的社会，至少已经开始讨论它们了。"
+      }
+    ],
+    "glossary": [
+      {
+        "es": "temporalidad",
+        "zh": "时间性（此处指独立于人的目的而运作的时间维度）"
+      },
+      {
+        "es": "labrado",
+        "zh": "凿刻过的、加工过的（文中作 piedra labrada，经人工雕凿的石料）"
+      },
+      {
+        "es": "desplome",
+        "zh": "坍塌、倒塌"
+      },
+      {
+        "es": "inquietar",
+        "zh": "使人不安、令人心神不宁"
+      },
+      {
+        "es": "desgaste",
+        "zh": "磨损、消磨（指物质在时间中被逐渐消耗）"
+      },
+      {
+        "es": "vanidad",
+        "zh": "虚空、虚幻；此处指尘世万物的无常（非「虚荣」义）"
+      },
+      {
+        "es": "elegía",
+        "zh": "挽歌、哀歌"
+      },
+      {
+        "es": "pintoresco",
+        "zh": "如画的、富有画意的（此处暗含把贫困审美化的意味）"
+      },
+      {
+        "es": "agudizarse",
+        "zh": "变得尖锐、加剧（文中作 se agudiza）"
+      },
+      {
+        "es": "inmobiliario",
+        "zh": "房地产的（文中作 operación inmobiliaria，房地产操作）"
+      },
+      {
+        "es": "deterioro",
+        "zh": "损坏、恶化"
+      },
+      {
+        "es": "sublimación",
+        "zh": "升华（此处指把物质衰败提升为崇高审美对象）"
+      },
+      {
+        "es": "litigio",
+        "zh": "诉讼、争讼；此处指尚未了结的责任纠纷"
+      },
+      {
+        "es": "despojo",
+        "zh": "剥夺、掠夺（此处指对他人财物的侵夺）"
+      }
+    ],
+    "structures": [
+      {
+        "es": "De ahí que las ruinas se hayan prestado tan bien a la meditación sobre la vanidad: son el argumento más eficaz contra la pretensión de permanencia, y lo son sin necesidad de palabras.",
+        "note": "「De ahí que」引出结果从句，谓语须用虚拟式 hayan prestado（现在完成虚拟式，因其缘由已在上一句陈述完毕）。冒号后是对该结果的解释，属书面语常见的展开手段。句末「y lo son」用中性代词 lo 回指表语 argumento más eficaz，避免整段重复，同时以追加小句加强断言。"
+      },
+      {
+        "es": "La ruina clásica se ofrece a la mirada como algo que ya no pertenece a nadie y, por eso mismo, puede ser embellecida sin coste moral; la contemporánea, en cambio, señala a alguien.",
+        "note": "前半句用「puede ser embellecida」构成被动迂说式，回避施动者，恰好呼应古典废墟「不属任何人」的无主状态；「por eso mismo」把这一无主性与道德免责直接扣合。后半句省略动词，仅以逗号夹注的「en cambio」对举，并让 señalar a alguien 作谓语，使矛头瞬间从审美转向问责，对比极硬。"
+      },
+      {
+        "es": "Confundir ese sentimiento con una percepción universal del tiempo equivale a tomar por naturaleza lo que es una posición.",
+        "note": "主语由不定式短语 Confundir... 充当，西语不定式可如名词般承担主语功能，使命题显得客观而不指认任何主体。「equivale a + 不定式」表示等值判断，语气冷静；宾语是自由关系从句 lo que es una posición，把「天性」与「立场」的对立压缩在一句之内，是全文立论的支点。"
+      }
+    ],
+    "questions": [
+      {
+        "q": "¿Por qué sostiene el autor que la melancolía ante las ruinas es un privilegio y no una percepción universal?",
+        "a": "Porque el placer de contemplar lo arruinado presupone una pérdida previa, y solo quien alguna vez poseyó algo puede vivirla como pérdida; quien nunca tuvo casa ve en los muros caídos un problema de alojamiento y no una elegía."
+      },
+      {
+        "q": "¿Qué diferencia el origen de la ruina contemporánea respecto de la clásica, y por qué esa diferencia le impide ser sublimada?",
+        "a": "La ruina contemporánea no procede del tiempo ni del azar, sino del cálculo y de una decisión fechada con responsables identificables; por eso, en lugar de invitar a la meditación, señala a alguien y exige una rendición de cuentas que ninguna elegía puede satisfacer."
+      },
+      {
+        "q": "¿Cuál es, según el texto, la utilidad mayor de las ruinas modernas?",
+        "a": "Consiste en que nos obligan a renunciar a la comodidad intelectual de atribuir al tiempo lo que hicieron los hombres, y en que sirven para documentar un modo de producir ciudad y para leer el territorio como un archivo de decisiones."
+      }
+    ]
+  }
+]
