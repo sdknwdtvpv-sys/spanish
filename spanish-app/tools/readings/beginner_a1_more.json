@@ -1,0 +1,464 @@
+[
+ {
+  "level": "A1",
+  "title": "在餐厅",
+  "topic": "餐饮",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Hoy como en un restaurante con mi amiga. El camarero nos trae la carta y pregunta qué queremos.",
+    "zh": "今天我和朋友在餐馆吃饭。服务员拿来菜单，问我们想点什么。"
+   },
+   {
+    "es": "Mi amiga pide sopa y pollo. Yo quiero pescado con ensalada. Para beber, pedimos agua y un refresco.",
+    "zh": "我朋友点了汤和鸡。我要鱼配沙拉。喝的我们点了水和一瓶汽水。"
+   },
+   {
+    "es": "La comida está muy buena. Al final el camarero pregunta si queremos postre. Pedimos dos helados.",
+    "zh": "菜很好吃。最后服务员问我们要不要甜点。我们点了两个冰淇淋。"
+   },
+   {
+    "es": "Pagamos y dejamos una propina. Me gusta este restaurante porque no es caro y el servicio es rápido.",
+    "zh": "我们付了钱，留了小费。我喜欢这家餐馆，因为不贵，上菜也快。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "el camarero",
+    "zh": "服务员"
+   },
+   {
+    "es": "la carta",
+    "zh": "菜单"
+   },
+   {
+    "es": "pide",
+    "zh": "点（菜）"
+   },
+   {
+    "es": "Para beber",
+    "zh": "喝的方面"
+   },
+   {
+    "es": "un refresco",
+    "zh": "汽水"
+   },
+   {
+    "es": "está muy buena",
+    "zh": "很好吃"
+   },
+   {
+    "es": "el postre",
+    "zh": "甜点"
+   },
+   {
+    "es": "los helados",
+    "zh": "冰淇淋"
+   },
+   {
+    "es": "dejamos una propina",
+    "zh": "我们留了小费"
+   },
+   {
+    "es": "el servicio",
+    "zh": "服务"
+   }
+  ],
+  "structures": [
+   {
+    "es": "El camarero nos trae la carta y pregunta qué queremos.",
+    "note": "间接疑问 qué queremos：问「我们想要什么」。注意间接疑问句里不需要问号，动词按从句主语变位。"
+   },
+   {
+    "es": "Para beber, pedimos agua y un refresco.",
+    "note": "para + 不定式表「就……而言」：para beber（喝的方面）。这在点餐时是固定说法。"
+   },
+   {
+    "es": "Me gusta este restaurante porque no es caro y el servicio es rápido.",
+    "note": "gustar 的主语是单数名词 este restaurante，所以用 gusta。porque 引出原因，两个并列理由用 y 连接。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué pide la amiga?",
+    "a": "Pide sopa y pollo."
+   },
+   {
+    "q": "¿Qué beben?",
+    "a": "Agua y un refresco."
+   },
+   {
+    "q": "¿Por qué le gusta el restaurante?",
+    "a": "Porque no es caro y el servicio es rápido."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "我的家人",
+  "topic": "家庭",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Mi familia es pequeña. Somos cuatro: mis padres, mi hermano y yo. Vivimos en un piso en las afueras.",
+    "zh": "我家不大。我们四口人：父母、我哥哥和我。我们住在郊区一间公寓里。"
+   },
+   {
+    "es": "Mi padre se llama Juan y tiene cincuenta años. Trabaja en una oficina. Mi madre es enfermera y trabaja por la noche.",
+    "zh": "我爸爸叫胡安，五十岁。他在办公室上班。我妈妈是护士，上夜班。"
+   },
+   {
+    "es": "Mi hermano es mayor que yo. Estudia informática y le gustan los videojuegos. Yo tengo dieciocho años.",
+    "zh": "我哥哥比我大。他学计算机，喜欢电子游戏。我十八岁。"
+   },
+   {
+    "es": "Los domingos comemos todos juntos en casa de mis abuelos. Mi abuela cocina muy bien y siempre hay mucha comida.",
+    "zh": "周日我们都在爷爷奶奶家一起吃饭。奶奶做饭很好吃，总有很多菜。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Somos cuatro",
+    "zh": "我们四口人"
+   },
+   {
+    "es": "en las afueras",
+    "zh": "在郊区"
+   },
+   {
+    "es": "se llama",
+    "zh": "名叫"
+   },
+   {
+    "es": "una oficina",
+    "zh": "办公室"
+   },
+   {
+    "es": "enfermera",
+    "zh": "护士"
+   },
+   {
+    "es": "por la noche",
+    "zh": "在夜里、上夜班"
+   },
+   {
+    "es": "mayor que yo",
+    "zh": "比我大"
+   },
+   {
+    "es": "le gustan",
+    "zh": "他喜欢"
+   },
+   {
+    "es": "los abuelos",
+    "zh": "祖父母"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Mi hermano es mayor que yo.",
+    "note": "比较级「比我大」用 mayor que。注意西语说年龄大小用 mayor（年长）/ menor（年幼），而不是 más grande。"
+   },
+   {
+    "es": "Los domingos comemos todos juntos en casa de mis abuelos.",
+    "note": "复数定冠词 + 星期 ＝ 每周重复：los domingos（每周日）。en casa de + 人 ＝ 在某人家。"
+   },
+   {
+    "es": "Mi abuela cocina muy bien y siempre hay mucha comida.",
+    "note": "副词 bien 用 muy 修饰（muy bien）。hay 表存在，mucha comida 是不可数名词，用 mucha 而非 muchas。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Cuántas personas hay en la familia?",
+    "a": "Cuatro: los padres, el hermano y el narrador."
+   },
+   {
+    "q": "¿Dónde trabajan los padres?",
+    "a": "El padre trabaja en una oficina y la madre es enfermera y trabaja por la noche."
+   },
+   {
+    "q": "¿Qué hacen los domingos?",
+    "a": "Comen todos juntos en casa de los abuelos."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "动物与我",
+  "topic": "动物与生活",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Tengo un gato que se llama Milo. Es negro y blanco, y tiene tres años. Duerme casi todo el día.",
+    "zh": "我有一只猫，叫米洛。它是黑白花的，三岁。它几乎整天睡觉。"
+   },
+   {
+    "es": "Por la mañana Milo quiere comer muy temprano. Después sale al balcón y mira los pájaros.",
+    "zh": "早上米洛很早就想吃东西。然后它去阳台看鸟。"
+   },
+   {
+    "es": "Mi vecina tiene un perro. El perro es más grande que mi gato y hace mucho ruido, pero es simpático.",
+    "zh": "我邻居有一只狗。那只狗比我的猫大，很吵，但很友善。"
+   },
+   {
+    "es": "Cuando vuelvo del trabajo, Milo me espera en la puerta. Me gustan los animales porque no hablan, pero entienden mucho.",
+    "zh": "我下班回家时，米洛在门口等我。我喜欢动物，因为它们不说话，却很懂。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "se llama Milo",
+    "zh": "叫米洛"
+   },
+   {
+    "es": "Duerme",
+    "zh": "它睡觉"
+   },
+   {
+    "es": "el balcón",
+    "zh": "阳台"
+   },
+   {
+    "es": "los pájaros",
+    "zh": "鸟"
+   },
+   {
+    "es": "la vecina",
+    "zh": "女邻居"
+   },
+   {
+    "es": "más grande que",
+    "zh": "比……大"
+   },
+   {
+    "es": "hace mucho ruido",
+    "zh": "很吵"
+   },
+   {
+    "es": "me espera",
+    "zh": "它等我"
+   },
+   {
+    "es": "en la puerta",
+    "zh": "在门口"
+   },
+   {
+    "es": "los animales",
+    "zh": "动物"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Tengo un gato que se llama Milo.",
+    "note": "关系从句 que se llama Milo 修饰 el gato。llamarse 是自复动词，主语是猫时用 se llama。"
+   },
+   {
+    "es": "El perro es más grande que mi gato y hace mucho ruido, pero es simpático.",
+    "note": "比较级 más + 形容词 + que。hacer ruido ＝ 发出声音、吵闹。转折用 pero。"
+   },
+   {
+    "es": "Me gustan los animales porque no hablan, pero entienden mucho.",
+    "note": "gustar 的主语是复数 los animales，所以用 gustan。entienden mucho 指「很懂人情」，不是「听懂很多话」。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Cómo es Milo?",
+    "a": "Es negro y blanco y tiene tres años."
+   },
+   {
+    "q": "¿Qué hace Milo por la mañana?",
+    "a": "Quiere comer temprano y después sale al balcón a mirar los pájaros."
+   },
+   {
+    "q": "¿Por qué le gustan los animales?",
+    "a": "Porque no hablan pero entienden mucho."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "在药店",
+  "topic": "健康",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "No me siento bien. Me duele la cabeza y tengo fiebre desde ayer.",
+    "zh": "我不舒服。头疼，从昨天开始发烧。"
+   },
+   {
+    "es": "Voy a la farmacia que está al lado de mi casa. La farmacéutica me pregunta qué me pasa.",
+    "zh": "我去家旁边的药店。药剂师问我怎么了。"
+   },
+   {
+    "es": "Le explico los síntomas y me da unas pastillas. Dice que las tome cada ocho horas.",
+    "zh": "我说明了症状，她给我一些药片。她说每八小时吃一次。"
+   },
+   {
+    "es": "También me recomienda descansar y beber mucha agua. Si mañana no estoy mejor, debo ir al médico.",
+    "zh": "她还建议我休息、多喝水。如果明天还不好，我就得去看医生。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "No me siento bien",
+    "zh": "我感觉不舒服"
+   },
+   {
+    "es": "Me duele la cabeza",
+    "zh": "我头疼"
+   },
+   {
+    "es": "tengo fiebre",
+    "zh": "我发烧"
+   },
+   {
+    "es": "la farmacia",
+    "zh": "药店"
+   },
+   {
+    "es": "La farmacéutica",
+    "zh": "女药剂师"
+   },
+   {
+    "es": "qué me pasa",
+    "zh": "我怎么了"
+   },
+   {
+    "es": "los síntomas",
+    "zh": "症状"
+   },
+   {
+    "es": "unas pastillas",
+    "zh": "一些药片"
+   },
+   {
+    "es": "cada ocho horas",
+    "zh": "每八小时"
+   },
+   {
+    "es": "beber mucha agua",
+    "zh": "多喝水"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Me duele la cabeza y tengo fiebre desde ayer.",
+    "note": "doler 的结构：身体部位作主语（la cabeza），人用与格代词（me），所以是 me duele。desde + 时间点表「从……起」。"
+   },
+   {
+    "es": "Voy a la farmacia que está al lado de mi casa.",
+    "note": "关系从句 que está... 修饰 la farmacia。al lado de 是方位短语，de 不能省。"
+   },
+   {
+    "es": "Dice que las tome cada ocho horas.",
+    "note": "dice que + 虚拟式（tome）：转述建议、指令时从句用虚拟式。代词 las 回指 las pastillas。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué síntomas tiene?",
+    "a": "Le duele la cabeza y tiene fiebre."
+   },
+   {
+    "q": "¿Qué le da la farmacéutica?",
+    "a": "Unas pastillas, que debe tomar cada ocho horas."
+   },
+   {
+    "q": "¿Qué debe hacer si mañana no está mejor?",
+    "a": "Debe ir al médico."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "我的周末",
+  "topic": "日常与计划",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Los sábados no trabajo, así que puedo dormir más. Me levanto a las diez y desayuno tranquilamente.",
+    "zh": "周六我不上班，所以能多睡会儿。我十点起床，慢慢吃早餐。"
+   },
+   {
+    "es": "Por la mañana hago la compra y limpio un poco la casa. Después como con mi familia.",
+    "zh": "上午我买菜，稍微打扫一下屋子。然后和家人吃午饭。"
+   },
+   {
+    "es": "Por la tarde quedo con mis amigos. A veces vamos al cine y otras veces solo damos un paseo.",
+    "zh": "下午我和朋友见面。有时去看电影，有时只是散散步。"
+   },
+   {
+    "es": "Los domingos son más tranquilos. Leo, escucho música y preparo la ropa para el lunes.",
+    "zh": "周日更安静。我看书、听音乐，把周一的衣服准备好。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "no trabajo",
+    "zh": "我不上班"
+   },
+   {
+    "es": "dormir más",
+    "zh": "多睡会儿"
+   },
+   {
+    "es": "tranquilamente",
+    "zh": "安静地、悠闲地"
+   },
+   {
+    "es": "hago la compra",
+    "zh": "我买菜"
+   },
+   {
+    "es": "limpio",
+    "zh": "我打扫"
+   },
+   {
+    "es": "quedo con",
+    "zh": "我和……见面"
+   },
+   {
+    "es": "A veces",
+    "zh": "有时候"
+   },
+   {
+    "es": "damos un paseo",
+    "zh": "我们散步"
+   },
+   {
+    "es": "preparo la ropa",
+    "zh": "我准备衣服"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Los sábados no trabajo, así que puedo dormir más.",
+    "note": "así que 引出结果（所以）。注意 sábados 用复数定冠词表「每逢周六」。"
+   },
+   {
+    "es": "A veces vamos al cine y otras veces solo damos un paseo.",
+    "note": "a veces... otras veces... 是「有时……有时……」的对照结构。ir al cine 是固定搭配。"
+   },
+   {
+    "es": "Leo, escucho música y preparo la ropa para el lunes.",
+    "note": "三个并列的第一人称动词都用现在时。preparar algo para + 时间 ＝ 为某时准备某物。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿A qué hora se levanta los sábados?",
+    "a": "A las diez."
+   },
+   {
+    "q": "¿Qué hace por la mañana?",
+    "a": "Hace la compra, limpia un poco la casa y come con su familia."
+   },
+   {
+    "q": "¿Qué hace los domingos?",
+    "a": "Lee, escucha música y prepara la ropa para el lunes."
+   }
+  ]
+ }
+]

@@ -1,0 +1,472 @@
+[
+ {
+  "level": "A2",
+  "title": "一次看病经历",
+  "topic": "健康与医疗",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "La semana pasada me levanté con dolor de garganta y no podía tragar. Llamé al centro de salud y me dieron cita para esa misma tarde.",
+    "zh": "上周我起床时嗓子疼，咽不下东西。我打电话给社区诊所，他们给我约了当天下午。"
+   },
+   {
+    "es": "La médica me preguntó desde cuándo me dolía y si tenía fiebre. Me miró la garganta y dijo que era una infección leve.",
+    "zh": "医生问我从什么时候开始疼、有没有发烧。她看了看我的嗓子，说是轻度感染。"
+   },
+   {
+    "es": "Me recetó un antibiótico y me explicó que debía tomarlo durante siete días, aunque me sintiera mejor antes.",
+    "zh": "她给我开了抗生素，并说明要连续吃七天，即使提前感觉好转也要吃完。"
+   },
+   {
+    "es": "También me recomendó descansar y beber líquidos. Al cabo de tres días ya me encontraba mucho mejor.",
+    "zh": "她还建议我休息、多喝液体。三天后我就好多了。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "me levanté con dolor",
+    "zh": "我起床时（感到）疼"
+   },
+   {
+    "es": "no podía tragar",
+    "zh": "我咽不下"
+   },
+   {
+    "es": "el centro de salud",
+    "zh": "社区诊所"
+   },
+   {
+    "es": "me dieron cita",
+    "zh": "他们给我约了时间"
+   },
+   {
+    "es": "desde cuándo",
+    "zh": "从什么时候"
+   },
+   {
+    "es": "una infección leve",
+    "zh": "轻度感染"
+   },
+   {
+    "es": "Me recetó",
+    "zh": "他/她给我开了药"
+   },
+   {
+    "es": "aunque me sintiera mejor",
+    "zh": "即使我感觉好转（虚拟式）"
+   },
+   {
+    "es": "Al cabo de tres días",
+    "zh": "三天之后"
+   },
+   {
+    "es": "me encontraba mejor",
+    "zh": "我感觉好些了"
+   }
+  ],
+  "structures": [
+   {
+    "es": "La médica me preguntó desde cuándo me dolía y si tenía fiebre.",
+    "note": "间接疑问：desde cuándo 与 si（是否）引导的从句都保持陈述式，且主句为过去时，从句时态相应后移。"
+   },
+   {
+    "es": "Me recetó un antibiótico y me explicó que debía tomarlo durante siete días, aunque me sintiera mejor antes.",
+    "note": "explicar que + 陈述式（转述事实/医嘱内容）。aunque + 虚拟式（sintiera）表让步假设：即使好转也要吃完。"
+   },
+   {
+    "es": "Al cabo de tres días ya me encontraba mucho mejor.",
+    "note": "al cabo de + 时间段 ＝ 在……之后。encontrarse + 形容词表身体状况（我感觉……），与 estar 类似但更口语。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué llamó al centro de salud?",
+    "a": "Porque se levantó con dolor de garganta y no podía tragar."
+   },
+   {
+    "q": "¿Qué le recetó la médica?",
+    "a": "Un antibiótico, que debía tomar durante siete días."
+   },
+   {
+    "q": "¿Cómo se encontraba al cabo de tres días?",
+    "a": "Ya se encontraba mucho mejor."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "换工作的考虑",
+  "topic": "工作与职业",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "Llevo cinco años en la misma empresa y, aunque el sueldo no está mal, ya no aprendo nada nuevo.",
+    "zh": "我在同一家公司五年了，工资虽然不差，但已经学不到新东西了。"
+   },
+   {
+    "es": "La semana pasada vi una oferta en otra ciudad. El puesto parece interesante, pero tendría que mudarme.",
+    "zh": "上周我看到另一个城市有个职位。那个岗位看起来有意思，但我得搬家。"
+   },
+   {
+    "es": "Se lo comenté a un amigo y me dijo que no lo pensara demasiado. «Si esperas el momento perfecto, nunca llega», me dijo.",
+    "zh": "我跟一个朋友提起，他说别想太多。「如果你等完美时机，它永远不会来，」他说。"
+   },
+   {
+    "es": "Creo que tiene razón. Voy a preparar mi currículum este fin de semana y enviarlo el lunes.",
+    "zh": "我觉得他说得对。这周末我要准备简历，周一发出去。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Llevo cinco años",
+    "zh": "我已经五年了"
+   },
+   {
+    "es": "el sueldo",
+    "zh": "工资"
+   },
+   {
+    "es": "ya no aprendo nada",
+    "zh": "我学不到新东西了"
+   },
+   {
+    "es": "una oferta",
+    "zh": "一个职位/邀约"
+   },
+   {
+    "es": "El puesto",
+    "zh": "岗位"
+   },
+   {
+    "es": "tendría que mudarme",
+    "zh": "我可能得搬家"
+   },
+   {
+    "es": "Se lo comenté",
+    "zh": "我把这事告诉了他"
+   },
+   {
+    "es": "no lo pensara demasiado",
+    "zh": "别想太多（虚拟式）"
+   },
+   {
+    "es": "el momento perfecto",
+    "zh": "完美的时机"
+   },
+   {
+    "es": "el currículum",
+    "zh": "简历"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Llevo cinco años en la misma empresa y, aunque el sueldo no está mal, ya no aprendo nada nuevo.",
+    "note": "llevar + 时间段 + en un lugar 表「在某处已经待了多久」。aunque + 陈述式（no está）表承认事实的让步。"
+   },
+   {
+    "es": "Se lo comenté a un amigo y me dijo que no lo pensara demasiado.",
+    "note": "se lo comenté：间接宾语 se（对他）+ 直接宾语 lo（这件事）。decir que + 虚拟式（pensara）因为转述的是建议，不是事实。"
+   },
+   {
+    "es": "Si esperas el momento perfecto, nunca llega», me dijo.",
+    "note": "真实条件句：si + 陈述式现在时（esperas），主句用现在时（llega）。这类条件句表达普遍规律或现实可能，si 从句中不能用将来时。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué quiere cambiar de trabajo?",
+    "a": "Porque lleva cinco años en la misma empresa y ya no aprende nada nuevo."
+   },
+   {
+    "q": "¿Qué inconveniente tiene la oferta?",
+    "a": "Que tendría que mudarse a otra ciudad."
+   },
+   {
+    "q": "¿Qué va a hacer este fin de semana?",
+    "a": "Preparar su currículum para enviarlo el lunes."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "公共交通与城市",
+  "topic": "城市与出行",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "En mi ciudad el transporte público funciona bastante bien, pero en hora punta va lleno y los autobuses se retrasan.",
+    "zh": "在我所在的城市，公共交通运行得相当不错，但高峰期很挤，公交还会晚点。"
+   },
+   {
+    "es": "El año pasado el ayuntamiento añadió dos líneas de metro y amplió el carril bici. Desde entonces mucha gente deja el coche en casa.",
+    "zh": "去年市政府新增了两条地铁线路，并拓宽了自行车道。从那以后很多人把车留在家里。"
+   },
+   {
+    "es": "Aun así, hay barrios donde el autobús pasa cada media hora. Para la gente que trabaja de noche, eso es un problema serio.",
+    "zh": "尽管如此，有些街区公交每半小时才来一趟。对夜班的人来说，这是很严重的问题。"
+   },
+   {
+    "es": "Yo voy al trabajo en bici casi todos los días. Tardo veinte minutos, lo mismo que en metro, pero hago ejercicio y no pago nada.",
+    "zh": "我几乎每天骑车上班。花二十分钟，和坐地铁一样，但能锻炼身体而且不花钱。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "el transporte público",
+    "zh": "公共交通"
+   },
+   {
+    "es": "en hora punta",
+    "zh": "高峰期"
+   },
+   {
+    "es": "va lleno",
+    "zh": "很挤"
+   },
+   {
+    "es": "se retrasan",
+    "zh": "晚点"
+   },
+   {
+    "es": "añadió dos líneas",
+    "zh": "新增了两条线"
+   },
+   {
+    "es": "amplió el carril bici",
+    "zh": "拓宽了自行车道"
+   },
+   {
+    "es": "Aun así",
+    "zh": "尽管如此"
+   },
+   {
+    "es": "cada media hora",
+    "zh": "每半小时"
+   },
+   {
+    "es": "Tardo veinte minutos",
+    "zh": "我花二十分钟"
+   },
+   {
+    "es": "lo mismo que",
+    "zh": "和……一样"
+   }
+  ],
+  "structures": [
+   {
+    "es": "El año pasado el ayuntamiento añadió dos líneas de metro y amplió el carril bici.",
+    "note": "叙述过去完成的政策动作用简单过去时（añadió, amplió）。这是与「描述背景」（未完成过去时）的分工。"
+   },
+   {
+    "es": "Aun así, hay barrios donde el autobús pasa cada media hora.",
+    "note": "aun así ＝ 尽管如此。donde 引导关系从句修饰 barrios。cada + 时间段 表频率。"
+   },
+   {
+    "es": "Tardo veinte minutos, lo mismo que en metro, pero hago ejercicio y no pago nada.",
+    "note": "tardar + 时间 ＝ 花费多少时间。lo mismo que 表「与……相同」，作插入语补充比较。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué problemas tiene el transporte público?",
+    "a": "En hora punta va lleno y los autobuses se retrasan; además en algunos barrios pasa cada media hora."
+   },
+   {
+    "q": "¿Qué hizo el ayuntamiento el año pasado?",
+    "a": "Añadió dos líneas de metro y amplió el carril bici."
+   },
+   {
+    "q": "¿Por qué va el narrador en bici al trabajo?",
+    "a": "Porque tarda lo mismo que en metro, hace ejercicio y no paga nada."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "一次网购的麻烦",
+  "topic": "消费与投诉",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "Hace dos semanas compré unos auriculares por internet. Llegaron rápido, pero uno de ellos no funcionaba.",
+    "zh": "两周前我在网上买了一副耳机。到得很快，但其中一只不响。"
+   },
+   {
+    "es": "Escribí al servicio de atención al cliente y me pidieron una foto y el número del pedido. Tardaron tres días en contestar.",
+    "zh": "我联系了客服，他们要一张照片和订单号。他们过了三天才回复。"
+   },
+   {
+    "es": "Al final me ofrecieron dos opciones: devolver el producto o quedármelo con un descuento. Elegí la devolución.",
+    "zh": "最后他们给了两个选项：退货，或者留着并给折扣。我选了退货。"
+   },
+   {
+    "es": "El dinero tardó una semana en llegar. La próxima vez leeré mejor las opiniones antes de comprar.",
+    "zh": "退款过了一周才到。下次买之前我会好好看评价。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Hace dos semanas",
+    "zh": "两周前"
+   },
+   {
+    "es": "unos auriculares",
+    "zh": "一副耳机"
+   },
+   {
+    "es": "no funcionaba",
+    "zh": "不工作、坏了"
+   },
+   {
+    "es": "el servicio de atención al cliente",
+    "zh": "客服"
+   },
+   {
+    "es": "el número del pedido",
+    "zh": "订单号"
+   },
+   {
+    "es": "Tardaron tres días",
+    "zh": "他们花了三天"
+   },
+   {
+    "es": "devolver el producto",
+    "zh": "退货"
+   },
+   {
+    "es": "un descuento",
+    "zh": "折扣"
+   },
+   {
+    "es": "la devolución",
+    "zh": "退货、退款"
+   },
+   {
+    "es": "las opiniones",
+    "zh": "评价、评论"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Hace dos semanas compré unos auriculares por internet.",
+    "note": "hace + 时间段 与简单过去时搭配，表「……之前做了某事」。这是最常见的过去时间表达。"
+   },
+   {
+    "es": "Tardaron tres días en contestar.",
+    "note": "tardar + 时间 + en + 不定式 ＝ 花了多少时间做某事。主语是「他们」，所以用 tardaron。"
+   },
+   {
+    "es": "La próxima vez leeré mejor las opiniones antes de comprar.",
+    "note": "la próxima vez 后接将来时（leeré）表打算。antes de + 不定式 ＝ 在做……之前。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué problema tuvo con los auriculares?",
+    "a": "Que uno de ellos no funcionaba."
+   },
+   {
+    "q": "¿Qué opciones le ofrecieron?",
+    "a": "Devolver el producto o quedárselo con un descuento; eligió la devolución."
+   },
+   {
+    "q": "¿Qué hará la próxima vez?",
+    "a": "Leerá mejor las opiniones antes de comprar."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "学做一道菜",
+  "topic": "饮食与文化",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "El otro día mi compañera de piso me enseñó a hacer una tortilla de patatas. Es un plato muy típico y bastante fácil.",
+    "zh": "前几天我室友教我做西班牙土豆煎蛋。这是很典型的一道菜，而且相当容易。"
+   },
+   {
+    "es": "Primero hay que pelar las patatas y cortarlas en trozos finos. Después se fríen en aceite con un poco de sal.",
+    "zh": "首先要把土豆削皮，切成薄片。然后用油加一点盐炸。"
+   },
+   {
+    "es": "Mientras se fríen, batimos los huevos en un bol. Cuando las patatas están blandas, las mezclamos con el huevo.",
+    "zh": "炸的时候，我们在碗里打蛋。土豆变软后，把它和蛋混在一起。"
+   },
+   {
+    "es": "Por último se echa todo en la sartén y se cuaja a fuego lento. Se puede comer caliente o fría; a mí me gusta más templada.",
+    "zh": "最后把全部倒进平底锅，小火煎凝固。可以热吃也可以冷吃；我更喜欢温的。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "me enseñó a hacer",
+    "zh": "他/她教我做"
+   },
+   {
+    "es": "un plato típico",
+    "zh": "一道典型的菜"
+   },
+   {
+    "es": "hay que pelar",
+    "zh": "需要削皮"
+   },
+   {
+    "es": "cortarlas en trozos finos",
+    "zh": "切成薄片"
+   },
+   {
+    "es": "se fríen",
+    "zh": "被炸（无人称被动）"
+   },
+   {
+    "es": "batimos los huevos",
+    "zh": "我们打蛋"
+   },
+   {
+    "es": "blandas",
+    "zh": "软的"
+   },
+   {
+    "es": "la sartén",
+    "zh": "平底锅"
+   },
+   {
+    "es": "a fuego lento",
+    "zh": "小火"
+   },
+   {
+    "es": "templada",
+    "zh": "温的"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Primero hay que pelar las patatas y cortarlas en trozos finos.",
+    "note": "hay que + 不定式表无人称的必要（需要……）。cortarlas 中的 las 回指 las patatas，代词附在不定式后。"
+   },
+   {
+    "es": "Mientras se fríen, batimos los huevos en un bol.",
+    "note": "mientras 引出的从句用陈述式（se fríen）表同时进行的两件事。se fríen 是自复被动，主语是 las patatas。"
+   },
+   {
+    "es": "Se puede comer caliente o fría; a mí me gusta más templada.",
+    "note": "se puede + 不定式表「可以（被）……」。a mí me gusta más 是强调式，与格代词 me 不能省，表个人偏好。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué ingredientes principales lleva la tortilla?",
+    "a": "Patatas y huevos, además de aceite y sal."
+   },
+   {
+    "q": "¿Qué se hace mientras se fríen las patatas?",
+    "a": "Se baten los huevos en un bol."
+   },
+   {
+    "q": "¿Cómo le gusta más al narrador?",
+    "a": "Templada."
+   }
+  ]
+ }
+]

@@ -1,0 +1,492 @@
+[
+ {
+  "level": "B1",
+  "title": "小城与大城",
+  "topic": "城市生活",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Viví diez años en una ciudad pequeña y hace tres me mudé a una grande por trabajo. Al principio pensaba que me costaría adaptarme.",
+    "zh": "我在一个小城住了十年，三年前因工作搬到大城市。一开始我以为自己会难以适应。"
+   },
+   {
+    "es": "Lo cierto es que algunas cosas fueron más fáciles de lo que esperaba: hay más transporte, más opciones y todo está abierto hasta más tarde.",
+    "zh": "事实上有些事比我预想的容易：交通更多、选择更多，一切都开到更晚。"
+   },
+   {
+    "es": "Pero echo de menos cosas que antes daba por sentadas, como saludar al vecino o que el panadero sepa cómo me llamo.",
+    "zh": "但我怀念一些以前想当然的事，比如和邻居打招呼，或者面包店老板知道我叫什么。"
+   },
+   {
+    "es": "No creo que un sitio sea mejor que el otro; depende de lo que cada uno valore en cada momento de su vida.",
+    "zh": "我不认为哪个地方更好；这取决于每个人在人生不同阶段看重什么。"
+   },
+   {
+    "es": "Ahora mismo me quedo aquí, pero no descarto volver algún día.",
+    "zh": "眼下我留在这里，但不排除哪天回去。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "me mudé",
+    "zh": "我搬了家"
+   },
+   {
+    "es": "me costaría adaptarme",
+    "zh": "我会难以适应"
+   },
+   {
+    "es": "Lo cierto es que",
+    "zh": "事实是"
+   },
+   {
+    "es": "más opciones",
+    "zh": "更多选择"
+   },
+   {
+    "es": "echo de menos",
+    "zh": "我怀念"
+   },
+   {
+    "es": "daba por sentadas",
+    "zh": "我曾想当然"
+   },
+   {
+    "es": "el panadero",
+    "zh": "面包店老板"
+   },
+   {
+    "es": "depende de",
+    "zh": "取决于"
+   },
+   {
+    "es": "no descarto",
+    "zh": "我不排除"
+   },
+   {
+    "es": "algún día",
+    "zh": "有一天"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Lo cierto es que algunas cosas fueron más fáciles de lo que esperaba:",
+    "note": "lo cierto es que 引出「事实是」。más... de lo que esperaba ＝ 比我所预想的更……，de lo que 引导比较从句。"
+   },
+   {
+    "es": "Pero echo de menos cosas que antes daba por sentadas, como saludar al vecino o que el panadero sepa cómo me llamo.",
+    "note": "echar de menos ＝ 想念。关系从句 que antes daba por sentadas 修饰 cosas。como 后并列不定式与名词性从句两种形式。注意 sepa 用虚拟式，因其内容属未定/主观预期。"
+   },
+   {
+    "es": "No creo que un sitio sea mejor que el otro; depende de lo que cada uno valore en cada momento de su vida.",
+    "note": "no creer que + 虚拟式（sea）。valorar 在关系从句中也用虚拟式（valore），因其所指为不确定的「各人」。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué se mudó a una ciudad grande?",
+    "a": "Por trabajo."
+   },
+   {
+    "q": "¿Qué cosas fueron más fáciles de lo que esperaba?",
+    "a": "Hay más transporte, más opciones y todo está abierto hasta más tarde."
+   },
+   {
+    "q": "¿Qué echa de menos?",
+    "a": "Cosas que antes daba por sentadas, como saludar al vecino o que el panadero sepa su nombre."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "关于阅读习惯",
+  "topic": "习惯与文化",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Hace unos años leía mucho más de lo que leo ahora. No es que tenga menos tiempo, sino que lo reparto de otra manera.",
+    "zh": "几年前我读的书比现在多得多。不是我时间少了，而是我把它分给了别的事。"
+   },
+   {
+    "es": "Ahora paso las pausas mirando el móvil y, cuando me doy cuenta, se ha ido media hora sin que haya leído una línea.",
+    "zh": "现在我把间歇用来刷手机，等意识到时，半小时已经过去，一行都没读。"
+   },
+   {
+    "es": "He probado varias cosas para recuperar la costumbre. La que mejor me funciona es dejar el libro encima de la mesa del salón y el móvil en otra habitación.",
+    "zh": "为了恢复这个习惯我试了不少办法。对我最有效的是把书放在客厅桌上，把手机放到另一个房间。"
+   },
+   {
+    "es": "También me ayuda leer en papel: subrayar y volver atrás es más fácil que en una pantalla.",
+    "zh": "读纸质书对我也更有帮助：划线和回看比在屏幕上容易。"
+   },
+   {
+    "es": "No se trata de renunciar al móvil, sino de no tenerlo siempre a mano. Parece un detalle pequeño, pero cambia bastante.",
+    "zh": "这不是要放弃手机，而是不要总把它放在手边。看起来是小细节，但改变相当大。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "No es que tenga menos tiempo",
+    "zh": "不是说我时间少了（虚拟式）"
+   },
+   {
+    "es": "lo reparto",
+    "zh": "我分配它"
+   },
+   {
+    "es": "cuando me doy cuenta",
+    "zh": "等我意识到"
+   },
+   {
+    "es": "sin que haya leído",
+    "zh": "却没有读过（虚拟式）"
+   },
+   {
+    "es": "He probado varias cosas",
+    "zh": "我试过很多办法"
+   },
+   {
+    "es": "la costumbre",
+    "zh": "习惯"
+   },
+   {
+    "es": "me funciona",
+    "zh": "对我有效"
+   },
+   {
+    "es": "en papel",
+    "zh": "纸质（书）"
+   },
+   {
+    "es": "subrayar",
+    "zh": "划线"
+   },
+   {
+    "es": "a mano",
+    "zh": "在手边"
+   }
+  ],
+  "structures": [
+   {
+    "es": "No es que tenga menos tiempo, sino que lo reparto de otra manera.",
+    "note": "no es que + 虚拟式否认某个前提，sino que + 陈述式给出真正原因。这是纠正对方可能的误解的标准句式。"
+   },
+   {
+    "es": "Ahora paso las pausas mirando el móvil y, cuando me doy cuenta, se ha ido media hora sin que haya leído una línea.",
+    "note": "pasar tiempo + 副动词（mirando）表「把时间花在做某事上」。sin que + 虚拟式（haya leído）表「却没有发生某事」。"
+   },
+   {
+    "es": "La que mejor me funciona es dejar el libro encima de la mesa del salón y el móvil en otra habitación.",
+    "note": "la que 引导名词性关系从句作主语（「对我最有效的那个办法」）。mejor 是副词，修饰 funciona。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Cómo explica el autor que ahora lea menos?",
+    "a": "No porque tenga menos tiempo, sino porque lo reparte de otra manera, por ejemplo mirando el móvil en las pausas."
+   },
+   {
+    "q": "¿Qué estrategia le funciona mejor?",
+    "a": "Dejar el libro encima de la mesa del salón y el móvil en otra habitación."
+   },
+   {
+    "q": "¿Cuál es su conclusión?",
+    "a": "Que no se trata de renunciar al móvil, sino de no tenerlo siempre a mano."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "志愿服务这件事",
+  "topic": "社会与参与",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Desde hace dos años colaboro como voluntaria en un banco de alimentos. Voy los sábados por la mañana unas tres horas.",
+    "zh": "两年来我一直在一家食品银行做志愿者。每周六上午去大约三小时。"
+   },
+   {
+    "es": "Mucha gente piensa que el voluntariado consiste en dar tiempo a quien lo necesita, y es verdad, pero también se recibe algo.",
+    "zh": "很多人以为志愿服务就是把时间给需要的人，这是真的，但也会得到一些东西。"
+   },
+   {
+    "es": "He aprendido a organizarme mejor, a tratar con personas muy distintas y a no juzgar tan rápido.",
+    "zh": "我学会了更好地安排事情、与非常不同的人打交道，以及不要那么快下判断。"
+   },
+   {
+    "es": "Lo que más me sorprendió al principio fue que muchos usuarios del banco no son quienes uno imagina: hay familias con trabajo y personas mayores con pensión baja.",
+    "zh": "一开始最让我意外的是，食品银行的很多使用者并不是人们想象的那样：有在工作的家庭，也有养老金很低的老人。"
+   },
+   {
+    "es": "No creo que el voluntariado resuelva el problema de fondo, pero sí que ayuda a quien lo hace a entenderlo mejor.",
+    "zh": "我不认为志愿服务能解决根本问题，但它确实能帮做这件事的人更好地理解这个问题。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "colaboro como voluntaria",
+    "zh": "我做志愿者"
+   },
+   {
+    "es": "un banco de alimentos",
+    "zh": "食品银行"
+   },
+   {
+    "es": "el voluntariado",
+    "zh": "志愿服务"
+   },
+   {
+    "es": "consiste en dar",
+    "zh": "在于给予"
+   },
+   {
+    "es": "tratar con personas",
+    "zh": "与……人打交道"
+   },
+   {
+    "es": "no juzgar tan rápido",
+    "zh": "不这么快下判断"
+   },
+   {
+    "es": "al principio",
+    "zh": "一开始"
+   },
+   {
+    "es": "los usuarios",
+    "zh": "使用者"
+   },
+   {
+    "es": "con pensión baja",
+    "zh": "养老金低的"
+   },
+   {
+    "es": "el problema de fondo",
+    "zh": "根本问题"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Mucha gente piensa que el voluntariado consiste en dar tiempo a quien lo necesita, y es verdad, pero también se recibe algo.",
+    "note": "consistir en + 不定式/名词 ＝ 在于。a quien lo necesita 是自由关系从句作间接宾语。es verdad, pero... 是让步—转折的常见衔接。"
+   },
+   {
+    "es": "Lo que más me sorprendió al principio fue que muchos usuarios del banco no son quienes uno imagina:",
+    "note": "lo que 引导主语从句，并把动词提前到句末之前：Lo que... fue que...。quienes uno imagina 是名词性关系从句。"
+   },
+   {
+    "es": "No creo que el voluntariado resuelva el problema de fondo, pero sí que ayuda a quien lo hace a entenderlo mejor.",
+    "note": "no creer que + 虚拟式（resuelva）。sí que 用于肯定对比：虽然不解决，但确实有助于。ayudar a alguien a hacer algo 是固定结构。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué hace la autora los sábados?",
+    "a": "Colabora como voluntaria en un banco de alimentos unas tres horas."
+   },
+   {
+    "q": "¿Qué ha aprendido?",
+    "a": "A organizarse mejor, a tratar con personas muy distintas y a no juzgar tan rápido."
+   },
+   {
+    "q": "¿Qué le sorprendió al principio?",
+    "a": "Que muchos usuarios del banco no son quienes uno imagina: hay familias con trabajo y personas mayores con pensión baja."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "数字鸿沟",
+  "topic": "技术与公平",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Cuando los trámites se hicieron digitales, mucha gente celebró que por fin se pudiera hacer todo desde casa.",
+    "zh": "当手续变成线上办理时，很多人欢呼终于可以在家办完一切。"
+   },
+   {
+    "es": "El problema es que ese «todo» no está al alcance de todos. Quien no tiene conexión estable, ordenador o conocimientos suficientes queda fuera del sistema.",
+    "zh": "问题是这个「一切」并非人人都够得着。没有稳定网络、没有电脑或知识不够的人，就被排除在系统之外。"
+   },
+   {
+    "es": "Los servicios de atención presencial se han ido reduciendo, así que esas personas dependen de un familiar o de una asociación para hacer gestiones básicas.",
+    "zh": "线下服务窗口不断减少，于是这些人得靠家人或某个协会才能办基本的事务。"
+   },
+   {
+    "es": "No se trata de rechazar la digitalización, que tiene ventajas evidentes, sino de mantener una vía alternativa para quien no puede usarla.",
+    "zh": "这不是要拒绝明显有好处的数字化，而是要为用不了它的人保留一条替代路径。"
+   },
+   {
+    "es": "Mientras esa vía no exista, hablar de comodidad resulta un poco cínico para quien se ha quedado fuera.",
+    "zh": "在这条路径不存在之前，对已经被排除在外的人来说，谈「方便」显得有些虚伪。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "los trámites",
+    "zh": "手续"
+   },
+   {
+    "es": "se hicieron digitales",
+    "zh": "变得数字化了"
+   },
+   {
+    "es": "está al alcance de",
+    "zh": "在……可及范围内"
+   },
+   {
+    "es": "conexión estable",
+    "zh": "稳定的网络连接"
+   },
+   {
+    "es": "queda fuera del sistema",
+    "zh": "被排除在系统之外"
+   },
+   {
+    "es": "atención presencial",
+    "zh": "线下窗口服务"
+   },
+   {
+    "es": "dependen de",
+    "zh": "依赖"
+   },
+   {
+    "es": "hacer gestiones",
+    "zh": "办事务"
+   },
+   {
+    "es": "la digitalización",
+    "zh": "数字化"
+   },
+   {
+    "es": "una vía alternativa",
+    "zh": "一条替代途径"
+   }
+  ],
+  "structures": [
+   {
+    "es": "El problema es que ese «todo» no está al alcance de todos.",
+    "note": "el problema es que 引出核心问题。estar al alcance de ＝ 在……可及范围内；todos 与 todo 形成谐音对照（一切 / 所有人）。"
+   },
+   {
+    "es": "Los servicios de atención presencial se han ido reduciendo, así que esas personas dependen de un familiar o de una asociación para hacer gestiones básicas.",
+    "note": "irse + 副动词（reduciendo）表渐进的持续变化（不断减少）。así que 引出后果。depender de 是固定搭配。"
+   },
+   {
+    "es": "No se trata de rechazar la digitalización, que tiene ventajas evidentes, sino de mantener una vía alternativa para quien no puede usarla.",
+    "note": "no se trata de... sino de... 纠正误解的固定句式。中间的 que tiene ventajas evidentes 是非限定性关系从句，用逗号隔开作补充说明。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué problema señala el texto con la digitalización de los trámites?",
+    "a": "Que no está al alcance de todos: quien no tiene conexión estable, ordenador o conocimientos suficientes queda fuera del sistema."
+   },
+   {
+    "q": "¿De qué dependen esas personas para hacer gestiones básicas?",
+    "a": "De un familiar o de una asociación, porque los servicios presenciales se han reducido."
+   },
+   {
+    "q": "¿Qué propone el autor?",
+    "a": "No rechazar la digitalización, sino mantener una vía alternativa para quien no puede usarla."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "关于睡眠",
+  "topic": "健康与生活",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Dormimos, en promedio, una hora menos que hace cincuenta años. La mayoría lo atribuye al trabajo o a las pantallas, pero las causas son más complejas.",
+    "zh": "我们平均比五十年前少睡一小时。大多数人把它归因于工作或屏幕，但原因更复杂。"
+   },
+   {
+    "es": "Lo cierto es que la luz artificial, el ruido de las ciudades y los horarios irregulares han ido alterando algo que antes seguía el ritmo del día y de la noche.",
+    "zh": "事实是，人造光、城市噪音和不规律的作息不断改变着本来跟随昼夜节律的东西。"
+   },
+   {
+    "es": "La falta de sueño no solo produce cansancio. Se ha relacionado con problemas de memoria, de ánimo y también con enfermedades del corazón.",
+    "zh": "睡眠不足不仅造成疲倦。它已被关联到记忆问题、情绪问题以及心脏疾病。"
+   },
+   {
+    "es": "Los expertos insisten en que no existe una solución única. Lo que ayuda a unos puede no servir a otros, pero casi todos coinciden en tres cosas.",
+    "zh": "专家强调没有唯一的解决办法。对一些人有效的可能对另一些人没用，但几乎所有人都认同三点。"
+   },
+   {
+    "es": "Mantener horarios regulares, evitar las pantallas antes de acostarse y no usar la cama para trabajar son las recomendaciones más repetidas.",
+    "zh": "保持规律作息、睡前避免屏幕、不在床上工作，是最常被重复的建议。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "en promedio",
+    "zh": "平均"
+   },
+   {
+    "es": "lo atribuye a",
+    "zh": "把它归因于"
+   },
+   {
+    "es": "la luz artificial",
+    "zh": "人造光"
+   },
+   {
+    "es": "han ido alterando",
+    "zh": "不断改变着"
+   },
+   {
+    "es": "el ritmo del día y de la noche",
+    "zh": "昼夜节律"
+   },
+   {
+    "es": "se ha relacionado con",
+    "zh": "已被关联到"
+   },
+   {
+    "es": "el ánimo",
+    "zh": "情绪"
+   },
+   {
+    "es": "insisten en que",
+    "zh": "强调"
+   },
+   {
+    "es": "coinciden en",
+    "zh": "在……上一致"
+   },
+   {
+    "es": "antes de acostarse",
+    "zh": "睡前"
+   }
+  ],
+  "structures": [
+   {
+    "es": "La mayoría lo atribuye al trabajo o a las pantallas, pero las causas son más complejas.",
+    "note": "代词 lo 回指前句的「少睡一小时」这件事。atribuir algo a algo ＝ 把某事归因于某事物。"
+   },
+   {
+    "es": "Lo cierto es que la luz artificial, el ruido de las ciudades y los horarios irregulares han ido alterando algo que antes seguía el ritmo del día y de la noche.",
+    "note": "主语是三项并列（luz、ruido、horarios），故用复数助动词 han。irse + 副动词（alterando）表渐进过程。关系从句中 seguía 用未完成过去时表过去的常态。"
+   },
+   {
+    "es": "Lo que ayuda a unos puede no servir a otros, pero casi todos coinciden en tres cosas.",
+    "note": "lo que 引导主语从句。ayudar a alguien ＝ 对某人有帮助，这里 unos / otros 对举。coincidir en ＝ 在……上意见一致。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Cuánto dormimos comparado con hace cincuenta años?",
+    "a": "Una hora menos, en promedio."
+   },
+   {
+    "q": "¿Con qué se ha relacionado la falta de sueño?",
+    "a": "Con problemas de memoria, de ánimo y con enfermedades del corazón."
+   },
+   {
+    "q": "¿En qué coinciden casi todos los expertos?",
+    "a": "En mantener horarios regulares, evitar las pantallas antes de acostarse y no usar la cama para trabajar."
+   }
+  ]
+ }
+]
