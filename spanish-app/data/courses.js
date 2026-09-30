@@ -1793,7 +1793,7 @@ const COURSES = {
         grammar:[
           {title:'学术书面语结构', desc:'Se ha demostrado que... / Cabe destacar que... / No obstante... / Por consiguiente...'},
           {title:'被动语态 + 无人称 se', desc:'Se analizaron los datos. Se observó una correlación. 学术写作的标配。'},
-          {title:'长定语从句与分词短语', desc:'El estudio realizado por investigadores españoles, que duró tres años, demostró que...'}
+          {title:'长关系从句与分词短语', desc:'El estudio realizado por investigadores españoles, que duró tres años, demostró que...'}
         ]
       },
       { id:'c1-u3', title:'高级论证与修辞', subtitle:'Argumentación Avanzada y Retórica', lessons:14, duration:'约 55 分钟',
@@ -2174,7 +2174,7 @@ const COURSES = {
           {es:'La sinestesia', zh:'通感', example:'"Azul sonoro" es una sinestesia.'},
         ],
         grammar:[
-          {title:'虚拟式全时态精通', desc:'现在时、过去未完成时、过去完成时、将来时（虽已少用但文学中仍见）。'},
+          {title:'虚拟式全时态精通', desc:'现在时、未完成过去时、过去完成时、将来时（虽已少用但文学中仍见）。'},
           {title:'条件式（简单 + 复合）', desc:'Debería haberlo sabido. Habría venido si hubieras llamado.'},
           {title:'文学语域：倒装、省略、新词', desc:'Muere el sol. ¡Viva la República!（省略倒装）' }
         ]
@@ -3265,7 +3265,7 @@ const READING_PASSAGES = [
       {es:`Bastaba con escanear un código para desbloquear una bici y dejarla, al terminar el trayecto, en cualquier lugar permitido.`,
        note:`bastar con + 不定式，表示「只需……就够了」。中间的 al terminar el trayecto 是插入的时间状语，插在动词和它的宾语补足语之间，是西语常见的「分隔」手法，翻译时要还原语序。`},
       {es:`los operadores, enfrascados en una guerra de precios, acumularon pérdidas millonarias`,
-       note:`enfrascados en… 是过去分词短语作后置定语（相当于一个省略了 which were 的定语从句）。这类结构在书面语里极为常见，能让句子更紧凑，但要注意分词的性与数必须和中心词一致。`},
+       note:`enfrascados en… 是过去分词短语作后置定语（相当于一个省略了 which were 的关系从句）。这类结构在书面语里极为常见，能让句子更紧凑，但要注意分词的性与数必须和中心词一致。`},
       {es:`El resultado, lejos de ser perfecto, fue notablemente mejor.`,
        note:`lejos de + 不定式 ＝「远非、不但没有」。这里同样是用逗号插入，起让步作用。注意它和表示距离的 lejos de（远离）要区分。`},
       {es:`Regular a tiempo, con datos y con margen para corregir, parece haber funcionado mejor que prohibir a destiempo.`,
@@ -3400,7 +3400,7 @@ const READING_PASSAGES = [
       {es:`el consenso es más aparente que real`,
        note:`más… que… 比较结构。注意 aparente 在此意为「表面的」，而非「明显的」——这是个常见的歧义词。`},
       {es:`Esa pregunta, que durante décadas ni siquiera se planteaba, es probablemente el cambio más profundo de todos.`,
-       note:`逗号之间的 que 引导非限定性定语从句，起补充说明作用。注意谓语是 es，主语是 Esa pregunta，从句插在中间是西语常见结构。`}
+       note:`逗号之间的 que 引导非限定性关系从句，起补充说明作用。注意谓语是 es，主语是 Esa pregunta，从句插在中间是西语常见结构。`}
     ],
     questions:[
       {q:'¿Qué frontera desapareció con el teletrabajo?', a:'La frontera física entre el empleo y la vida privada.'},
@@ -3706,7 +3706,7 @@ const READING_PASSAGES = [
     ],
     structures:[
       {es:`un relato que se reescribe sin cesar y que, precisamente por reescribirse, se percibe como continuo`,
-       note:`两个 que 并列引导定语从句修饰 un relato。por + 不定式（por reescribirse）表原因，此处前置于谓语，强调因果。`},
+       note:`两个 que 并列引导关系从句修饰 un relato。por + 不定式（por reescribirse）表原因，此处前置于谓语，强调因果。`},
       {es:`Si cada recuerdo se reconstruye cada vez que se evoca, y si esa reconstrucción incorpora el estado de ánimo del momento, entonces…`,
        note:`两个 si 引导的条件从句并列。cada vez que 引导时间从句，用陈述式（se evoca），因为描述的是每次都会发生的事实。entonces 引出结论。`},
       {es:`De ello no se sigue que la memoria sea pura invención, sino algo más incómodo.`,
@@ -3989,13 +3989,13 @@ const READING_PASSAGES = [
     ],
     structures:[
       {es:`exigen conocimientos que la ciudadanía no posee y que ningún ciudadano puede adquirir a tiempo`,
-       note:`两个 que 并列引导定语从句；第二个从句用陈述式，因表示客观事实限制。`},
+       note:`两个 que 并列引导关系从句；第二个从句用陈述式，因表示客观事实限制。`},
       {es:`De ahí surgen dos tentaciones simétricas.`,
        note:`de ahí surgir ＝「由此产生」。注意是 surgen（复数），主语为 dos tentaciones。`},
       {es:`no puede decirnos, en cuanto experto, si esas consecuencias son aceptables`,
        note:`en cuanto experto ＝「作为专家」。en cuanto + 名词 表身份，与 en cuanto（一……就）不同，需据语境区分。`},
       {es:`los más vulnerables, que son quienes menos pueden adaptarse`,
-       note:`que 引导非限定性定语从句；quienes menos pueden ＝「最无法……的那些人」。`},
+       note:`que 引导非限定性关系从句；quienes menos pueden ＝「最无法……的那些人」。`},
       {es:`que la decisión sobre cuál elegir corresponda a un procedimiento político`,
        note:`corresponder a ＝「属于、归……负责」。que 引出的从句用虚拟式（corresponda），因整个结构表达建议性分配。`}
     ],
@@ -4040,7 +4040,7 @@ const READING_PASSAGES = [
       {es:`Hubo un tiempo en que la palabra «ocio» designaba un estado del espíritu.`,
        note:`hubo un tiempo en que ＝「曾有一段时间」，从句用未完成过去时表当时的状态。`},
       {es:`El aburrimiento, que durante siglos fue el precio de la vida contemplativa, se ha convertido en un defecto.`,
-       note:`非限定性定语从句用逗号隔开，起补充说明作用，不限定先行词。`},
+       note:`非限定性关系从句用逗号隔开，起补充说明作用，不限定先行词。`},
       {es:`Cabe preguntarse qué se pierde con ello.`,
        note:`caber + 不定式 ＝「可以、有理由」。preguntarse 后接间接疑问句。`},
       {es:`la objeción confunde la cantidad con la disposición`,
@@ -4782,12 +4782,12 @@ const GRAMMAR_QUIZZES = [
   
   // Preterito 不规则
   {topic:'Preterito Indefinido Irregular', questions:[
-    {sentence:'Ayer yo ___ (ir) al cine.', options:['fui','iba','iré','he ido'], correct:0, explain:'ir 的简单过去时同 ser：fui, fuiste, fue, fuimos, fuisteis, fueron。iba 是过去未完成时。'},
-    {sentence:'Ella ___ (tener) que trabajar el sábado.', options:['tuvo','tenía','tendrá','ha tenido'], correct:0, explain:'tener 过去时：tuve, tuviste, tuvo, tuvimos... tuvo 是第三人称单数过去式。tenía 是过去未完成时。'},
-    {sentence:'Nosotros ___ (hacer) una fiesta.', options:['hicimos','hacíamos','haríamos','hemos hecho'], correct:0, explain:'hacer 过去时：hice, hiciste, hizo, hicimos... hicimos 是我们做了。hacíamos 是过去未完成时（经常做）。'},
+    {sentence:'Ayer yo ___ (ir) al cine.', options:['fui','iba','iré','he ido'], correct:0, explain:'ir 的简单过去时同 ser：fui, fuiste, fue, fuimos, fuisteis, fueron。iba 是未完成过去时。'},
+    {sentence:'Ella ___ (tener) que trabajar el sábado.', options:['tuvo','tenía','tendrá','ha tenido'], correct:0, explain:'tener 过去时：tuve, tuviste, tuvo, tuvimos... tuvo 是第三人称单数过去式。tenía 是未完成过去时。'},
+    {sentence:'Nosotros ___ (hacer) una fiesta.', options:['hicimos','hacíamos','haríamos','hemos hecho'], correct:0, explain:'hacer 过去时：hice, hiciste, hizo, hicimos... hicimos 是我们做了。hacíamos 是未完成过去时（经常做）。'},
     {sentence:'El año pasado ellos ___ (conocer) París.', options:['conocieron','conocían','conocerán','han conocido'], correct:0, explain:'conocer 过去时：conocí, conociste, conoció, conocimos, conocisteis, conocieron。conocieron 是第三人称复数。'},
-    {sentence:'Tú ___ (ver) la película anoche?', options:['viste','veías','verás','has visto'], correct:0, explain:'ver 过去时：vi, viste, vio, vimos, visteis, vieron。viste 是第二人称过去式。veías 是过去未完成时。'},
-    {sentence:'Yo ___ (poder) aprobar el examen de la semana pasada.', options:['pude','podía','podré','he podido'], correct:0, explain:'poder 过去时：pude, pudiste, pudo, pudimos, pudisteis, pudieron。pude 是第一人称单数过去式。podía 是过去未完成时。'}
+    {sentence:'Tú ___ (ver) la película anoche?', options:['viste','veías','verás','has visto'], correct:0, explain:'ver 过去时：vi, viste, vio, vimos, visteis, vieron。viste 是第二人称过去式。veías 是未完成过去时。'},
+    {sentence:'Yo ___ (poder) aprobar el examen de la semana pasada.', options:['pude','podía','podré','he podido'], correct:0, explain:'poder 过去时：pude, pudiste, pudo, pudimos, pudisteis, pudieron。pude 是第一人称单数过去式。podía 是未完成过去时。'}
   ]},
   
   // 虚拟式现在时
@@ -5029,7 +5029,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'El motivo ___ se marchó es confidencial.', options:['por el que', 'que', 'cual', 'quien'], correct:0, explain:'表原因用 por el que（阳性单数，先行词 motivo）。'},
     {sentence:'Cualquiera ___ quiera venir será bienvenido.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'cualquiera que + 虚拟式，表泛指的不确定对象。'},
     {sentence:'Es el escritor ___ más admiro.', options:['a quien', 'quien', 'que', 'cual'], correct:0, explain:'指人的直接宾语加前置词 a：a quien（也可用 al que）。'},
-    {sentence:'La casa, ___ compramos hace un año, ya se ha revalorizado.', options:['que', 'la que', 'cual', 'quien'], correct:0, explain:'非限定性定语从句用 que 即可；用逗号隔开。'},
+    {sentence:'La casa, ___ compramos hace un año, ya se ha revalorizado.', options:['que', 'la que', 'cual', 'quien'], correct:0, explain:'非限定性关系从句用 que 即可；用逗号隔开。'},
     {sentence:'No conozco a nadie ___ haya estado allí.', options:['que', 'quien', 'cual', 'cuyo'], correct:0, explain:'先行词为否定的存在（nadie）→ 关系从句用虚拟式。'}
   ]},
   {topic:'连接词与语式配合', questions:[

@@ -1,7 +1,7 @@
 /* Lingua · Service Worker —— 离线缓存，使应用可安装为 PWA */
 // 注意：每次发布修改了 index.html / css / js / data 后，
 // 必须把下面的版本号 +1，否则用户会一直拿到旧缓存代码。
-const CACHE = 'lingua-v20';
+const CACHE = 'lingua-v21';
 const PRECACHE = [
   './',
   './index.html',

@@ -319,20 +319,24 @@ console.log('── D. 教学一致性 ──');
   d.GRAMMAR_QUIZZES.forEach(s => { allGrammarText.push(s.topic); s.questions.forEach(q => allGrammarText.push(q.explain)); });
   const joined = allGrammarText.join(' ');
   // 常见术语的多种写法
+  // 只检查「中文译名之间的不一致」。
+  // 西语原形（preterito indefinido / imperfecto 等）是刻意保留的对照标注，
+  // 属于正确的教学做法，不应判为问题——本脚本早期版本曾误报，已更正判定逻辑。
   const termPairs = [
-    ['虚拟式', ['虚拟语气', '虚拟式']],
-    ['陈述式', ['陈述式', '直陈式', '陈述语气']],
-    ['简单过去时', ['简单过去时', '简单过去式', 'preterito indefinido']],
-    ['未完成过去时', ['未完成过去时', '过去未完成时', 'imperfecto']],
-    ['命令式', ['命令式', '祈使式']],
-    ['被动语态', ['被动语态', '被动式']],
-    ['关系从句', ['关系从句', '定语从句']],
-    ['与格', ['与格', '间接宾语']],
+    // [标准译名, [需统一的其他中文译名]]
+    ['虚拟式', ['虚拟语气']],
+    ['陈述式', ['直陈式', '陈述语气']],
+    ['简单过去时', ['简单过去式']],
+    ['未完成过去时', ['过去未完成时']],
+    ['命令式', ['祈使式']],
+    ['被动语态', ['被动式']],
+    ['关系从句', ['定语从句']],
+    ['与格', ['间接格']],
   ];
   termPairs.forEach(([canon, variants]) => {
-    const used = variants.filter(v => joined.toLowerCase().includes(v.toLowerCase()));
+    const used = [canon, ...variants].filter(v => joined.includes(v));
     if (used.length > 1) {
-      add('P2', 'D', `术语「${canon}」存在多种译名并存：${used.join(' / ')}（建议统一）`);
+      add('P2', 'D', `术语「${canon}」存在多种中文译名并存：${used.join(' / ')}（建议统一）`);
     }
   });
 
