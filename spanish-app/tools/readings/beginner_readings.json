@@ -1,0 +1,908 @@
+[
+ {
+  "level": "A1",
+  "title": "我的一天",
+  "topic": "日常生活",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Me llamo Lucía y tengo veinte años. Vivo en Valencia con mi familia. Mi padre es profesor y mi madre trabaja en un hospital.",
+    "zh": "我叫露西亚，二十岁。我和家人住在瓦伦西亚。我父亲是老师，母亲在医院工作。"
+   },
+   {
+    "es": "Todos los días me levanto a las siete. Desayuno café con leche y pan. Luego voy a la universidad en autobús. Las clases empiezan a las nueve.",
+    "zh": "我每天七点起床。早餐喝奶咖、吃面包。然后坐公交去大学。课九点开始。"
+   },
+   {
+    "es": "Como en la cafetería con mis amigos. Por la tarde estudio en la biblioteca. Vuelvo a casa a las siete y ceno con mi familia.",
+    "zh": "我和朋友在食堂吃午饭。下午在图书馆学习。七点回家，和家人一起吃晚饭。"
+   },
+   {
+    "es": "Por la noche veo un poco la televisión o leo. Me acuesto a las once. Los fines de semana no me levanto temprano.",
+    "zh": "晚上我看一会儿电视或者看书。十一点睡觉。周末我不早起。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Me llamo",
+    "zh": "我叫"
+   },
+   {
+    "es": "Vivo en",
+    "zh": "我住在"
+   },
+   {
+    "es": "Me levanto",
+    "zh": "我起床"
+   },
+   {
+    "es": "Desayuno",
+    "zh": "我吃早餐"
+   },
+   {
+    "es": "Luego",
+    "zh": "然后"
+   },
+   {
+    "es": "en autobús",
+    "zh": "坐公交"
+   },
+   {
+    "es": "empiezan",
+    "zh": "开始（第三人称复数）"
+   },
+   {
+    "es": "la biblioteca",
+    "zh": "图书馆"
+   },
+   {
+    "es": "Vuelvo a casa",
+    "zh": "我回家"
+   },
+   {
+    "es": "ceno",
+    "zh": "我吃晚饭"
+   },
+   {
+    "es": "Me acuesto",
+    "zh": "我上床睡觉"
+   },
+   {
+    "es": "Los fines de semana",
+    "zh": "周末"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Mi padre es profesor y mi madre trabaja en un hospital.",
+    "note": "两个并列句用 y 连接。前句用 ser 表职业（es profesor），后句用 trabajar 这个实义动词。注意西语说职业时通常不加冠词。"
+   },
+   {
+    "es": "Todos los días me levanto a las siete.",
+    "note": "自复动词 levantarse 的变位：me levanto。时刻用 a las + 数字，七点这个复数时刻也用 las。"
+   },
+   {
+    "es": "Los fines de semana no me levanto temprano.",
+    "note": "否定句在动词前加 no：no me levanto。注意自复代词 me 仍在动词前，语序是 no + 代词 + 动词。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Dónde vive Lucía?",
+    "a": "Vive en Valencia con su familia."
+   },
+   {
+    "q": "¿A qué hora empiezan las clases?",
+    "a": "Empiezan a las nueve."
+   },
+   {
+    "q": "¿Qué hace por la noche?",
+    "a": "Ve un poco la televisión o lee."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "在市场上",
+  "topic": "购物",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "El sábado voy al mercado con mi madre. El mercado está cerca de casa y abre a las ocho.",
+    "zh": "周六我和妈妈去市场。市场离家很近，八点开门。"
+   },
+   {
+    "es": "Compramos frutas y verduras. Las manzanas cuestan dos euros el kilo. El pescado es un poco caro.",
+    "zh": "我们买水果和蔬菜。苹果两欧一公斤。鱼有点贵。"
+   },
+   {
+    "es": "Al final mi madre pregunta: «¿Cuánto es todo?» El vendedor dice: «Doce euros».",
+    "zh": "最后妈妈问：「一共多少钱？」摊主说：「十二欧。」"
+   },
+   {
+    "es": "Pagamos en efectivo y volvemos a casa andando. Me gusta ir al mercado porque hay mucha gente y siempre hablamos con alguien.",
+    "zh": "我们付现金，然后走路回家。我喜欢去市场，因为那里人很多，我们总能和人聊上几句。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "el mercado",
+    "zh": "市场"
+   },
+   {
+    "es": "cerca de",
+    "zh": "在……附近"
+   },
+   {
+    "es": "abre",
+    "zh": "开门（第三人称单数）"
+   },
+   {
+    "es": "Compramos",
+    "zh": "我们买"
+   },
+   {
+    "es": "las verduras",
+    "zh": "蔬菜"
+   },
+   {
+    "es": "cuestan",
+    "zh": "价值（第三人称复数）"
+   },
+   {
+    "es": "el kilo",
+    "zh": "公斤"
+   },
+   {
+    "es": "un poco caro",
+    "zh": "有点贵"
+   },
+   {
+    "es": "¿Cuánto es todo?",
+    "zh": "一共多少钱？"
+   },
+   {
+    "es": "Pagamos en efectivo",
+    "zh": "我们付现金"
+   },
+   {
+    "es": "andando",
+    "zh": "走着（副动词）"
+   },
+   {
+    "es": "la gente",
+    "zh": "人们（单数形式、复数含义）"
+   }
+  ],
+  "structures": [
+   {
+    "es": "El mercado está cerca de casa y abre a las ocho.",
+    "note": "estar 表位置（está cerca de）。cerca de 是固定的方位短语，介词 de 不能省。abrir 是 -ir 动词，第三人称单数为 abre。"
+   },
+   {
+    "es": "Las manzanas cuestan dos euros el kilo.",
+    "note": "costar 的主语是商品（las manzanas），复数主语用 cuestan。价格用「数字 + euros + el kilo」表示单价。"
+   },
+   {
+    "es": "Me gusta ir al mercado porque hay mucha gente y siempre hablamos con alguien.",
+    "note": "gustar 的主语是动作 ir（单数），所以用 gusta。porque 引出原因；hay 表存在，gente 是单数名词但指一群人。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Cuándo abre el mercado?",
+    "a": "Abre a las ocho."
+   },
+   {
+    "q": "¿Cuánto cuestan las manzanas?",
+    "a": "Dos euros el kilo."
+   },
+   {
+    "q": "¿Por qué le gusta ir al mercado?",
+    "a": "Porque hay mucha gente y siempre hablan con alguien."
+   }
+  ]
+ },
+ {
+  "level": "A1",
+  "title": "我的城市",
+  "topic": "城市与方位",
+  "minutes": 4,
+  "paragraphs": [
+   {
+    "es": "Mi ciudad no es muy grande, pero es bonita. Hay un río y dos parques. También hay un museo antiguo.",
+    "zh": "我的城市不太大，但很漂亮。有一条河和两个公园。还有一座古老的博物馆。"
+   },
+   {
+    "es": "En el centro hay muchas tiendas y cafeterías. La plaza mayor está delante del ayuntamiento.",
+    "zh": "市中心有很多商店和咖啡馆。大广场在市政厅前面。"
+   },
+   {
+    "es": "Mi lugar favorito es el parque grande. Está al lado de la estación. Allí leo o corro por la mañana.",
+    "zh": "我最喜欢的地方是大公园。它就在车站旁边。我在那里看书或晨跑。"
+   },
+   {
+    "es": "No hay mar, pero hay una montaña pequeña. En verano subimos a la montaña porque hace menos calor.",
+    "zh": "这里没有海，但有一座小山。夏天我们爬上山，因为那里没那么热。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Hay",
+    "zh": "有（无人称形式）"
+   },
+   {
+    "es": "el río",
+    "zh": "河流"
+   },
+   {
+    "es": "antiguo",
+    "zh": "古老的"
+   },
+   {
+    "es": "En el centro",
+    "zh": "在市中心"
+   },
+   {
+    "es": "delante de",
+    "zh": "在……前面"
+   },
+   {
+    "es": "el ayuntamiento",
+    "zh": "市政厅"
+   },
+   {
+    "es": "lugar favorito",
+    "zh": "最喜欢的地方"
+   },
+   {
+    "es": "al lado de",
+    "zh": "在……旁边"
+   },
+   {
+    "es": "corro",
+    "zh": "我跑步"
+   },
+   {
+    "es": "el mar",
+    "zh": "海"
+   },
+   {
+    "es": "subimos",
+    "zh": "我们上去"
+   },
+   {
+    "es": "hace menos calor",
+    "zh": "没那么热"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Hay un río y dos parques.",
+    "note": "hay 是 haber 的无人称形式，表「存在」。后面接单数或复数名词都不变：hay un río / hay dos parques。这是与 estar 的关键区别。"
+   },
+   {
+    "es": "La plaza mayor está delante del ayuntamiento.",
+    "note": "estar 表具体位置。delante de + el 缩合为 delante del。方位短语 delante de / al lado de / cerca de 都是「短语 + de + 名词」的结构。"
+   },
+   {
+    "es": "En verano subimos a la montaña porque hace menos calor.",
+    "note": "subir a + 地点表「上到某处」。天气用 hacer + 名词：hace calor。menos 是比较级，表「较少」。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué hay en la ciudad?",
+    "a": "Hay un río, dos parques y un museo antiguo."
+   },
+   {
+    "q": "¿Dónde está la plaza mayor?",
+    "a": "Está delante del ayuntamiento."
+   },
+   {
+    "q": "¿Por qué suben a la montaña en verano?",
+    "a": "Porque hace menos calor."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "一次短途旅行",
+  "topic": "旅行与经历",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "El mes pasado mis amigos y yo hicimos una excursión a un pueblo de la montaña. Salimos muy temprano porque el viaje duraba tres horas.",
+    "zh": "上个月我和朋友们去山里一个小镇玩了一趟。我们很早就出发，因为路上要三小时。"
+   },
+   {
+    "es": "Cuando llegamos, estaba nublado y hacía frío. Primero visitamos una iglesia antigua; después comimos en un restaurante pequeño del centro.",
+    "zh": "到的时候是阴天，有点冷。我们先参观了一座古老的教堂，然后在市中心一家小餐馆吃了饭。"
+   },
+   {
+    "es": "Por la tarde empezó a llover, así que decidimos volver. En el camino paramos en un mirador y sacamos muchas fotos.",
+    "zh": "下午开始下雨，所以我们决定返回。路上我们在一个观景台停下来，拍了很多照片。"
+   },
+   {
+    "es": "Fue un viaje corto, pero lo pasamos muy bien. El año que viene queremos volver en primavera, cuando hace mejor tiempo.",
+    "zh": "旅程很短，但我们玩得很开心。明年我们想春天再去，那时候天气更好。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "hicimos una excursión",
+    "zh": "我们远足了一趟（hacer 的简单过去时）"
+   },
+   {
+    "es": "duraba",
+    "zh": "持续（未完成过去时，描述当时的情况）"
+   },
+   {
+    "es": "estaba nublado",
+    "zh": "天阴着（过去的状态）"
+   },
+   {
+    "es": "hacía frío",
+    "zh": "当时很冷（天气的过去时）"
+   },
+   {
+    "es": "así que",
+    "zh": "所以"
+   },
+   {
+    "es": "el mirador",
+    "zh": "观景台"
+   },
+   {
+    "es": "sacamos fotos",
+    "zh": "我们拍照"
+   },
+   {
+    "es": "lo pasamos muy bien",
+    "zh": "我们玩得很开心"
+   },
+   {
+    "es": "El año que viene",
+    "zh": "明年"
+   },
+   {
+    "es": "en primavera",
+    "zh": "在春天"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Salimos muy temprano porque el viaje duraba tres horas.",
+    "note": "salimos 是简单过去时（一次性动作），duraba 是未完成过去时（当时持续的情况）。这类「事件 + 背景」的组合是西语过去时的典型用法。"
+   },
+   {
+    "es": "Cuando llegamos, estaba nublado y hacía frío.",
+    "note": "cuando 从句用简单过去时 llegamos 表事件发生的那一刻；主句用未完成过去时描述当时的状态。天气的过去式固定用 hacía + 名词。"
+   },
+   {
+    "es": "Por la tarde empezó a llover, así que decidimos volver.",
+    "note": "empezar a + 不定式表「开始做」。así que 引出结果，比 por eso 更口语。两个动词都用简单过去时，因为是先后发生的具体事件。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué salieron muy temprano?",
+    "a": "Porque el viaje duraba tres horas."
+   },
+   {
+    "q": "¿Qué tiempo hacía cuando llegaron?",
+    "a": "Estaba nublado y hacía frío."
+   },
+   {
+    "q": "¿Qué decidieron hacer cuando empezó a llover?",
+    "a": "Decidieron volver."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "找房子",
+  "topic": "租房与生活",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "Llevo dos semanas buscando piso porque el contrato de mi alquiler termina en junio. Quiero vivir más cerca del trabajo.",
+    "zh": "我找房子找了两周，因为租约六月到期。我想住得离公司近一点。"
+   },
+   {
+    "es": "Ayer visité un piso en el centro. Tenía dos habitaciones y una cocina pequeña. El alquiler incluía la comunidad, pero la luz iba aparte.",
+    "zh": "昨天我看了一套市中心的房子。有两个房间和一个小厨房。租金含物业费，但电费另算。"
+   },
+   {
+    "es": "El problema es que pedían dos meses de fianza. Me pareció demasiado, así que no lo acepté.",
+    "zh": "问题是他们要两个月押金。我觉得太多了，所以没有接受。"
+   },
+   {
+    "es": "Mañana voy a ver otro piso, un poco más lejos pero más barato. Si me gusta, firmaré el contrato la semana que viene.",
+    "zh": "明天我要去看另一套，远一点但便宜些。如果满意，我下周就签合同。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Llevo dos semanas buscando",
+    "zh": "我找了两周了（llevar + 时间 + 副动词）"
+   },
+   {
+    "es": "el contrato",
+    "zh": "合同"
+   },
+   {
+    "es": "el alquiler",
+    "zh": "租金、租房"
+   },
+   {
+    "es": "incluía",
+    "zh": "包含（未完成过去时）"
+   },
+   {
+    "es": "iba aparte",
+    "zh": "另算"
+   },
+   {
+    "es": "pedían",
+    "zh": "他们要求（未完成过去时）"
+   },
+   {
+    "es": "la fianza",
+    "zh": "押金"
+   },
+   {
+    "es": "Me pareció demasiado",
+    "zh": "我觉得太多了"
+   },
+   {
+    "es": "más lejos",
+    "zh": "更远"
+   },
+   {
+    "es": "firmaré",
+    "zh": "我将签署（简单将来时）"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Llevo dos semanas buscando piso porque el contrato de mi alquiler termina en junio.",
+    "note": "llevar + 时间段 + 副动词表「已经做了多久」。这是西语特有的结构，不能用 hace。porque 引出原因，从句用现在时表即将发生的事。"
+   },
+   {
+    "es": "El alquiler incluía la comunidad, pero la luz iba aparte.",
+    "note": "两句都用未完成过去时，因为是在描述那套房子的条件（背景信息），而不是叙述一次性事件。ir aparte 是「另算」的固定说法。"
+   },
+   {
+    "es": "Si me gusta, firmaré el contrato la semana que viene.",
+    "note": "真实条件句：si + 陈述式现在时（me gusta），主句用将来时（firmaré）。注意 si 从句中不能用将来时，这是最常见的错误之一。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué busca piso?",
+    "a": "Porque el contrato de su alquiler termina en junio y quiere vivir más cerca del trabajo."
+   },
+   {
+    "q": "¿Por qué no aceptó el primer piso?",
+    "a": "Porque pedían dos meses de fianza y le pareció demasiado."
+   },
+   {
+    "q": "¿Qué hará si le gusta el piso de mañana?",
+    "a": "Firmará el contrato la semana que viene."
+   }
+  ]
+ },
+ {
+  "level": "A2",
+  "title": "学习一门语言",
+  "topic": "学习与习惯",
+  "minutes": 5,
+  "paragraphs": [
+   {
+    "es": "Empecé a estudiar español hace un año y medio. Al principio me costaba mucho la pronunciación, sobre todo la erre.",
+    "zh": "我一年半前开始学西语。一开始发音对我很难，尤其是那个颤音 r。"
+   },
+   {
+    "es": "Ahora entiendo bastante bien cuando la gente habla despacio, pero me cuesta seguir una conversación normal.",
+    "zh": "现在别人说慢一点我基本能听懂，但跟上正常语速的对话还是很吃力。"
+   },
+   {
+    "es": "Lo que más me ayuda es escuchar podcasts todos los días. También apunto las palabras nuevas en el móvil y las repaso en el autobús.",
+    "zh": "对我帮助最大的是每天听播客。我也会把生词记在手机里，坐公交时复习。"
+   },
+   {
+    "es": "Cometo errores, claro, pero ya no me da vergüenza hablar. Creo que eso es lo más importante.",
+    "zh": "我当然会犯错，但已经不怕开口了。我觉得这才是最重要的。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "Empecé a estudiar",
+    "zh": "我开始学（简单过去时）"
+   },
+   {
+    "es": "hace un año y medio",
+    "zh": "一年半前"
+   },
+   {
+    "es": "me costaba",
+    "zh": "对我来说很难（costar 的过去时）"
+   },
+   {
+    "es": "la pronunciación",
+    "zh": "发音"
+   },
+   {
+    "es": "la erre",
+    "zh": "字母 r 的颤音"
+   },
+   {
+    "es": "me cuesta seguir",
+    "zh": "我跟不上、跟不上很吃力"
+   },
+   {
+    "es": "Lo que más me ayuda",
+    "zh": "对我帮助最大的"
+   },
+   {
+    "es": "apunto",
+    "zh": "我记下"
+   },
+   {
+    "es": "repaso",
+    "zh": "我复习"
+   },
+   {
+    "es": "Cometo errores",
+    "zh": "我犯错"
+   },
+   {
+    "es": "me da vergüenza",
+    "zh": "我觉得不好意思、害羞"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Empecé a estudiar español hace un año y medio.",
+    "note": "empezar a + 不定式表「开始做」。hace + 时间段 表「……以前」，用现在时动词搭配过去的时间点：hace un año（一年前）。"
+   },
+   {
+    "es": "Lo que más me ayuda es escuchar podcasts todos los días.",
+    "note": "lo que 引导名词性关系从句作主语（「最帮我的那件事」）。主句用 es + 不定式，这是西语中解释「什么事最重要」的常用结构。"
+   },
+   {
+    "es": "Cometo errores, claro, pero ya no me da vergüenza hablar.",
+    "note": "cometer errores 是「犯错」的固定搭配。ya no 表「不再」。dar vergüenza 的结构与 gustar 类似：事物作主语，人用与格代词 me。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué le costaba al principio?",
+    "a": "Le costaba mucho la pronunciación, sobre todo la erre."
+   },
+   {
+    "q": "¿Qué hace para mejorar?",
+    "a": "Escucha podcasts todos los días y apunta las palabras nuevas para repasarlas."
+   },
+   {
+    "q": "¿Qué es lo más importante para él o ella ahora?",
+    "a": "Que ya no le da vergüenza hablar, aunque comete errores."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "社交网络与真实生活",
+  "topic": "技术与生活",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Hace diez años pasaba horas hablando con mis amigos en la calle. Hoy paso esas mismas horas mirando la pantalla del móvil, aunque esté rodeado de gente.",
+    "zh": "十年前我常在街上和朋友聊上几个小时。如今我把同样的时间花在看手机屏幕上，尽管身边都是人。"
+   },
+   {
+    "es": "No quiero decir que las redes sociales sean malas. Gracias a ellas sigo en contacto con amigos que viven en otros países y he conocido gente con intereses parecidos a los míos.",
+    "zh": "我不是说社交媒体不好。多亏它们，我才能和住在其他国家的朋友保持联系，也认识了兴趣相投的人。"
+   },
+   {
+    "es": "El problema, creo, es que la conversación se ha vuelto más cómoda y por eso menos profunda. Es fácil reaccionar a un mensaje con un emoticono; es difícil sentarse a escuchar a alguien durante una hora.",
+    "zh": "我认为问题在于，交谈变得更省事，因此也更浅。对一个消息回个表情很容易；坐下来听人讲一小时却很难。"
+   },
+   {
+    "es": "Últimamente intento dejar el móvil en otra habitación cuando quedo con alguien. Al principio me sentía inquieto, como si me estuviera perdiendo algo. Después de unas semanas, ya no.",
+    "zh": "最近和人见面时，我尽量把手机放到另一个房间。一开始我很不安，好像错过了什么。几周之后就不会了。"
+   },
+   {
+    "es": "No se trata de renunciar a la tecnología, sino de decidir cuándo la uso y cuándo no. La diferencia entre las dos cosas parece pequeña, pero cambia por completo cómo paso el tiempo.",
+    "zh": "这不是要放弃技术，而是决定什么时候用它、什么时候不用。两者的差别看似很小，却彻底改变了我度过时间的方式。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "las redes sociales",
+    "zh": "社交媒体"
+   },
+   {
+    "es": "aunque esté rodeado de gente",
+    "zh": "尽管身边都是人（aunque + 虚拟式表让步）"
+   },
+   {
+    "es": "sigo en contacto con",
+    "zh": "我与……保持联系"
+   },
+   {
+    "es": "intereses parecidos a los míos",
+    "zh": "与我相似的兴趣"
+   },
+   {
+    "es": "se ha vuelto más cómoda",
+    "zh": "变得（已经变得）更省事"
+   },
+   {
+    "es": "un emoticono",
+    "zh": "表情符号"
+   },
+   {
+    "es": "Últimamente",
+    "zh": "最近"
+   },
+   {
+    "es": "me sentía inquieto",
+    "zh": "我感到不安"
+   },
+   {
+    "es": "como si me estuviera perdiendo algo",
+    "zh": "好像我错过了什么（como si + 虚拟式）"
+   },
+   {
+    "es": "No se trata de renunciar",
+    "zh": "这不是要放弃"
+   },
+   {
+    "es": "cambia por completo",
+    "zh": "彻底改变"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Hoy paso esas mismas horas mirando la pantalla del móvil, aunque esté rodeado de gente.",
+    "note": "pasar tiempo + 副动词表「把时间花在做某事上」。aunque + 虚拟式（esté）表让步，暗示「即使实际情况如此」，与 aunque + 陈述式（承认事实）语气不同。"
+   },
+   {
+    "es": "El problema, creo, es que la conversación se ha vuelto más cómoda y por eso menos profunda.",
+    "note": "creo 作插入语（前后逗号隔开），是表达个人判断的常见手法。volverse + 形容词表「变成」，含变化是渐进的意味；se ha vuelto 用完成时强调对现在的影响。"
+   },
+   {
+    "es": "No se trata de renunciar a la tecnología, sino de decidir cuándo la uso y cuándo no.",
+    "note": "no se trata de... sino de... 是「问题不在于……而在于……」的固定句式，用来纠正对方可能的误解。sino 前的否定必须完整，不能用 pero 替代。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué ha cambiado en la forma de pasar el tiempo del autor?",
+    "a": "Antes pasaba horas hablando con amigos en la calle y ahora pasa esas horas mirando la pantalla del móvil."
+   },
+   {
+    "q": "¿Reconoce alguna ventaja de las redes sociales?",
+    "a": "Sí: le permiten seguir en contacto con amigos que viven en otros países y conocer gente con intereses parecidos."
+   },
+   {
+    "q": "¿Cuál es su conclusión sobre la tecnología?",
+    "a": "Que no se trata de renunciar a ella, sino de decidir cuándo usarla y cuándo no."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "为什么我们拖延",
+  "topic": "心理与习惯",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Casi todo el mundo deja para mañana lo que podría hacer hoy. Solemos explicarlo diciendo que somos vagos, pero esa explicación resulta demasiado simple.",
+    "zh": "几乎所有人都会把今天能做的事推到明天。我们通常解释说自己懒，但这个解释太简单了。"
+   },
+   {
+    "es": "Los psicólogos señalan que la procrastinación no es falta de ganas, sino un problema de emociones. Cuando una tarea nos produce ansiedad, evitarla alivia ese malestar de inmediato.",
+    "zh": "心理学家指出，拖延不是缺乏意愿，而是情绪问题。当一项任务让我们焦虑时，回避它能立刻缓解那种不适。"
+   },
+   {
+    "es": "El alivio, sin embargo, dura poco: el plazo sigue ahí y la ansiedad vuelve, ahora con menos tiempo para actuar. Así se entra en un círculo del que es difícil salir.",
+    "zh": "然而这种缓解很短：期限还在，焦虑又回来了，而可行动的时间更少。于是进入一个难以脱身的循环。"
+   },
+   {
+    "es": "Lo que suele funcionar no es exigirse más disciplina, sino reducir el tamaño del primer paso. En lugar de «escribir el informe», basta con «abrir el documento y escribir una frase».",
+    "zh": "通常有效的不是要求自己更自律，而是把第一步缩小。「写报告」改成「打开文档写一句话」就够了。"
+   },
+   {
+    "es": "También ayuda aceptar que el trabajo no siempre será agradable. Quien espera tener ganas para empezar puede esperar indefinidamente.",
+    "zh": "接受工作并不总是愉快的事也有帮助。等着有心情才开始的人，可能永远等下去。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "deja para mañana",
+    "zh": "留到明天"
+   },
+   {
+    "es": "Solemos explicarlo",
+    "zh": "我们通常这样解释（soler + 不定式表习惯）"
+   },
+   {
+    "es": "vagos",
+    "zh": "懒的"
+   },
+   {
+    "es": "la procrastinación",
+    "zh": "拖延症"
+   },
+   {
+    "es": "falta de ganas",
+    "zh": "缺乏意愿"
+   },
+   {
+    "es": "evitarla alivia ese malestar",
+    "zh": "回避它能缓解那种不适"
+   },
+   {
+    "es": "El alivio",
+    "zh": "缓解、宽慰"
+   },
+   {
+    "es": "el plazo",
+    "zh": "期限"
+   },
+   {
+    "es": "un círculo del que es difícil salir",
+    "zh": "一个难以脱身的循环"
+   },
+   {
+    "es": "exigirse más disciplina",
+    "zh": "要求自己更自律"
+   },
+   {
+    "es": "En lugar de",
+    "zh": "而不是"
+   },
+   {
+    "es": "indefinidamente",
+    "zh": "无限期地"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Solemos explicarlo diciendo que somos vagos, pero esa explicación resulta demasiado simple.",
+    "note": "soler + 不定式表习惯性行为（我们通常……），只用现在时和未完成过去时。resultar + 形容词表「显得、结果是」，比 es 更少断言色彩。"
+   },
+   {
+    "es": "Cuando una tarea nos produce ansiedad, evitarla alivia ese malestar de inmediato.",
+    "note": "cuando 从句中主语是 tarea（第三人称），用陈述式 produce 表普遍规律。主句主语是动词不定式 evitarla，因此动词用第三人称单数 alivia。"
+   },
+   {
+    "es": "Lo que suele funcionar no es exigirse más disciplina, sino reducir el tamaño del primer paso.",
+    "note": "lo que 引导主语从句。no es A, sino B 是纠正性对举结构：否定前者、确立后者。exigirse 是自复动词，代词与主语一致。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Por qué resulta insuficiente explicar la procrastinación como pereza?",
+    "a": "Porque según los psicólogos no es falta de ganas sino un problema de emociones: evitar una tarea ansiosa alivia el malestar de inmediato."
+   },
+   {
+    "q": "¿Por qué el alivio de evitar una tarea dura poco?",
+    "a": "Porque el plazo sigue ahí, la ansiedad vuelve y queda menos tiempo para actuar, de modo que se entra en un círculo difícil de romper."
+   },
+   {
+    "q": "¿Qué estrategia recomienda el texto en lugar de exigirse más disciplina?",
+    "a": "Reducir el tamaño del primer paso: en vez de «escribir el informe», basta con «abrir el documento y escribir una frase»."
+   }
+  ]
+ },
+ {
+  "level": "B1",
+  "title": "城市里的噪音",
+  "topic": "城市与环境",
+  "minutes": 6,
+  "paragraphs": [
+   {
+    "es": "Cuando elegimos dónde vivir, miramos el precio, el transporte y la luz de las habitaciones. Casi nunca pensamos en el ruido, aunque lo sufrimos todos los días.",
+    "zh": "我们选住处时会看价格、交通和房间采光。几乎从不考虑噪音，尽管我们每天都在忍受它。"
+   },
+   {
+    "es": "El ruido del tráfico no solo molesta: afecta al sueño, a la concentración y, según varios estudios, también al corazón. Por eso algunos ayuntamientos han empezado a tomar medidas.",
+    "zh": "交通噪音不只是烦人：它影响睡眠、注意力，据多项研究还影响心脏。因此一些市政府开始采取措施。"
+   },
+   {
+    "es": "Entre las soluciones más eficaces están las que actúan sobre la fuente: limitar la velocidad, cambiar el asfalto o prohibir el tráfico pesado por la noche.",
+    "zh": "最有效的方案中，有些是针对源头的：限速、更换路面材料，或禁止重型车辆夜间通行。"
+   },
+   {
+    "es": "Otras medidas, como el doble cristal en las ventanas, protegen a quien puede pagarlo. El problema es que el silencio se está convirtiendo en un lujo, igual que la vivienda tranquila.",
+    "zh": "另一些措施，比如窗户双层玻璃，保护的是付得起钱的人。问题在于，安静正变得像安静的住房一样，成为一种奢侈。"
+   },
+   {
+    "es": "Quizá por eso el ruido sigue siendo el problema ambiental del que menos se habla: no se ve, no deja residuos y sus efectos aparecen poco a poco.",
+    "zh": "也许正因如此，噪音仍是人们谈论最少的环境问题：看不见、不留残余，而它的影响是慢慢显现的。"
+   }
+  ],
+  "glossary": [
+   {
+    "es": "el ruido",
+    "zh": "噪音"
+   },
+   {
+    "es": "aunque lo sufrimos",
+    "zh": "尽管我们在忍受它"
+   },
+   {
+    "es": "afecta al sueño",
+    "zh": "影响睡眠"
+   },
+   {
+    "es": "la concentración",
+    "zh": "注意力集中"
+   },
+   {
+    "es": "tomar medidas",
+    "zh": "采取措施"
+   },
+   {
+    "es": "las que actúan sobre la fuente",
+    "zh": "那些针对源头的（措施）"
+   },
+   {
+    "es": "limitar la velocidad",
+    "zh": "限速"
+   },
+   {
+    "es": "el asfalto",
+    "zh": "沥青路面"
+   },
+   {
+    "es": "el tráfico pesado",
+    "zh": "重型车辆交通"
+   },
+   {
+    "es": "el doble cristal",
+    "zh": "双层玻璃"
+   },
+   {
+    "es": "un lujo",
+    "zh": "奢侈品"
+   },
+   {
+    "es": "los residuos",
+    "zh": "残留物、垃圾"
+   }
+  ],
+  "structures": [
+   {
+    "es": "Casi nunca pensamos en el ruido, aunque lo sufrimos todos los días.",
+    "note": "aunque + 陈述式（sufrimos）表让步且承认这是事实。代词 lo 回指 el ruido，避免重复名词。casi nunca 表「几乎从不」。"
+   },
+   {
+    "es": "Entre las soluciones más eficaces están las que actúan sobre la fuente: limitar la velocidad, cambiar el asfalto o prohibir el tráfico pesado por la noche.",
+    "note": "倒装结构：地点状语 Entre... 前置，动词 están 之后才是主语 las que...。冒号后并列三个不定式，用不定式充当解释性同位语。"
+   },
+   {
+    "es": "Quizá por eso el ruido sigue siendo el problema ambiental del que menos se habla: no se ve, no deja residuos y sus efectos aparecen poco a poco.",
+    "note": "quizá 后接陈述式（sigue）表较有把握的推测。del que menos se habla 是带前置词的关系从句（hablar de），否定词 menos 前置。冒号后三个并列分句给出理由。"
+   }
+  ],
+  "questions": [
+   {
+    "q": "¿Qué criterios usamos al elegir vivienda, según el texto, y cuál olvidamos?",
+    "a": "Miramos el precio, el transporte y la luz, pero casi nunca pensamos en el ruido."
+   },
+   {
+    "q": "¿Por qué el doble cristal no resuelve el problema de fondo?",
+    "a": "Porque protege solo a quien puede pagarlo, de modo que el silencio se convierte en un lujo, igual que la vivienda tranquila."
+   },
+   {
+    "q": "¿Por qué, según el autor, se habla poco del ruido?",
+    "a": "Porque no se ve, no deja residuos y sus efectos aparecen poco a poco."
+   }
+  ]
+ }
+]
