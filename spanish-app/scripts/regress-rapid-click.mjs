@@ -1,4 +1,4 @@
-const CDP_PORT=9333, URL_='http://localhost:4173/';
+const CDP_PORT=Number(process.env.CDP_PORT||9333), URL_=process.env.APP_URL||'http://localhost:4173/';
 async function wsUrl(){for(let i=0;i<40;i++){try{const j=await(await fetch(`http://127.0.0.1:${CDP_PORT}/json/version`)).json();if(j.webSocketDebuggerUrl)return j.webSocketDebuggerUrl;}catch{}await new Promise(r=>setTimeout(r,250));}throw new Error('no cdp');}
 const ws=new WebSocket(await wsUrl());
 await new Promise((r,j)=>{ws.addEventListener('open',r,{once:true});ws.addEventListener('error',j,{once:true});});
