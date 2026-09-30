@@ -6824,7 +6824,7 @@ const GRAMMAR_QUIZZES = [
     {sentence:'Gracias ___ tu ayuda.', options:['por','para','de','con'], correct:0, explain:'gracias por 固定搭配，表原因。'},
     {sentence:'Salgo ___ Madrid mañana.', options:['para','por','a','en'], correct:0, explain:'para 表目的地：Salgo para Madrid（动身前往马德里）。por 表「经过、穿过」，用 por Madrid 意思变成「从马德里穿过去」。'},
     {sentence:'Caminé ___ el parque.', options:['por','para','a','en'], correct:0, explain:'por 表经过、穿越的场所。'},
-    {sentence:'Estudio español ___ trabajar en España.', options:['para','por','de','a'], correct:0, explain:'para + 不定式表目的：学西语是为了在西班牙工作。por 表原因，且 por + 不定式通常需要搭配（如 por trabajar 表「因为工作」）。'},
+    {sentence:'A fin ___ que todos participen, cambiaremos el horario.', options:['de', 'a', 'en', 'por'], correct:0, explain:'a fin de que + 虚拟式是较正式的目的小句连接语。a fin de + 不定式用于主语相同的情况。'},
     {sentence:'Pagué veinte euros ___ el libro.', options:['por','para','de','en'], correct:0, explain:'por 表交换与价格：pagar por algo（为某物付钱）。para 表接收对象或目的，用 para 会把「为书付钱」说成「给书付钱」。'},
     {sentence:'Tengo que terminar esto ___ el viernes.', options:['para','por','en','a'], correct:0, explain:'para + 时间表截止期限：para el viernes（周五之前）。por 表时间段内的持续，用 por el viernes 意思会变成「整个周五期间」。'},
     {sentence:'Lo hice ___ amor.', options:['por','para','de','con'], correct:0, explain:'por 表动机与原因：lo hice por amor（出于爱）。para 表目的，用 para amor 会把「出于爱」说成「为了爱（这个目标）」。'},
@@ -7385,6 +7385,124 @@ const GRAMMAR_QUIZZES = [
     {sentence:'«No voy a mencionar los errores de mi rival», y enseguida los enumera, es una ___.', options:['eufemismo', 'hipérbole', 'preterición', 'oxímoron'], correct:2, explain:'preterición 声称略过某话题却实际详述；eufemismo 是委婉替代，hipérbole 是夸大，oxímoron 是矛盾并置，均不符。'},
     {sentence:'Llamar «tercer grado» a la tortura es un ___ , que sustituye un término duro por otro suave.', options:['eufemismo', 'hipérbole', 'litote', 'preterición'], correct:0, explain:'eufemismo 用温和说法替代刺耳词语，故以 tercer grado 指代 tortura；hipérbole 是夸大，litote 是弱化。'},
     {sentence:'«¡Qué puntualidad la tuya!» a quien llega dos horas tarde es una ___ de tono mordaz.', options:['litote', 'eufemismo', 'hipérbole', 'ironía'], correct:3, explain:'ironía 说反话，字面赞扬实为批评，语气比 sarcasmo 含蓄；litote 是弱化，eufemismo 是婉称，hipérbole 是夸大。'}
+  ]},
+  {topic:'国家与语言名词', questions:[
+    {sentence:'Soy ___ China, de Shanghái.', options:['de', 'en', 'a', 'desde'], correct:0, explain:'ser de + 地点表籍贯来源。用 en 会变成「我在中国」，不表来源。'},
+    {sentence:'Ella ___ tres idiomas.', options:['habla', 'dice', 'cuenta', 'habla en'], correct:0, explain:'说某种语言用 hablar + 语言名，不加介词：habla inglés / habla tres idiomas。'},
+    {sentence:'Vivo en Francia, pero soy ___.', options:['francés', 'Francia', 'francés de Francia', 'de francés'], correct:0, explain:'国籍用形容词 francés；国名 Francia。中文说「我是法国（人）」，西语必须用国籍形容词。'},
+    {sentence:'¿___ dónde eres?', options:['De', 'En', 'A', 'Desde'], correct:0, explain:'问籍贯固定用 ¿De dónde eres?。dónde 前的 de 不能省略。'},
+    {sentence:'El inglés y el alemán son ___ europeas.', options:['lenguas', 'idiomas europeos', 'lengua', 'idioma'], correct:0, explain:'lenguas 是阴性复数，与 europeas 一致。idioma 虽指语言但是阳性，且此处需复数。'}
+  ]},
+  {topic:'颜色词的特殊用法', questions:[
+    {sentence:'Tiene el pelo ___.', options:['negro', 'negra', 'negros', 'negras'], correct:0, explain:'pelo 是阳性单数，颜色词用 negro。注意西语说「他有黑头发」用 tener + 定冠词 + 名词 + 颜色。'},
+    {sentence:'Lleva una camisa ___.', options:['azul', 'azula', 'azules', 'azulas'], correct:0, explain:'azul 是单复数同形（azul / azules），没有 azula 这种阴性形式。以 -e、-l、-z 等结尾的颜色词多数不变性。'},
+    {sentence:'Los ojos ___ son poco comunes.', options:['verdes', 'verde', 'verdes de', 'verdoso'], correct:0, explain:'ojos 是阳性复数，颜色词用 verdes。'},
+    {sentence:'Es de color ___.', options:['vino', 'vina', 'vinos', 'al vino'], correct:0, explain:'de color + 名词是固定结构（de color vino ＝ 酒红色），后面的名词不变。'},
+    {sentence:'La puerta está ___.', options:['pintada de blanco', 'pintada blanco', 'pintada en blanco', 'pintando blanco'], correct:0, explain:'「被漆成白色」用 pintada de + 颜色。estar + 分词表结果状态，介词 de 引出颜色。'}
+  ]},
+  {topic:'服务场景常用句式', questions:[
+    {sentence:'¿___ trae la carta, por favor?', options:['Me', 'Mi', 'Yo', 'Mí'], correct:0, explain:'¿Me trae...? 是请服务员拿东西的客气说法，用与格代词 me。'},
+    {sentence:'¿___ algo más? —No, gracias.', options:['Desea', 'Deseo', 'Deseas', 'Desean'], correct:0, explain:'服务员问「还要别的吗」用 usted 形式 ¿Desea algo más?。'},
+    {sentence:'¿Puedo ___ con tarjeta?', options:['pagar', 'pago', 'pagando', 'que pagar'], correct:0, explain:'poder + 不定式表请求许可：¿Puedo pagar con tarjeta?。'},
+    {sentence:'¿Me lo puede ___ en una bolsa?', options:['poner', 'pongo', 'poniendo', 'puesto'], correct:0, explain:'poder + 不定式。购物时请店员装袋的常用说法。'},
+    {sentence:'Estoy mirando, ___.', options:['gracias', 'por favor', 'de nada', 'perdone'], correct:0, explain:'「我只是看看，谢谢」是店员询问后顾客的固定应答，用 gracias 收尾。'}
+  ]},
+  {topic:'电话用语', questions:[
+    {sentence:'¿___? Soy Ana.', options:['Diga', 'Dice', 'Digo', 'Diciendo'], correct:0, explain:'接电话说 ¿Diga?（喂）。这是西班牙固定用法，相当于英文的 hello。'},
+    {sentence:'¿Puedo hablar ___ el señor López?', options:['con', 'a', 'de', 'en'], correct:0, explain:'hablar con alguien ＝ 与某人通话。hablar de 是「谈论」，语义不同。'},
+    {sentence:'Se ha ___, vuelva a llamar.', options:['cortado', 'cortar', 'cortando', 'corte'], correct:0, explain:'「通话中断了」用 se ha cortado（haber + 分词）。cortarse 表通话被切断。'},
+    {sentence:'Le llamo ___ parte del director.', options:['de', 'en', 'por', 'a'], correct:0, explain:'de parte de ＝ 代表某人、受某人所托。这是转达来电缘由的固定短语。'}
+  ]},
+  {topic:'表目的的表达', questions:[
+    {sentence:'Estudio español ___ trabajar en España.', options:['para', 'por', 'porque', 'para que'], correct:0, explain:'para + 不定式表目的，且主从句主语相同。porque 后须接完整句子。'},
+    {sentence:'Te lo digo ___ lo sepas.', options:['para que', 'para', 'porque', 'por'], correct:0, explain:'para que + 虚拟式：主从句主语不同时，目的从句用 para que 加虚拟式。'},
+    {sentence:'Salí temprano ___ no llegar tarde.', options:['para', 'por', 'por que', 'para que'], correct:0, explain:'否定目的用 para no + 不定式。para que 后面要接从句，不能直接接不定式。'},
+    {sentence:'Lo hice ___ ayudarte.', options:['para', 'por', 'porque', 'a fin que'], correct:0, explain:'表目的用 para + 不定式。por + 不定式通常表原因。'},
+    {sentence:'Cerró la ventana ___ no tener frío.', options:['para', 'por', 'para que', 'porque'], correct:0, explain:'para + 不定式表目的，主语与主句相同。para que 后面必须接从句（para que no tuviera frío），不能直接接不定式。'},
+  ]},
+  {topic:'金钱表达与小数', questions:[
+    {sentence:'Cuesta un euro ___ cincuenta.', options:['con', 'y', 'de', 'punto'], correct:0, explain:'西语小数用 con 连接整数与小数部分：un euro con cincuenta。也可以说 un euro cincuenta。'},
+    {sentence:'Son mil ___ euros.', options:['doscientos', 'dosciento', 'doscientas', 'dos cientos'], correct:0, explain:'cientos 与数字连写：doscientos。euros 是阳性，用 doscientos。'},
+    {sentence:'Un millón ___ euros es mucho dinero.', options:['de', 'en', 'a', '—'], correct:0, explain:'millón 后面必须加 de：un millón de euros。这是与 mil 的重要区别（mil euros 不加 de）。'},
+    {sentence:'Cuesta veinte euros ___ con cincuenta.', options:['y', 'con', 'punto', 'coma'], correct:0, explain:'整数后面接小数用 y（veinte y cincuenta）或直接说 veinte con cincuenta。'},
+    {sentence:'¿Me lo deja más ___?', options:['barato', 'barata', 'baratos', 'barate'], correct:0, explain:'问能否便宜点用 más barato（价钱是阳性的默认形式）。这是市场议价的常用说法。'}
+  ]},
+  {topic:'相互动作的表达', questions:[
+    {sentence:'Ana y Luis ___ mucho.', options:['se quieren', 'quieren', 'se quiere', 'quieren se'], correct:0, explain:'相互动作用复数自复代词 se + 复数动词：se quieren ＝ 他们彼此相爱。'},
+    {sentence:'Mi hermano y yo ___ por teléfono cada día.', options:['nos hablamos', 'nos habla', 'hablamos nos', 'se hablamos'], correct:0, explain:'第一人称复数相互动作用 nos + 复数动词：nos hablamos。'},
+    {sentence:'Se ___ flores el uno al otro.', options:['regalan', 'regala', 'regalan se', 'regalando'], correct:0, explain:'用 el uno al otro 加强相互意义时，动词仍按复数变位：se regalan。'},
+    {sentence:'No ___ hablan desde el verano.', options:['se', 'nos', 'les', 'los'], correct:0, explain:'第三人称复数的相互动作用 se：no se hablan（他们互相不说话了）。'},
+    {sentence:'Se ___ a la entrada del cine.', options:['encontraron', 'encontró', 'encontraron se', 'encontraba'], correct:0, explain:'相遇用 encontrarse，复数为 se encontraron。注意简单过去时表一次性事件。'}
+  ]},
+  {topic:'时态分工（方法与结果）', questions:[
+    {sentence:'El estudio se ___ con 200 participantes.', options:['realizó', 'realiza', 'realizará', 'realizaría'], correct:0, explain:'描述研究方法与过程用过去时（se realizó）。这是学术写作的固定分工。'},
+    {sentence:'Los resultados ___ que la hipótesis es correcta.', options:['muestran', 'mostraron', 'mostraban', 'mostrarían'], correct:0, explain:'陈述研究发现与结论用现在时（muestran）。结果被视为对当下有效的论断。'},
+    {sentence:'En la sección anterior ___ el marco teórico.', options:['presentamos', 'presentamos que', 'presentando', 'presentar'], correct:0, explain:'交代论文各部分的动作常用第一人称复数或无人称过去时。presentamos 是标准的论文用语。'},
+    {sentence:'La muestra ___ de 300 textos.', options:['constó', 'consta de siempre', 'constaba de que', 'constando'], correct:0, explain:'描述已完成的取样用过去时 constó de。注意 constar de 是固定搭配。'},
+    {sentence:'Estos datos ___ con los de estudios previos.', options:['concuerdan', 'concordaron', 'concuerdan de', 'concordando'], correct:0, explain:'讨论部分用现在时表达普遍的相符关系。concordar con 是固定搭配。'}
+  ]},
+  {topic:'局限性与展望的固定表述', questions:[
+    {sentence:'Entre las ___ del estudio cabe mencionar el tamaño de la muestra.', options:['limitaciones', 'limitación', 'limitado', 'limitar'], correct:0, explain:'限制条件用复数名词 limitaciones。这是论文「局限性」一节的标准开头。'},
+    {sentence:'Futuras investigaciones ___ abordar esta cuestión.', options:['deberían', 'debían', 'deben que', 'debieron'], correct:0, explain:'展望用条件式 deberían（应当会），语气克制，表示建议而非规定。'},
+    {sentence:'Los resultados deben tomarse con ___.', options:['cautela', 'cauteloso', 'cautelar', 'cautelas'], correct:0, explain:'con cautela ＝ 谨慎地。这是论文结论中常见的保留表述。'},
+    {sentence:'No es posible ___ estos resultados a otras poblaciones.', options:['generalizar', 'generaliza', 'generalizando', 'generalizado'], correct:0, explain:'es posible + 不定式。generalizar a ＝ 推广到，是讨论外部效度的固定动词。'},
+    {sentence:'Queda ___ para futuros trabajos.', options:['pendiente', 'pendientes', 'pender', 'pendiendo'], correct:0, explain:'quedar pendiente ＝ 留待日后处理。这是论文结尾的常用句式。'}
+  ]},
+  {topic:'正式书面语结构', questions:[
+    {sentence:'El presente trabajo se ___ a analizar tres casos.', options:['propone', 'proponga', 'propuso', 'proponiendo'], correct:0, explain:'se propone + 不定式 ＝ 本文旨在……。这是论文摘要的标准句式，用陈述式现在时。'},
+    {sentence:'___ señalar que los datos son preliminares.', options:['Cabe', 'Caben', 'Cabe que', 'Cabría que'], correct:0, explain:'cabe + 不定式 ＝ 值得/可以……。这是无人称结构，动词固定第三人称单数。'},
+    {sentence:'___ advertir que la muestra es reducida.', options:['Procede', 'Proceden', 'Procede que', 'Procediendo'], correct:0, explain:'procede + 不定式 ＝ 有必要……。与 cabe 同类的无人称书面句式。'},
+    {sentence:'Los resultados deben interpretarse ___ cautela.', options:['con', 'en', 'de', 'por'], correct:0, explain:'con cautela ＝ 谨慎地。这是学术结论中的标准保留表述。'},
+    {sentence:'Conviene ___ que el contexto varía según el país.', options:['precisar', 'precisa', 'precisando', 'precisión'], correct:0, explain:'conviene + 不定式 ＝ 宜于、应当。无人称结构，用于提出方法论提醒。'}
+  ]},
+  {topic:'论证类动词的句式', questions:[
+    {sentence:'El autor ___ que la medida es insuficiente.', options:['sostiene', 'sostenga', 'sostener', 'sosteniendo'], correct:0, explain:'sostener que + 陈述式（陈述具体主张）。sostener 表事实性论断，不用虚拟式。'},
+    {sentence:'___ que faltaba presupuesto para continuar.', options:['Adujo', 'Adujera', 'Aduciendo', 'Aducir'], correct:0, explain:'aducir ＝ 援引（理由）。陈述已发生的事实用简单过去时 adujo。'},
+    {sentence:'Objetó que la propuesta no ___ viable.', options:['fuera', 'es', 'será', 'era'], correct:0, explain:'objetar 表反对意见，否定了从句的事实性，用虚拟式 fuera。对比 sostener que 用陈述式。'},
+    {sentence:'Reconoció que ___ un error de cálculo.', options:['había', 'hubiera', 'haya', 'habría'], correct:0, explain:'reconocer 表承认既成事实，用陈述式。主句过去时，从句用过去完成时 había。'},
+    {sentence:'El informe ___ de falta de datos actualizados.', options:['adolece', 'adolece que', 'adoleciendo', 'adolecer'], correct:0, explain:'adolecer de ＝ 有……缺陷。这是分析文本弱点时的固定动词搭配。'}
+  ]},
+  {topic:'法律与行政文书的固定句式', questions:[
+    {sentence:'El que ___ daño a terceros responderá con su patrimonio.', options:['causare', 'cause', 'causara', 'causa'], correct:0, explain:'法律条文用将来虚拟式（-re 形式）指「将来造成损害者」。cause 是现在虚拟式，causara 是过去虚拟式，语域都不合。'},
+    {sentence:'Todo lo actuado ___ notificado a las partes en el plazo de diez días.', options:['será', 'sea', 'fuera', 'sería'], correct:0, explain:'法律条文的义务性规定用第三人称将来时：será notificado（应于……内通知）。这不是预测，而是规范性表述。'},
+    {sentence:'En virtud ___ artículo quinto, se declara inadmisible.', options:['del', 'de el', 'al', 'por el'], correct:0, explain:'en virtud de + 阳性单数冠词缩合为 del。de el 不能分写。'},
+    {sentence:'La norma entrará en vigor ___ su publicación.', options:['a partir de', 'a partir', 'desde de', 'de partir de'], correct:0, explain:'a partir de ＝ 自……起。这是法律文本中生效时点的标准表述。'},
+    {sentence:'___ lo dispuesto en el artículo anterior, se deniega la solicitud.', options:['Conforme a', 'Conforme', 'Según de', 'De acuerdo'], correct:0, explain:'conforme a ＝ 依照。de acuerdo 后必须加 con 才能接名词。'}
+  ]},
+  {topic:'带虚拟式的固定表达', questions:[
+    {sentence:'___ lo que ocurra, mantendremos la calma.', options:['Sea', 'Es', 'Será', 'Fuera'], correct:0, explain:'sea lo que sea / sea lo que ocurra ＝ 无论发生什么。这类固定表达用虚拟式。'},
+    {sentence:'___ dicho sea de paso, el proyecto ya estaba aprobado.', options:['Dicho', 'Diciendo', 'Decir', 'Dice'], correct:0, explain:'dicho sea de paso ＝ 顺便说一句。这是带虚拟式的固定插入语。'},
+    {sentence:'Come lo que ___, pero hazlo rápido.', options:['quieras', 'quieres', 'querrás', 'querías'], correct:0, explain:'come lo que quieras ＝ 你想吃什么就吃什么。这类「无论……」结构用虚拟式。'},
+    {sentence:'___ más vale, dejemos el tema.', options:['Como', 'Cuando', 'Aunque', 'Si'], correct:0, explain:'como más vale / como mejor ＝ 为求妥当。这是固定的谦让表达，用陈述式。'},
+    {sentence:'Que ___ lo que quiera, nosotros seguimos adelante.', options:['diga', 'dice', 'dirá', 'decía'], correct:0, explain:'que diga lo que quiera ＝ 随他怎么说。que + 虚拟式的让步固定句式。'}
+  ]},
+  {topic:'对比与并列的书面连接', questions:[
+    {sentence:'___ un lado, ahorra tiempo; por otro, reduce el control.', options:['Por', 'De', 'En', 'A'], correct:0, explain:'por un lado... por otro (lado) ＝ 一方面……另一方面。这是论述中并列两面的固定结构。'},
+    {sentence:'El sistema es rápido; ___, resulta caro de mantener.', options:['sin embargo', 'porque', 'además de', 'así que'], correct:0, explain:'sin embargo ＝ 然而，表转折。porque 表原因，así que 表结果，都不合转折逻辑。'},
+    {sentence:'___ que el primero es barato, el segundo es duradero.', options:['Mientras', 'Aunque', 'Porque', 'Si'], correct:0, explain:'mientras que ＝ 而（表对比）。这是书面语中并列两个对比事实的标准连接。'},
+    {sentence:'No se trata de eficiencia, ___ de legitimidad.', options:['sino', 'pero', 'y', 'o'], correct:0, explain:'no... sino... ＝ 不是……而是。这是纠正性对举，不能用 pero。'},
+    {sentence:'El texto es denso; ___ , su lectura recompensa.', options:['no obstante', 'por lo tanto', 'porque', 'es decir'], correct:0, explain:'no obstante ＝ 尽管如此（书面转折）。por lo tanto 表结果，es decir 表解释。'}
+  ]},
+  {topic:'限定与保留的书面表达', questions:[
+    {sentence:'___ la medida en que aumentan los datos, crece la incertidumbre.', options:['En', 'De', 'A', 'Con'], correct:0, explain:'en la medida en que ＝ 随着……、在……范围内。这是书面语中限定条件的固定表达。'},
+    {sentence:'Lo aceptaré, ___ que no haya cambios.', options:['siempre', 'salvo', 'a menos', 'excepto'], correct:0, explain:'siempre que + 虚拟式表条件（只要）。salvo que 表例外（除非），语义相反。'},
+    {sentence:'Los resultados son válidos, ___ algunas excepciones.', options:['salvo', 'excepto que', 'a menos', 'sin que'], correct:0, explain:'salvo + 名词 ＝ 除了……之外。作介词直接接名词，不能接从句。'},
+    {sentence:'La conclusión es defendible ___ se precisen los supuestos.', options:['en tanto que', 'en tanto', 'tanto que', 'en cuanto que'], correct:0, explain:'en tanto que ＋ 从句表条件限定（只要）。这是书面语中保留态度的标准结构。'},
+    {sentence:'Hasta cierto ___, la crítica es acertada.', options:['punto', 'modo', 'caso', 'grado'], correct:0, explain:'hasta cierto punto ＝ 在某种程度上。这是给论断加限定的固定短语。'}
+  ]},
+  {topic:'表「回避」与「坚持」的动词', questions:[
+    {sentence:'El portavoz ___ las preguntas incómodas.', options:['rehuyó', 'rehuyo', 'rehuyendo', 'rehuir'], correct:0, explain:'rehuir ＝ 回避。rehuir 有 o→uy 的拼写变化，简单过去时第三人称为 rehuyó。'},
+    {sentence:'___ en su postura pese a las críticas.', options:['Se empeñó', 'Empeñó', 'Se empeñando', 'Empeñarse'], correct:0, explain:'empeñarse en ＝ 执意于。自复动词必须带代词：se empeñó。'},
+    {sentence:'El informe ___ el problema central.', options:['soslayó', 'soslayando', 'soslayar', 'soslayo'], correct:0, explain:'soslayar ＝ 回避、绕过（话题）。与 rehuir 近义，但更书面。'},
+    {sentence:'___ en negar la evidencia.', options:['Se obstinó', 'Obstinó', 'Obstinando', 'Obstinarse'], correct:0, explain:'obstinarse en ＝ 执意。与 empeñarse en 近义，语气更强。'},
+    {sentence:'No ___ en detalles innecesarios.', options:['insistas', 'insistes', 'insistirás', 'insistías'], correct:0, explain:'insistir en 后接从句表建议时用虚拟式。否定的建议表达尤其常用虚拟式。'}
+  ]},
+  {topic:'批评性表述的分寸', questions:[
+    {sentence:'Esa afirmación es una ___ sin fundamento.', options:['generalización', 'generalizar', 'generalizando', 'general'], correct:0, explain:'批评时把矛头指向「论证」而非「人」：una generalización sin fundamento。名词化作主语是学术批评的标准形式。'},
+    {sentence:'El argumento ___ por su propia cuenta.', options:['se refuta', 'refuta', 'refutando', 'refutar'], correct:0, explain:'指论证自我矛盾时用 refutarse（自证其误）。用自复形式把评价落在论证本身。'},
+    {sentence:'El texto ___ de falta de rigor.', options:['adolece', 'adolece que', 'adoleciendo', 'adolecer'], correct:0, explain:'adolecer de ＝ 有……缺陷。这是批评文本弱点的固定搭配，语气比 carecer 更书面。'},
+    {sentence:'La conclusión resulta ___ a la vista de los datos.', options:['insostenible', 'insosteniblemente', 'sostener', 'sostenido'], correct:0, explain:'resultar + 形容词 ＝ 显得。insostenible（站不住脚）是学术批评的常用评价词。'},
+    {sentence:'Conviene ___ esa crítica, que no tiene en cuenta el contexto.', options:['matizar', 'matiza', 'matizando', 'matiz'], correct:0, explain:'conviene + 不定式。matizar ＝ 补充限定，是对他人批评表示部分认同的标准方式。'}
   ]}
 ];
 

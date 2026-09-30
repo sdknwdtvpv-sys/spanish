@@ -103,6 +103,31 @@ def main():
     groups = ns['GROUPS']
 
     src = DATA.read_text(encoding='utf-8')
+
+    # 插入前先与**现有题库**比对题干，阻止重复进入。
+    # 之前两次都是靠人工记忆避免重复，结果各引入 1-2 处重复题干，
+    # 由审计事后发现。这一步应该由工具挡在写入之前。
+    existing = set()
+    for m in re.finditer(r"sentence:'((?:[^'\\]|\\.)*)'", src):
+        existing.add(re.sub(r'\s+', '', m.group(1).lower()))
+    for m in re.finditer(r'sentence:"((?:[^"\\]|\\.)*)"', src):
+        existing.add(re.sub(r'\s+', '', m.group(1).lower()))
+    clashes = []
+    seen_new = set()
+    for topic, qs in groups:
+        for sent, opts, correct, exp in qs:
+            k = re.sub(r'\s+', '', sent.lower())
+            if k in existing:
+                clashes.append((topic, sent, '与现有题库重复'))
+            elif k in seen_new:
+                clashes.append((topic, sent, '批次内部重复'))
+            seen_new.add(k)
+    if clashes:
+        print('❌ 题干重复，已拒绝写入：')
+        for t, sent, why in clashes:
+            print('   [%s] %s（%s）' % (t, sent, why))
+        raise SystemExit(1)
+
     end = find_array_end(src, ARRAY)
     head = src[:end - 1].rstrip()
     tail = src[end - 1:]

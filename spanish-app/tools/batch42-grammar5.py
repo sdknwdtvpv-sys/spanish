@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+"""批次 42：补齐剩余可出题语法点（8 组 / 40 题）
+
+覆盖 B1–C2 的正式书面语结构、论证动词句式、法律文书、虚拟式固定表达、
+对比与并列连接、限定与保留、回避与坚持动词、批评性表述分寸。
+
+说明：与单元主题绑定的**具体表达**（「与艺术评论相关的表达」
+「与可持续性相关的正式表达」「网络社交常用动词」）不在此列——
+它们是词汇搭配而非可拆解的语法结构，硬出选择题会变成背搭配。
+"""
+GROUPS = [
+    ('正式书面语结构', [
+        ('El presente trabajo se ___ a analizar tres casos.', ['propone', 'proponga', 'propuso', 'proponiendo'], 0,
+         'se propone + 不定式 ＝ 本文旨在……。这是论文摘要的标准句式，用陈述式现在时。'),
+        ('___ señalar que los datos son preliminares.', ['Cabe', 'Caben', 'Cabe que', 'Cabría que'], 0,
+         'cabe + 不定式 ＝ 值得/可以……。这是无人称结构，动词固定第三人称单数。'),
+        ('___ advertir que la muestra es reducida.', ['Procede', 'Proceden', 'Procede que', 'Procediendo'], 0,
+         'procede + 不定式 ＝ 有必要……。与 cabe 同类的无人称书面句式。'),
+        ('Los resultados deben interpretarse ___ cautela.', ['con', 'en', 'de', 'por'], 0,
+         'con cautela ＝ 谨慎地。这是学术结论中的标准保留表述。'),
+        ('Conviene ___ que el contexto varía según el país.', ['precisar', 'precisa', 'precisando', 'precisión'], 0,
+         'conviene + 不定式 ＝ 宜于、应当。无人称结构，用于提出方法论提醒。'),
+    ]),
+    ('论证类动词的句式', [
+        ('El autor ___ que la medida es insuficiente.', ['sostiene', 'sostenga', 'sostener', 'sosteniendo'], 0,
+         'sostener que + 陈述式（陈述具体主张）。sostener 表事实性论断，不用虚拟式。'),
+        ('___ que faltaba presupuesto para continuar.', ['Adujo', 'Adujera', 'Aduciendo', 'Aducir'], 0,
+         'aducir ＝ 援引（理由）。陈述已发生的事实用简单过去时 adujo。'),
+        ('Objetó que la propuesta no ___ viable.', ['fuera', 'es', 'será', 'era'], 0,
+         'objetar 表反对意见，否定了从句的事实性，用虚拟式 fuera。对比 sostener que 用陈述式。'),
+        ('Reconoció que ___ un error de cálculo.', ['había', 'hubiera', 'haya', 'habría'], 0,
+         'reconocer 表承认既成事实，用陈述式。主句过去时，从句用过去完成时 había。'),
+        ('El informe ___ de falta de datos actualizados.', ['adolece', 'adolece que', 'adoleciendo', 'adolecer'], 0,
+         'adolecer de ＝ 有……缺陷。这是分析文本弱点时的固定动词搭配。'),
+    ]),
+    ('法律与行政文书的固定句式', [
+        ('El que ___ daño a terceros responderá con su patrimonio.', ['causare', 'cause', 'causara', 'causa'], 0,
+         '法律条文用将来虚拟式（-re 形式）指「将来造成损害者」。cause 是现在虚拟式，causara 是过去虚拟式，语域都不合。'),
+        ('Todo lo actuado ___ notificado a las partes en el plazo de diez días.', ['será', 'sea', 'fuera', 'sería'], 0,
+         '法律条文的义务性规定用第三人称将来时：será notificado（应于……内通知）。这不是预测，而是规范性表述。'),
+        ('En virtud ___ artículo quinto, se declara inadmisible.', ['del', 'de el', 'al', 'por el'], 0,
+         'en virtud de + 阳性单数冠词缩合为 del。de el 不能分写。'),
+        ('La norma entrará en vigor ___ su publicación.', ['a partir de', 'a partir', 'desde de', 'de partir de'], 0,
+         'a partir de ＝ 自……起。这是法律文本中生效时点的标准表述。'),
+        ('___ lo dispuesto en el artículo anterior, se deniega la solicitud.', ['Conforme a', 'Conforme', 'Según de', 'De acuerdo'], 0,
+         'conforme a ＝ 依照。de acuerdo 后必须加 con 才能接名词。'),
+    ]),
+    ('带虚拟式的固定表达', [
+        ('___ lo que ocurra, mantendremos la calma.', ['Sea', 'Es', 'Será', 'Fuera'], 0,
+         'sea lo que sea / sea lo que ocurra ＝ 无论发生什么。这类固定表达用虚拟式。'),
+        ('___ dicho sea de paso, el proyecto ya estaba aprobado.', ['Dicho', 'Diciendo', 'Decir', 'Dice'], 0,
+         'dicho sea de paso ＝ 顺便说一句。这是带虚拟式的固定插入语。'),
+        ('Come lo que ___, pero hazlo rápido.', ['quieras', 'quieres', 'querrás', 'querías'], 0,
+         'come lo que quieras ＝ 你想吃什么就吃什么。这类「无论……」结构用虚拟式。'),
+        ('___ más vale, dejemos el tema.', ['Como', 'Cuando', 'Aunque', 'Si'], 0,
+         'como más vale / como mejor ＝ 为求妥当。这是固定的谦让表达，用陈述式。'),
+        ('Que ___ lo que quiera, nosotros seguimos adelante.', ['diga', 'dice', 'dirá', 'decía'], 0,
+         'que diga lo que quiera ＝ 随他怎么说。que + 虚拟式的让步固定句式。'),
+    ]),
+    ('对比与并列的书面连接', [
+        ('___ un lado, ahorra tiempo; por otro, reduce el control.', ['Por', 'De', 'En', 'A'], 0,
+         'por un lado... por otro (lado) ＝ 一方面……另一方面。这是论述中并列两面的固定结构。'),
+        ('El sistema es rápido; ___, resulta caro de mantener.', ['sin embargo', 'porque', 'además de', 'así que'], 0,
+         'sin embargo ＝ 然而，表转折。porque 表原因，así que 表结果，都不合转折逻辑。'),
+        ('___ que el primero es barato, el segundo es duradero.', ['Mientras', 'Aunque', 'Porque', 'Si'], 0,
+         'mientras que ＝ 而（表对比）。这是书面语中并列两个对比事实的标准连接。'),
+        ('No se trata de eficiencia, ___ de legitimidad.', ['sino', 'pero', 'y', 'o'], 0,
+         'no... sino... ＝ 不是……而是。这是纠正性对举，不能用 pero。'),
+        ('El texto es denso; ___ , su lectura recompensa.', ['no obstante', 'por lo tanto', 'porque', 'es decir'], 0,
+         'no obstante ＝ 尽管如此（书面转折）。por lo tanto 表结果，es decir 表解释。'),
+    ]),
+    ('限定与保留的书面表达', [
+        ('___ la medida en que aumentan los datos, crece la incertidumbre.', ['En', 'De', 'A', 'Con'], 0,
+         'en la medida en que ＝ 随着……、在……范围内。这是书面语中限定条件的固定表达。'),
+        ('Lo aceptaré, ___ que no haya cambios.', ['siempre', 'salvo', 'a menos', 'excepto'], 0,
+         'siempre que + 虚拟式表条件（只要）。salvo que 表例外（除非），语义相反。'),
+        ('Los resultados son válidos, ___ algunas excepciones.', ['salvo', 'excepto que', 'a menos', 'sin que'], 0,
+         'salvo + 名词 ＝ 除了……之外。作介词直接接名词，不能接从句。'),
+        ('La conclusión es defendible ___ se precisen los supuestos.', ['en tanto que', 'en tanto', 'tanto que', 'en cuanto que'], 0,
+         'en tanto que ＋ 从句表条件限定（只要）。这是书面语中保留态度的标准结构。'),
+        ('Hasta cierto ___, la crítica es acertada.', ['punto', 'modo', 'caso', 'grado'], 0,
+         'hasta cierto punto ＝ 在某种程度上。这是给论断加限定的固定短语。'),
+    ]),
+    ('表「回避」与「坚持」的动词', [
+        ('El portavoz ___ las preguntas incómodas.', ['rehuyó', 'rehuyo', 'rehuyendo', 'rehuir'], 0,
+         'rehuir ＝ 回避。rehuir 有 o→uy 的拼写变化，简单过去时第三人称为 rehuyó。'),
+        ('___ en su postura pese a las críticas.', ['Se empeñó', 'Empeñó', 'Se empeñando', 'Empeñarse'], 0,
+         'empeñarse en ＝ 执意于。自复动词必须带代词：se empeñó。'),
+        ('El informe ___ el problema central.', ['soslayó', 'soslayando', 'soslayar', 'soslayo'], 0,
+         'soslayar ＝ 回避、绕过（话题）。与 rehuir 近义，但更书面。'),
+        ('___ en negar la evidencia.', ['Se obstinó', 'Obstinó', 'Obstinando', 'Obstinarse'], 0,
+         'obstinarse en ＝ 执意。与 empeñarse en 近义，语气更强。'),
+        ('No ___ en detalles innecesarios.', ['insistas', 'insistes', 'insistirás', 'insistías'], 0,
+         'insistir en 后接从句表建议时用虚拟式。否定的建议表达尤其常用虚拟式。'),
+    ]),
+    ('批评性表述的分寸', [
+        ('Esa afirmación es una ___ sin fundamento.', ['generalización', 'generalizar', 'generalizando', 'general'], 0,
+         '批评时把矛头指向「论证」而非「人」：una generalización sin fundamento。名词化作主语是学术批评的标准形式。'),
+        ('El argumento ___ por su propia cuenta.', ['se refuta', 'refuta', 'refutando', 'refutar'], 0,
+         '指论证自我矛盾时用 refutarse（自证其误）。用自复形式把评价落在论证本身。'),
+        ('El texto ___ de falta de rigor.', ['adolece', 'adolece que', 'adoleciendo', 'adolecer'], 0,
+         'adolecer de ＝ 有……缺陷。这是批评文本弱点的固定搭配，语气比 carecer 更书面。'),
+        ('La conclusión resulta ___ a la vista de los datos.', ['insostenible', 'insosteniblemente', 'sostener', 'sostenido'], 0,
+         'resultar + 形容词 ＝ 显得。insostenible（站不住脚）是学术批评的常用评价词。'),
+        ('Conviene ___ esa crítica, que no tiene en cuenta el contexto.', ['matizar', 'matiza', 'matizando', 'matiz'], 0,
+         'conviene + 不定式。matizar ＝ 补充限定，是对他人批评表示部分认同的标准方式。'),
+    ]),
+]

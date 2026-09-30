@@ -161,21 +161,37 @@ console.log('\n=== 5. 四种学习模式 ===');
     const t = await ev(`document.getElementById('app').innerText.replace(/\s+/g,' ')`);
     check(`${mode} 模式渲染`, kw.test(t) && exc.length === e0, `len=${t.length}`);
   }
-  // 语法题连答
+  // 语法题连答。
+  //
+  // 时序：App 点选后先同步标记选项（correct/wrong）并展示解析，
+  // 1 秒后才推进到下一题或渲染结算页。所以**点击间隔必须大于这 1 秒**，
+  // 否则后续点击会被 answered 标志忽略（实测 100ms 间隔点 40 次只记 4 题）。
+  //
+  // 这里用 1400ms（比原来的实现多留 400ms），并在循环结束后
+  // **轮询等待结算页出现**——原先的偶发失败正是「结算页还没渲染完就做断言」，
+  // 题数统计是对的、只有文案匹配失败，很难看出是竞态。
   await ev(`location.hash='learn/grammar/a1-u1'`); await sleep(1300);
   let q = 0;
   for (let i = 0; i < 20; i++) {
     const ok = await ev(`(()=>{const o=document.querySelector('.quiz-option');if(!o)return false;o.click();return true;})()`);
-    if (!ok) break; q++; await sleep(1400);
+    if (!ok) break;
+    q++;
+    await sleep(1400);
+    if (await ev(`/Muy bien|Sigue practicando/.test(document.getElementById('app').innerText)`)) break;
   }
-  const g = await ev(`(()=>({head:document.getElementById('app').innerText.replace(/\s+/g,' ').slice(0,40),total:AppState.progress.quizTotal}))()`);
+  // 结算页可能比最后一次循环稍晚，最多再等 5 秒
+  for (let w = 0; w < 50; w++) {
+    if (await ev(`/Muy bien|Sigue practicando|正确率/.test(document.getElementById('app').innerText)`)) break;
+    await sleep(100);
+  }
+  const g = await ev(`(()=>({head:document.getElementById('app').innerText.replace(/\s+/g,' ').slice(0,60),full:document.getElementById('app').innerText.replace(/\s+/g,' ').slice(0,200),total:AppState.progress.quizTotal,hash:location.hash,opts:document.querySelectorAll('.quiz-option').length}))()`);
   // 不要断言「至少答了 N 题」：每个单元的语法题主题是随机选的，
   // 主题题量从 4 题到 30 题不等，遇到小主题时循环会因题目答完而提前结束，
   // 于是 q < 10 而误报失败（这不是功能坏了，是断言写错了）。
   // 真正要验证的是「答的题数 = 统计到的答题数」，即连答被正确计数。
   check('语法题可连答并结算',
     /Muy bien|Sigue practicando|正确率/.test(g.head) && q > 0 && g.total === q,
-    `答了 ${q} 题 / 统计 ${g.total} 题`);
+    `答了 ${q} 题 / 统计 ${g.total} 题 / 剩余选项=${g.opts} / hash=${g.hash} / 文案="${g.full}"`);
 }
 
 console.log('\n=== 6. 精读模式 ===');
