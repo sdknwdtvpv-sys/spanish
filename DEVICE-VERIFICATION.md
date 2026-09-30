@@ -87,6 +87,27 @@ adb forward tcp:9222 localabstract:webview_devtools_remote_<pid>
 
 ---
 
+## 3.0 关键对照实验：原生 TTS 插件本身是好的
+
+「插件是否有 bug」和「设备是否具备条件」是两回事，必须分开证明。
+本机除了那台小米真机，还连着一个 Android 16 模拟器（已装 `com.google.android.tts`）。
+在同一份 APK 上做对照：
+
+| 项目 | 小米真机（无可用引擎） | 模拟器（Google TTS） |
+|---|---|---|
+| 插件是否注入 | ✅ 是 | ✅ 是 |
+| `TextToSpeech` 初始化 | ❌ `status=-1`（ERROR） | ✅ `status=0`（SUCCESS） |
+| 西语语音 | ❌ 无 | ✅ `LANG_COUNTRY_AVAILABLE` |
+| `isAvailable` | `{available:false, engineCount:0}` | `{available:true, engineCount:1}` |
+| 可用语言数 | 0 | 81 |
+| 前端 `_nativeTtsReady` | `false` | `true` |
+| 页面日志 | 回落到其它路径 | `[TTS] 已启用原生离线语音引擎` |
+
+**结论：插件实现正确，真机之所以不行是设备缺少可用的系统语音引擎。**
+
+这也说明「测试通过」必须写清是在什么设备上通过的——
+同一份代码在两台设备上得到相反的结果，而原因完全在设备侧。
+
 ## 3. 发音功能：真机上不可用（环境问题，已定位）
 
 这是本次真机校验最重要的发现。原实现只有两条路径，**在真机上都不通**：
@@ -150,8 +171,9 @@ events: ["loadstart", "meta dur=0.98", "canplay", "playing", "play()已解决"]
 这样发音/听力/口语**都不再依赖设备引擎或网络**。原生 TTS 作为补充路径仍接在链上，
 所以用户若装了 Google TTS，音色会更好；没装也照样能听。
 
-> 说明：`minSdk 23` 的设备另有系统级 TTS 可选项，但既然打包音频已能完全覆盖，
-> 就不再要求用户做任何配置。
+> 说明：`minSdk 23` 的设备另有系统级 TTS 可选项。既然打包音频已能完全覆盖，
+> 就不再要求用户做任何配置；但用户若装了引擎（如模拟器上的 Google TTS），
+> 原生路径会被自动启用，音色更好。两条路都已验证可用。
 
 ---
 
