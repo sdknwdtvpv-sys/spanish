@@ -178,25 +178,45 @@ console.log('');
 console.log('── B. 交叉引用一致性 ──');
 {
   // 1. 词库中所有西语词（用于校验「重点词汇」是否真实存在）
+  //    比对时去掉重音：learning 材料的标注未必带重音，带不带重音是同一个词，
+  //    不去重音会把 "profesion" 与 "profesión" 判成两个词，虚增缺口。
+  const stripAcc = (x) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const key = (x) => stripAcc(norm(x));
   const vocabSet = new Set();
-  Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.vocab || []).forEach(w => vocabSet.add(norm(w.es)))));
+  Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.vocab || []).forEach(w => vocabSet.add(key(w.es)))));
 
-  // 听力 keyVocab 是否存在于词库
+  // 缺口要区分「单词」与「短语」：短语（如 "Una mesa para dos"）是听说材料里
+  // 的表达，本来就不该按词条入库；只有单词查不到才是真缺口。
+  // 参考：按单元结束（b2-u12 / c1-u14 / c2-u11）。
+  const isPhrase = (x) => norm(x).split(/\s+/).length > 1;
+  const splitMissing = (list) => ({
+    words: list.filter((x) => !isPhrase(x.raw)),
+    phrases: list.filter((x) => isPhrase(x.raw)),
+  });
+
   let listenMissing = [];
   d.LISTENING_PASSAGES.forEach(p => (p.keyVocab || []).forEach(kv => {
-    if (!vocabSet.has(norm(kv.es))) listenMissing.push(`[${p.level}] ${p.title} → "${kv.es}"`);
+    if (!vocabSet.has(key(kv.es))) listenMissing.push({ raw: kv.es, label: `[${p.level}] ${p.title} → "${kv.es}"` });
   }));
-  if (listenMissing.length) {
-    add('P2', 'B', `听力「重点词汇」中有 ${listenMissing.length} 条不在词库中（学习者无法复习到）`, listenMissing.slice(0, 10));
+  {
+    const { words, phrases } = splitMissing(listenMissing);
+    console.log(`  听力重点词汇未入库：单词 ${words.length} / 短语 ${phrases.length}（短语为表达，不计缺口）`);
+    if (words.length) {
+      add('P2', 'B', `听力「重点词汇」中有 ${words.length} 个单词不在词库中（学习者无法复习到）`,
+        words.slice(0, 10).map((x) => x.label));
+    }
   }
 
-  // 口语 vocab 是否存在于词库
   let speakMissing = [];
   d.SPEAKING_SENTENCES.forEach(s => (s.vocab || []).forEach(v => {
-    if (!vocabSet.has(norm(v))) speakMissing.push(`[${s.level}] "${v}"`);
+    if (!vocabSet.has(key(v))) speakMissing.push({ raw: v, label: `[${s.level}] "${v}"` });
   }));
-  if (speakMissing.length) {
-    add('P2', 'B', `口语关键词中有 ${speakMissing.length} 条不在词库中`, speakMissing.slice(0, 10));
+  {
+    const { words, phrases } = splitMissing(speakMissing);
+    console.log(`  口语关键词未入库：单词 ${words.length} / 短语 ${phrases.length}（短语为表达，不计缺口）`);
+    if (words.length) {
+      add('P2', 'B', `口语关键词中有 ${words.length} 个单词不在词库中`, words.slice(0, 10).map((x) => x.label));
+    }
   }
 
   // 2. 精读 glossary 与词库的关系
@@ -227,8 +247,6 @@ console.log('── B. 交叉引用一致性 ──');
   Object.values(d.COURSES).forEach(l => l.units.forEach(u => (u.grammar || []).forEach(g => grammarPointTitles.push(g.title))));
   const quizTopics = d.GRAMMAR_QUIZZES.map(s => s.topic);
   console.log(`  词库唯一词形 ${vocabSet.size}`);
-  console.log(`  听力重点词汇未入库 ${listenMissing.length} 条`);
-  console.log(`  口语关键词未入库 ${speakMissing.length} 条`);
   console.log(`  精读生词未入总词库 ${glossTrulyMissing.length} 条`);
   console.log(`  精读生词核心词不在正文 ${glossNotInText.length} 条`);
   console.log(`  语法点 ${grammarPointTitles.length} 条 / 语法题主题 ${quizTopics.length} 个`);

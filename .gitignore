@@ -5,3 +5,6 @@ node_modules/
 www/
 *.log
 .DS_Store
+# Android 构建工具链（体积大，放在工作区内避免被环境清理，但不入库）
+.jdk-download/
+.android-sdk/
