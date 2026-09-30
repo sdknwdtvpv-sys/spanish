@@ -604,6 +604,28 @@ const COURSES = {
           {title:'表示频率的说法', desc:'todos los días / una vez a la semana / dos veces por semana / los sábados / de vez en cuando / casi nunca / siempre。注意「每周两次」用 dos veces por semana 或 a la semana。'},
           {title:'gustar / encantar / apasionar', desc:'这类动词的主语是被喜欢的事物：Me gusta leer / Me encantan los libros。apasionar 语气最强：Me apasiona la historia（我对历史着迷）。复数事物用复数动词。'}
         ]
+      },
+      { id:'a1-u16', title:'补充基础词', subtitle:'Vocabulario Básico Complementario', lessons:8, duration:'约 25 分钟',
+        vocab:[
+          {es:'La profesora', zh:'女教师', example:'La profesora explicó la lección.'},
+          {es:'Encantada', zh:'很高兴认识你（女方用语）', example:'Encantada de conocerte.'},
+          {es:'Escuchar', zh:'听', example:'Me gusta escuchar música.'},
+          {es:'El suplemento', zh:'增刊、补剂', example:'El periódico trae un suplemento cultural.'},
+          {es:'La constancia', zh:'坚持、恒心', example:'La constancia vale más que el talento.'},
+          {es:'Sincera', zh:'坦诚的（阴性）', example:'Fue muy sincera conmigo.'},
+          {es:'Innovador', zh:'创新的', example:'Es un enfoque innovador.'},
+          {es:'Inflamado', zh:'发炎的、红肿的', example:'Tiene el tobillo inflamado.'},
+          {es:'El decorado', zh:'布景', example:'El decorado cambia en cada acto.'},
+          {es:'El egresado', zh:'毕业生', example:'Los egresados buscan trabajo.'},
+          {es:'Catalogado', zh:'被列入名录的', example:'Es un edificio catalogado.'},
+          {es:'Desmedido', zh:'过度的、无节制的', example:'Su ambición es desmedida.'},
+          {es:'La palabrería', zh:'空话', example:'Su discurso es pura palabrería.'}
+        ],
+        grammar:[
+          {title:'形容词的阴阳性（补充）', desc:'sincero / sincera、innovador / innovadora、inflamado / inflamada —— 以 -o 结尾的形容词修饰阴性名词时改为 -a；以 -or 结尾的加 -a（trabajador / trabajadora），少数不变（inteligente）。'},
+          {title:'encantado / encantada 的用法', desc:'初次见面说 Encantado（男）/ Encantada（女），意思是「很高兴认识你」。选择哪个形式取决于**说话人自己**的性别，而不是对方。'},
+          {title:'escuchar 与 oír 的区别', desc:'oír 是「听到」（被动接收声音），escuchar 是「听」（主动去听）。Escucho música（我在听音乐）vs Oigo un ruido（我听到一个响声）。'}
+        ]
       }
     ]
   },
@@ -2589,6 +2611,55 @@ const COURSES = {
           {title:'表示「程度变化」的动词搭配', desc:'mitigar（缓解）、agravar（加剧）、repuntar（回升）、estancarse（停滞）、dispararse（飙升）。这类动词在描述趋势时比「subir/bajar」更精确，是 B2 阶段应掌握的语域升级。'},
           {title:'让步与限定的常用短语', desc:'a fin de cuentas / en cierto modo / hasta cierto punto / en la práctica —— 这些短语用来给论断加限定，避免绝对化。学术与评论写作中，没有限定语的断言通常会被视为不严谨。'}
         ]
+      },
+      { id:'b2-u13', title:'论证与反驳句式', subtitle:'Estructuras de Argumentación y Refutación', lessons:12, duration:'约 45 分钟',
+        vocab:[
+          {es:'Sostener que', zh:'主张', example:'Sostiene que la medida es necesaria.'},
+          {es:'Aducir que', zh:'援引理由', example:'Adujo que faltaba presupuesto.'},
+          {es:'Objetar que', zh:'提出异议', example:'Objetó que el plazo era imposible.'},
+          {es:'Rebatir', zh:'反驳', example:'Rebatió el argumento con datos.'},
+          {es:'Refutar', zh:'驳倒', example:'Refutó la hipótesis por completo.'},
+          {es:'Contraargumentar', zh:'提出反论', example:'Contraargumentó con un ejemplo.'},
+          {es:'Conceder que', zh:'承认（让步）', example:'Concede que hay avances, pero insuficientes.'},
+          {es:'Reconocer que', zh:'承认', example:'Reconoce que se equivocó.'},
+          {es:'Cuestionar', zh:'质疑', example:'Cuestión la premisa del estudio.'},
+          {es:'Matizar', zh:'补充限定', example:'Conviene matizar esa conclusión.'},
+          {es:'Precisar', zh:'明确说明', example:'Precisó que no era una promesa.'},
+          {es:'Recalcar', zh:'强调', example:'Recalcó la urgencia del problema.'},
+          {es:'Incidir en', zh:'强调、着重于', example:'Incidió en la falta de datos.'},
+          {es:'Poner de relieve', zh:'凸显', example:'Puso de relieve la contradicción.'},
+          {es:'Pasar por alto', zh:'忽略', example:'No podemos pasar por alto ese detalle.'},
+          {es:'Dar por sentado', zh:'想当然', example:'Dio por sentado lo que debía demostrar.'},
+          {es:'Caer en', zh:'陷入（错误）', example:'Cae en una contradicción evidente.'},
+          {es:'Incurrir en', zh:'犯（错误）', example:'Incurrió en el mismo error.'},
+          {es:'Adolecer de', zh:'有……缺陷', example:'El estudio adolece de falta de muestra.'},
+          {es:'Pecar de', zh:'失之于、犯……毛病', example:'El informe peca de optimista.'},
+          {es:'Carecer de', zh:'缺乏', example:'La propuesta carece de fundamento.'},
+          {es:'Prescindir de', zh:'舍弃、不考虑', example:'Prescinde de los datos incómodos.'},
+          {es:'Remitirse a', zh:'援引、依据', example:'Se remite a estudios previos.'},
+          {es:'Atenerse a', zh:'依据、遵循', example:'Nos atenemos a los hechos.'},
+          {es:'Cernirse a', zh:'严格限于', example:'Hay que cernirse a lo esencial del asunto.'},
+          {es:'Deslindar', zh:'划清界限', example:'Conviene deslindar ambos conceptos.'},
+          {es:'Inferir de', zh:'从……推断', example:'De ahí se infiere una conclusión.'},
+          {es:'Equivale a', zh:'等于', example:'Eso equivale a admitir el error.'},
+          {es:'Traducirse en', zh:'转化为', example:'El esfuerzo se tradujo en resultados.'},
+          {es:'Venir a decir', zh:'等于说', example:'Viene a decir que nadie es responsable.'},
+          {es:'En rigor', zh:'严格说来', example:'En rigor, la afirmación es falsa.'},
+          {es:'A todas luces', zh:'显然', example:'Es a todas luces insuficiente.'},
+          {es:'En última instancia', zh:'归根结底', example:'En última instancia decide el poder.'},
+          {es:'Por lo pronto', zh:'就目前而言', example:'Por lo pronto no hay cambios.'},
+          {es:'De entrada', zh:'一开始、首先', example:'De entrada, la premisa es dudosa.'},
+          {es:'Sin ir más lejos', zh:'不必远求（就近举例）', example:'Sin ir más lejos, este mismo caso.'},
+          {es:'Ni mucho menos', zh:'更谈不上', example:'No es fácil, ni mucho menos obvio.'},
+          {es:'Lejos de', zh:'非但不……反而', example:'Lejos de resolverse, empeoró.'},
+          {es:'Antes bien', zh:'反倒', example:'No se debilitó, antes bien se reforzó.'},
+          {es:'Todo lo contrario', zh:'恰恰相反', example:'Todo lo contrario: aumentó.'}
+        ],
+        grammar:[
+          {title:'论证动词的语式选择', desc:'sostener / aducir / reconocer / conceder que + 陈述式（陈述具体主张）；objetar / pedir / sugerir que + 虚拟式（表意志）。判断依据是从句所表达的是「事实断言」还是「意愿要求」。'},
+          {title:'让步—转折的三段式', desc:'Concede que X, pero Y；Si bien X, Y；Es cierto que X, sin embargo Y。西语论证写作的标准让步结构：先承认对方最强的一点，再给出限定，比直接否定更有效。'},
+          {title:'介词化动词短语', desc:'adolecer de / pecar de / carecer de / incurrir en / caer en / remitirse a / atenerse a / cernirse a —— 这些动词的介词搭配固定，用错会改变语义或使句子不成立，需要整块记忆。'}
+        ]
       }
     ]
   },
@@ -3267,6 +3338,55 @@ const COURSES = {
           {title:'表「制约」与「决定」的动词梯度', desc:'condicionar（制约，有影响但非唯一因素）< determinar（决定）< provocar（导致）。选词精度直接决定论断强度，这是 C1 写作的关键区分。'},
           {title:'无人称结构与客观化', desc:'Cabe señalar / Procede recordar / Conviene precisar / Resulta oportuno matizar —— 用无人称句引出自己的判断，既保持客观语气，又暗示立场。这是学术书面语与新闻评论的通用手法。'}
         ]
+      },
+      { id:'c1-u15', title:'学术写作句式', subtitle:'Estructuras de Escritura Académica', lessons:12, duration:'约 50 分钟',
+        vocab:[
+          {es:'El planteamiento', zh:'论述框架', example:'El planteamiento del problema es claro.'},
+          {es:'El marco teórico', zh:'理论框架', example:'El marco teórico es pertinente.'},
+          {es:'El estado de la cuestión', zh:'研究现状', example:'Resume el estado de la cuestión.'},
+          {es:'La delimitación', zh:'界定', example:'Falta delimitar el objeto de estudio.'},
+          {es:'El corpus', zh:'语料', example:'El corpus consta de mil textos.'},
+          {es:'La variable', zh:'变量', example:'Se controlaron tres variables.'},
+          {es:'El indicador', zh:'指标', example:'El indicador es poco fiable.'},
+          {es:'La robustez', zh:'稳健性', example:'La robustez del resultado es discutible.'},
+          {es:'La validez externa', zh:'外部效度', example:'La validez externa queda en duda.'},
+          {es:'La replicabilidad', zh:'可复现性', example:'La replicabilidad es un requisito.'},
+          {es:'El sesgo de selección', zh:'选择偏差', example:'Hubo sesgo de selección en la muestra.'},
+          {es:'La significatividad', zh:'显著性', example:'La significatividad estadística es baja.'},
+          {es:'La correlación espuria', zh:'虚假相关', example:'Es una correlación espuria.'},
+          {es:'El grupo de control', zh:'对照组', example:'El grupo de control no recibió tratamiento.'},
+          {es:'La triangulación', zh:'三角互证', example:'La triangulación refuerza las conclusiones.'},
+          {es:'El sesgo del investigador', zh:'研究者偏差', example:'El sesgo del investigador es inevitable.'},
+          {es:'La revisión sistemática', zh:'系统性综述', example:'Publicaron una revisión sistemática.'},
+          {es:'El metaanálisis', zh:'元分析', example:'El metaanálisis agrupa veinte estudios.'},
+          {es:'La hipótesis nula', zh:'零假设', example:'Se rechazó la hipótesis nula.'},
+          {es:'El intervalo de confianza', zh:'置信区间', example:'El intervalo de confianza es amplio.'},
+          {es:'El tamaño del efecto', zh:'效应量', example:'El tamaño del efecto es pequeño.'},
+          {es:'La generalización', zh:'推广性', example:'La generalización es arriesgada.'},
+          {es:'El supuesto', zh:'前提假定', example:'El supuesto no se explicita.'},
+          {es:'La limitación', zh:'局限', example:'El artículo reconoce sus limitaciones.'},
+          {es:'El alcance', zh:'研究范围', example:'El alcance es deliberadamente acotado.'},
+          {es:'La réplica', zh:'重复研究', example:'La réplica no confirmó el hallazgo.'},
+          {es:'El acervo', zh:'积累、总汇', example:'El acervo documental es enorme.'},
+          {es:'La controversia', zh:'争议', example:'La controversia sigue abierta.'},
+          {es:'El consenso', zh:'共识', example:'No hay consenso sobre el método.'},
+          {es:'La refutación', zh:'反驳', example:'La refutación es convincente.'},
+          {es:'La falacia', zh:'谬误', example:'Es una falacia de composición.'},
+          {es:'La circularidad', zh:'循环论证', example:'Hay circularidad en el argumento.'},
+          {es:'La premisa implícita', zh:'隐含前提', example:'Detecta una premisa implícita dudosa.'},
+          {es:'El contraejemplo', zh:'反例', example:'Basta un contraejemplo para refutarlo.'},
+          {es:'La objeción', zh:'反对意见', example:'Anticipa tres objeciones posibles.'},
+          {es:'La salvedad', zh:'保留意见', example:'Añade una salvedad metodológica.'},
+          {es:'El escollo', zh:'障碍、暗礁', example:'Quedan dos escollos por salvar.'},
+          {es:'El trasfondo', zh:'背景、底层', example:'El trasfondo ideológico es claro.'},
+          {es:'La tesitura', zh:'处境、局面', example:'En esa tesitura, conviene esperar.'},
+          {es:'La aquiescencia', zh:'默许', example:'Su aquiescencia fue silenciosa.'}
+        ],
+        grammar:[
+          {title:'学术写作的无人称框架', desc:'El presente trabajo se propone / Cabe señalar que / Procede advertir que / Conviene precisar que —— 西语学术论文用这些无人称句交代写作意图与限定，避免第一人称「我认为」。'},
+          {title:'表达方法与结果的时态', desc:'描述方法用过去时（se aplicó una encuesta）；陈述结果与结论用现在时（los datos muestran）。这一时态分工在学术写作中是固定的，混用会被视为不专业。'},
+          {title:'局限性与展望的固定表述', desc:'Entre las limitaciones del estudio cabe mencionar... / Futuras investigaciones deberían... / Los resultados deben tomarse con cautela。论文的「局限」一节几乎完全由这些套语构成。'}
+        ]
       }
     ]
   },
@@ -3707,7 +3827,7 @@ const COURSES = {
           {es:'El significante', zh:'能指', example:'El significante y el significado forman el signo.'},
           {es:'El significado', zh:'所指', example:'La relación entre significado y referente.'},
           {es:'El referente', zh:'指称对象', example:'El referente es el objeto real.'},
-          {es:'La denotación', zh:'外延', example:'La denotación es el sentido literal.'},
+          {es:'La denotación', zh:'外延、字面义', example:'La denotación es el sentido literal.'},
           {es:'La connotación', zh:'内涵 / 言外之意', example:'La connotación añade matices.'},
           {es:'El signo lingüístico', zh:'语言符号', example:'El signo lingüístico es arbitrario.'},
           {es:'La arbitrariedad', zh:'任意性', example:'La arbitrariedad del signo es un principio.'},
@@ -3958,6 +4078,57 @@ const COURSES = {
           {title:'否定范围的精确表达', desc:'jamás（永不，比 nunca 更强）/ en absoluto / de ningún modo / ni mucho menos（更谈不上）。ni mucho menos 用于追加否定：「这不容易，更谈不上显而易见」。'},
           {title:'表「回避」与「坚持」的动词', desc:'rehuir + 名词（回避某事）/ eludir / soslayar / esquivar；empeñarse en + 不定式（执意做）/ obstinarse en / insistir en。这些动词的语义强度与语域各不相同。'},
           {title:'学术语域的名词化倾向', desc:'西语学术写作大量使用名词化：aqueous、asepsia、inteligibilidad、contrastabilidad。名词化能提高信息密度，但过度使用会让句子难以理解——判断标准是「读者能否一眼找到动作的主体」。'}
+        ]
+      },
+      { id:'c2-u12', title:'语用与修辞手段', subtitle:'Pragmática y Recursos Retóricos', lessons:12, duration:'约 55 分钟',
+        vocab:[
+          {es:'La presuposición', zh:'预设', example:'La pregunta contiene una presuposición.'},
+          {es:'La implicatura', zh:'会话隐含', example:'La implicatura no se dice, se infiere.'},
+          {es:'El acto de habla', zh:'言语行为', example:'Prometer es un acto de habla.'},
+          {es:'La deixis', zh:'指示', example:'La deixis sitúa el enunciado.'},
+          {es:'La modalidad', zh:'情态', example:'La modalidad expresa duda o certeza.'},
+          {es:'El registro', zh:'语域', example:'El registro cambia según el contexto.'},
+          {es:'La atenuación', zh:'缓和语', example:'Usa atenuación para no imponer.'},
+          {es:'La cortesía', zh:'礼貌', example:'La cortesía varía entre culturas.'},
+          {es:'La ironía', zh:'反讽', example:'La ironía invierte el sentido literal.'},
+          {es:'La litote', zh:'曲言法', example:'La litote niega lo contrario.'},
+          {es:'La preterición', zh:'阳否阴述', example:'La preterición menciona al negarlo.'},
+          {es:'El circunloquio', zh:'迂回说法', example:'Evitó el tema con circunloquios.'},
+          {es:'La ambigüedad calculada', zh:'刻意含混', example:'La ambigüedad calculada permite negarlo.'},
+          {es:'El doble sentido', zh:'双关', example:'El doble sentido es intencionado.'},
+          {es:'La elipsis', zh:'省略', example:'La elipsis omite lo obvio.'},
+          {es:'La anáfora', zh:'首语重复 / 回指', example:'La anáfora insiste al repetir.'},
+          {es:'El asíndeton', zh:'连词省略', example:'El asíndeton acelera el ritmo.'},
+          {es:'El polisíndeton', zh:'连词叠用', example:'El polisíndeton frena y solemniza.'},
+          {es:'La gradación', zh:'层递', example:'La gradación intensifica el argumento.'},
+          {es:'La antítesis', zh:'对照', example:'La antítesis opone dos ideas.'},
+          {es:'La paradoja', zh:'悖论', example:'La paradoja obliga a releer.'},
+          {es:'El oxímoron', zh:'矛盾修辞', example:'El oxímoron une contrarios.'},
+          {es:'El eufemismo', zh:'委婉语', example:'El eufemismo oculta la crudeza.'},
+          {es:'La hipérbole', zh:'夸张', example:'La hipérbole debilita la tesis.'},
+          {es:'La metonimia', zh:'换喻', example:'La metonimia sustituye por contigüidad.'},
+          {es:'La sinécdoque', zh:'提喻', example:'La sinécdoque toma la parte por el todo.'},
+          {es:'El apóstrofe', zh:'呼语', example:'El apóstrofe interpela al ausente.'},
+          {es:'La reticencia', zh:'欲言又止', example:'La reticencia sugiere sin afirmar.'},
+          {es:'La digresión', zh:'离题', example:'La digresión interrumpe el hilo.'},
+          {es:'El tono', zh:'语气', example:'El tono condiciona la recepción.'},
+          {es:'La vehemencia', zh:'激烈、激昂', example:'Habló con vehemencia inusual.'},
+          {es:'La mesura', zh:'节制', example:'La mesura del estilo convence más.'},
+          {es:'La rotundidad', zh:'斩钉截铁', example:'La rotundidad no sustituye la prueba.'},
+          {es:'La ambigüedad', zh:'含糊、歧义', example:'La ambigüedad fue deliberada.'},
+          {es:'La prolijidad', zh:'冗长', example:'La prolijidad cansa al lector.'},
+          {es:'La concisión', zh:'简洁', example:'La concisión exige más trabajo.'},
+          {es:'La pertinencia', zh:'相关性', example:'La pertinencia del ejemplo es dudosa.'},
+          {es:'La oportunidad', zh:'适时', example:'La oportunidad del comentario es dudosa.'},
+          {es:'La sutileza', zh:'微妙', example:'La sutileza del matiz se pierde.'},
+          {es:'El matiz', zh:'细微差别', example:'Ese matiz cambia el sentido.'},
+          {es:'La carga connotativa', zh:'内涵色彩', example:'La carga connotativa es negativa.'},
+          {es:'La denotación', zh:'外延、字面义', example:'La denotación es neutra.'}
+        ],
+        grammar:[
+          {title:'缓和语与礼貌策略', desc:'Quizá / Tal vez / Me parece que / Si no me equivoco / Hasta cierto punto —— 西语用这些手段给自己的判断留退路。学术与商务场合几乎不使用无缓和的断言，这是语用能力的核心。'},
+          {title:'预设的识别与利用', desc:'「¿Por qué dejaste de fumar?」预设了对方曾吸烟。识别预设是辩论中的关键技能：否定一个含预设的问题，必须先指出预设本身不成立，否则会陷入对方设定的框架。'},
+          {title:'修辞格的辨识', desc:'oxímoron（矛盾修辞，如 «silencio atronador»）、litote（曲言，如 «no está mal» 意为很好）、preterición（阳否阴述，声明不提却提了）。识别这些手段是理解反讽与言外之意的前提。'}
         ]
       }
     ]

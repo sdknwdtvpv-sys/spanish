@@ -1,6 +1,6 @@
 # Lingua 内容审计报告
 
-**审计对象**：`sdknwdtvpv-sys/spanish` · `spanish-app/data/courses.js`（3650 词条 / 72 单元 / 402 语法题 / 217 语法点 / 40 听力 / 75 口语 / 36 精读 / 600 搭配 / 22 成就 / 8 社区帖）
+**审计对象**：`sdknwdtvpv-sys/spanish` · `spanish-app/data/courses.js`（3785 词条 / 76 单元 / 402 语法题 / 229 语法点 / 40 听力 / 75 口语 / 36 精读 / 600 搭配 / 22 成就 / 8 社区帖）
 **审计日期**：2026-09-30（含四轮内容扩充后的复审）
 **审计工具**：`scripts/audit-content.mjs`（词汇层）+ `scripts/audit-gaps.mjs`（语法题库/成就/社区帖/搭配层）+ `scripts/check-data.mjs` + `scripts/spanish-morphology.mjs` + `scripts/grammar-coverage.mjs`
 
@@ -227,7 +227,7 @@ TypeError: Cannot read properties of undefined (reading 'es')
 | 跨单元共用例句 | — | — | — | 15 组 | **0 组** |
 | 语法题结构/选项/题干异常 | 0 | 0 | 0 | 0 | **0** |
 | 语法题解析过短（讲不清） | 31 | 31 | 31 | 31 | **0** |
-| 语法点无对应练习 | 未测 | 未测 | 未测 | 194（误报） | **87 / 217** |
+| 语法点无对应练习 | 未测 | 未测 | 未测 | 194（误报） | **95 / 229** |
 | 同词多义（设计如此） | 误报为缺陷 | 误报为缺陷 | 改判 | 改判 | **50 个，已改判** |
 | 疑似非单词条目 | 3 | **0** | **0** | **0** | **0** |
 | 中西文相同词条 | 1 | **0** | **0** | **0** | **0** |
