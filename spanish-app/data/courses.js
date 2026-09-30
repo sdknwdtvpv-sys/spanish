@@ -10276,7 +10276,7 @@ const LISTENING_PASSAGES = [
       {q:'¿Qué debilidad reconoce?', a:'Le cuesta delegar.'}
     ]
   },
-  {level:'B1', title:'讨论环保习惯', speaker:'Elena / Marcos', duration:'约 55 秒',
+  {level:'B1', title:'减少塑料使用', speaker:'Elena / Marcos', duration:'约 55 秒',
     es:`ELENA: Últimamente intento reducir el plástico. Llevo bolsas de tela al mercado.\nMARCOS: Yo empecé hace poco a separar la basura, pero reconozco que me cuesta.\nELENA: Lo difícil es la constancia, ¿verdad?\nMARCOS: Totalmente. Al principio te parece un rollo, pero luego se convierte en rutina.\nELENA: En mi oficina hemos puesto puntos de reciclaje y funciona bastante bien.\nMARCOS: Es buena idea. A veces basta con que alguien dé el primer paso.\nELENA: Exacto. Si cada uno pone su granito de arena, se nota.`,
     zh:'埃莱娜：最近我在尽量减少塑料。去市场都带布袋。\n马科斯：我刚开始垃圾分类，但说实话挺难的。\n埃莱娜：难的是坚持，对吧？\n马科斯：完全同意。一开始觉得是麻烦事，后来就成了习惯。\n埃莱娜：我们办公室放了回收点，效果还不错。\n马科斯：好主意。有时候只要有人迈出第一步就够了。\n埃莱娜：没错。每个人都出一份力，就能看到效果。',
     keyVocab:[
@@ -11430,7 +11430,7 @@ OPERADORA: Por supuesto, le mando un correo ahora mismo.`,
       {q:'¿Qué puede hacer si no llega la devolución?', a:'Volver a llamar con el número de la operación para abrir una reclamación formal.'}
     ]
   },
-  {level:'B1', title:'租房看房', speaker:'Agente / Inquilina', duration:'约 60 秒',
+  {level:'B1', title:'租房看房：询问费用与条件', speaker:'Agente / Inquilina', duration:'约 60 秒',
     es:`AGENTE: Este es el piso. Son sesenta metros y tiene dos habitaciones.
 INQUILINA: ¿Está incluida la comunidad en el alquiler?
 AGENTE: Sí, la comunidad y el agua. La luz va aparte.
@@ -11464,7 +11464,7 @@ AGENTE: El propietario prefiere que no, pero se puede negociar.`,
       {q:'¿Qué opina el propietario sobre las mascotas?', a:'Prefiere que no haya, pero se puede negociar.'}
     ]
   },
-  {level:'B1', title:'讨论环保习惯', speaker:'Sara / Tomás', duration:'约 55 秒',
+  {level:'B1', title:'垃圾分类与堆肥', speaker:'Sara / Tomás', duration:'约 55 秒',
     es:`SARA: ¿Tú reciclas en casa?
 TOMÁS: Sí, separamos el vidrio, el papel y el plástico.
 SARA: Nosotros además hacemos compost con los restos de comida.
@@ -11495,6 +11495,185 @@ SARA: Sí, así no compramos botellas. Ahorras dinero y plástico.`,
       {q:'¿Qué separa Tomás en casa?', a:'El vidrio, el papel y el plástico.'},
       {q:'¿Qué hace Sara con los restos de comida?', a:'Hace compost.'},
       {q:'¿Por qué no compran botellas de agua?', a:'Porque el agua del grifo es potable, así ahorran dinero y plástico.'}
+    ]
+  },
+  {level:'A1', title:'在面包店', speaker:'Dependienta / Cliente', duration:'约 30 秒',
+    es:`DEPENDIENTA: Buenos días, ¿qué le pongo?
+CLIENTE: Una barra de pan, por favor.
+DEPENDIENTA: ¿Algo más?
+CLIENTE: Sí, dos cruasanes.
+DEPENDIENTA: Son dos euros con cincuenta.
+CLIENTE: Aquí tiene. Gracias.`,
+    zh:`店员：早上好，您要什么？
+顾客：一根面包，谢谢。
+店员：还要别的吗？
+顾客：要，两个牛角包。
+店员：一共两块五。
+顾客：给您。谢谢。`,
+    keyVocab:[
+      {es:'¿Qué le pongo?', zh:'您要什么？（店里问顾客）'},
+      {es:'Una barra de pan', zh:'一根长面包'},
+      {es:'El cruasán', zh:'牛角包'},
+      {es:'Aquí tiene', zh:'给您（递东西时）'}
+    ],
+    questions:[
+      {q:'¿Qué compra el cliente?', a:'Una barra de pan y dos cruasanes.'},
+      {q:'¿Cuánto cuesta?', a:'Dos euros con cincuenta.'}
+    ]
+  },
+  {level:'A1', title:'打电话约朋友', speaker:'Ana / Pablo', duration:'约 30 秒',
+    es:`ANA: ¿Diga? 
+PABLO: Hola, Ana, soy Pablo. ¿Qué haces esta tarde?
+ANA: Nada especial. ¿Por qué?
+PABLO: ¿Quieres ir al cine?
+ANA: Vale. ¿A qué hora?
+PABLO: A las siete, si te parece bien.
+ANA: Perfecto, hasta luego.`,
+    zh:`安娜：喂？
+巴勃罗：安娜你好，我是巴勃罗。你今天下午做什么？
+安娜：没什么特别的。怎么了？
+巴勃罗：想去看电影吗？
+安娜：好啊。几点？
+巴勃罗：七点，如果你觉得可以。
+安娜：好，待会儿见。`,
+    keyVocab:[
+      {es:'¿Diga?', zh:'喂？（接电话）'},
+      {es:'Soy Pablo', zh:'我是巴勃罗'},
+      {es:'Nada especial', zh:'没什么特别的'},
+      {es:'Si te parece bien', zh:'如果你觉得可以'},
+      {es:'Hasta luego', zh:'待会儿见'}
+    ],
+    questions:[
+      {q:'¿Quién llama?', a:'Pablo.'},
+      {q:'¿Qué van a hacer?', a:'Van a ir al cine.'},
+      {q:'¿A qué hora quedan?', a:'A las siete.'}
+    ]
+  },
+  {level:'B1', title:'谈职业规划', speaker:'Orientadora / Álvaro', duration:'约 65 秒',
+    es:`ORIENTADORA: Cuéntame, ¿tienes claro qué quieres hacer?
+ÁLVARO: No del todo. Me interesa la tecnología, pero no sé en qué área.
+ORIENTADORA: ¿Has pensado en hacer prácticas antes de decidir?
+ÁLVARO: La verdad es que no. Pensaba que primero había que elegir.
+ORIENTADORA: No necesariamente. Probar te da información que ningún test da.
+ÁLVARO: Tiene sentido. ¿Dónde puedo buscar prácticas?
+ORIENTADORA: En la bolsa de empleo de la universidad y en algunos programas públicos.
+ÁLVARO: Voy a mirarlo esta semana.`,
+    zh:`指导老师：说说看，你清楚自己想做什么吗？
+阿尔瓦罗：不完全清楚。我对技术感兴趣，但不知道具体哪个方向。
+指导老师：你考虑过先实习再决定吗？
+阿尔瓦罗：其实没有。我以为得先选定方向。
+指导老师：不一定。试过才能获得任何测评都给不了的信息。
+阿尔瓦罗：有道理。我在哪里能找到实习？
+指导老师：学校的就业平台，还有一些公共项目。
+阿尔瓦罗：我这周就去看看。`,
+    keyVocab:[
+      {es:'¿Tienes claro?', zh:'你清楚吗？'},
+      {es:'No del todo', zh:'不完全'},
+      {es:'hacer prácticas', zh:'实习'},
+      {es:'Tiene sentido', zh:'有道理'},
+      {es:'la bolsa de empleo', zh:'就业平台、招聘库'},
+      {es:'Voy a mirarlo', zh:'我去看看'}
+    ],
+    questions:[
+      {q:'¿Tiene claro Álvaro lo que quiere hacer?', a:'No del todo: le interesa la tecnología pero no sabe en qué área.'},
+      {q:'¿Qué le sugiere la orientadora?', a:'Que haga prácticas antes de decidir, porque probar da información que ningún test da.'},
+      {q:'¿Dónde puede buscar prácticas?', a:'En la bolsa de empleo de la universidad y en algunos programas públicos.'}
+    ]
+  },
+  {level:'B1', title:'与房东沟通维修问题', speaker:'Inquilino / Casera', duration:'约 60 秒',
+    es:`INQUILINO: Buenos días, le llamo por la calefacción.
+CASERA: ¿Qué le pasa?
+INQUILINO: Lleva tres días sin funcionar y en casa hace mucho frío.
+CASERA: Lo siento. ¿Ha mirado si es la caldera?
+INQUILINO: Sí, y el técnico dice que hay que cambiar una pieza.
+CASERA: De acuerdo, mándame el presupuesto y lo arreglamos.
+INQUILINO: ¿Se encarga usted del pago?
+CASERA: Sí, eso corre de mi cuenta según el contrato.`,
+    zh:`租客：您好，我打电话是说暖气的事。
+房东：怎么了？
+租客：已经三天不工作了，家里很冷。
+房东：抱歉。您看过是不是锅炉的问题吗？
+租客：看了，技术员说需要换一个零件。
+房东：好，把报价发给我，我们处理。
+租客：您负责付款吗？
+房东：是的，按合同这由我承担。`,
+    keyVocab:[
+      {es:'le llamo por', zh:'我打电话是为了……'},
+      {es:'sin funcionar', zh:'不能工作、坏了'},
+      {es:'la caldera', zh:'锅炉'},
+      {es:'el presupuesto', zh:'报价'},
+      {es:'corre de mi cuenta', zh:'由我承担'},
+      {es:'según el contrato', zh:'按合同'}
+    ],
+    questions:[
+      {q:'¿Por qué llama el inquilino?', a:'Porque la calefacción lleva tres días sin funcionar.'},
+      {q:'¿Qué dice el técnico?', a:'Que hay que cambiar una pieza.'},
+      {q:'¿Quién paga la reparación?', a:'La casera, según el contrato.'}
+    ]
+  },
+  {level:'C2', title:'学术对谈：何为证据', speaker:'Profesora Ríos / Doctor Vega', duration:'约 90 秒',
+    es:`RÍOS: Hablamos de evidencia como si fuera una sola cosa, y no lo es.
+VEGA: En efecto. Está la evidencia que uno produce y la que hereda del campo.
+RÍOS: Y no pesan igual. Un dato replicado vale más que uno llamativo.
+VEGA: De acuerdo, aunque replicar tampoco garantiza gran cosa si el diseño era malo.
+RÍOS: Ahí está el problema: la replicación valida el procedimiento, no la pregunta.
+VEGA: Se puede replicar impecablemente una pregunta irrelevante.
+RÍOS: Y publicarla, porque el método es correcto.
+VEGA: Lo cual deja al lector con la impresión de que sabemos más de lo que sabemos.`,
+    zh:`里奥斯教授：我们谈论证据时，仿佛它是单一的东西，其实不是。
+维加博士：确实。有你自己产生的证据，也有从领域里继承来的证据。
+里奥斯教授：而两者的分量不同。一个被重复验证的数据比一个惊人的数据更有价值。
+维加博士：同意，不过如果设计本身很糟，重复验证也保证不了什么。
+里奥斯教授：问题就在这里：重复验证的是程序，而不是问题本身。
+维加博士：一个无关紧要的问题也可以被无懈可击地重复验证。
+里奥斯教授：而且能发表，因为方法是对的。
+维加博士：这就让读者以为我们知道的东西比实际更多。`,
+    keyVocab:[
+      {es:'la evidencia heredada', zh:'继承来的证据'},
+      {es:'no pesan igual', zh:'分量不同'},
+      {es:'un dato replicado', zh:'被重复验证的数据'},
+      {es:'el diseño experimental', zh:'实验设计'},
+      {es:'impecablemente', zh:'无懈可击地'},
+      {es:'una pregunta irrelevante', zh:'一个无关紧要的问题'},
+      {es:'sabemos más de lo que sabemos', zh:'我们知道的比实际更多'}
+    ],
+    questions:[
+      {q:'¿Por qué sostiene Ríos que la evidencia no es «una sola cosa»?', a:'Porque distingue entre la evidencia que uno produce y la que hereda del campo, y ambas no pesan igual.'},
+      {q:'¿Qué objeción plantea Vega a la replicación?', a:'Que replicar no garantiza gran cosa si el diseño era malo: la replicación valida el procedimiento, no la pregunta.'},
+      {q:'¿Cuál es la consecuencia que señalan al final?', a:'Que se puede replicar y publicar una pregunta irrelevante, lo cual deja al lector con la impresión de que sabemos más de lo que sabemos.'}
+    ]
+  },
+  {level:'C2', title:'文化评论：怀旧的用途', speaker:'Crítico Salas / Editora Nuria', duration:'约 85 秒',
+    es:`SALAS: La nostalgia se ha convertido en un género comercial.
+NURIA: Y en un argumento político, lo cual es más preocupante.
+SALAS: Se invoca un pasado que nunca existió para descalificar el presente.
+NURIA: Lo curioso es que ese pasado idealizado suele ser reciente.
+SALAS: Dos o tres décadas, como mucho. Antes de eso, silencio.
+NURIA: Porque la nostalgia necesita una pérdida reconocible, no una antigua.
+SALAS: Y cuanto más vaga es la pérdida, más fácil resulta proyectar en ella lo que se quiere.
+NURIA: De ahí que sirva tan bien para vender y para gobernar.`,
+    zh:`萨拉斯评论家：怀旧已经变成了一种商业类型。
+努里亚编辑：而且成了一种政治论据，这更令人担忧。
+萨拉斯评论家：人们援引一个从未存在过的过去，用来否定现在。
+努里亚编辑：有意思的是，那个被理想化的过去通常是近期的。
+萨拉斯评论家：最多二三十年。再往前就沉默了。
+努里亚编辑：因为怀旧需要一个可辨认的丧失，而不是古老的丧失。
+萨拉斯评论家：而丧失越模糊，就越容易在上面投射想要的东西。
+努里亚编辑：所以它既好用来卖东西，也好用来治理。`,
+    keyVocab:[
+      {es:'la nostalgia', zh:'怀旧'},
+      {es:'un género comercial', zh:'商业类型'},
+      {es:'descalificar el presente', zh:'否定现在'},
+      {es:'un pasado idealizado', zh:'被理想化的过去'},
+      {es:'una pérdida reconocible', zh:'可辨认的丧失'},
+      {es:'cuanto más vaga', zh:'越模糊'},
+      {es:'proyectar en ella', zh:'在上面投射'},
+      {es:'De ahí que sirva', zh:'所以它有用（de ahí que + 虚拟式）'}
+    ],
+    questions:[
+      {q:'¿Qué dos funciones atribuye Salas a la nostalgia?', a:'Se ha convertido en un género comercial y en un argumento político.'},
+      {q:'¿Por qué el pasado idealizado suele ser reciente?', a:'Porque la nostalgia necesita una pérdida reconocible, no una antigua; por eso se remonta dos o tres décadas como mucho.'},
+      {q:'¿Qué efecto tiene la vaguedad de la pérdida?', a:'Que resulta más fácil proyectar en ella lo que se quiere, de ahí que sirva tanto para vender como para gobernar.'}
     ]
   }
 ];

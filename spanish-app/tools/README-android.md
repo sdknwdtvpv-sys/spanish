@@ -74,6 +74,28 @@ yes | "$JH/bin/java" -classpath "$CP" "$MAIN" --sdk_root="$SDK" --licenses
 - `minSdkVersion` = 23
 - Java 版本 17（AGP 要求；Capacitor 模板原先写的是 21，已改）
 
+## 环境变动：git 因 Xcode 许可而失败
+
+某轮开工时发现**连 `git` 命令都失败**，报错：
+
+```
+You have not agreed to the Xcode license agreements.
+Please run 'sudo xcodebuild -license' ...
+```
+
+原因：`xcode-select -p` 指向 `/Applications/Xcode.app/Contents/Developer`，
+而该 Xcode 的许可未接受；`/usr/bin/git` 是通过它包装的，于是被一并拦住。
+
+**绕过方式**（无需 sudo）：把 `DEVELOPER_DIR` 指向 CommandLineTools：
+
+```bash
+export DEVELOPER_DIR=/Library/Developer/CommandLineTools
+git status          # 恢复正常
+```
+
+CommandLineTools 里自带可用的 git（实测 2.54.0）。
+如果整段脚本里要用到 git，在脚本开头设置这个变量即可。
+
 ## 浏览器回归环境
 
 另一个独立问题是 Chrome 在本机直接启动会因沙箱初始化失败而崩溃

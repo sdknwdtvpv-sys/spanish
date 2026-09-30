@@ -130,7 +130,15 @@ console.log('── A. 结构完整性 ──');
   if (bad) add('P0', 'A', `有 ${bad} 段听力缺少必需字段`);
   if (noQ) add('P1', 'A', `有 ${noQ} 段听力没有理解题`);
   if (zhLineMismatch) add('P1', 'A', `有 ${zhLineMismatch} 段听力的中西文行数不一致（翻译可能漏行）`);
-  console.log(`  听力 ${d.LISTENING_PASSAGES.length}：缺字段 ${bad} / 无题 ${noQ} / 中西文行数不符 ${zhLineMismatch}`);
+  // 听力标题不得重复：同名的两段材料会让学习者在列表里分不清，
+  // 而且通常是「同一话题写了两遍」。实测曾出现两处（B1 内同名、A2/B1 同名）。
+  const titleCount = new Map();
+  d.LISTENING_PASSAGES.forEach((p) => titleCount.set(p.title, (titleCount.get(p.title) || 0) + 1));
+  const dupTitles = [...titleCount].filter(([, n]) => n > 1);
+  if (dupTitles.length) {
+    add('P1', 'A', `有 ${dupTitles.length} 组听力材料标题重复`, dupTitles.map(([t, n]) => `"${t}" ×${n}`));
+  }
+  console.log(`  听力 ${d.LISTENING_PASSAGES.length}：缺字段 ${bad} / 无题 ${noQ} / 中西文行数不符 ${zhLineMismatch} / 标题重复 ${dupTitles.length}`);
   d.LISTENING_PASSAGES.forEach((p, i) => {
     const esLines = (p.es || '').split('\n').filter(l => l.trim()).length;
     const zhLines = (p.zh || '').split('\n').filter(l => l.trim()).length;
@@ -214,6 +222,8 @@ console.log('── B. 交叉引用一致性 ──');
     ['agravar', 'agravar 的变位形（材料中作 lo agrava），原形已在词库'],
     ['desayuno', 'desayunar/desayuno 的变位或名词形式，均在词库'],
     ['Conviene', 'convenir 的第三人称变位，词库已收 la conveniencia'],
+    ['impecablemente', 'impecable 派生的副词，词库已收形容词'],
+    ['¿Diga?', '接电话的固定用语（功能表达），非词条'],
   ]);
 
   const vocabSet = new Set();
